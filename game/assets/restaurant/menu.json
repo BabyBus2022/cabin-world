@@ -1,0 +1,309 @@
+{
+  "sheet": "res://assets/restaurant/food.png",
+  "dishes": [
+    {
+      "id": "restaurant-fried-rice",
+      "name": "黄金蛋炒饭",
+      "category": "中餐",
+      "price": 8,
+      "method": "wok",
+      "region": [
+        44,
+        84,
+        288,
+        270
+      ],
+      "cook_seconds": 10,
+      "order_seconds": 4,
+      "eat_seconds": 10,
+      "energyKcal": 560,
+      "portion": "一份",
+      "nutritionSource": "游戏平衡设定，不是真实营养测量",
+      "ingredients": [
+        "米饭",
+        "鸡蛋",
+        "葱花"
+      ],
+      "process": [
+        "备料",
+        "炒蛋",
+        "翻炒米饭"
+      ],
+      "sensory": "米粒松散，蛋香和葱香，温热，少量油脂",
+      "satiety": 45
+    },
+    {
+      "id": "restaurant-tomato-egg",
+      "name": "番茄炒蛋盖饭",
+      "category": "中餐",
+      "price": 9,
+      "method": "wok",
+      "region": [
+        376,
+        108,
+        327,
+        227
+      ],
+      "cook_seconds": 10,
+      "order_seconds": 4,
+      "eat_seconds": 10,
+      "energyKcal": 520,
+      "portion": "一份",
+      "nutritionSource": "游戏平衡设定，不是真实营养测量",
+      "ingredients": [
+        "米饭",
+        "番茄",
+        "鸡蛋"
+      ],
+      "process": [
+        "切番茄",
+        "炒蛋",
+        "收汁盖饭"
+      ],
+      "sensory": "酸甜番茄汁和柔软鸡蛋",
+      "satiety": 42
+    },
+    {
+      "id": "restaurant-kung-pao",
+      "name": "宫保鸡丁饭",
+      "category": "中餐",
+      "price": 12,
+      "method": "wok",
+      "region": [
+        737,
+        105,
+        327,
+        231
+      ],
+      "cook_seconds": 10,
+      "order_seconds": 4,
+      "eat_seconds": 10,
+      "energyKcal": 720,
+      "portion": "一份",
+      "nutritionSource": "游戏平衡设定，不是真实营养测量",
+      "ingredients": [
+        "鸡肉",
+        "花生",
+        "辣椒",
+        "米饭"
+      ],
+      "process": [
+        "切配",
+        "炒鸡丁",
+        "调味盖饭"
+      ],
+      "sensory": "咸甜微辣，花生香脆，酱汁浓",
+      "satiety": 52
+    },
+    {
+      "id": "restaurant-sushi",
+      "name": "寿司拼盘",
+      "category": "日料",
+      "price": 14,
+      "method": "prep",
+      "region": [
+        18,
+        468,
+        325,
+        196
+      ],
+      "cook_seconds": 10,
+      "order_seconds": 4,
+      "eat_seconds": 10,
+      "energyKcal": 440,
+      "portion": "一份",
+      "nutritionSource": "游戏平衡设定，不是真实营养测量",
+      "ingredients": [
+        "米饭",
+        "海苔",
+        "鱼肉",
+        "黄瓜"
+      ],
+      "process": [
+        "备料",
+        "铺饭",
+        "卷制切片"
+      ],
+      "sensory": "米饭微酸，海苔香，清爽配料",
+      "satiety": 35
+    },
+    {
+      "id": "restaurant-ramen",
+      "name": "酱油豚肉拉面",
+      "category": "日料",
+      "price": 12,
+      "method": "pot",
+      "region": [
+        382,
+        405,
+        309,
+        294
+      ],
+      "cook_seconds": 10,
+      "order_seconds": 4,
+      "eat_seconds": 10,
+      "energyKcal": 680,
+      "portion": "一份",
+      "nutritionSource": "游戏平衡设定，不是真实营养测量",
+      "ingredients": [
+        "面条",
+        "猪肉",
+        "酱油汤",
+        "鸡蛋"
+      ],
+      "process": [
+        "煮面",
+        "加汤",
+        "摆放配料"
+      ],
+      "sensory": "热汤咸鲜，面条柔韧，肉香",
+      "satiety": 50
+    },
+    {
+      "id": "restaurant-katsu-curry",
+      "name": "猪排咖喱饭",
+      "category": "日料",
+      "price": 14,
+      "method": "pan",
+      "region": [
+        729,
+        437,
+        348,
+        242
+      ],
+      "cook_seconds": 10,
+      "order_seconds": 4,
+      "eat_seconds": 10,
+      "energyKcal": 880,
+      "portion": "一份",
+      "nutritionSource": "游戏平衡设定，不是真实营养测量",
+      "ingredients": [
+        "猪排",
+        "米饭",
+        "咖喱"
+      ],
+      "process": [
+        "煎猪排",
+        "煮咖喱",
+        "装盘"
+      ],
+      "sensory": "猪排外脆，咖喱浓郁，米饭吸汁",
+      "satiety": 60
+    },
+    {
+      "id": "restaurant-burger",
+      "name": "芝士汉堡薯条",
+      "category": "美式快餐",
+      "price": 12,
+      "method": "pan",
+      "region": [
+        14,
+        796,
+        331,
+        226
+      ],
+      "cook_seconds": 10,
+      "order_seconds": 4,
+      "eat_seconds": 10,
+      "energyKcal": 920,
+      "portion": "一份",
+      "nutritionSource": "游戏平衡设定，不是真实营养测量",
+      "ingredients": [
+        "面包",
+        "牛肉饼",
+        "芝士",
+        "土豆"
+      ],
+      "process": [
+        "煎肉饼",
+        "组装汉堡",
+        "配薯条"
+      ],
+      "sensory": "芝士浓香、肉饼多汁、薯条酥脆",
+      "satiety": 60
+    },
+    {
+      "id": "restaurant-fried-chicken",
+      "name": "香脆炸鸡薯条",
+      "category": "美式快餐",
+      "price": 13,
+      "method": "pan",
+      "region": [
+        374,
+        796,
+        338,
+        228
+      ],
+      "cook_seconds": 10,
+      "order_seconds": 4,
+      "eat_seconds": 10,
+      "energyKcal": 980,
+      "portion": "一份",
+      "nutritionSource": "游戏平衡设定，不是真实营养测量",
+      "ingredients": [
+        "鸡肉",
+        "裹粉",
+        "土豆"
+      ],
+      "process": [
+        "腌制裹粉",
+        "炸制",
+        "沥油装盘"
+      ],
+      "sensory": "外皮酥脆，油香明显",
+      "satiety": 62
+    },
+    {
+      "id": "restaurant-pizza",
+      "name": "意式香肠披萨",
+      "category": "美式快餐",
+      "price": 12,
+      "method": "oven",
+      "region": [
+        749,
+        770,
+        303,
+        290
+      ],
+      "cook_seconds": 10,
+      "order_seconds": 4,
+      "eat_seconds": 10,
+      "energyKcal": 760,
+      "portion": "一份",
+      "nutritionSource": "游戏平衡设定，不是真实营养测量",
+      "ingredients": [
+        "面饼",
+        "芝士",
+        "香肠",
+        "番茄酱"
+      ],
+      "process": [
+        "铺馅",
+        "烘烤",
+        "切块"
+      ],
+      "sensory": "芝士拉丝，香肠咸香，饼边脆",
+      "satiety": 52
+    }
+  ],
+  "tableware": [
+    [
+      16,
+      1144,
+      335,
+      239
+    ],
+    [
+      404,
+      1130,
+      259,
+      256
+    ],
+    [
+      749,
+      1177,
+      307,
+      172
+    ]
+  ]
+}

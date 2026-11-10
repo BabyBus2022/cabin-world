@@ -1,0 +1,104 @@
+{
+  "scene": "qianxia-park",
+  "scale": 2,
+  "layers": [
+    {
+      "file": "qianxia-park.bench.png",
+      "x": 180,
+      "y": 45,
+      "w": 87.5,
+      "h": 61,
+      "depth": 106.25
+    },
+    {
+      "file": "qianxia-park.swing.png",
+      "x": 227,
+      "y": 133,
+      "w": 100,
+      "h": 88.5,
+      "depth": 218.75
+    },
+    {
+      "file": "qianxia-park.slide.png",
+      "x": 393,
+      "y": 116,
+      "w": 119,
+      "h": 102.5,
+      "depth": 218.75
+    },
+    {
+      "file": "qianxia-park.carousel.png",
+      "x": 587,
+      "y": 114,
+      "w": 123.5,
+      "h": 109.5,
+      "depth": 206.875
+    },
+    {
+      "file": "qianxia-park.seesaw.png",
+      "x": 125.5,
+      "y": 475,
+      "w": 112.5,
+      "h": 35.5,
+      "depth": 501.25
+    },
+    {
+      "file": "qianxia-park.rider.png",
+      "x": 277.5,
+      "y": 446.5,
+      "w": 66,
+      "h": 66,
+      "depth": 510
+    },
+    {
+      "file": "qianxia-park.lamp-west.png",
+      "x": 398,
+      "y": 350,
+      "w": 14,
+      "h": 44,
+      "depth": 394
+    },
+    {
+      "file": "qianxia-park.lamp-east.png",
+      "x": 698,
+      "y": 300,
+      "w": 14,
+      "h": 44,
+      "depth": 344
+    }
+  ],
+  "ground": {
+    "file": "qianxia-park.ground.png",
+    "x": 0,
+    "y": 0,
+    "w": 960,
+    "h": 640,
+    "patches": [
+      {
+        "file": "../restaurant/park-branch.png",
+        "registration": {
+          "x": [
+            [
+              832,
+              520
+            ],
+            [
+              1216,
+              760
+            ]
+          ],
+          "y": [
+            [
+              0,
+              0
+            ],
+            [
+              237,
+              148.125
+            ]
+          ]
+        }
+      }
+    ]
+  }
+}

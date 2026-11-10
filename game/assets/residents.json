@@ -1,0 +1,284 @@
+{
+  "residents": [
+    {
+      "key": "xiaojingyu",
+      "arcade": {
+        "talent": "neutral",
+        "look": "world_look",
+        "board": "xiangqi@xjhome",
+        "seats": [
+          "chess_xj_a",
+          "chess_xj_b"
+        ]
+      },
+      "sleep": {
+        "bedZone": "xj_bed",
+        "enterOn": "awake",
+        "wakeScheduledOnly": false,
+        "manualRestMs": 1800000,
+        "sleepSteps": [],
+        "wakeSteps": [],
+        "wakeFinal": "empty"
+      },
+      "flavor": "xiaojingyu",
+      "name": "小鲸鱼",
+      "art": "xiaojingyu",
+      "tool_poses": {
+        "rules": [
+          {
+            "always": true,
+            "pose": "working"
+          }
+        ],
+        "poses": {
+          "chat": {
+            "action": "chat",
+            "label": "正在思考或交流"
+          },
+          "draw": {
+            "action": "draw",
+            "label": "正在绘画",
+            "room": "xj_draw"
+          },
+          "write": {
+            "action": "write",
+            "label": "正在写作或整理",
+            "room": "xj_notes"
+          },
+          "friends": {
+            "action": "read",
+            "label": "正在查看朋友或记忆",
+            "room": "xj_album"
+          },
+          "video": {
+            "action": "video",
+            "label": "正在使用电脑工具",
+            "room": "xj_desk"
+          },
+          "working": {
+            "action": "working",
+            "label": "正在使用工具"
+          }
+        },
+        "idlePlaces": {}
+      },
+      "start": [
+        "xiaojingyu-home",
+        "xj_rug"
+      ],
+      "peer_name": "",
+      "favorite_foods": [],
+      "preferred_objects": [],
+      "care": {
+        "plant_note": "沙发旁的小盆栽有点蔫了，该浇水了",
+        "plant_hint": {
+          "objectId": "xj_plant",
+          "use": "water_plant"
+        },
+        "fish": true
+      },
+      "wish_hints": {},
+      "own_wishes": [],
+      "home": {
+        "scene": "xiaojingyu-home",
+        "defaultZone": "xj_rug",
+        "placeNames": [
+          {
+            "words": [
+              "床",
+              "被"
+            ],
+            "zone": "xj_bed"
+          },
+          {
+            "words": [
+              "桌",
+              "电脑",
+              "椅"
+            ],
+            "zone": "xj_desk"
+          },
+          {
+            "words": [
+              "鱼缸",
+              "鱼"
+            ],
+            "zone": "xj_tank"
+          },
+          {
+            "words": [
+              "沙发",
+              "懒人",
+              "柜",
+              "置物"
+            ],
+            "zone": "xj_sofa"
+          },
+          {
+            "words": [
+              "窗"
+            ],
+            "zone": "xj_window"
+          },
+          {
+            "words": [
+              "门"
+            ],
+            "zone": "xj_door"
+          }
+        ],
+        "bed": {
+          "mode": "simple",
+          "lying": [
+            147,
+            142
+          ],
+          "quilt_top": 57,
+          "clip": 58,
+          "effects": [
+            "nap",
+            "lie"
+          ],
+          "asleep_effects": [
+            "nap"
+          ],
+          "sleep_visual": {
+            "sheet": "../seaside/actors/sleep/sleeping.png",
+            "at_ratio": [
+              0.04,
+              0.07,
+              0.92,
+              0.424
+            ],
+            "quilt_top_ratio": 0.41
+          }
+        },
+        "stages": [
+          {
+            "zone": "xj_desk",
+            "feet": [
+              192,
+              401
+            ],
+            "sort": 401,
+            "dir": 1,
+            "registered": "computer"
+          },
+          {
+            "zone": "xj_notes",
+            "dir": 0
+          },
+          {
+            "zone": "xj_album",
+            "dir": 3
+          },
+          {
+            "zone": "xj_draw",
+            "dir": 2
+          },
+          {
+            "zone": "xj_tank",
+            "dir": 2
+          },
+          {
+            "zone": "xj_window",
+            "dir": 3
+          },
+          {
+            "zone": "xj_shelf",
+            "dir": 3
+          },
+          {
+            "zone": "xj_sofa",
+            "effect": "sit",
+            "feet": [
+              784,
+              443
+            ],
+            "sort": 459,
+            "row": 0,
+            "seat": true
+          }
+        ],
+        "idle": {
+          "dir": 0
+        },
+        "visual": {
+          "screen": "seaside",
+          "plant": "xj-plant-west",
+          "plant_art": "care-plant-xj",
+          "plant_region": [
+            490,
+            200,
+            510,
+            665
+          ],
+          "paint_zone": "xj_draw"
+        },
+        "gridLayout": true,
+        "audioOutput": "speakers"
+      },
+      "pieces": {
+        "chair_back": {
+          "sheet": "whale-furniture.png",
+          "rect": [
+            693,
+            371,
+            177,
+            240
+          ],
+          "at": [
+            299.3,
+            131,
+            35.4,
+            48
+          ]
+        },
+        "quilt": {
+          "sheet": "../seaside/quilt.png",
+          "rect": [
+            0,
+            0,
+            132,
+            96
+          ],
+          "inset": 5
+        },
+        "phones_on_head": {
+          "sheet": "whale-props.png",
+          "rect": [
+            1045,
+            570,
+            440,
+            412
+          ]
+        },
+        "phone_in_hand": {
+          "sheet": "whale-props.png",
+          "rect": [
+            155,
+            556,
+            244,
+            435
+          ]
+        }
+      },
+      "gift_art": "res://assets/actors/xiaojingyu-gift-v1.png",
+      "curtain_row": 2,
+      "idle": {}
+    }
+  ],
+  "unknown": {
+    "peer_name": "",
+    "favorite_foods": [],
+    "preferred_objects": [],
+    "care": {
+      "plant_note": "",
+      "plant_hint": {},
+      "fish": false
+    },
+    "wish_hints": {},
+    "own_wishes": []
+  },
+  "publicShell": true
+}

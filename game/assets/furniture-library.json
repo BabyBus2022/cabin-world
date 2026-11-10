@@ -1,0 +1,5236 @@
+{
+  "version": 2,
+  "cell": 32,
+  "scenes": [
+    "qianxia-park",
+    "qianxia-shop",
+    "xiaojingyu-home",
+    "world-arcade",
+    "world-restaurant"
+  ],
+  "assets": [
+    {
+      "id": "qianxia-park--bench",
+      "name": "公园长椅",
+      "scene": "qianxia-park",
+      "scene_name": "公园",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-park.bench.png",
+          "x": 4.25,
+          "y": -29.25,
+          "w": 87.5,
+          "h": 61,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "bench",
+        "foot": [
+          180,
+          83.10250737463127,
+          87.5,
+          23.14749262536873
+        ],
+        "collision": {
+          "x": 0,
+          "y": 37.766961651917406,
+          "w": 87.5,
+          "h": 23.14749262536873
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-park--swing",
+      "name": "秋千",
+      "scene": "qianxia-park",
+      "scene_name": "公园",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "qianxia-park.swing.png",
+          "x": -1.875,
+          "y": -21.75,
+          "w": 100,
+          "h": 88.5,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "swing",
+        "foot": [
+          230.875,
+          175.93562874251498,
+          92,
+          42.81437125748503
+        ],
+        "collision": {
+          "x": 4,
+          "y": 42.81437125748503,
+          "w": 92,
+          "h": 42.81437125748503
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-park--slide",
+      "name": "滑梯",
+      "scene": "qianxia-park",
+      "scene_name": "公园",
+      "layer": "solid",
+      "footprint": {
+        "w": 4,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "qianxia-park.slide.png",
+          "x": 5.125,
+          "y": -38.75,
+          "w": 119,
+          "h": 102.5,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "slide",
+        "foot": [
+          392.5,
+          159.34986772486772,
+          118.75,
+          59.40013227513227
+        ],
+        "collision": {
+          "x": 0,
+          "y": 43.013888888888886,
+          "w": 118.75,
+          "h": 59.40013227513227
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-park--carousel",
+      "name": "旋转游具",
+      "scene": "qianxia-park",
+      "scene_name": "公园",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "qianxia-park.carousel.png",
+          "x": -15,
+          "y": -28.875,
+          "w": 123.5,
+          "h": 109.5,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "carousel",
+        "foot": [
+          604.575,
+          156.87301587301587,
+          90.85000000000001,
+          50.00198412698412
+        ],
+        "collision": {
+          "x": 3.95,
+          "y": 36.20833333333333,
+          "w": 90.85000000000001,
+          "h": 50.00198412698412
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-park--seesaw",
+      "name": "跷跷板",
+      "scene": "qianxia-park",
+      "scene_name": "公园",
+      "layer": "solid",
+      "footprint": {
+        "w": 4,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "qianxia-park.seesaw.png",
+          "x": 8.25,
+          "y": 29.75,
+          "w": 112.5,
+          "h": 35.5,
+          "depth": 56,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "seesaw",
+        "foot": [
+          126.375,
+          474.66480446927375,
+          109.75,
+          34.58519553072625
+        ],
+        "collision": {
+          "x": -38,
+          "y": 0,
+          "w": 109.75,
+          "h": 34.58519553072625
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-park--rider",
+      "name": "鲸鱼摇摇马",
+      "scene": "qianxia-park",
+      "scene_name": "公园",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-park.rider.png",
+          "x": 2,
+          "y": -31.500000000000057,
+          "w": 66,
+          "h": 66,
+          "depth": 31.999999999999943,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "rider",
+        "foot": [
+          282.1875,
+          478.8807034220533,
+          50.625,
+          31.119296577946766
+        ],
+        "collision": {
+          "x": 2.8125,
+          "y": 31.119296577946766,
+          "w": 50.625,
+          "h": 31.119296577946766
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-park--lamp-west",
+      "name": "路灯（西）",
+      "scene": "qianxia-park",
+      "scene_name": "公园",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-park.lamp-west.png",
+          "x": 9,
+          "y": -12,
+          "w": 14,
+          "h": 44,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "lamp-west",
+        "foot": [
+          398,
+          384,
+          14,
+          10
+        ],
+        "collision": {
+          "x": -2,
+          "y": 34,
+          "w": 14,
+          "h": 10
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-park--lamp-east",
+      "name": "路灯（东）",
+      "scene": "qianxia-park",
+      "scene_name": "公园",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-park.lamp-east.png",
+          "x": 9,
+          "y": -12,
+          "w": 14,
+          "h": 44,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "lamp-east",
+        "foot": [
+          698,
+          334,
+          14,
+          10
+        ],
+        "collision": {
+          "x": -2,
+          "y": 34,
+          "w": 14,
+          "h": 10
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--snack-shelf",
+      "name": "零食货架",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.snack-shelf.png",
+          "x": 5.5,
+          "y": -45.375,
+          "w": 84.5,
+          "h": 77,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "snack-shelf",
+        "foot": [
+          40.3125,
+          155.1513671875,
+          84.375,
+          29.2236328125
+        ],
+        "collision": {
+          "x": 0,
+          "y": 47.6806640625,
+          "w": 84.375,
+          "h": 29.2236328125
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--food-shelf",
+      "name": "食品货架",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.food-shelf.png",
+          "x": 6,
+          "y": -44.37499999999997,
+          "w": 84.5,
+          "h": 76,
+          "depth": 32.00000000000003,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "food-shelf",
+        "foot": [
+          127.8125,
+          155.52699228791772,
+          84.375,
+          28.84800771208226
+        ],
+        "collision": {
+          "x": 0,
+          "y": 47.067802056555266,
+          "w": 84.375,
+          "h": 28.84800771208226
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--daily-shelf",
+      "name": "日用品货架",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.daily-shelf.png",
+          "x": 5.5,
+          "y": -43.375,
+          "w": 84.5,
+          "h": 75.5,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "daily-shelf",
+        "foot": [
+          215.3125,
+          155.60096153846155,
+          84.375,
+          28.77403846153846
+        ],
+        "collision": {
+          "x": 0,
+          "y": 46.94711538461538,
+          "w": 84.375,
+          "h": 28.77403846153846
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--bread-shelf",
+      "name": "面包货架",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.bread-shelf.png",
+          "x": 6,
+          "y": -41.00000000000003,
+          "w": 84.5,
+          "h": 73.5,
+          "depth": 31.99999999999997,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "bread-shelf",
+        "foot": [
+          255.8125,
+          244.0848880597015,
+          84.375,
+          27.91511194029851
+        ],
+        "collision": {
+          "x": 0,
+          "y": 45.54570895522388,
+          "w": 84.375,
+          "h": 27.91511194029851
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--drink-fridge",
+      "name": "饮料冰柜",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.drink-fridge.png",
+          "x": 7.5,
+          "y": -32.375,
+          "w": 50,
+          "h": 96.5,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "drink-fridge",
+        "foot": [
+          407.5,
+          147.69585561497325,
+          50,
+          36.67914438502674
+        ],
+        "collision": {
+          "x": 0,
+          "y": 59.84491978609626,
+          "w": 50,
+          "h": 36.67914438502674
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--drink-fridge-2",
+      "name": "饮料冰柜（第二台）",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.drink-fridge-2.png",
+          "x": 7.5,
+          "y": -32.375,
+          "w": 50,
+          "h": 96.5,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "drink-fridge-2",
+        "foot": [
+          462.5,
+          147.69585561497325,
+          50,
+          36.67914438502674
+        ],
+        "collision": {
+          "x": 0,
+          "y": 59.84491978609626,
+          "w": 50,
+          "h": 36.67914438502674
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--food-island",
+      "name": "食品中岛",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.food-island.png",
+          "x": 5.75,
+          "y": -43.87499999999997,
+          "w": 84.5,
+          "h": 76,
+          "depth": 32.00000000000003,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "food-island",
+        "foot": [
+          59.0625,
+          243.02699228791772,
+          84.375,
+          28.84800771208226
+        ],
+        "collision": {
+          "x": 0,
+          "y": 47.067802056555266,
+          "w": 84.375,
+          "h": 28.84800771208226
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--snack-island",
+      "name": "零食中岛",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.snack-island.png",
+          "x": 6.25,
+          "y": -44.875,
+          "w": 84.5,
+          "h": 77,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "snack-island",
+        "foot": [
+          146.5625,
+          242.6513671875,
+          84.375,
+          29.2236328125
+        ],
+        "collision": {
+          "x": 0,
+          "y": 47.6806640625,
+          "w": 84.375,
+          "h": 29.2236328125
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--daily-island",
+      "name": "日用品中岛",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.daily-island.png",
+          "x": 5.75,
+          "y": -43.875,
+          "w": 84.5,
+          "h": 75.5,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "daily-island",
+        "foot": [
+          364.0625,
+          243.10096153846155,
+          84.375,
+          28.77403846153846
+        ],
+        "collision": {
+          "x": 0,
+          "y": 46.94711538461538,
+          "w": 84.375,
+          "h": 28.77403846153846
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--snack-island-2",
+      "name": "零食中岛（第二组）",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.snack-island-2.png",
+          "x": 6.25,
+          "y": -44.875,
+          "w": 84.5,
+          "h": 77,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "snack-island-2",
+        "foot": [
+          451.5625,
+          242.6513671875,
+          84.375,
+          29.2236328125
+        ],
+        "collision": {
+          "x": 0,
+          "y": 47.6806640625,
+          "w": 84.375,
+          "h": 29.2236328125
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--produce",
+      "name": "果蔬摊",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.produce.png",
+          "x": 10.375,
+          "y": -21.125,
+          "w": 75,
+          "h": 53,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "produce",
+        "foot": [
+          53.125,
+          332.99067164179104,
+          75,
+          20.134328358208958
+        ],
+        "collision": {
+          "x": 0,
+          "y": 32.85074626865672,
+          "w": 75,
+          "h": 20.134328358208958
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--sale-island",
+      "name": "促销台",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.sale-island.png",
+          "x": 10.125,
+          "y": -20.125,
+          "w": 75,
+          "h": 52,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "sale-island",
+        "foot": [
+          134.375,
+          333.31010158013544,
+          75,
+          19.81489841986456
+        ],
+        "collision": {
+          "x": 0,
+          "y": 32.329571106094804,
+          "w": 75,
+          "h": 19.81489841986456
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--magazines",
+      "name": "杂志架",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.magazines.png",
+          "x": 12.125,
+          "y": -6.125,
+          "w": 40.5,
+          "h": 38,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "magazines",
+        "foot": [
+          226.5625,
+          338.65785714285715,
+          40.625,
+          14.467142857142857
+        ],
+        "collision": {
+          "x": 0,
+          "y": 23.604285714285712,
+          "w": 40.625,
+          "h": 14.467142857142857
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--freezer",
+      "name": "冷冻柜",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.freezer.png",
+          "x": 0.75,
+          "y": -20.125,
+          "w": 62.5,
+          "h": 52,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "freezer",
+        "foot": [
+          370,
+          333.32218309859155,
+          62.5,
+          19.802816901408452
+        ],
+        "collision": {
+          "x": 0,
+          "y": 32.309859154929576,
+          "w": 62.5,
+          "h": 19.802816901408452
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--counter-extension",
+      "name": "延伸柜台",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.counter-extension.png",
+          "x": 7.375,
+          "y": -20.125000000000057,
+          "w": 81.5,
+          "h": 52,
+          "depth": 31.999999999999943,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "counter-extension",
+        "foot": [
+          450,
+          333.38395140664966,
+          81.25,
+          19.741048593350385
+        ],
+        "collision": {
+          "x": 0,
+          "y": 32.20907928388747,
+          "w": 81.25,
+          "h": 19.741048593350385
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--counter",
+      "name": "收银柜台",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.counter.png",
+          "x": 7.125,
+          "y": -20.125000000000057,
+          "w": 81.5,
+          "h": 52,
+          "depth": 31.999999999999943,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "counter",
+        "foot": [
+          531.25,
+          333.38395140664966,
+          81.25,
+          19.741048593350385
+        ],
+        "collision": {
+          "x": 0,
+          "y": 32.20907928388747,
+          "w": 81.25,
+          "h": 19.741048593350385
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--register",
+      "name": "收银机",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.register.png",
+          "x": 6,
+          "y": 17,
+          "w": 20,
+          "h": 15,
+          "depth": 71.75,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "register",
+        "foot": [
+          562,
+          299,
+          20,
+          15
+        ],
+        "collision": null,
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--shopping-bag",
+      "name": "购物袋",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.shopping-bag.png",
+          "x": 8.25,
+          "y": 13.5,
+          "w": 15.5,
+          "h": 18.5,
+          "depth": 71.25,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "shopping-bag",
+        "foot": [
+          477,
+          296,
+          15.5,
+          18.5
+        ],
+        "collision": null,
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--baskets",
+      "name": "购物篮",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.baskets.png",
+          "x": 1.875,
+          "y": -1.25,
+          "w": 27.5,
+          "h": 33,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "baskets",
+        "foot": [
+          414.375,
+          368.78125,
+          27.5,
+          12.46875
+        ],
+        "collision": {
+          "x": 0,
+          "y": 20.34375,
+          "w": 27.5,
+          "h": 12.46875
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--hot-cabinet",
+      "name": "热饮柜",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.hot-cabinet.png",
+          "x": 8,
+          "y": -33.5,
+          "w": 46.5,
+          "h": 94,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "hot-cabinet",
+        "foot": [
+          360,
+          147,
+          46,
+          37
+        ],
+        "collision": {
+          "x": 2,
+          "y": 62.10714285714286,
+          "w": 46,
+          "h": 37
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--long-bench",
+      "name": "连续长凳",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 4
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.long-bench.png",
+          "x": 1.3934817170111273,
+          "y": 3,
+          "w": 29,
+          "h": 125,
+          "depth": 128,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "long-bench",
+        "foot": [
+          569,
+          158,
+          29.213036565977742,
+          125
+        ],
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 29.213036565977742,
+          "h": 125
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "qianxia-shop--shop-light",
+      "name": "店铺顶灯",
+      "scene": "qianxia-shop",
+      "scene_name": "小卖部",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "qianxia-shop.shop-light.png",
+          "x": 4,
+          "y": 20,
+          "w": 24,
+          "h": 12,
+          "depth": 30,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "shop-light",
+        "foot": [
+          313,
+          68,
+          24,
+          12
+        ],
+        "collision": null,
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-bed",
+      "name": "鲸鱼床",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 3
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-bed.png",
+          "x": 11,
+          "y": -9,
+          "w": 76,
+          "h": 110,
+          "depth": 95,
+          "part": "main"
+        },
+        {
+          "file": "../seaside/quilt.png",
+          "x": 16,
+          "y": 48,
+          "w": 66,
+          "h": 48,
+          "depth": 96,
+          "hide_on_sleep": true,
+          "part": "quilt"
+        }
+      ],
+      "source": {
+        "module": "xj-bed",
+        "foot": [
+          112,
+          99,
+          68,
+          84
+        ],
+        "collision": {
+          "x": 3,
+          "y": 21,
+          "w": 68,
+          "h": 84
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-bookshelf",
+      "name": "书架",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-bookshelf.png",
+          "x": 4.5,
+          "y": -10,
+          "w": 87,
+          "h": 78,
+          "depth": 62,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-bookshelf",
+        "foot": [
+          466,
+          85,
+          83,
+          37
+        ],
+        "collision": {
+          "x": 2,
+          "y": 37,
+          "w": 83,
+          "h": 37
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-writing_desk",
+      "name": "写字桌",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-writing_desk.png",
+          "x": 4,
+          "y": -14,
+          "w": 88,
+          "h": 58,
+          "depth": 30,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-writing_desk",
+        "foot": [
+          582,
+          178,
+          84,
+          28
+        ],
+        "collision": {
+          "x": 2,
+          "y": 18,
+          "w": 84,
+          "h": 28
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-desk",
+      "name": "电脑桌",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-desk.png",
+          "x": 3.5,
+          "y": -29,
+          "w": 61,
+          "h": 111,
+          "depth": 63,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-desk",
+        "foot": [
+          112,
+          369,
+          53,
+          59
+        ],
+        "collision": {
+          "x": 2,
+          "y": 34,
+          "w": 53,
+          "h": 59
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-computer-chair",
+      "name": "电脑椅",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-computer-chair.png",
+          "x": -29.5,
+          "y": -48,
+          "w": 110,
+          "h": 88.5,
+          "depth": 9,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-computer-chair",
+        "foot": [
+          168,
+          400,
+          29,
+          24
+        ],
+        "collision": {
+          "x": 31,
+          "y": 56,
+          "w": 29,
+          "h": 24
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-desk-chair",
+      "name": "木椅",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-desk-chair.png",
+          "x": 1,
+          "y": -1,
+          "w": 32,
+          "h": 43,
+          "depth": 29,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-desk-chair",
+        "foot": [
+          610,
+          155,
+          24,
+          19
+        ],
+        "collision": {
+          "x": 3,
+          "y": 14,
+          "w": 24,
+          "h": 19
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-easel",
+      "name": "画架",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-easel.png",
+          "x": 5.5,
+          "y": -49,
+          "w": 52,
+          "h": 84,
+          "depth": 33,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-easel",
+        "foot": [
+          751,
+          131,
+          39,
+          20
+        ],
+        "collision": {
+          "x": 7,
+          "y": 61,
+          "w": 39,
+          "h": 20
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-easel-seat",
+      "name": "画凳",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-easel-seat.png",
+          "x": -1.5,
+          "y": 3,
+          "w": 33,
+          "h": 32,
+          "depth": 23,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-easel-seat",
+        "foot": [
+          750,
+          176,
+          23,
+          11
+        ],
+        "collision": {
+          "x": 6,
+          "y": 18,
+          "w": 23,
+          "h": 11
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-tank",
+      "name": "鱼缸",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-tank.png",
+          "x": -1.5,
+          "y": -53,
+          "w": 100,
+          "h": 89,
+          "depth": 31,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-tank",
+        "foot": [
+          725,
+          337,
+          93,
+          30
+        ],
+        "collision": {
+          "x": 3,
+          "y": 55,
+          "w": 93,
+          "h": 30
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-sofa",
+      "name": "沙发",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-sofa.png",
+          "x": -3,
+          "y": -43,
+          "w": 102,
+          "h": 81,
+          "depth": 28,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-sofa",
+        "foot": [
+          737,
+          431,
+          94,
+          31
+        ],
+        "collision": {
+          "x": 4,
+          "y": 44,
+          "w": 94,
+          "h": 31
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-album-cabinet",
+      "name": "相册柜",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-album-cabinet.png",
+          "x": 0,
+          "y": -28,
+          "w": 96,
+          "h": 65,
+          "depth": 31,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-album-cabinet",
+        "foot": [
+          382,
+          337,
+          90,
+          12
+        ],
+        "collision": {
+          "x": 3,
+          "y": 48,
+          "w": 90,
+          "h": 12
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-album-seat",
+      "name": "坐垫",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "floor",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-album-seat.png",
+          "x": 1,
+          "y": 10,
+          "w": 30,
+          "h": 22,
+          "depth": 21,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-album-seat",
+        "foot": [
+          398,
+          367,
+          30,
+          12
+        ],
+        "collision": null,
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-accessory_table",
+      "name": "手机收纳桌",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-accessory_table.png",
+          "x": 3,
+          "y": -13,
+          "w": 58,
+          "h": 48,
+          "depth": 17,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-accessory_table",
+        "foot": [
+          616,
+          401,
+          54,
+          20
+        ],
+        "collision": {
+          "x": 2,
+          "y": 25,
+          "w": 54,
+          "h": 20
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-lamp-floor",
+      "name": "落地灯",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-lamp-floor.png",
+          "x": 4,
+          "y": -10,
+          "w": 23,
+          "h": 45,
+          "depth": 33,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-lamp-floor",
+        "foot": [
+          200,
+          108,
+          18,
+          11
+        ],
+        "collision": {
+          "x": 3,
+          "y": 31,
+          "w": 18,
+          "h": 11
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-lamp-shelf",
+      "name": "小灯",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-lamp-shelf.png",
+          "x": 3.5,
+          "y": 6,
+          "w": 25,
+          "h": 26,
+          "depth": 98,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-lamp-shelf",
+        "foot": [
+          522,
+          43,
+          25,
+          12
+        ],
+        "collision": null,
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-album",
+      "name": "相册",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-album.png",
+          "x": 7,
+          "y": 0,
+          "w": 50,
+          "h": 32,
+          "depth": 71,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-album",
+        "foot": [
+          401,
+          299,
+          50,
+          12
+        ],
+        "collision": null,
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-desk-book",
+      "name": "笔记本",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-desk-book.png",
+          "x": 12,
+          "y": 8,
+          "w": 40,
+          "h": 24,
+          "depth": 55,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-desk-book",
+        "foot": [
+          607,
+          170,
+          40,
+          12
+        ],
+        "collision": null,
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-phone",
+      "name": "手机",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-phone.png",
+          "x": 10.5,
+          "y": 13,
+          "w": 11,
+          "h": 19,
+          "depth": 55,
+          "item": "phone",
+          "away": "hand",
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-phone",
+        "foot": [
+          622,
+          372,
+          11,
+          12
+        ],
+        "collision": null,
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-plant-west",
+      "name": "盆栽",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-plant-west.png",
+          "x": 0,
+          "y": -7,
+          "w": 33,
+          "h": 42,
+          "depth": 33,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-plant-west",
+        "foot": [
+          699,
+          465,
+          24,
+          11
+        ],
+        "collision": {
+          "x": 4,
+          "y": 28,
+          "w": 24,
+          "h": 11
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-rabbit",
+      "name": "兔子摆件",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-rabbit.png",
+          "x": 6.5,
+          "y": 8,
+          "w": 19,
+          "h": 24,
+          "depth": 101,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-rabbit",
+        "foot": [
+          492,
+          40,
+          19,
+          12
+        ],
+        "collision": null,
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-ocean-rug",
+      "name": "波浪地毯",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "floor",
+      "footprint": {
+        "w": 6,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-ocean-rug.png",
+          "x": 0.5,
+          "y": -70,
+          "w": 191,
+          "h": 102,
+          "depth": -488,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-ocean-rug",
+        "foot": [
+          279,
+          509,
+          191,
+          12
+        ],
+        "collision": null,
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--chess-seat-left",
+      "name": "棋垫·左",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "floor",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/chess-seat-left.png",
+          "x": 0,
+          "y": 7,
+          "w": 32,
+          "h": 25,
+          "depth": -441,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "chess-seat-left",
+        "foot": [
+          306,
+          463,
+          32,
+          12
+        ],
+        "collision": null,
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--chess-seat-right",
+      "name": "棋垫·右",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "floor",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/chess-seat-right.png",
+          "x": 0,
+          "y": 7,
+          "w": 32,
+          "h": 25,
+          "depth": -441,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "chess-seat-right",
+        "foot": [
+          408,
+          463,
+          32,
+          12
+        ],
+        "collision": null,
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-plant-shelf",
+      "name": "书架盆栽",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-plant-shelf.png",
+          "x": 4.5,
+          "y": 4,
+          "w": 23,
+          "h": 28,
+          "depth": 99,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-plant-shelf",
+        "foot": [
+          464,
+          42,
+          23,
+          12
+        ],
+        "collision": null,
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-plant-desk",
+      "name": "桌面盆栽",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-plant-desk.png",
+          "x": 5.5,
+          "y": 4,
+          "w": 21,
+          "h": 28,
+          "depth": 67,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-plant-desk",
+        "foot": [
+          579,
+          158,
+          21,
+          12
+        ],
+        "collision": null,
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--xj-plant-east",
+      "name": "卧室盆栽",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-plant-east.png",
+          "x": -2,
+          "y": -10,
+          "w": 36,
+          "h": 45,
+          "depth": 33,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-plant-east",
+        "foot": [
+          327,
+          206,
+          26,
+          11
+        ],
+        "collision": {
+          "x": 5,
+          "y": 31,
+          "w": 26,
+          "h": 11
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--speaker-left",
+      "name": "音响·左",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "",
+          "x": 9,
+          "y": 10,
+          "w": 14,
+          "h": 22,
+          "depth": 32,
+          "procedural": "speaker",
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "speaker-left",
+        "foot": [
+          115,
+          339,
+          14,
+          6
+        ],
+        "collision": null,
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--speaker-right",
+      "name": "音响·右",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "",
+          "x": 9,
+          "y": 10,
+          "w": 14,
+          "h": 22,
+          "depth": 32,
+          "procedural": "speaker",
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "speaker-right",
+        "foot": [
+          146,
+          439,
+          14,
+          6
+        ],
+        "collision": null,
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "world-arcade--arcade_blocks",
+      "name": "方块街机",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "../terminus/arcade_blocks.png",
+          "x": 6,
+          "y": -52.88500000000002,
+          "w": 52,
+          "h": 120.5,
+          "depth": 67.61499999999998,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_blocks",
+        "foot": [
+          232,
+          187.235,
+          46,
+          36.15
+        ],
+        "collision": {
+          "x": 3,
+          "y": 80.735,
+          "w": 46,
+          "h": 36.15
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "world-arcade--arcade_mines",
+      "name": "扫雷街机",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "../terminus/arcade_mines.png",
+          "x": 6.5,
+          "y": -52.400000000000006,
+          "w": 51,
+          "h": 120,
+          "depth": 67.6,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_mines",
+        "foot": [
+          300.5,
+          186.9,
+          45,
+          36
+        ],
+        "collision": {
+          "x": 3,
+          "y": 80.4,
+          "w": 45,
+          "h": 36
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "world-arcade--arcade_trophy",
+      "name": "奖杯柜",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../terminus/arcade_trophy.png",
+          "x": -0.75,
+          "y": -56.27000000000001,
+          "w": 65.5,
+          "h": 91,
+          "depth": 34.72999999999999,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_trophy",
+        "foot": [
+          373,
+          155.97,
+          59.5,
+          27.3
+        ],
+        "collision": {
+          "x": 3,
+          "y": 60.970000000000006,
+          "w": 59.5,
+          "h": 27.3
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "world-arcade--chess-far-seat",
+      "name": "棋凳·左",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../terminus/chess-far-seat.png",
+          "x": 3,
+          "y": -0.49499999999999034,
+          "w": 26,
+          "h": 33.5,
+          "depth": 33.00500000000001,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "chess-far-seat",
+        "foot": [
+          573,
+          115.945,
+          20,
+          10.049999999999999
+        ],
+        "collision": {
+          "x": 3,
+          "y": 22.445,
+          "w": 20,
+          "h": 10.049999999999999
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "world-arcade--chess-near-seat",
+      "name": "棋凳·右",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../terminus/chess-near-seat.png",
+          "x": 3,
+          "y": -0.49499999999999034,
+          "w": 26,
+          "h": 33.5,
+          "depth": 33.00500000000001,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "chess-near-seat",
+        "foot": [
+          692,
+          115.945,
+          20,
+          10.049999999999999
+        ],
+        "collision": {
+          "x": 3,
+          "y": 22.445,
+          "w": 20,
+          "h": 10.049999999999999
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "world-arcade--arcade_xiangqi",
+      "name": "象棋桌",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../terminus/arcade_xiangqi.png",
+          "x": 8.5,
+          "y": -39.295,
+          "w": 79,
+          "h": 73.5,
+          "depth": 34.205,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_xiangqi",
+        "foot": [
+          605,
+          103.245,
+          73,
+          22.05
+        ],
+        "collision": {
+          "x": 3,
+          "y": 49.245000000000005,
+          "w": 73,
+          "h": 22.05
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "world-arcade--arcade_snake",
+      "name": "双人贪吃蛇机",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 5,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "../terminus/arcade_snake.png",
+          "x": -3,
+          "y": -54.82499999999999,
+          "w": 166,
+          "h": 122.5,
+          "depth": 67.67500000000001,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_snake",
+        "foot": [
+          525.5,
+          307.075,
+          160,
+          36.75
+        ],
+        "collision": {
+          "x": 3,
+          "y": 82.075,
+          "w": 160,
+          "h": 36.75
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "world-arcade--arcade_tickets",
+      "name": "服务柜台",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 4,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../terminus/arcade_tickets.png",
+          "x": 7.75,
+          "y": -53.35999999999996,
+          "w": 112.5,
+          "h": 88,
+          "depth": 34.64000000000004,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_tickets",
+        "foot": [
+          375,
+          462.96,
+          106.5,
+          26.4
+        ],
+        "collision": {
+          "x": 3,
+          "y": 58.96,
+          "w": 106.5,
+          "h": 26.4
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "world-arcade--arcade_vending",
+      "name": "饮料机",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../terminus/arcade_vending.png",
+          "x": 9.25,
+          "y": -43.17500000000001,
+          "w": 45.5,
+          "h": 77.5,
+          "depth": 34.32499999999999,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_vending",
+        "foot": [
+          518,
+          460.425,
+          39.5,
+          23.25
+        ],
+        "collision": {
+          "x": 3,
+          "y": 51.925000000000004,
+          "w": 39.5,
+          "h": 23.25
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "world-arcade--arcade_bench",
+      "name": "休息长椅",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../terminus/arcade_bench.png",
+          "x": 3,
+          "y": -30.079999999999984,
+          "w": 90,
+          "h": 64,
+          "depth": 33.920000000000016,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_bench",
+        "foot": [
+          638,
+          460.88,
+          84,
+          19.2
+        ],
+        "collision": {
+          "x": 3,
+          "y": 42.88,
+          "w": 84,
+          "h": 19.2
+        },
+        "status": "grid-converted; original facing only; placement requires validation"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--quilt",
+      "name": "被子（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.quilt.png",
+          "x": 14,
+          "y": 14,
+          "w": 68,
+          "h": 18,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "quilt",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.quilt.png",
+        "foot": [
+          0,
+          0,
+          68,
+          18
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-accessory_table",
+      "name": "手机收纳桌（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-accessory_table.png",
+          "x": 2.5,
+          "y": -8,
+          "w": 59,
+          "h": 40,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-accessory_table",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-accessory_table.png",
+        "foot": [
+          0,
+          12,
+          59,
+          28
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-album-cabinet",
+      "name": "相册柜（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 4,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-album-cabinet.png",
+          "x": 0,
+          "y": -11,
+          "w": 128,
+          "h": 75,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-album-cabinet",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-album-cabinet.png",
+        "foot": [
+          0,
+          36,
+          128,
+          39
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-album-seat",
+      "name": "坐垫（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "floor",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-album-seat.png",
+          "x": -4,
+          "y": 0,
+          "w": 40,
+          "h": 35,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-album-seat",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-album-seat.png",
+        "foot": [
+          5,
+          12,
+          30,
+          20
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-album",
+      "name": "相册（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-album.png",
+          "x": 0,
+          "y": 28,
+          "w": 64,
+          "h": 36,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-album",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-album.png",
+        "foot": [
+          0,
+          0,
+          64,
+          36
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-bed",
+      "name": "鲸鱼床（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 4
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-bed.png",
+          "x": 8,
+          "y": 12,
+          "w": 80,
+          "h": 116,
+          "depth": 128,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-bed",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-bed.png",
+        "foot": [
+          0,
+          0,
+          80,
+          116
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-bookshelf",
+      "name": "书架（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 6,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-bookshelf.png",
+          "x": 13.5,
+          "y": -13,
+          "w": 165,
+          "h": 77,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-bookshelf",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-bookshelf.png",
+        "foot": [
+          0,
+          36,
+          165,
+          41
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-computer-chair",
+      "name": "电脑椅（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-computer-chair.png",
+          "x": 15,
+          "y": 16,
+          "w": 34,
+          "h": 48,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-computer-chair",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-computer-chair.png",
+        "foot": [
+          0,
+          0,
+          34,
+          48
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-desk-book",
+      "name": "笔记本（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-desk-book.png",
+          "x": 6.5,
+          "y": 3,
+          "w": 51,
+          "h": 29,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-desk-book",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-desk-book.png",
+        "foot": [
+          0,
+          0,
+          51,
+          29
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-desk-chair",
+      "name": "木椅（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-desk-chair.png",
+          "x": 2.75,
+          "y": 28,
+          "w": 26.5,
+          "h": 36,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-desk-chair",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-desk-chair.png",
+        "foot": [
+          0,
+          0,
+          26.5,
+          36
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-desk",
+      "name": "电脑桌（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 5,
+        "h": 3
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-desk.png",
+          "x": 3,
+          "y": -7,
+          "w": 154,
+          "h": 122,
+          "depth": 96,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-desk",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-desk.png",
+        "foot": [
+          0,
+          38,
+          154,
+          65
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-easel-seat",
+      "name": "画凳（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-easel-seat.png",
+          "x": -4,
+          "y": 0,
+          "w": 40,
+          "h": 35,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-easel-seat",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-easel-seat.png",
+        "foot": [
+          5,
+          12,
+          30,
+          20
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-easel",
+      "name": "画架（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-easel.png",
+          "x": -0.5,
+          "y": -27,
+          "w": 61,
+          "h": 91,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-easel",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-easel.png",
+        "foot": [
+          10,
+          47,
+          45,
+          44
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-headphones",
+      "name": "耳机（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-headphones.png",
+          "x": 6,
+          "y": 13,
+          "w": 20,
+          "h": 19,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-headphones",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-headphones.png",
+        "foot": [
+          0,
+          0,
+          20,
+          19
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-lamp-floor",
+      "name": "落地灯（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-lamp-floor.png",
+          "x": 3.5,
+          "y": 22.5,
+          "w": 25,
+          "h": 41.5,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-lamp-floor",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-lamp-floor.png",
+        "foot": [
+          0,
+          0,
+          25,
+          41.5
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-lamp-shelf",
+      "name": "小灯（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-lamp-shelf.png",
+          "x": 5.5,
+          "y": 30.5,
+          "w": 21,
+          "h": 33.5,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-lamp-shelf",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-lamp-shelf.png",
+        "foot": [
+          0,
+          0,
+          21,
+          33.5
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-main-light",
+      "name": "主灯（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-main-light.png",
+          "x": 1,
+          "y": 18,
+          "w": 30,
+          "h": 14,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-main-light",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-main-light.png",
+        "foot": [
+          0,
+          0,
+          30,
+          14
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-phone",
+      "name": "手机（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-phone.png",
+          "x": 13,
+          "y": 22,
+          "w": 6,
+          "h": 10,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-phone",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-phone.png",
+        "foot": [
+          0,
+          0,
+          6,
+          10
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-plant-desk",
+      "name": "桌面盆栽（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-plant-desk.png",
+          "x": 4,
+          "y": 1,
+          "w": 24,
+          "h": 31,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-plant-desk",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-plant-desk.png",
+        "foot": [
+          0,
+          0,
+          24,
+          31
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-plant-east",
+      "name": "卧室盆栽（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-plant-east.png",
+          "x": 4.5,
+          "y": 2,
+          "w": 23,
+          "h": 30,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-plant-east",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-plant-east.png",
+        "foot": [
+          0,
+          0,
+          23,
+          30
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-plant-shelf",
+      "name": "书架盆栽（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-plant-shelf.png",
+          "x": 4,
+          "y": 1,
+          "w": 24,
+          "h": 31,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-plant-shelf",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-plant-shelf.png",
+        "foot": [
+          0,
+          0,
+          24,
+          31
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-plant-west",
+      "name": "盆栽（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-plant-west.png",
+          "x": -2,
+          "y": -17,
+          "w": 38,
+          "h": 49,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-plant-west",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-plant-west.png",
+        "foot": [
+          6,
+          32,
+          24,
+          17
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-rabbit",
+      "name": "兔子摆件（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-rabbit.png",
+          "x": 7,
+          "y": 9,
+          "w": 18,
+          "h": 23,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-rabbit",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-rabbit.png",
+        "foot": [
+          0,
+          0,
+          18,
+          23
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-sofa",
+      "name": "沙发（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 4,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-sofa.png",
+          "x": 11.5,
+          "y": -52,
+          "w": 105,
+          "h": 84,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-sofa",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-sofa.png",
+        "foot": [
+          4,
+          52,
+          97,
+          32
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-tank",
+      "name": "鱼缸（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 4,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-tank.png",
+          "x": 14,
+          "y": -23,
+          "w": 100,
+          "h": 87,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-tank",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-tank.png",
+        "foot": [
+          0,
+          50,
+          100,
+          37
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-window",
+      "name": "窗户（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 6,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-window.png",
+          "x": 7,
+          "y": 8,
+          "w": 178,
+          "h": 56,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-window",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-window.png",
+        "foot": [
+          0,
+          0,
+          178,
+          56
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--legacy--xj-writing_desk",
+      "name": "写字桌（旧版）",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "solid",
+      "footprint": {
+        "w": 5,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "xiaojingyu-home.xj-writing_desk.png",
+          "x": 9,
+          "y": 2,
+          "w": 142,
+          "h": 85,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-writing_desk",
+        "variant": "legacy",
+        "file": "baked/xiaojingyu-home.xj-writing_desk.png",
+        "foot": [
+          0,
+          15,
+          142,
+          47
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "world-arcade--legacy--arcade-controller-sign",
+      "name": "手柄招牌（旧版）",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "surface",
+      "footprint": {
+        "w": 3,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "world-arcade.arcade-controller-sign.png",
+          "x": 7,
+          "y": 10.5,
+          "w": 82,
+          "h": 53.5,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade-controller-sign",
+        "variant": "legacy",
+        "file": "baked/world-arcade.arcade-controller-sign.png",
+        "foot": [
+          0,
+          0,
+          82,
+          53.5
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "world-arcade--legacy--arcade-poster-blocks",
+      "name": "方块海报（旧版）",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "surface",
+      "footprint": {
+        "w": 3,
+        "h": 3
+      },
+      "layers": [
+        {
+          "file": "world-arcade.arcade-poster-blocks.png",
+          "x": 10,
+          "y": 18.5,
+          "w": 76,
+          "h": 77.5,
+          "depth": 96,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade-poster-blocks",
+        "variant": "legacy",
+        "file": "baked/world-arcade.arcade-poster-blocks.png",
+        "foot": [
+          0,
+          0,
+          76,
+          77.5
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "world-arcade--legacy--arcade-poster-space",
+      "name": "太空海报（旧版）",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "surface",
+      "footprint": {
+        "w": 3,
+        "h": 3
+      },
+      "layers": [
+        {
+          "file": "world-arcade.arcade-poster-space.png",
+          "x": 8,
+          "y": 16,
+          "w": 80,
+          "h": 80,
+          "depth": 96,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade-poster-space",
+        "variant": "legacy",
+        "file": "baked/world-arcade.arcade-poster-space.png",
+        "foot": [
+          0,
+          0,
+          80,
+          80
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "world-arcade--legacy--arcade-token-lamp-0",
+      "name": "代币灯（左）（旧版）",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "world-arcade.arcade-token-lamp-0.png",
+          "x": -2,
+          "y": -43,
+          "w": 67.5,
+          "h": 81,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade-token-lamp-0",
+        "variant": "legacy",
+        "file": "baked/world-arcade.arcade-token-lamp-0.png",
+        "foot": [
+          16,
+          60,
+          36,
+          15
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "world-arcade--legacy--arcade-token-lamp-1",
+      "name": "代币灯（右）（旧版）",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "world-arcade.arcade-token-lamp-1.png",
+          "x": -2,
+          "y": -43,
+          "w": 67.5,
+          "h": 81,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade-token-lamp-1",
+        "variant": "legacy",
+        "file": "baked/world-arcade.arcade-token-lamp-1.png",
+        "foot": [
+          16,
+          60,
+          36,
+          15
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "world-arcade--legacy--arcade_blocks",
+      "name": "方块街机（旧版）",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 3
+      },
+      "layers": [
+        {
+          "file": "world-arcade.arcade_blocks.png",
+          "x": 6,
+          "y": -13.5,
+          "w": 84,
+          "h": 109.5,
+          "depth": 96,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_blocks",
+        "variant": "legacy",
+        "file": "baked/world-arcade.arcade_blocks.png",
+        "foot": [
+          0,
+          42.5,
+          84,
+          67
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "world-arcade--legacy--arcade_mines",
+      "name": "扫雷街机（旧版）",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 3
+      },
+      "layers": [
+        {
+          "file": "world-arcade.arcade_mines.png",
+          "x": 6,
+          "y": -13.5,
+          "w": 83,
+          "h": 109.5,
+          "depth": 96,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_mines",
+        "variant": "legacy",
+        "file": "baked/world-arcade.arcade_mines.png",
+        "foot": [
+          0,
+          42.5,
+          84,
+          67
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "world-arcade--legacy--arcade_snake",
+      "name": "双人贪吃蛇机（旧版）",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 5,
+        "h": 3
+      },
+      "layers": [
+        {
+          "file": "world-arcade.arcade_snake.png",
+          "x": 15,
+          "y": -39,
+          "w": 128,
+          "h": 135,
+          "depth": 96,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_snake",
+        "variant": "legacy",
+        "file": "baked/world-arcade.arcade_snake.png",
+        "foot": [
+          0,
+          40,
+          130,
+          95
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "world-arcade--legacy--arcade_trophy",
+      "name": "奖杯柜（旧版）",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 3
+      },
+      "layers": [
+        {
+          "file": "world-arcade.arcade_trophy.png",
+          "x": 6,
+          "y": -14,
+          "w": 83,
+          "h": 110,
+          "depth": 96,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_trophy",
+        "variant": "legacy",
+        "file": "baked/world-arcade.arcade_trophy.png",
+        "foot": [
+          -0.5,
+          35,
+          85,
+          75
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "world-arcade--legacy--arcade_vending",
+      "name": "饮料机（旧版）",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 3
+      },
+      "layers": [
+        {
+          "file": "world-arcade.arcade_vending.png",
+          "x": 10,
+          "y": -12,
+          "w": 75,
+          "h": 106,
+          "depth": 96,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_vending",
+        "variant": "legacy",
+        "file": "baked/world-arcade.arcade_vending.png",
+        "foot": [
+          0,
+          30,
+          76,
+          78
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "world-arcade--legacy--arcade_xiangqi",
+      "name": "象棋桌（旧版）",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 5,
+        "h": 3
+      },
+      "layers": [
+        {
+          "file": "world-arcade.arcade_xiangqi.png",
+          "x": 5,
+          "y": -7,
+          "w": 149,
+          "h": 100,
+          "depth": 96,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_xiangqi",
+        "variant": "legacy",
+        "file": "baked/world-arcade.arcade_xiangqi.png",
+        "foot": [
+          4,
+          18,
+          142,
+          85
+        ],
+        "collision_basis": "archived collision",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "world-arcade--legacy--chess-far-seat",
+      "name": "棋凳·左（旧版）",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "world-arcade.chess-far-seat.png",
+          "x": 11,
+          "y": 12,
+          "w": 42,
+          "h": 52,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "chess-far-seat",
+        "variant": "legacy",
+        "file": "baked/world-arcade.chess-far-seat.png",
+        "foot": [
+          0,
+          0,
+          42,
+          52
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "world-arcade--legacy--chess-near-seat",
+      "name": "棋凳·右（旧版）",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "world-arcade.chess-near-seat.png",
+          "x": 11.25,
+          "y": 13.5,
+          "w": 41.5,
+          "h": 50.5,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "chess-near-seat",
+        "variant": "legacy",
+        "file": "baked/world-arcade.chess-near-seat.png",
+        "foot": [
+          0,
+          0,
+          41.5,
+          50.5
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--extra--chess-board",
+      "name": "棋盘",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/chess-board.png",
+          "x": 14,
+          "y": 4,
+          "w": 36,
+          "h": 28,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "chess-board",
+        "variant": "extra",
+        "file": "seaside/chess-board.png",
+        "foot": [
+          0,
+          0,
+          36,
+          28
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--extra--xj-headphones",
+      "name": "耳机",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-headphones.png",
+          "x": 4.5,
+          "y": 10,
+          "w": 23,
+          "h": 22,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-headphones",
+        "variant": "extra",
+        "file": "seaside/xj-headphones.png",
+        "foot": [
+          0,
+          0,
+          23,
+          22
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--extra--xj-main-light",
+      "name": "主灯",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-main-light.png",
+          "x": 4.5,
+          "y": 3,
+          "w": 23,
+          "h": 29,
+          "depth": 32,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-main-light",
+        "variant": "extra",
+        "file": "seaside/xj-main-light.png",
+        "foot": [
+          0,
+          0,
+          23,
+          29
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "xiaojingyu-home--extra--xj-window",
+      "name": "窗户",
+      "scene": "xiaojingyu-home",
+      "scene_name": "小鲸鱼家",
+      "layer": "surface",
+      "footprint": {
+        "w": 3,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "../seaside/xj-window.png",
+          "x": 7,
+          "y": 4,
+          "w": 82,
+          "h": 60,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "xj-window",
+        "variant": "extra",
+        "file": "seaside/xj-window.png",
+        "foot": [
+          0,
+          0,
+          82,
+          60
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "qianxia-park--parts--seesaw-base",
+      "name": "跷跷板支座",
+      "scene": "qianxia-park",
+      "scene_name": "公园",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 3
+      },
+      "layers": [
+        {
+          "file": "../world/modules/seesaw-base.png",
+          "x": 3.25,
+          "y": 25.5,
+          "w": 89.5,
+          "h": 70.5,
+          "depth": 96,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "seesaw-base",
+        "variant": "parts",
+        "file": "world/modules/seesaw-base.png",
+        "foot": [
+          0,
+          0,
+          89.5,
+          70.5
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "qianxia-park--parts--seesaw-plank",
+      "name": "跷跷板横梁",
+      "scene": "qianxia-park",
+      "scene_name": "公园",
+      "layer": "surface",
+      "footprint": {
+        "w": 6,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "../world/modules/seesaw-plank.png",
+          "x": 0,
+          "y": 12.5,
+          "w": 192,
+          "h": 51.5,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "seesaw-plank",
+        "variant": "parts",
+        "file": "world/modules/seesaw-plank.png",
+        "foot": [
+          0,
+          0,
+          192,
+          51.5
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "qianxia-park--parts--swing-frame",
+      "name": "秋千架",
+      "scene": "qianxia-park",
+      "scene_name": "公园",
+      "layer": "solid",
+      "footprint": {
+        "w": 6,
+        "h": 5
+      },
+      "layers": [
+        {
+          "file": "../world/modules/swing-frame.png",
+          "x": 12.5,
+          "y": 17,
+          "w": 167,
+          "h": 143,
+          "depth": 160,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "swing-frame",
+        "variant": "parts",
+        "file": "world/modules/swing-frame.png",
+        "foot": [
+          0,
+          0,
+          167,
+          143
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "qianxia-park--parts--swing-seat",
+      "name": "秋千座椅",
+      "scene": "qianxia-park",
+      "scene_name": "公园",
+      "layer": "surface",
+      "footprint": {
+        "w": 3,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "../world/modules/swing-seat.png",
+          "x": 6.5,
+          "y": 30.5,
+          "w": 83,
+          "h": 33.5,
+          "depth": 64,
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "swing-seat",
+        "variant": "parts",
+        "file": "world/modules/swing-seat.png",
+        "foot": [
+          0,
+          0,
+          83,
+          33.5
+        ],
+        "collision_basis": "conservative complete image envelope",
+        "status": "independent art recovered; original facing only"
+      }
+    },
+    {
+      "id": "world-arcade--station--arcade_blocks",
+      "name": "车站新版·方块街机",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "../arcade-station/blocks.png",
+          "x": 0,
+          "y": -104,
+          "w": 96,
+          "h": 168,
+          "depth": 64,
+          "fit_art": true,
+          "region": [
+            102,
+            38,
+            820,
+            1440
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_blocks",
+        "variant": "station",
+        "file": "arcade-station/blocks.png",
+        "status": "new independent artwork; existing playable machine ID preserved in scene"
+      }
+    },
+    {
+      "id": "world-arcade--station--arcade_mines",
+      "name": "车站新版·扫雷街机",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "../arcade-station/mines.png",
+          "x": 0,
+          "y": -104,
+          "w": 96,
+          "h": 168,
+          "depth": 64,
+          "fit_art": true,
+          "region": [
+            108,
+            70,
+            808,
+            1406
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_mines",
+        "variant": "station",
+        "file": "arcade-station/mines.png",
+        "status": "new independent artwork; existing playable machine ID preserved in scene"
+      }
+    },
+    {
+      "id": "world-arcade--station--arcade_snake",
+      "name": "车站新版·双人贪吃蛇机",
+      "scene": "world-arcade",
+      "scene_name": "电玩城",
+      "layer": "solid",
+      "footprint": {
+        "w": 7,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "../arcade-station/snake.png",
+          "x": 0,
+          "y": -100,
+          "w": 224,
+          "h": 164,
+          "depth": 64,
+          "fit_art": true,
+          "region": [
+            146,
+            16,
+            1296,
+            950
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "arcade_snake",
+        "variant": "station",
+        "file": "arcade-station/snake.png",
+        "status": "new independent artwork; existing playable machine ID preserved in scene"
+      }
+    },
+    {
+      "id": "world-restaurant--0",
+      "name": "双人餐桌",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 4,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "../restaurant/furniture.png",
+          "x": 0,
+          "y": -24,
+          "w": 128,
+          "h": 88,
+          "depth": 64,
+          "fit_art": true,
+          "region": [
+            74,
+            88,
+            168,
+            187
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "table-a",
+        "foot": [
+          128,
+          416,
+          128,
+          64
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--1",
+      "name": "四人餐桌",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 4,
+        "h": 2
+      },
+      "layers": [
+        {
+          "file": "../restaurant/furniture.png",
+          "x": 0,
+          "y": -24,
+          "w": 128,
+          "h": 88,
+          "depth": 64,
+          "fit_art": true,
+          "region": [
+            329,
+            88,
+            283,
+            187
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "table-c",
+        "foot": [
+          416,
+          416,
+          128,
+          64
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--2",
+      "name": "餐椅·朝南",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/furniture.png",
+          "x": -4,
+          "y": -32,
+          "w": 40,
+          "h": 64,
+          "depth": 11,
+          "fit_art": true,
+          "region": [
+            713,
+            47,
+            141,
+            239
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "seat-a1",
+        "foot": [
+          160,
+          384,
+          32,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--3",
+      "name": "餐椅·朝北",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/furniture.png",
+          "x": -4,
+          "y": -32,
+          "w": 40,
+          "h": 64,
+          "depth": 11,
+          "fit_art": true,
+          "region": [
+            1025,
+            58,
+            145,
+            225
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "seat-c2",
+        "foot": [
+          448,
+          480,
+          32,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--4",
+      "name": "餐椅·朝西",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/furniture.png",
+          "x": -4,
+          "y": -32,
+          "w": 40,
+          "h": 64,
+          "depth": 11,
+          "fit_art": true,
+          "region": [
+            86,
+            352,
+            141,
+            240
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "seat-a2",
+        "foot": [
+          256,
+          416,
+          32,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--5",
+      "name": "餐椅·朝东",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/furniture.png",
+          "x": -4,
+          "y": -32,
+          "w": 40,
+          "h": 64,
+          "depth": 11,
+          "fit_art": true,
+          "region": [
+            401,
+            351,
+            141,
+            241
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "seat-c3",
+        "foot": [
+          384,
+          416,
+          32,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--6",
+      "name": "双炉灶台",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/furniture.png",
+          "x": -8,
+          "y": -48,
+          "w": 80,
+          "h": 80,
+          "depth": 32,
+          "fit_art": true,
+          "region": [
+            664,
+            357,
+            238,
+            233
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "stove-a",
+        "foot": [
+          256,
+          160,
+          64,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--7",
+      "name": "双槽洗碗台",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/furniture.png",
+          "x": 0,
+          "y": -44,
+          "w": 64,
+          "h": 76,
+          "depth": 32,
+          "fit_art": true,
+          "region": [
+            977,
+            341,
+            240,
+            249
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "sink",
+        "foot": [
+          64,
+          160,
+          64,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--8",
+      "name": "备料台",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/furniture.png",
+          "x": 0,
+          "y": -26,
+          "w": 64,
+          "h": 58,
+          "depth": 32,
+          "fit_art": true,
+          "region": [
+            25,
+            711,
+            265,
+            173
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "prep",
+        "foot": [
+          128,
+          160,
+          64,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--9",
+      "name": "Naiwa点餐台",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 5,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/furniture.png",
+          "x": 0,
+          "y": -52,
+          "w": 160,
+          "h": 84,
+          "depth": 32,
+          "fit_art": true,
+          "region": [
+            328,
+            684,
+            284,
+            206
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "order",
+        "foot": [
+          736,
+          160,
+          160,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--10",
+      "name": "取餐台",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/furniture.png",
+          "x": 0,
+          "y": -32,
+          "w": 96,
+          "h": 64,
+          "depth": 32,
+          "fit_art": true,
+          "region": [
+            642,
+            728,
+            286,
+            162
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "pickup",
+        "foot": [
+          512,
+          224,
+          96,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--11",
+      "name": "餐具回收柜",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/furniture.png",
+          "x": 0,
+          "y": -32,
+          "w": 64,
+          "h": 64,
+          "depth": 32,
+          "fit_art": true,
+          "region": [
+            973,
+            691,
+            249,
+            200
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "return",
+        "foot": [
+          64,
+          352,
+          64,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--12",
+      "name": "碗碟柜",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/furniture.png",
+          "x": 0,
+          "y": -48,
+          "w": 64,
+          "h": 80,
+          "depth": 32,
+          "fit_art": true,
+          "region": [
+            37,
+            970,
+            241,
+            258
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "crockery",
+        "foot": [
+          608,
+          160,
+          64,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--13",
+      "name": "冷藏柜",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/furniture.png",
+          "x": 2,
+          "y": -68,
+          "w": 60,
+          "h": 100,
+          "depth": 32,
+          "fit_art": true,
+          "region": [
+            401,
+            969,
+            139,
+            252
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "fridge",
+        "foot": [
+          512,
+          160,
+          64,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--14",
+      "name": "菜单牌",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/furniture.png",
+          "x": -3,
+          "y": -32,
+          "w": 38,
+          "h": 64,
+          "depth": 32,
+          "fit_art": true,
+          "region": [
+            695,
+            973,
+            176,
+            248
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "menu",
+        "foot": [
+          736,
+          352,
+          32,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--15",
+      "name": "饮水餐具柜",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 3,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/furniture.png",
+          "x": 0,
+          "y": -32,
+          "w": 96,
+          "h": 64,
+          "depth": 32,
+          "fit_art": true,
+          "region": [
+            962,
+            986,
+            270,
+            214
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "water",
+        "foot": [
+          800,
+          352,
+          96,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--16",
+      "name": "烤箱",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/kitchen-extras.png",
+          "x": 0,
+          "y": -32,
+          "w": 64,
+          "h": 64,
+          "depth": 32,
+          "fit_art": true,
+          "region": [
+            137,
+            146,
+            286,
+            296
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "oven",
+        "foot": [
+          64,
+          224,
+          64,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--17",
+      "name": "电饭煲",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/kitchen-extras.png",
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 32,
+          "depth": 32,
+          "fit_art": true,
+          "region": [
+            624,
+            144,
+            289,
+            296
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "rice-cooker",
+        "foot": [
+          160,
+          128,
+          32,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--18",
+      "name": "炸锅",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/kitchen-extras.png",
+          "x": -4,
+          "y": -28,
+          "w": 40,
+          "h": 60,
+          "depth": 32,
+          "fit_art": true,
+          "region": [
+            1115,
+            87,
+            317,
+            363
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "fryer",
+        "foot": [
+          160,
+          224,
+          32,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--19",
+      "name": "寿司备料台",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "solid",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/kitchen-extras.png",
+          "x": 0,
+          "y": -26,
+          "w": 64,
+          "h": 58,
+          "depth": 32,
+          "fit_art": true,
+          "region": [
+            70,
+            659,
+            399,
+            267
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "sushi-prep",
+        "foot": [
+          352,
+          224,
+          64,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--20",
+      "name": "调味罐",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "surface",
+      "footprint": {
+        "w": 1,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/kitchen-extras.png",
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 32,
+          "depth": 32,
+          "fit_art": true,
+          "region": [
+            588,
+            647,
+            353,
+            243
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "seasoning",
+        "foot": [
+          192,
+          128,
+          32,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    },
+    {
+      "id": "world-restaurant--21",
+      "name": "抽油烟机",
+      "scene": "world-restaurant",
+      "scene_name": "餐厅",
+      "layer": "surface",
+      "footprint": {
+        "w": 2,
+        "h": 1
+      },
+      "layers": [
+        {
+          "file": "../restaurant/kitchen-extras.png",
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 32,
+          "depth": 32,
+          "fit_art": true,
+          "region": [
+            1047,
+            604,
+            417,
+            307
+          ],
+          "part": "main"
+        }
+      ],
+      "source": {
+        "module": "hood-a",
+        "foot": [
+          256,
+          96,
+          64,
+          32
+        ],
+        "status": "whole-cell independent sprite"
+      }
+    }
+  ],
+  "inventory": [
+    {
+      "scene": "qianxia-park",
+      "name": "公园",
+      "assets": 12,
+      "fixed_environment_not_furniture": [
+        "river-north",
+        "river-middle",
+        "river-east",
+        "river-south",
+        "pier",
+        "bridge",
+        "big-tree",
+        "flowers",
+        "rock-top",
+        "bed-top",
+        "bed-northeast",
+        "bush-northeast",
+        "bush-mid-west",
+        "bush-mid-east",
+        "bush-east-a",
+        "bush-east-b",
+        "bush-west",
+        "hydrangea-west",
+        "bush-sw-corner",
+        "bush-south",
+        "hydrangea-sw",
+        "hydrangea-se",
+        "bush-riverbank",
+        "bush-river-low",
+        "bush-river-fence",
+        "rock-se",
+        "bush-river-mid",
+        "fence-west-a",
+        "fence-west-b",
+        "fence-south-a",
+        "fence-south-b",
+        "fence-north-a",
+        "fence-north-b"
+      ]
+    },
+    {
+      "scene": "qianxia-shop",
+      "name": "小卖部",
+      "assets": 22,
+      "fixed_environment_not_furniture": [
+        "shop-window"
+      ]
+    },
+    {
+      "scene": "xiaojingyu-home",
+      "name": "小鲸鱼家",
+      "assets": 59,
+      "fixed_environment_not_furniture": []
+    },
+    {
+      "scene": "world-arcade",
+      "name": "电玩城",
+      "assets": 26,
+      "fixed_environment_not_furniture": []
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+name: astrbot_plugin_cabinworld
+desc: 小屋世界：让 AI 在像素小世界里生活（需要先运行小屋世界的 start.cmd）
+version: 0.1.0
+author: CabinWorld
+repo: ""

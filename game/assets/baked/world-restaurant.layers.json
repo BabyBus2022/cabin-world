@@ -1,0 +1,595 @@
+{
+  "scene": "world-restaurant",
+  "scale": 1.6,
+  "layers": [
+    {
+      "id": "sink",
+      "file": "../restaurant/furniture.png",
+      "x": 64.0,
+      "y": 116,
+      "w": 64,
+      "h": 76,
+      "depth": 192,
+      "fit_art": true,
+      "region": [
+        977,
+        341,
+        240,
+        249
+      ]
+    },
+    {
+      "id": "prep",
+      "file": "../restaurant/furniture.png",
+      "x": 128.0,
+      "y": 134,
+      "w": 64,
+      "h": 58,
+      "depth": 192,
+      "fit_art": true,
+      "region": [
+        25,
+        711,
+        265,
+        173
+      ]
+    },
+    {
+      "id": "stove-a",
+      "file": "../restaurant/furniture.png",
+      "x": 248.0,
+      "y": 112,
+      "w": 80,
+      "h": 80,
+      "depth": 192,
+      "fit_art": true,
+      "region": [
+        664,
+        357,
+        238,
+        233
+      ]
+    },
+    {
+      "id": "stove-b",
+      "file": "../restaurant/furniture.png",
+      "x": 344.0,
+      "y": 112,
+      "w": 80,
+      "h": 80,
+      "depth": 192,
+      "fit_art": true,
+      "region": [
+        664,
+        357,
+        238,
+        233
+      ]
+    },
+    {
+      "id": "oven",
+      "file": "../restaurant/kitchen-extras.png",
+      "x": 64.0,
+      "y": 192,
+      "w": 64,
+      "h": 64,
+      "depth": 256,
+      "fit_art": true,
+      "region": [
+        137,
+        146,
+        286,
+        296
+      ]
+    },
+    {
+      "id": "fryer",
+      "file": "../restaurant/kitchen-extras.png",
+      "x": 156.0,
+      "y": 196,
+      "w": 40,
+      "h": 60,
+      "depth": 256,
+      "fit_art": true,
+      "region": [
+        1115,
+        87,
+        317,
+        363
+      ]
+    },
+    {
+      "id": "sushi-prep",
+      "file": "../restaurant/kitchen-extras.png",
+      "x": 352.0,
+      "y": 198,
+      "w": 64,
+      "h": 58,
+      "depth": 256,
+      "fit_art": true,
+      "region": [
+        70,
+        659,
+        399,
+        267
+      ]
+    },
+    {
+      "id": "fridge",
+      "file": "../restaurant/furniture.png",
+      "x": 514.0,
+      "y": 92,
+      "w": 60,
+      "h": 100,
+      "depth": 192,
+      "fit_art": true,
+      "region": [
+        401,
+        969,
+        139,
+        252
+      ]
+    },
+    {
+      "id": "crockery",
+      "file": "../restaurant/furniture.png",
+      "x": 608.0,
+      "y": 112,
+      "w": 64,
+      "h": 80,
+      "depth": 192,
+      "fit_art": true,
+      "region": [
+        37,
+        970,
+        241,
+        258
+      ]
+    },
+    {
+      "id": "order",
+      "file": "../restaurant/furniture.png",
+      "x": 736.0,
+      "y": 108,
+      "w": 160,
+      "h": 84,
+      "depth": 192,
+      "fit_art": true,
+      "region": [
+        328,
+        684,
+        284,
+        206
+      ]
+    },
+    {
+      "id": "pickup",
+      "file": "../restaurant/furniture.png",
+      "x": 512.0,
+      "y": 192,
+      "w": 96,
+      "h": 64,
+      "depth": 256,
+      "fit_art": true,
+      "region": [
+        642,
+        728,
+        286,
+        162
+      ]
+    },
+    {
+      "id": "return",
+      "file": "../restaurant/furniture.png",
+      "x": 64.0,
+      "y": 320,
+      "w": 64,
+      "h": 64,
+      "depth": 384,
+      "fit_art": true,
+      "region": [
+        973,
+        691,
+        249,
+        200
+      ]
+    },
+    {
+      "id": "water",
+      "file": "../restaurant/furniture.png",
+      "x": 800.0,
+      "y": 320,
+      "w": 96,
+      "h": 64,
+      "depth": 384,
+      "fit_art": true,
+      "region": [
+        962,
+        986,
+        270,
+        214
+      ]
+    },
+    {
+      "id": "menu",
+      "file": "../restaurant/furniture.png",
+      "x": 733.0,
+      "y": 320,
+      "w": 38,
+      "h": 64,
+      "depth": 384,
+      "fit_art": true,
+      "region": [
+        695,
+        973,
+        176,
+        248
+      ]
+    },
+    {
+      "id": "table-a",
+      "file": "../restaurant/furniture.png",
+      "x": 128.0,
+      "y": 392,
+      "w": 128,
+      "h": 88,
+      "depth": 480,
+      "fit_art": true,
+      "region": [
+        74,
+        88,
+        168,
+        187
+      ]
+    },
+    {
+      "id": "table-b",
+      "file": "../restaurant/furniture.png",
+      "x": 128.0,
+      "y": 472,
+      "w": 128,
+      "h": 72,
+      "depth": 544,
+      "fit_art": true,
+      "region": [
+        74,
+        88,
+        168,
+        187
+      ]
+    },
+    {
+      "id": "table-c",
+      "file": "../restaurant/furniture.png",
+      "x": 416.0,
+      "y": 392,
+      "w": 128,
+      "h": 88,
+      "depth": 480,
+      "fit_art": true,
+      "region": [
+        329,
+        88,
+        283,
+        187
+      ]
+    },
+    {
+      "id": "table-d",
+      "file": "../restaurant/furniture.png",
+      "x": 736.0,
+      "y": 424,
+      "w": 128,
+      "h": 88,
+      "depth": 512,
+      "fit_art": true,
+      "region": [
+        74,
+        88,
+        168,
+        187
+      ]
+    },
+    {
+      "id": "seat-a1",
+      "file": "../restaurant/furniture.png",
+      "x": 156.0,
+      "y": 352,
+      "w": 40,
+      "h": 64,
+      "depth": 395,
+      "fit_art": true,
+      "region": [
+        713,
+        47,
+        141,
+        239
+      ]
+    },
+    {
+      "id": "seat-a2",
+      "file": "../restaurant/furniture.png",
+      "x": 252.0,
+      "y": 384,
+      "w": 40,
+      "h": 64,
+      "depth": 427,
+      "fit_art": true,
+      "region": [
+        86,
+        352,
+        141,
+        240
+      ]
+    },
+    {
+      "id": "seat-b1",
+      "file": "../restaurant/furniture.png",
+      "x": 156.0,
+      "y": 448,
+      "w": 40,
+      "h": 64,
+      "depth": 491,
+      "fit_art": true,
+      "region": [
+        713,
+        47,
+        141,
+        239
+      ]
+    },
+    {
+      "id": "seat-b2",
+      "file": "../restaurant/furniture.png",
+      "x": 252.0,
+      "y": 480,
+      "w": 40,
+      "h": 64,
+      "depth": 523,
+      "fit_art": true,
+      "region": [
+        86,
+        352,
+        141,
+        240
+      ]
+    },
+    {
+      "id": "seat-c1",
+      "file": "../restaurant/furniture.png",
+      "x": 444.0,
+      "y": 352,
+      "w": 40,
+      "h": 64,
+      "depth": 395,
+      "fit_art": true,
+      "region": [
+        713,
+        47,
+        141,
+        239
+      ]
+    },
+    {
+      "id": "seat-c2",
+      "file": "../restaurant/furniture.png",
+      "x": 444.0,
+      "y": 448,
+      "w": 40,
+      "h": 64,
+      "depth": 491,
+      "fit_art": true,
+      "region": [
+        1025,
+        58,
+        145,
+        225
+      ]
+    },
+    {
+      "id": "seat-c3",
+      "file": "../restaurant/furniture.png",
+      "x": 380.0,
+      "y": 384,
+      "w": 40,
+      "h": 64,
+      "depth": 427,
+      "fit_art": true,
+      "region": [
+        401,
+        351,
+        141,
+        241
+      ]
+    },
+    {
+      "id": "seat-c4",
+      "file": "../restaurant/furniture.png",
+      "x": 540.0,
+      "y": 384,
+      "w": 40,
+      "h": 64,
+      "depth": 427,
+      "fit_art": true,
+      "region": [
+        86,
+        352,
+        141,
+        240
+      ]
+    },
+    {
+      "id": "seat-d1",
+      "file": "../restaurant/furniture.png",
+      "x": 764.0,
+      "y": 384,
+      "w": 40,
+      "h": 64,
+      "depth": 427,
+      "fit_art": true,
+      "region": [
+        713,
+        47,
+        141,
+        239
+      ]
+    },
+    {
+      "id": "seat-d2",
+      "file": "../restaurant/furniture.png",
+      "x": 764.0,
+      "y": 480,
+      "w": 40,
+      "h": 64,
+      "depth": 523,
+      "fit_art": true,
+      "region": [
+        1025,
+        58,
+        145,
+        225
+      ]
+    },
+    {
+      "id": "rice-cooker",
+      "file": "../restaurant/kitchen-extras.png",
+      "x": 160.0,
+      "y": 128,
+      "w": 32,
+      "h": 32,
+      "depth": 160,
+      "fit_art": true,
+      "region": [
+        624,
+        144,
+        289,
+        296
+      ]
+    },
+    {
+      "id": "seasoning",
+      "file": "../restaurant/kitchen-extras.png",
+      "x": 192.0,
+      "y": 128,
+      "w": 32,
+      "h": 32,
+      "depth": 160,
+      "fit_art": true,
+      "region": [
+        588,
+        647,
+        353,
+        243
+      ]
+    },
+    {
+      "id": "hood-a",
+      "file": "../restaurant/kitchen-extras.png",
+      "x": 256.0,
+      "y": 96,
+      "w": 64,
+      "h": 32,
+      "depth": 128,
+      "fit_art": true,
+      "region": [
+        1047,
+        604,
+        417,
+        307
+      ]
+    },
+    {
+      "id": "hood-b",
+      "file": "../restaurant/kitchen-extras.png",
+      "x": 352.0,
+      "y": 96,
+      "w": 64,
+      "h": 32,
+      "depth": 128,
+      "fit_art": true,
+      "region": [
+        1047,
+        604,
+        417,
+        307
+      ]
+    },
+    {
+      "id": "fixed-front-wall-0",
+      "file": "../restaurant/ground.png",
+      "region": [
+        89.60000000000001,
+        393.6,
+        256.0,
+        166.4
+      ],
+      "x": 56,
+      "y": 246,
+      "w": 160,
+      "h": 104,
+      "depth": 350,
+      "fit_art": true
+    },
+    {
+      "id": "fixed-front-wall-1",
+      "file": "../restaurant/ground.png",
+      "region": [
+        499.20000000000005,
+        393.6,
+        537.6,
+        166.4
+      ],
+      "x": 312,
+      "y": 246,
+      "w": 336,
+      "h": 104,
+      "depth": 350,
+      "fit_art": true
+    },
+    {
+      "id": "fixed-front-wall-2",
+      "file": "../restaurant/ground.png",
+      "region": [
+        1190.4,
+        393.6,
+        256.0,
+        166.4
+      ],
+      "x": 744,
+      "y": 246,
+      "w": 160,
+      "h": 104,
+      "depth": 350,
+      "fit_art": true
+    }
+  ],
+  "ground": {
+    "file": "../restaurant/ground.png",
+    "x": 0,
+    "y": 0,
+    "w": 960,
+    "h": 640,
+    "registration": {
+      "x": [
+        [
+          0,
+          0
+        ],
+        [
+          1536,
+          960
+        ]
+      ],
+      "y": [
+        [
+          0,
+          0
+        ],
+        [
+          1024,
+          640
+        ]
+      ]
+    }
+  }
+}

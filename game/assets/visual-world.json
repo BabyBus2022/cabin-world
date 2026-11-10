@@ -1,0 +1,3532 @@
+{
+  "scenes": {
+    "qianxia-park": {
+      "background": true,
+      "width": 960,
+      "height": 640,
+      "outdoor": true,
+      "exits": [
+        {
+          "id": "xjhome",
+          "name": "小鲸鱼的小屋",
+          "point": {
+            "x": 13,
+            "y": 344
+          },
+          "to": {
+            "sceneId": "xiaojingyu-home",
+            "entry": "door"
+          }
+        },
+        {
+          "id": "shop",
+          "name": "小卖部",
+          "point": {
+            "x": 592,
+            "y": 13
+          },
+          "to": {
+            "sceneId": "qianxia-shop",
+            "entry": "door"
+          }
+        },
+        {
+          "id": "arcade",
+          "name": "过桥去电玩城",
+          "point": {
+            "x": 947,
+            "y": 145
+          },
+          "to": {
+            "sceneId": "world-arcade",
+            "entry": "door"
+          }
+        },
+        {
+          "id": "restaurant",
+          "name": "餐厅入口",
+          "point": {
+            "x": 684,
+            "y": 13
+          },
+          "to": {
+            "sceneId": "world-restaurant",
+            "entry": "door"
+          }
+        }
+      ],
+      "zones": {
+        "gate": {
+          "x": 460,
+          "y": 601.25
+        },
+        "xjgate": {
+          "x": 31.25,
+          "y": 343.75
+        },
+        "shopfront": {
+          "x": 590.625,
+          "y": 34.375
+        },
+        "bench": {
+          "x": 223.75,
+          "y": 121.25
+        },
+        "swing": {
+          "x": 276.875,
+          "y": 240.625
+        },
+        "slide": {
+          "x": 390.625,
+          "y": 240.625
+        },
+        "carousel": {
+          "x": 650,
+          "y": 231.25
+        },
+        "seesaw": {
+          "x": 181.25,
+          "y": 525
+        },
+        "rider": {
+          "x": 307.5,
+          "y": 531.25
+        },
+        "flowers": {
+          "x": 631.25,
+          "y": 353.125
+        },
+        "meadow": {
+          "x": 456.25,
+          "y": 475
+        },
+        "pier": {
+          "x": 837.5,
+          "y": 381.25
+        },
+        "bridge": {
+          "x": 834.375,
+          "y": 143.75
+        },
+        "riverbank": {
+          "x": 712.5,
+          "y": 406.25
+        },
+        "arcade_bridge": {
+          "x": 925,
+          "y": 145
+        },
+        "restaurantfront": {
+          "x": 684,
+          "y": 104
+        }
+      },
+      "modules": {
+        "bench": {
+          "id": "bench",
+          "kind": "world-sprite",
+          "art": "bench",
+          "x": 180,
+          "y": 45.33554572271387,
+          "w": 87.5,
+          "h": 60.91445427728613,
+          "collision": {
+            "x": 0,
+            "y": 37.766961651917406,
+            "w": 87.5,
+            "h": 23.14749262536873
+          },
+          "anchors": {
+            "seat": {
+              "x": 43.75,
+              "y": 42.03097345132743
+            }
+          },
+          "depth": 106.25
+        },
+        "swing": {
+          "id": "swing",
+          "kind": "world-sprite",
+          "art": "swing-frame",
+          "x": 226.875,
+          "y": 133.12125748502996,
+          "w": 100,
+          "h": 85.62874251497006,
+          "collision": {
+            "x": 4,
+            "y": 42.81437125748503,
+            "w": 92,
+            "h": 42.81437125748503
+          },
+          "anchors": {
+            "pivot": {
+              "x": 50,
+              "y": 7.5
+            },
+            "seat": {
+              "x": 50,
+              "y": 80.62874251497006
+            }
+          },
+          "depth": 218.75
+        },
+        "slide": {
+          "id": "slide",
+          "kind": "world-sprite",
+          "art": "slide",
+          "x": 392.5,
+          "y": 116.33597883597884,
+          "w": 118.75,
+          "h": 102.41402116402116,
+          "collision": {
+            "x": 0,
+            "y": 43.013888888888886,
+            "w": 118.75,
+            "h": 59.40013227513227
+          },
+          "anchors": {
+            "top": {
+              "x": 60.5625,
+              "y": 32.77248677248677
+            },
+            "bottom": {
+              "x": 104.5,
+              "y": 89.10019841269842
+            }
+          },
+          "depth": 218.75
+        },
+        "carousel": {
+          "id": "carousel",
+          "kind": "world-sprite",
+          "art": "carousel",
+          "x": 600.625,
+          "y": 120.66468253968254,
+          "w": 98.75,
+          "h": 86.21031746031746,
+          "collision": {
+            "x": 3.95,
+            "y": 36.20833333333333,
+            "w": 90.85000000000001,
+            "h": 50.00198412698412
+          },
+          "anchors": {
+            "center": {
+              "x": 49.375,
+              "y": 47.4156746031746
+            }
+          },
+          "depth": 206.875
+        },
+        "seesaw": {
+          "id": "seesaw",
+          "kind": "world-sprite",
+          "art": "seesaw-base",
+          "x": 164.375,
+          "y": 474.66480446927375,
+          "w": 33.75,
+          "h": 26.585195530726256,
+          "collision": {
+            "x": -38,
+            "y": 0,
+            "w": 109.75,
+            "h": 34.58519553072625
+          },
+          "depth": 501.25
+        },
+        "rider": {
+          "id": "rider",
+          "kind": "world-sprite",
+          "art": "spring-rider",
+          "x": 279.375,
+          "y": 447.7614068441065,
+          "w": 56.25,
+          "h": 62.23859315589353,
+          "collision": {
+            "x": 2.8125,
+            "y": 31.119296577946766,
+            "w": 50.625,
+            "h": 31.119296577946766
+          },
+          "depth": 510
+        },
+        "river-north": {
+          "id": "river-north",
+          "kind": "world-marker",
+          "x": 771.875,
+          "y": 0,
+          "w": 188.125,
+          "h": 113.125,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 188.125,
+            "h": 113.125
+          },
+          "depth": 113.125
+        },
+        "river-middle": {
+          "id": "river-middle",
+          "kind": "world-marker",
+          "x": 781.25,
+          "y": 184.375,
+          "w": 178.75,
+          "h": 151.25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 178.75,
+            "h": 151.25
+          },
+          "depth": 335.625
+        },
+        "river-east": {
+          "id": "river-east",
+          "kind": "world-marker",
+          "x": 886.25,
+          "y": 184.375,
+          "w": 73.75,
+          "h": 455.625,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 73.75,
+            "h": 455.625
+          },
+          "depth": 640
+        },
+        "river-south": {
+          "id": "river-south",
+          "kind": "world-marker",
+          "x": 750,
+          "y": 428.75,
+          "w": 136.25,
+          "h": 211.25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 136.25,
+            "h": 211.25
+          },
+          "depth": 640
+        },
+        "pier": {
+          "id": "pier",
+          "kind": "world-marker",
+          "x": 741.875,
+          "y": 337.5,
+          "w": 140.625,
+          "h": 70,
+          "depth": 407.5
+        },
+        "bridge": {
+          "id": "bridge",
+          "kind": "world-marker",
+          "x": 767.5,
+          "y": 115.625,
+          "w": 153.125,
+          "h": 65,
+          "depth": 180.625
+        },
+        "big-tree": {
+          "id": "big-tree",
+          "kind": "world-marker",
+          "x": 13.75,
+          "y": 0,
+          "w": 150,
+          "h": 153.125,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 150,
+            "h": 153.125
+          },
+          "depth": 153.125
+        },
+        "flowers": {
+          "id": "flowers",
+          "kind": "world-marker",
+          "x": 525,
+          "y": 281.25,
+          "w": 125,
+          "h": 61.875,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 125,
+            "h": 61.875
+          },
+          "depth": 343.125
+        },
+        "rock-top": {
+          "id": "rock-top",
+          "kind": "world-marker",
+          "x": 265.625,
+          "y": 65.625,
+          "w": 43.75,
+          "h": 20,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 43.75,
+            "h": 20
+          },
+          "depth": 85.625
+        },
+        "bed-top": {
+          "id": "bed-top",
+          "kind": "world-marker",
+          "x": 337.5,
+          "y": 65.625,
+          "w": 187.5,
+          "h": 31.25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 187.5,
+            "h": 31.25
+          },
+          "depth": 96.875
+        },
+        "bush-mid-west": {
+          "id": "bush-mid-west",
+          "kind": "world-marker",
+          "x": 178.125,
+          "y": 278.125,
+          "w": 103.125,
+          "h": 37.5,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 103.125,
+            "h": 37.5
+          },
+          "depth": 315.625
+        },
+        "bush-mid-east": {
+          "id": "bush-mid-east",
+          "kind": "world-marker",
+          "x": 661.25,
+          "y": 251.25,
+          "w": 59.375,
+          "h": 23.75,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 59.375,
+            "h": 23.75
+          },
+          "depth": 275
+        },
+        "bush-east-a": {
+          "id": "bush-east-a",
+          "kind": "world-marker",
+          "x": 736.25,
+          "y": 175,
+          "w": 38.75,
+          "h": 23.75,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 38.75,
+            "h": 23.75
+          },
+          "depth": 198.75
+        },
+        "bush-east-b": {
+          "id": "bush-east-b",
+          "kind": "world-marker",
+          "x": 773.75,
+          "y": 265.625,
+          "w": 38.75,
+          "h": 17.5,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 38.75,
+            "h": 17.5
+          },
+          "depth": 283.125
+        },
+        "bush-west": {
+          "id": "bush-west",
+          "kind": "world-marker",
+          "x": 67.5,
+          "y": 303.125,
+          "w": 46.875,
+          "h": 22.5,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 46.875,
+            "h": 22.5
+          },
+          "depth": 325.625
+        },
+        "hydrangea-west": {
+          "id": "hydrangea-west",
+          "kind": "world-marker",
+          "x": 30,
+          "y": 259.375,
+          "w": 45,
+          "h": 31.25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 45,
+            "h": 31.25
+          },
+          "depth": 290.625
+        },
+        "bush-sw-corner": {
+          "id": "bush-sw-corner",
+          "kind": "world-marker",
+          "x": 67.5,
+          "y": 370,
+          "w": 37.5,
+          "h": 22.5,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 37.5,
+            "h": 22.5
+          },
+          "depth": 392.5
+        },
+        "bush-south": {
+          "id": "bush-south",
+          "kind": "world-marker",
+          "x": 517.5,
+          "y": 423.75,
+          "w": 73.75,
+          "h": 34.375,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 73.75,
+            "h": 34.375
+          },
+          "depth": 458.125
+        },
+        "hydrangea-sw": {
+          "id": "hydrangea-sw",
+          "kind": "world-marker",
+          "x": 32.5,
+          "y": 515.625,
+          "w": 67.5,
+          "h": 40.625,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 67.5,
+            "h": 40.625
+          },
+          "depth": 556.25
+        },
+        "hydrangea-se": {
+          "id": "hydrangea-se",
+          "kind": "world-marker",
+          "x": 640.625,
+          "y": 500,
+          "w": 81.25,
+          "h": 46.875,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 81.25,
+            "h": 46.875
+          },
+          "depth": 546.875
+        },
+        "bush-riverbank": {
+          "id": "bush-riverbank",
+          "kind": "world-marker",
+          "x": 706.25,
+          "y": 415.625,
+          "w": 43.75,
+          "h": 28.125,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 43.75,
+            "h": 28.125
+          },
+          "depth": 443.75
+        },
+        "bush-river-low": {
+          "id": "bush-river-low",
+          "kind": "world-marker",
+          "x": 671.875,
+          "y": 465.625,
+          "w": 56.25,
+          "h": 34.375,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 56.25,
+            "h": 34.375
+          },
+          "depth": 500
+        },
+        "bush-river-fence": {
+          "id": "bush-river-fence",
+          "kind": "world-marker",
+          "x": 728.125,
+          "y": 515.625,
+          "w": 37.5,
+          "h": 56.25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 37.5,
+            "h": 56.25
+          },
+          "depth": 571.875
+        },
+        "rock-se": {
+          "id": "rock-se",
+          "kind": "world-marker",
+          "x": 609.375,
+          "y": 521.875,
+          "w": 31.25,
+          "h": 25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 31.25,
+            "h": 25
+          },
+          "depth": 546.875
+        },
+        "bush-river-mid": {
+          "id": "bush-river-mid",
+          "kind": "world-marker",
+          "x": 753.125,
+          "y": 212.5,
+          "w": 31.25,
+          "h": 37.5,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 31.25,
+            "h": 37.5
+          },
+          "depth": 250
+        },
+        "fence-west-a": {
+          "id": "fence-west-a",
+          "kind": "world-marker",
+          "x": 18.75,
+          "y": 134.375,
+          "w": 13.75,
+          "h": 184.375,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 13.75,
+            "h": 184.375
+          },
+          "depth": 318.75
+        },
+        "fence-west-b": {
+          "id": "fence-west-b",
+          "kind": "world-marker",
+          "x": 18.75,
+          "y": 362.5,
+          "w": 13.75,
+          "h": 193.75,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 13.75,
+            "h": 193.75
+          },
+          "depth": 556.25
+        },
+        "fence-south-a": {
+          "id": "fence-south-a",
+          "kind": "world-marker",
+          "x": 20,
+          "y": 557.5,
+          "w": 400,
+          "h": 41.25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 400,
+            "h": 41.25
+          },
+          "depth": 598.75
+        },
+        "fence-south-b": {
+          "id": "fence-south-b",
+          "kind": "world-marker",
+          "x": 503.125,
+          "y": 557.5,
+          "w": 220,
+          "h": 41.25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 220,
+            "h": 41.25
+          },
+          "depth": 598.75
+        },
+        "fence-north-a": {
+          "id": "fence-north-a",
+          "kind": "world-marker",
+          "x": 150,
+          "y": 13.75,
+          "w": 365.625,
+          "h": 31.25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 365.625,
+            "h": 31.25
+          },
+          "depth": 45
+        },
+        "lamp-west": {
+          "id": "lamp-west",
+          "kind": "pk-lamp",
+          "x": 400,
+          "y": 350,
+          "w": 10,
+          "h": 44,
+          "light": {
+            "x": 5,
+            "y": 4,
+            "radius": 145
+          },
+          "collision": {
+            "x": -2,
+            "y": 34,
+            "w": 14,
+            "h": 10
+          },
+          "depth": 394
+        },
+        "lamp-east": {
+          "id": "lamp-east",
+          "kind": "pk-lamp",
+          "x": 700,
+          "y": 300,
+          "w": 10,
+          "h": 44,
+          "light": {
+            "x": 5,
+            "y": 4,
+            "radius": 145
+          },
+          "collision": {
+            "x": -2,
+            "y": 34,
+            "w": 14,
+            "h": 10
+          },
+          "depth": 344
+        },
+        "restaurant-gate-left": {
+          "id": "restaurant-gate-left",
+          "depth": 46,
+          "x": 654,
+          "y": 0,
+          "w": 10,
+          "h": 46,
+          "kind": "world-marker",
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 10,
+            "h": 46
+          }
+        },
+        "restaurant-gate-right": {
+          "id": "restaurant-gate-right",
+          "depth": 46,
+          "x": 712,
+          "y": 0,
+          "w": 12,
+          "h": 46,
+          "kind": "world-marker",
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 12,
+            "h": 46
+          }
+        }
+      }
+    },
+    "qianxia-shop": {
+      "background": true,
+      "width": 640,
+      "height": 427,
+      "outdoor": false,
+      "exits": [
+        {
+          "id": "door",
+          "name": "公园",
+          "point": {
+            "x": 319,
+            "y": 411
+          },
+          "to": {
+            "sceneId": "qianxia-park",
+            "entry": "shop"
+          }
+        },
+        {
+          "id": "onsen",
+          "name": "汤屋",
+          "point": {
+            "x": 552,
+            "y": 124
+          },
+          "to": {
+            "sceneId": "world-onsen",
+            "entry": "shop"
+          }
+        }
+      ],
+      "zones": {
+        "shop_door": {
+          "x": 318.75,
+          "y": 390.625
+        },
+        "snacks": {
+          "x": 82.5,
+          "y": 196.875
+        },
+        "drinks": {
+          "x": 432.5,
+          "y": 196.875
+        },
+        "daily": {
+          "x": 257.5,
+          "y": 196.875
+        },
+        "icecream": {
+          "x": 401.25,
+          "y": 366.25
+        },
+        "counter": {
+          "x": 540,
+          "y": 366.875
+        },
+        "food": {
+          "x": 170,
+          "y": 196.875
+        },
+        "bread": {
+          "x": 298,
+          "y": 283
+        },
+        "produce": {
+          "x": 90.625,
+          "y": 367.5
+        },
+        "magazines": {
+          "x": 246.875,
+          "y": 367.5
+        },
+        "shop_onsen_door": {
+          "x": 552,
+          "y": 128
+        },
+        "hot_cabinet": {
+          "x": 383,
+          "y": 197
+        },
+        "bench_a": {
+          "x": 552,
+          "y": 176
+        },
+        "bench_b": {
+          "x": 552,
+          "y": 220
+        },
+        "bench_c": {
+          "x": 552,
+          "y": 264
+        }
+      },
+      "modules": {
+        "snack-shelf": {
+          "id": "snack-shelf",
+          "kind": "world-sprite",
+          "art": "retail-snacks",
+          "x": 40.3125,
+          "y": 107.470703125,
+          "w": 84.375,
+          "h": 76.904296875,
+          "collision": {
+            "x": 0,
+            "y": 47.6806640625,
+            "w": 84.375,
+            "h": 29.2236328125
+          },
+          "depth": 184.375
+        },
+        "food-shelf": {
+          "id": "food-shelf",
+          "kind": "world-sprite",
+          "art": "retail-food",
+          "x": 127.8125,
+          "y": 108.45919023136247,
+          "w": 84.375,
+          "h": 75.91580976863753,
+          "collision": {
+            "x": 0,
+            "y": 47.067802056555266,
+            "w": 84.375,
+            "h": 28.84800771208226
+          },
+          "depth": 184.375
+        },
+        "daily-shelf": {
+          "id": "daily-shelf",
+          "kind": "world-sprite",
+          "art": "retail-daily",
+          "x": 215.3125,
+          "y": 108.65384615384616,
+          "w": 84.375,
+          "h": 75.72115384615384,
+          "collision": {
+            "x": 0,
+            "y": 46.94711538461538,
+            "w": 84.375,
+            "h": 28.77403846153846
+          },
+          "depth": 184.375
+        },
+        "bread-shelf": {
+          "id": "bread-shelf",
+          "kind": "world-sprite",
+          "art": "retail-bread",
+          "x": 255.8125,
+          "y": 198.53917910447763,
+          "w": 84.375,
+          "h": 73.46082089552239,
+          "collision": {
+            "x": 0,
+            "y": 45.54570895522388,
+            "w": 84.375,
+            "h": 27.91511194029851
+          },
+          "depth": 272
+        },
+        "drink-fridge": {
+          "id": "drink-fridge",
+          "kind": "world-sprite",
+          "art": "fridge",
+          "x": 407.5,
+          "y": 87.850935828877,
+          "w": 50,
+          "h": 96.524064171123,
+          "collision": {
+            "x": 0,
+            "y": 59.84491978609626,
+            "w": 50,
+            "h": 36.67914438502674
+          },
+          "depth": 184.375
+        },
+        "drink-fridge-2": {
+          "id": "drink-fridge-2",
+          "kind": "world-sprite",
+          "art": "fridge",
+          "x": 462.5,
+          "y": 87.850935828877,
+          "w": 50,
+          "h": 96.524064171123,
+          "collision": {
+            "x": 0,
+            "y": 59.84491978609626,
+            "w": 50,
+            "h": 36.67914438502674
+          },
+          "depth": 184.375
+        },
+        "food-island": {
+          "id": "food-island",
+          "kind": "world-sprite",
+          "art": "retail-food",
+          "x": 59.0625,
+          "y": 195.95919023136247,
+          "w": 84.375,
+          "h": 75.91580976863753,
+          "collision": {
+            "x": 0,
+            "y": 47.067802056555266,
+            "w": 84.375,
+            "h": 28.84800771208226
+          },
+          "depth": 271.875
+        },
+        "snack-island": {
+          "id": "snack-island",
+          "kind": "world-sprite",
+          "art": "retail-snacks",
+          "x": 146.5625,
+          "y": 194.970703125,
+          "w": 84.375,
+          "h": 76.904296875,
+          "collision": {
+            "x": 0,
+            "y": 47.6806640625,
+            "w": 84.375,
+            "h": 29.2236328125
+          },
+          "depth": 271.875
+        },
+        "daily-island": {
+          "id": "daily-island",
+          "kind": "world-sprite",
+          "art": "retail-daily",
+          "x": 364.0625,
+          "y": 196.15384615384616,
+          "w": 84.375,
+          "h": 75.72115384615384,
+          "collision": {
+            "x": 0,
+            "y": 46.94711538461538,
+            "w": 84.375,
+            "h": 28.77403846153846
+          },
+          "depth": 271.875
+        },
+        "snack-island-2": {
+          "id": "snack-island-2",
+          "kind": "world-sprite",
+          "art": "retail-snacks",
+          "x": 451.5625,
+          "y": 194.970703125,
+          "w": 84.375,
+          "h": 76.904296875,
+          "collision": {
+            "x": 0,
+            "y": 47.6806640625,
+            "w": 84.375,
+            "h": 29.2236328125
+          },
+          "depth": 271.875
+        },
+        "produce": {
+          "id": "produce",
+          "kind": "world-sprite",
+          "art": "retail-produce",
+          "x": 53.125,
+          "y": 300.1399253731343,
+          "w": 75,
+          "h": 52.985074626865675,
+          "collision": {
+            "x": 0,
+            "y": 32.85074626865672,
+            "w": 75,
+            "h": 20.134328358208958
+          },
+          "depth": 353.125
+        },
+        "sale-island": {
+          "id": "sale-island",
+          "kind": "world-sprite",
+          "art": "retail-island",
+          "x": 134.375,
+          "y": 300.9805304740406,
+          "w": 75,
+          "h": 52.144469525959366,
+          "collision": {
+            "x": 0,
+            "y": 32.329571106094804,
+            "w": 75,
+            "h": 19.81489841986456
+          },
+          "depth": 353.125
+        },
+        "magazines": {
+          "id": "magazines",
+          "kind": "world-sprite",
+          "art": "retail-magazines",
+          "x": 226.5625,
+          "y": 315.05357142857144,
+          "w": 40.625,
+          "h": 38.07142857142857,
+          "collision": {
+            "x": 0,
+            "y": 23.604285714285712,
+            "w": 40.625,
+            "h": 14.467142857142857
+          },
+          "depth": 353.125
+        },
+        "freezer": {
+          "id": "freezer",
+          "kind": "world-sprite",
+          "art": "freezer",
+          "x": 370,
+          "y": 301.01232394366195,
+          "w": 62.5,
+          "h": 52.11267605633803,
+          "collision": {
+            "x": 0,
+            "y": 32.309859154929576,
+            "w": 62.5,
+            "h": 19.802816901408452
+          },
+          "depth": 353.125
+        },
+        "counter-extension": {
+          "id": "counter-extension",
+          "kind": "world-sprite",
+          "art": "counter",
+          "x": 450,
+          "y": 301.17487212276217,
+          "w": 81.25,
+          "h": 51.950127877237854,
+          "collision": {
+            "x": 0,
+            "y": 32.20907928388747,
+            "w": 81.25,
+            "h": 19.741048593350385
+          },
+          "depth": 353.125
+        },
+        "counter": {
+          "id": "counter",
+          "kind": "world-sprite",
+          "art": "counter",
+          "x": 531.25,
+          "y": 301.17487212276217,
+          "w": 81.25,
+          "h": 51.950127877237854,
+          "collision": {
+            "x": 0,
+            "y": 32.20907928388747,
+            "w": 81.25,
+            "h": 19.741048593350385
+          },
+          "depth": 353.125
+        },
+        "register": {
+          "id": "register",
+          "kind": "world-sprite",
+          "art": "register",
+          "x": 561.875,
+          "y": 299.34609826589593,
+          "w": 20,
+          "h": 15.028901734104046,
+          "sortOffset": 54.40390173410407,
+          "depth": 353.75
+        },
+        "shopping-bag": {
+          "id": "shopping-bag",
+          "kind": "world-sprite",
+          "art": "bag",
+          "x": 476.5625,
+          "y": 295.76812977099235,
+          "w": 15.625,
+          "h": 18.606870229007633,
+          "sortOffset": 57.981870229007654,
+          "depth": 353.75
+        },
+        "baskets": {
+          "id": "baskets",
+          "kind": "world-sprite",
+          "art": "retail-baskets",
+          "x": 414.375,
+          "y": 348.4375,
+          "w": 27.5,
+          "h": 32.8125,
+          "collision": {
+            "x": 0,
+            "y": 20.34375,
+            "w": 27.5,
+            "h": 12.46875
+          },
+          "depth": 381.25
+        },
+        "hot-cabinet": {
+          "id": "hot-cabinet",
+          "kind": "world-sprite",
+          "art": "hot-cabinet",
+          "x": 358,
+          "y": 84.89285714285714,
+          "w": 60,
+          "h": 99.10714285714286,
+          "collision": {
+            "x": 2,
+            "y": 62.10714285714286,
+            "w": 46,
+            "h": 37
+          },
+          "depth": 184
+        },
+        "long-bench": {
+          "id": "long-bench",
+          "kind": "world-sprite",
+          "art": "long-bench",
+          "x": 569,
+          "y": 158,
+          "w": 29.213036565977742,
+          "h": 125,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 29.213036565977742,
+            "h": 125
+          },
+          "depth": 283
+        },
+        "shop-window": {
+          "id": "shop-window",
+          "kind": "world-marker",
+          "x": 250,
+          "y": 70,
+          "w": 81.25,
+          "h": 12.5,
+          "depth": 82.5
+        },
+        "shop-light": {
+          "id": "shop-light",
+          "kind": "ceiling-light",
+          "x": 315,
+          "y": 70,
+          "w": 20,
+          "h": 8,
+          "light": {
+            "x": 10,
+            "y": 4,
+            "radius": 650
+          },
+          "depth": 78
+        }
+      }
+    },
+    "xiaojingyu-home": {
+      "background": false,
+      "width": 960,
+      "height": 640,
+      "outdoor": false,
+      "exits": [
+        {
+          "id": "door",
+          "name": "公园",
+          "point": {
+            "x": 753,
+            "y": 580
+          },
+          "to": {
+            "sceneId": "qianxia-park",
+            "entry": "xjhome"
+          }
+        }
+      ],
+      "zones": {
+        "xj_door": {
+          "x": 753,
+          "y": 555
+        },
+        "xj_bed": {
+          "x": 194,
+          "y": 175
+        },
+        "xj_desk": {
+          "x": 201,
+          "y": 433
+        },
+        "xj_shelf": {
+          "x": 496,
+          "y": 141
+        },
+        "xj_album": {
+          "x": 435,
+          "y": 368
+        },
+        "xj_draw": {
+          "x": 739,
+          "y": 165
+        },
+        "xj_notes": {
+          "x": 649,
+          "y": 146
+        },
+        "xj_accessories": {
+          "x": 645,
+          "y": 439
+        },
+        "xj_window": {
+          "x": 620,
+          "y": 118
+        },
+        "xj_rug": {
+          "x": 373,
+          "y": 468
+        },
+        "xj_tank": {
+          "x": 705,
+          "y": 358
+        },
+        "xj_sofa": {
+          "x": 724,
+          "y": 484
+        },
+        "chess_xj_a": {
+          "x": 322,
+          "y": 470
+        },
+        "chess_xj_b": {
+          "x": 424,
+          "y": 470
+        },
+        "xj_beach": {
+          "x": 906,
+          "y": 100
+        }
+      },
+      "modules": {
+        "xj-bed": {
+          "x": 109,
+          "y": 78,
+          "w": 76,
+          "h": 110,
+          "id": "xj-bed",
+          "depth": 182,
+          "kind": "bed",
+          "collision": {
+            "x": 3,
+            "y": 21,
+            "w": 68,
+            "h": 84
+          },
+          "anchors": {
+            "approach": {
+              "x": 85,
+              "y": 97
+            },
+            "edge": {
+              "x": 55,
+              "y": 74
+            },
+            "lying": {
+              "x": 38,
+              "y": 64
+            }
+          }
+        },
+        "quilt": {
+          "x": 114,
+          "y": 135,
+          "w": 66,
+          "h": 48,
+          "id": "quilt",
+          "depth": 183,
+          "kind": "decoration"
+        },
+        "xj-bookshelf": {
+          "x": 464,
+          "y": 48,
+          "w": 87,
+          "h": 78,
+          "id": "xj-bookshelf",
+          "depth": 120,
+          "kind": "decoration",
+          "collision": {
+            "x": 2,
+            "y": 37,
+            "w": 83,
+            "h": 37
+          }
+        },
+        "xj-writing_desk": {
+          "x": 580,
+          "y": 160,
+          "w": 88,
+          "h": 58,
+          "id": "xj-writing_desk",
+          "depth": 204,
+          "kind": "decoration",
+          "collision": {
+            "x": 2,
+            "y": 18,
+            "w": 84,
+            "h": 28
+          }
+        },
+        "xj-desk": {
+          "x": 110,
+          "y": 335,
+          "w": 61,
+          "h": 111,
+          "id": "xj-desk",
+          "depth": 427,
+          "kind": "seaside-computer",
+          "collision": {
+            "x": 2,
+            "y": 34,
+            "w": 53,
+            "h": 59
+          },
+          "anchors": {
+            "approach": {
+              "x": 91,
+              "y": 98
+            },
+            "seat": {
+              "x": 82,
+              "y": 66
+            },
+            "hands": {
+              "x": 46,
+              "y": 41
+            }
+          }
+        },
+        "xj-computer-chair": {
+          "x": 137,
+          "y": 344,
+          "w": 110,
+          "h": 88.5,
+          "id": "xj-computer-chair",
+          "depth": 401,
+          "kind": "decoration",
+          "collision": {
+            "x": 31,
+            "y": 56,
+            "w": 29,
+            "h": 24
+          }
+        },
+        "xj-desk-chair": {
+          "x": 607,
+          "y": 141,
+          "w": 32,
+          "h": 43,
+          "id": "xj-desk-chair",
+          "depth": 171,
+          "kind": "decoration",
+          "collision": {
+            "x": 3,
+            "y": 14,
+            "w": 24,
+            "h": 19
+          }
+        },
+        "xj-easel": {
+          "x": 744,
+          "y": 70,
+          "w": 52,
+          "h": 84,
+          "id": "xj-easel",
+          "depth": 152,
+          "kind": "decoration",
+          "collision": {
+            "x": 7,
+            "y": 61,
+            "w": 39,
+            "h": 20
+          }
+        },
+        "xj-easel-seat": {
+          "x": 744,
+          "y": 158,
+          "w": 33,
+          "h": 32,
+          "id": "xj-easel-seat",
+          "depth": 178,
+          "kind": "decoration",
+          "collision": {
+            "x": 6,
+            "y": 18,
+            "w": 23,
+            "h": 11
+          }
+        },
+        "xj-tank": {
+          "x": 722,
+          "y": 282,
+          "w": 100,
+          "h": 89,
+          "id": "xj-tank",
+          "depth": 366,
+          "kind": "seaside-tank",
+          "collision": {
+            "x": 3,
+            "y": 55,
+            "w": 93,
+            "h": 30
+          }
+        },
+        "xj-sofa": {
+          "x": 733,
+          "y": 387,
+          "w": 102,
+          "h": 81,
+          "id": "xj-sofa",
+          "depth": 458,
+          "kind": "decoration",
+          "collision": {
+            "x": 4,
+            "y": 44,
+            "w": 94,
+            "h": 31
+          }
+        },
+        "xj-album-cabinet": {
+          "x": 379,
+          "y": 289,
+          "w": 96,
+          "h": 65,
+          "id": "xj-album-cabinet",
+          "depth": 348,
+          "kind": "decoration",
+          "collision": {
+            "x": 3,
+            "y": 48,
+            "w": 90,
+            "h": 12
+          }
+        },
+        "xj-album-seat": {
+          "x": 398,
+          "y": 357,
+          "w": 30,
+          "h": 22,
+          "id": "xj-album-seat",
+          "depth": 368,
+          "kind": "decoration"
+        },
+        "xj-accessory_table": {
+          "x": 614,
+          "y": 376,
+          "w": 58,
+          "h": 48,
+          "id": "xj-accessory_table",
+          "depth": 406,
+          "kind": "decoration",
+          "collision": {
+            "x": 2,
+            "y": 25,
+            "w": 54,
+            "h": 20
+          }
+        },
+        "xj-lamp-floor": {
+          "x": 197,
+          "y": 77,
+          "w": 23,
+          "h": 45,
+          "light": {
+            "x": 11.5,
+            "y": 22.5,
+            "radius": 69
+          },
+          "id": "xj-lamp-floor",
+          "depth": 120,
+          "kind": "decoration",
+          "collision": {
+            "x": 3,
+            "y": 31,
+            "w": 18,
+            "h": 11
+          }
+        },
+        "xj-lamp-shelf": {
+          "x": 522,
+          "y": 29,
+          "w": 25,
+          "h": 26,
+          "light": {
+            "x": 12.5,
+            "y": 13,
+            "radius": 54
+          },
+          "id": "xj-lamp-shelf",
+          "depth": 121,
+          "kind": "decoration"
+        },
+        "xj-album": {
+          "x": 401,
+          "y": 279,
+          "w": 50,
+          "h": 32,
+          "id": "xj-album",
+          "depth": 350,
+          "kind": "decoration"
+        },
+        "xj-desk-book": {
+          "x": 607,
+          "y": 158,
+          "w": 40,
+          "h": 24,
+          "id": "xj-desk-book",
+          "depth": 205,
+          "kind": "decoration"
+        },
+        "xj-phone": {
+          "x": 622,
+          "y": 365,
+          "w": 11,
+          "h": 19,
+          "id": "xj-phone",
+          "depth": 407,
+          "kind": "decoration"
+        },
+        "xj-plant-west": {
+          "x": 695,
+          "y": 437,
+          "w": 33,
+          "h": 42,
+          "id": "xj-plant-west",
+          "depth": 477,
+          "kind": "decoration",
+          "collision": {
+            "x": 4,
+            "y": 28,
+            "w": 24,
+            "h": 11
+          },
+          "art": "seaside-plant"
+        },
+        "xj-rabbit": {
+          "x": 492,
+          "y": 28,
+          "w": 19,
+          "h": 24,
+          "id": "xj-rabbit",
+          "depth": 121,
+          "kind": "decoration"
+        },
+        "xj-main-light": {
+          "x": 532,
+          "y": 270,
+          "w": 23,
+          "h": 29,
+          "light": {
+            "x": 11.5,
+            "y": 14.5,
+            "radius": 105
+          },
+          "id": "xj-main-light",
+          "depth": 299,
+          "kind": "decoration"
+        },
+        "xj-window": {
+          "x": 590,
+          "y": 28,
+          "w": 82,
+          "h": 60,
+          "kind": "decoration",
+          "glass": [
+            [
+              0.24,
+              0.13,
+              0.5,
+              0.6
+            ]
+          ],
+          "id": "xj-window",
+          "depth": 86
+        },
+        "xj-ocean-rug": {
+          "x": 279,
+          "y": 419,
+          "w": 191,
+          "h": 102,
+          "id": "xj-ocean-rug",
+          "depth": 1,
+          "kind": "decoration"
+        },
+        "chess-seat-left": {
+          "x": 306,
+          "y": 450,
+          "w": 32,
+          "h": 25,
+          "id": "chess-seat-left",
+          "depth": 2,
+          "kind": "decoration"
+        },
+        "chess-seat-right": {
+          "x": 408,
+          "y": 450,
+          "w": 32,
+          "h": 25,
+          "id": "chess-seat-right",
+          "depth": 2,
+          "kind": "decoration"
+        },
+        "xj-plant-shelf": {
+          "x": 464,
+          "y": 26,
+          "w": 23,
+          "h": 28,
+          "id": "xj-plant-shelf",
+          "depth": 121,
+          "kind": "decoration"
+        },
+        "xj-plant-desk": {
+          "x": 579,
+          "y": 142,
+          "w": 21,
+          "h": 28,
+          "id": "xj-plant-desk",
+          "depth": 205,
+          "kind": "decoration"
+        },
+        "xj-plant-east": {
+          "x": 322,
+          "y": 175,
+          "w": 36,
+          "h": 45,
+          "id": "xj-plant-east",
+          "depth": 218,
+          "kind": "decoration",
+          "collision": {
+            "x": 5,
+            "y": 31,
+            "w": 26,
+            "h": 11
+          }
+        },
+        "speaker-left": {
+          "id": "speaker-left",
+          "file": "",
+          "x": 115,
+          "y": 323,
+          "w": 14,
+          "h": 22,
+          "depth": 345,
+          "procedural": "speaker",
+          "kind": "speaker"
+        },
+        "speaker-right": {
+          "id": "speaker-right",
+          "file": "",
+          "x": 146,
+          "y": 423,
+          "w": 14,
+          "h": 22,
+          "depth": 445,
+          "procedural": "speaker",
+          "kind": "speaker"
+        }
+      }
+    },
+    "world-arcade": {
+      "background": true,
+      "width": 1056,
+      "height": 768,
+      "outdoor": false,
+      "exits": [
+        {
+          "id": "door",
+          "name": "公园",
+          "point": {
+            "x": 864,
+            "y": 760
+          },
+          "to": {
+            "sceneId": "qianxia-park",
+            "entry": "arcade"
+          }
+        }
+      ],
+      "zones": {
+        "arcade_door": {
+          "x": 864,
+          "y": 720
+        },
+        "arcade_car": {
+          "x": 176,
+          "y": 416
+        },
+        "arcade_blocks": {
+          "x": 144,
+          "y": 376
+        },
+        "arcade_mines": {
+          "x": 304,
+          "y": 376
+        },
+        "arcade_trophy": {
+          "x": 496,
+          "y": 376
+        },
+        "arcade_snake": {
+          "x": 768,
+          "y": 664
+        },
+        "arcade_snake_left": {
+          "x": 768,
+          "y": 664
+        },
+        "arcade_snake_right": {
+          "x": 864,
+          "y": 664
+        },
+        "arcade_tickets": {
+          "x": 176,
+          "y": 632
+        },
+        "arcade_vending": {
+          "x": 352,
+          "y": 632
+        },
+        "arcade_bench": {
+          "x": 512,
+          "y": 632
+        },
+        "arcade_xiangqi": {
+          "x": 816,
+          "y": 244
+        },
+        "arcade_xiangqi_far": {
+          "x": 816,
+          "y": 244
+        },
+        "arcade_xiangqi_near": {
+          "x": 944,
+          "y": 244
+        }
+      },
+      "modules": {
+        "arcade_blocks": {
+          "id": "arcade_blocks",
+          "kind": "pk-arcade",
+          "x": 96,
+          "y": 184,
+          "w": 96,
+          "h": 168,
+          "depth": 352,
+          "collision": {
+            "x": 0,
+            "y": 104,
+            "w": 96,
+            "h": 64
+          },
+          "screen": [
+            16.62439024390244,
+            41.3,
+            63.21951219512195,
+            37.8
+          ]
+        },
+        "arcade_mines": {
+          "id": "arcade_mines",
+          "kind": "pk-arcade",
+          "x": 256,
+          "y": 184,
+          "w": 96,
+          "h": 168,
+          "depth": 352,
+          "collision": {
+            "x": 0,
+            "y": 104,
+            "w": 96,
+            "h": 64
+          },
+          "screen": [
+            14.257425742574258,
+            42.059743954480794,
+            67.72277227722772,
+            36.32432432432432
+          ]
+        },
+        "arcade_trophy": {
+          "id": "arcade_trophy",
+          "kind": "pk-arcade",
+          "x": 448,
+          "y": 219,
+          "w": 96,
+          "h": 133,
+          "depth": 352,
+          "collision": {
+            "x": 0,
+            "y": 69,
+            "w": 96,
+            "h": 64
+          }
+        },
+        "chess-far-seat": {
+          "id": "chess-far-seat",
+          "kind": "pk-arcade",
+          "x": 800,
+          "y": 182,
+          "w": 32,
+          "h": 42,
+          "depth": 224,
+          "collision": {
+            "x": 0,
+            "y": 10,
+            "w": 32,
+            "h": 32
+          }
+        },
+        "chess-near-seat": {
+          "id": "chess-near-seat",
+          "kind": "pk-arcade",
+          "x": 928,
+          "y": 182,
+          "w": 32,
+          "h": 42,
+          "depth": 224,
+          "collision": {
+            "x": 0,
+            "y": 10,
+            "w": 32,
+            "h": 32
+          }
+        },
+        "arcade_xiangqi": {
+          "id": "arcade_xiangqi",
+          "kind": "pk-arcade",
+          "x": 830,
+          "y": 131,
+          "w": 100,
+          "h": 93,
+          "depth": 224,
+          "collision": {
+            "x": 2,
+            "y": 29,
+            "w": 96,
+            "h": 64
+          }
+        },
+        "arcade_snake": {
+          "id": "arcade_snake",
+          "kind": "pk-arcade",
+          "x": 704,
+          "y": 476,
+          "w": 224,
+          "h": 164,
+          "depth": 640,
+          "collision": {
+            "x": 0,
+            "y": 100,
+            "w": 224,
+            "h": 64
+          },
+          "screen": [
+            41.48148148148148,
+            39.705263157894734,
+            137.92592592592592,
+            52.48
+          ]
+        },
+        "arcade_tickets": {
+          "id": "arcade_tickets",
+          "kind": "pk-arcade",
+          "x": 96,
+          "y": 483,
+          "w": 160,
+          "h": 125,
+          "depth": 608,
+          "collision": {
+            "x": 0,
+            "y": 61,
+            "w": 160,
+            "h": 64
+          }
+        },
+        "arcade_vending": {
+          "id": "arcade_vending",
+          "kind": "pk-arcade",
+          "x": 320,
+          "y": 499,
+          "w": 64,
+          "h": 109,
+          "depth": 608,
+          "collision": {
+            "x": 0,
+            "y": 45,
+            "w": 64,
+            "h": 64
+          }
+        },
+        "arcade_bench": {
+          "id": "arcade_bench",
+          "kind": "pk-arcade",
+          "x": 448,
+          "y": 517,
+          "w": 128,
+          "h": 91,
+          "depth": 608,
+          "collision": {
+            "x": 0,
+            "y": 27,
+            "w": 128,
+            "h": 64
+          }
+        },
+        "station-plant-a": {
+          "id": "station-plant-a",
+          "kind": "decoration",
+          "x": 62,
+          "y": 367,
+          "w": 38,
+          "h": 49,
+          "depth": 416,
+          "collision": {
+            "x": 2,
+            "y": 17,
+            "w": 32,
+            "h": 32
+          }
+        },
+        "station-plant-b": {
+          "id": "station-plant-b",
+          "kind": "decoration",
+          "x": 542,
+          "y": 367,
+          "w": 38,
+          "h": 49,
+          "depth": 416,
+          "collision": {
+            "x": 2,
+            "y": 17,
+            "w": 32,
+            "h": 32
+          }
+        },
+        "station-plant-c": {
+          "id": "station-plant-c",
+          "kind": "decoration",
+          "x": 964.5,
+          "y": 642,
+          "w": 23,
+          "h": 30,
+          "depth": 672,
+          "collision": {
+            "x": -4.5,
+            "y": -2,
+            "w": 32,
+            "h": 32
+          }
+        },
+        "station-token-lamp": {
+          "id": "station-token-lamp",
+          "kind": "decoration",
+          "x": 62,
+          "y": 597,
+          "w": 67.5,
+          "h": 81,
+          "depth": 672,
+          "collision": {
+            "x": 2,
+            "y": 43,
+            "w": 64,
+            "h": 32
+          }
+        }
+      },
+      "enclosed": true
+    },
+    "world-onsen": {
+      "background": true,
+      "width": 960,
+      "height": 640,
+      "outdoor": false,
+      "exits": [
+        {
+          "id": "door",
+          "name": "回小卖部",
+          "point": {
+            "x": 480,
+            "y": 612
+          },
+          "to": {
+            "sceneId": "qianxia-shop",
+            "entry": "onsen"
+          }
+        }
+      ],
+      "zones": {
+        "onsen_door": {
+          "x": 480,
+          "y": 593.75
+        },
+        "onsen_lockers": {
+          "x": 156.25,
+          "y": 542.5
+        },
+        "onsen_rest_a": {
+          "x": 337.5,
+          "y": 570
+        },
+        "onsen_rest_b": {
+          "x": 621.875,
+          "y": 570
+        },
+        "onsen_stairs": {
+          "x": 425,
+          "y": 370
+        },
+        "onsen_soak_a": {
+          "x": 45,
+          "y": 181.25
+        },
+        "onsen_soak_b": {
+          "x": 45,
+          "y": 262.5
+        },
+        "onsen_shower_a": {
+          "x": 781.25,
+          "y": 93.75
+        },
+        "onsen_shower_b": {
+          "x": 781.25,
+          "y": 187.5
+        },
+        "onsen_shower_c": {
+          "x": 781.25,
+          "y": 284.375
+        }
+      },
+      "modules": {
+        "onsen-pool": {
+          "id": "onsen-pool",
+          "kind": "world-marker",
+          "x": 60,
+          "y": 76.25,
+          "w": 695,
+          "h": 268.75,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 695,
+            "h": 268.75
+          },
+          "depth": 345
+        },
+        "onsen-pool-front": {
+          "id": "onsen-pool-front",
+          "kind": "world-marker",
+          "x": 231.25,
+          "y": 345,
+          "w": 321.875,
+          "h": 16.25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 321.875,
+            "h": 16.25
+          },
+          "depth": 361.25
+        },
+        "onsen-pool-corner": {
+          "id": "onsen-pool-corner",
+          "kind": "world-marker",
+          "x": 60,
+          "y": 345,
+          "w": 171.25,
+          "h": 5,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 171.25,
+            "h": 5
+          },
+          "depth": 350
+        },
+        "onsen-pool-corner-2": {
+          "id": "onsen-pool-corner-2",
+          "kind": "world-marker",
+          "x": 553.125,
+          "y": 345,
+          "w": 201.875,
+          "h": 5,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 201.875,
+            "h": 5
+          },
+          "depth": 350
+        },
+        "onsen-north": {
+          "id": "onsen-north",
+          "kind": "world-marker",
+          "x": 17.5,
+          "y": 40,
+          "w": 785.625,
+          "h": 25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 785.625,
+            "h": 25
+          },
+          "depth": 65
+        },
+        "onsen-booth-wall": {
+          "id": "onsen-booth-wall",
+          "kind": "world-marker",
+          "x": 803.125,
+          "y": 40,
+          "w": 156.875,
+          "h": 316.25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 156.875,
+            "h": 316.25
+          },
+          "depth": 356.25
+        },
+        "onsen-wall-west": {
+          "id": "onsen-wall-west",
+          "kind": "world-marker",
+          "x": 0,
+          "y": 382.5,
+          "w": 321.875,
+          "h": 55,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 321.875,
+            "h": 55
+          },
+          "depth": 437.5
+        },
+        "onsen-wall-mid": {
+          "id": "onsen-wall-mid",
+          "kind": "world-marker",
+          "x": 390.625,
+          "y": 382.5,
+          "w": 162.5,
+          "h": 125,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 162.5,
+            "h": 125
+          },
+          "depth": 507.5
+        },
+        "onsen-wall-east": {
+          "id": "onsen-wall-east",
+          "kind": "world-marker",
+          "x": 634.375,
+          "y": 382.5,
+          "w": 325.625,
+          "h": 55,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 325.625,
+            "h": 55
+          },
+          "depth": 437.5
+        },
+        "onsen-plant-w": {
+          "id": "onsen-plant-w",
+          "kind": "world-marker",
+          "x": 25,
+          "y": 437.5,
+          "w": 57.5,
+          "h": 86.25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 57.5,
+            "h": 86.25
+          },
+          "depth": 523.75
+        },
+        "onsen-basket-w": {
+          "id": "onsen-basket-w",
+          "kind": "world-marker",
+          "x": 80,
+          "y": 437.5,
+          "w": 157.5,
+          "h": 91.25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 157.5,
+            "h": 91.25
+          },
+          "depth": 528.75
+        },
+        "onsen-flower-w": {
+          "id": "onsen-flower-w",
+          "kind": "world-marker",
+          "x": 255,
+          "y": 437.5,
+          "w": 57.5,
+          "h": 66.25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 57.5,
+            "h": 66.25
+          },
+          "depth": 503.75
+        },
+        "onsen-flower-e": {
+          "id": "onsen-flower-e",
+          "kind": "world-marker",
+          "x": 647.5,
+          "y": 437.5,
+          "w": 47.5,
+          "h": 66.25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 47.5,
+            "h": 66.25
+          },
+          "depth": 503.75
+        },
+        "onsen-basket-e": {
+          "id": "onsen-basket-e",
+          "kind": "world-marker",
+          "x": 725,
+          "y": 437.5,
+          "w": 157.5,
+          "h": 91.25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 157.5,
+            "h": 91.25
+          },
+          "depth": 528.75
+        },
+        "onsen-plant-e": {
+          "id": "onsen-plant-e",
+          "kind": "world-marker",
+          "x": 880,
+          "y": 437.5,
+          "w": 57.5,
+          "h": 86.25,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 57.5,
+            "h": 86.25
+          },
+          "depth": 523.75
+        },
+        "onsen-bench-w": {
+          "id": "onsen-bench-w",
+          "kind": "world-marker",
+          "x": 287.5,
+          "y": 522.5,
+          "w": 102.5,
+          "h": 37.5,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 102.5,
+            "h": 37.5
+          },
+          "depth": 560
+        },
+        "onsen-bench-e": {
+          "id": "onsen-bench-e",
+          "kind": "world-marker",
+          "x": 570,
+          "y": 522.5,
+          "w": 103.75,
+          "h": 37.5,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 103.75,
+            "h": 37.5
+          },
+          "depth": 560
+        },
+        "onsen-south-w": {
+          "id": "onsen-south-w",
+          "kind": "world-marker",
+          "x": 0,
+          "y": 580,
+          "w": 431.25,
+          "h": 60,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 431.25,
+            "h": 60
+          },
+          "depth": 640
+        },
+        "onsen-south-e": {
+          "id": "onsen-south-e",
+          "kind": "world-marker",
+          "x": 531.25,
+          "y": 580,
+          "w": 428.75,
+          "h": 60,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 428.75,
+            "h": 60
+          },
+          "depth": 640
+        },
+        "booth-a": {
+          "id": "booth-a",
+          "kind": "world-curtain",
+          "slot": "a",
+          "x": 836.25,
+          "y": 46.25,
+          "w": 92.5,
+          "h": 82.5,
+          "depth": 128.75
+        },
+        "booth-b": {
+          "id": "booth-b",
+          "kind": "world-curtain",
+          "slot": "b",
+          "x": 836.25,
+          "y": 145,
+          "w": 92.5,
+          "h": 82.5,
+          "depth": 227.5
+        },
+        "booth-c": {
+          "id": "booth-c",
+          "kind": "world-curtain",
+          "slot": "c",
+          "x": 836.25,
+          "y": 243.75,
+          "w": 92.5,
+          "h": 82.5,
+          "depth": 326.25
+        }
+      }
+    },
+    "world-restaurant": {
+      "background": true,
+      "width": 960,
+      "height": 640,
+      "outdoor": false,
+      "enclosed": true,
+      "exits": [
+        {
+          "id": "door",
+          "name": "返回公园",
+          "point": {
+            "x": 480,
+            "y": 620
+          },
+          "to": {
+            "sceneId": "qianxia-park",
+            "entry": "restaurant"
+          }
+        }
+      ],
+      "zones": {
+        "gate": {
+          "x": 480,
+          "y": 568
+        },
+        "hall": {
+          "x": 656,
+          "y": 552
+        },
+        "kitchen": {
+          "x": 240,
+          "y": 208
+        },
+        "pantry": {
+          "x": 688,
+          "y": 208
+        },
+        "wash": {
+          "x": 96,
+          "y": 208
+        },
+        "prep": {
+          "x": 160,
+          "y": 208
+        },
+        "cook_a": {
+          "x": 272,
+          "y": 208
+        },
+        "cook_b": {
+          "x": 368,
+          "y": 208
+        },
+        "oven": {
+          "x": 144,
+          "y": 240
+        },
+        "fryer": {
+          "x": 208,
+          "y": 240
+        },
+        "sushi": {
+          "x": 336,
+          "y": 240
+        },
+        "ingredients": {
+          "x": 544,
+          "y": 208
+        },
+        "order_a": {
+          "x": 784,
+          "y": 224
+        },
+        "order_b": {
+          "x": 848,
+          "y": 224
+        },
+        "pickup_a": {
+          "x": 624,
+          "y": 240
+        },
+        "pickup_b": {
+          "x": 624,
+          "y": 208
+        },
+        "return": {
+          "x": 144,
+          "y": 368
+        },
+        "water": {
+          "x": 784,
+          "y": 368
+        },
+        "seat-a1_use": {
+          "x": 144,
+          "y": 400
+        },
+        "seat-a2_use": {
+          "x": 272,
+          "y": 464
+        },
+        "seat-b1_use": {
+          "x": 144,
+          "y": 496
+        },
+        "seat-b2_use": {
+          "x": 272,
+          "y": 560
+        },
+        "seat-c1_use": {
+          "x": 432,
+          "y": 400
+        },
+        "seat-c2_use": {
+          "x": 432,
+          "y": 496
+        },
+        "seat-c3_use": {
+          "x": 400,
+          "y": 464
+        },
+        "seat-c4_use": {
+          "x": 560,
+          "y": 464
+        },
+        "seat-d1_use": {
+          "x": 752,
+          "y": 432
+        },
+        "seat-d2_use": {
+          "x": 752,
+          "y": 528
+        }
+      },
+      "modules": {
+        "sink": {
+          "id": "sink",
+          "kind": "restaurant-furniture",
+          "x": 64,
+          "y": 116,
+          "w": 64,
+          "h": 76,
+          "depth": 192,
+          "collision": {
+            "x": 0,
+            "y": 44,
+            "w": 64,
+            "h": 32
+          }
+        },
+        "prep": {
+          "id": "prep",
+          "kind": "restaurant-furniture",
+          "x": 128,
+          "y": 134,
+          "w": 64,
+          "h": 58,
+          "depth": 192,
+          "collision": {
+            "x": 0,
+            "y": 26,
+            "w": 64,
+            "h": 32
+          }
+        },
+        "stove-a": {
+          "id": "stove-a",
+          "kind": "restaurant-furniture",
+          "x": 248,
+          "y": 112,
+          "w": 80,
+          "h": 80,
+          "depth": 192,
+          "collision": {
+            "x": 8,
+            "y": 48,
+            "w": 64,
+            "h": 32
+          }
+        },
+        "stove-b": {
+          "id": "stove-b",
+          "kind": "restaurant-furniture",
+          "x": 344,
+          "y": 112,
+          "w": 80,
+          "h": 80,
+          "depth": 192,
+          "collision": {
+            "x": 8,
+            "y": 48,
+            "w": 64,
+            "h": 32
+          }
+        },
+        "oven": {
+          "id": "oven",
+          "kind": "restaurant-furniture",
+          "x": 64,
+          "y": 192,
+          "w": 64,
+          "h": 64,
+          "depth": 256,
+          "collision": {
+            "x": 0,
+            "y": 32,
+            "w": 64,
+            "h": 32
+          }
+        },
+        "fryer": {
+          "id": "fryer",
+          "kind": "restaurant-furniture",
+          "x": 156,
+          "y": 196,
+          "w": 40,
+          "h": 60,
+          "depth": 256,
+          "collision": {
+            "x": 4,
+            "y": 28,
+            "w": 32,
+            "h": 32
+          }
+        },
+        "sushi-prep": {
+          "id": "sushi-prep",
+          "kind": "restaurant-furniture",
+          "x": 352,
+          "y": 198,
+          "w": 64,
+          "h": 58,
+          "depth": 256,
+          "collision": {
+            "x": 0,
+            "y": 26,
+            "w": 64,
+            "h": 32
+          }
+        },
+        "fridge": {
+          "id": "fridge",
+          "kind": "restaurant-furniture",
+          "x": 514,
+          "y": 92,
+          "w": 60,
+          "h": 100,
+          "depth": 192,
+          "collision": {
+            "x": -2,
+            "y": 68,
+            "w": 64,
+            "h": 32
+          }
+        },
+        "crockery": {
+          "id": "crockery",
+          "kind": "restaurant-furniture",
+          "x": 608,
+          "y": 112,
+          "w": 64,
+          "h": 80,
+          "depth": 192,
+          "collision": {
+            "x": 0,
+            "y": 48,
+            "w": 64,
+            "h": 32
+          }
+        },
+        "order": {
+          "id": "order",
+          "kind": "restaurant-furniture",
+          "x": 736,
+          "y": 108,
+          "w": 160,
+          "h": 84,
+          "depth": 192,
+          "collision": {
+            "x": 0,
+            "y": 52,
+            "w": 160,
+            "h": 32
+          }
+        },
+        "pickup": {
+          "id": "pickup",
+          "kind": "restaurant-furniture",
+          "x": 512,
+          "y": 192,
+          "w": 96,
+          "h": 64,
+          "depth": 256,
+          "collision": {
+            "x": 0,
+            "y": 32,
+            "w": 96,
+            "h": 32
+          }
+        },
+        "return": {
+          "id": "return",
+          "kind": "restaurant-furniture",
+          "x": 64,
+          "y": 320,
+          "w": 64,
+          "h": 64,
+          "depth": 384,
+          "collision": {
+            "x": 0,
+            "y": 32,
+            "w": 64,
+            "h": 32
+          }
+        },
+        "water": {
+          "id": "water",
+          "kind": "restaurant-furniture",
+          "x": 800,
+          "y": 320,
+          "w": 96,
+          "h": 64,
+          "depth": 384,
+          "collision": {
+            "x": 0,
+            "y": 32,
+            "w": 96,
+            "h": 32
+          }
+        },
+        "menu": {
+          "id": "menu",
+          "kind": "restaurant-furniture",
+          "x": 733,
+          "y": 320,
+          "w": 38,
+          "h": 64,
+          "depth": 384,
+          "collision": {
+            "x": 3,
+            "y": 32,
+            "w": 32,
+            "h": 32
+          }
+        },
+        "table-a": {
+          "id": "table-a",
+          "kind": "restaurant-furniture",
+          "x": 128,
+          "y": 392,
+          "w": 128,
+          "h": 88,
+          "depth": 480,
+          "collision": {
+            "x": 0,
+            "y": 24,
+            "w": 128,
+            "h": 64
+          }
+        },
+        "table-b": {
+          "id": "table-b",
+          "kind": "restaurant-furniture",
+          "x": 128,
+          "y": 472,
+          "w": 128,
+          "h": 72,
+          "depth": 544,
+          "collision": {
+            "x": 0,
+            "y": 40,
+            "w": 128,
+            "h": 32
+          }
+        },
+        "table-c": {
+          "id": "table-c",
+          "kind": "restaurant-furniture",
+          "x": 416,
+          "y": 392,
+          "w": 128,
+          "h": 88,
+          "depth": 480,
+          "collision": {
+            "x": 0,
+            "y": 24,
+            "w": 128,
+            "h": 64
+          }
+        },
+        "table-d": {
+          "id": "table-d",
+          "kind": "restaurant-furniture",
+          "x": 736,
+          "y": 424,
+          "w": 128,
+          "h": 88,
+          "depth": 512,
+          "collision": {
+            "x": 0,
+            "y": 24,
+            "w": 128,
+            "h": 64
+          }
+        },
+        "seat-a1": {
+          "id": "seat-a1",
+          "kind": "restaurant-furniture",
+          "x": 156,
+          "y": 352,
+          "w": 40,
+          "h": 64,
+          "depth": 395,
+          "collision": {
+            "x": 4,
+            "y": 32,
+            "w": 32,
+            "h": 32
+          },
+          "sitting": {
+            "slots": {
+              "only": {
+                "zone": "seat-a1_use",
+                "facing": "south",
+                "anchor": [
+                  20,
+                  44
+                ],
+                "sort_at_anchor": true,
+                "effects": [
+                  "sit",
+                  "restaurant_eat"
+                ],
+                "actions": [
+                  "restaurant_eat"
+                ]
+              }
+            }
+          }
+        },
+        "seat-a2": {
+          "id": "seat-a2",
+          "kind": "restaurant-furniture",
+          "x": 252,
+          "y": 384,
+          "w": 40,
+          "h": 64,
+          "depth": 427,
+          "collision": {
+            "x": 4,
+            "y": 32,
+            "w": 32,
+            "h": 32
+          },
+          "sitting": {
+            "slots": {
+              "only": {
+                "zone": "seat-a2_use",
+                "facing": "west",
+                "anchor": [
+                  20,
+                  44
+                ],
+                "sort_at_anchor": true,
+                "effects": [
+                  "sit",
+                  "restaurant_eat"
+                ],
+                "actions": [
+                  "restaurant_eat"
+                ]
+              }
+            }
+          }
+        },
+        "seat-b1": {
+          "id": "seat-b1",
+          "kind": "restaurant-furniture",
+          "x": 156,
+          "y": 448,
+          "w": 40,
+          "h": 64,
+          "depth": 491,
+          "collision": {
+            "x": 4,
+            "y": 32,
+            "w": 32,
+            "h": 32
+          },
+          "sitting": {
+            "slots": {
+              "only": {
+                "zone": "seat-b1_use",
+                "facing": "south",
+                "anchor": [
+                  20,
+                  44
+                ],
+                "sort_at_anchor": true,
+                "effects": [
+                  "sit",
+                  "restaurant_eat"
+                ],
+                "actions": [
+                  "restaurant_eat"
+                ]
+              }
+            }
+          }
+        },
+        "seat-b2": {
+          "id": "seat-b2",
+          "kind": "restaurant-furniture",
+          "x": 252,
+          "y": 480,
+          "w": 40,
+          "h": 64,
+          "depth": 523,
+          "collision": {
+            "x": 4,
+            "y": 32,
+            "w": 32,
+            "h": 32
+          },
+          "sitting": {
+            "slots": {
+              "only": {
+                "zone": "seat-b2_use",
+                "facing": "west",
+                "anchor": [
+                  20,
+                  44
+                ],
+                "sort_at_anchor": true,
+                "effects": [
+                  "sit",
+                  "restaurant_eat"
+                ],
+                "actions": [
+                  "restaurant_eat"
+                ]
+              }
+            }
+          }
+        },
+        "seat-c1": {
+          "id": "seat-c1",
+          "kind": "restaurant-furniture",
+          "x": 444,
+          "y": 352,
+          "w": 40,
+          "h": 64,
+          "depth": 395,
+          "collision": {
+            "x": 4,
+            "y": 32,
+            "w": 32,
+            "h": 32
+          },
+          "sitting": {
+            "slots": {
+              "only": {
+                "zone": "seat-c1_use",
+                "facing": "south",
+                "anchor": [
+                  20,
+                  44
+                ],
+                "sort_at_anchor": true,
+                "effects": [
+                  "sit",
+                  "restaurant_eat"
+                ],
+                "actions": [
+                  "restaurant_eat"
+                ]
+              }
+            }
+          }
+        },
+        "seat-c2": {
+          "id": "seat-c2",
+          "kind": "restaurant-furniture",
+          "x": 444,
+          "y": 448,
+          "w": 40,
+          "h": 64,
+          "depth": 491,
+          "collision": {
+            "x": 4,
+            "y": 32,
+            "w": 32,
+            "h": 32
+          },
+          "sitting": {
+            "slots": {
+              "only": {
+                "zone": "seat-c2_use",
+                "facing": "north",
+                "anchor": [
+                  20,
+                  44
+                ],
+                "sort_at_anchor": true,
+                "effects": [
+                  "sit",
+                  "restaurant_eat"
+                ],
+                "actions": [
+                  "restaurant_eat"
+                ]
+              }
+            }
+          }
+        },
+        "seat-c3": {
+          "id": "seat-c3",
+          "kind": "restaurant-furniture",
+          "x": 380,
+          "y": 384,
+          "w": 40,
+          "h": 64,
+          "depth": 427,
+          "collision": {
+            "x": 4,
+            "y": 32,
+            "w": 32,
+            "h": 32
+          },
+          "sitting": {
+            "slots": {
+              "only": {
+                "zone": "seat-c3_use",
+                "facing": "east",
+                "anchor": [
+                  20,
+                  44
+                ],
+                "sort_at_anchor": true,
+                "effects": [
+                  "sit",
+                  "restaurant_eat"
+                ],
+                "actions": [
+                  "restaurant_eat"
+                ]
+              }
+            }
+          }
+        },
+        "seat-c4": {
+          "id": "seat-c4",
+          "kind": "restaurant-furniture",
+          "x": 540,
+          "y": 384,
+          "w": 40,
+          "h": 64,
+          "depth": 427,
+          "collision": {
+            "x": 4,
+            "y": 32,
+            "w": 32,
+            "h": 32
+          },
+          "sitting": {
+            "slots": {
+              "only": {
+                "zone": "seat-c4_use",
+                "facing": "west",
+                "anchor": [
+                  20,
+                  44
+                ],
+                "sort_at_anchor": true,
+                "effects": [
+                  "sit",
+                  "restaurant_eat"
+                ],
+                "actions": [
+                  "restaurant_eat"
+                ]
+              }
+            }
+          }
+        },
+        "seat-d1": {
+          "id": "seat-d1",
+          "kind": "restaurant-furniture",
+          "x": 764,
+          "y": 384,
+          "w": 40,
+          "h": 64,
+          "depth": 427,
+          "collision": {
+            "x": 4,
+            "y": 32,
+            "w": 32,
+            "h": 32
+          },
+          "sitting": {
+            "slots": {
+              "only": {
+                "zone": "seat-d1_use",
+                "facing": "south",
+                "anchor": [
+                  20,
+                  44
+                ],
+                "sort_at_anchor": true,
+                "effects": [
+                  "sit",
+                  "restaurant_eat"
+                ],
+                "actions": [
+                  "restaurant_eat"
+                ]
+              }
+            }
+          }
+        },
+        "seat-d2": {
+          "id": "seat-d2",
+          "kind": "restaurant-furniture",
+          "x": 764,
+          "y": 480,
+          "w": 40,
+          "h": 64,
+          "depth": 523,
+          "collision": {
+            "x": 4,
+            "y": 32,
+            "w": 32,
+            "h": 32
+          },
+          "sitting": {
+            "slots": {
+              "only": {
+                "zone": "seat-d2_use",
+                "facing": "north",
+                "anchor": [
+                  20,
+                  44
+                ],
+                "sort_at_anchor": true,
+                "effects": [
+                  "sit",
+                  "restaurant_eat"
+                ],
+                "actions": [
+                  "restaurant_eat"
+                ]
+              }
+            }
+          }
+        },
+        "rice-cooker": {
+          "id": "rice-cooker",
+          "kind": "restaurant-furniture",
+          "x": 160,
+          "y": 128,
+          "w": 32,
+          "h": 32,
+          "depth": 160
+        },
+        "seasoning": {
+          "id": "seasoning",
+          "kind": "restaurant-furniture",
+          "x": 192,
+          "y": 128,
+          "w": 32,
+          "h": 32,
+          "depth": 160
+        },
+        "hood-a": {
+          "id": "hood-a",
+          "kind": "restaurant-furniture",
+          "x": 256,
+          "y": 96,
+          "w": 64,
+          "h": 32,
+          "depth": 128
+        },
+        "hood-b": {
+          "id": "hood-b",
+          "kind": "restaurant-furniture",
+          "x": 352,
+          "y": 96,
+          "w": 64,
+          "h": 32,
+          "depth": 128
+        }
+      }
+    }
+  },
+  "water": {
+    "x": 437.5,
+    "y": 200,
+    "rx": 206.25,
+    "ry": 71.875
+  },
+  "soak": {
+    "onsen_soak_a": {
+      "x": 111.25,
+      "y": 186.25
+    },
+    "onsen_soak_b": {
+      "x": 111.25,
+      "y": 266.25
+    }
+  },
+  "modules": {
+    "swing-frame": {
+      "file": "modules/swing-frame.png",
+      "nativeSize": [
+        334,
+        286
+      ],
+      "worldSize": [
+        160,
+        137
+      ],
+      "anchors": {
+        "topLeft": [
+          54,
+          18
+        ],
+        "topRight": [
+          106,
+          18
+        ]
+      },
+      "states": [
+        "empty",
+        "occupied"
+      ]
+    },
+    "seesaw-base": {
+      "file": "modules/seesaw-base.png",
+      "nativeSize": [
+        179,
+        141
+      ],
+      "worldSize": [
+        54,
+        43
+      ]
+    },
+    "swing-seat": {
+      "file": "modules/swing-seat.png",
+      "nativeSize": [
+        166,
+        67
+      ],
+      "worldSize": [
+        58,
+        23
+      ],
+      "anchors": {
+        "seat": [
+          29,
+          4
+        ]
+      }
+    },
+    "seesaw-plank": {
+      "file": "modules/seesaw-plank.png",
+      "nativeSize": [
+        384,
+        103
+      ],
+      "worldSize": [
+        180,
+        48
+      ],
+      "anchors": {
+        "pivot": [
+          90,
+          20
+        ],
+        "seatLeft": [
+          25,
+          8
+        ],
+        "seatRight": [
+          155,
+          8
+        ]
+      },
+      "seats": [
+        {
+          "id": "left",
+          "facing": "right",
+          "pose": "actions-row-1-flipped",
+          "localPivotOffset": [
+            -65,
+            -12
+          ]
+        },
+        {
+          "id": "right",
+          "facing": "left",
+          "pose": "actions-row-1",
+          "localPivotOffset": [
+            65,
+            -12
+          ]
+        }
+      ],
+      "occupancy": "Two independent slots; each accepts either character; shared board transform."
+    }
+  },
+  "mechanism": {
+    "file": "park-mechanisms.png",
+    "width": 1774,
+    "height": 887,
+    "columns": 4,
+    "rows": 2,
+    "cellRects": [
+      [
+        0,
+        0,
+        444,
+        444
+      ],
+      [
+        444,
+        0,
+        443,
+        444
+      ],
+      [
+        887,
+        0,
+        444,
+        444
+      ],
+      [
+        1331,
+        0,
+        443,
+        444
+      ],
+      [
+        0,
+        444,
+        444,
+        443
+      ],
+      [
+        444,
+        444,
+        443,
+        443
+      ],
+      [
+        887,
+        444,
+        444,
+        443
+      ],
+      [
+        1331,
+        444,
+        443,
+        443
+      ]
+    ]
+  },
+  "bounds": [
+    {
+      "x": 48,
+      "y": 56,
+      "w": 348,
+      "h": 323
+    },
+    {
+      "x": 87,
+      "y": 42,
+      "w": 308,
+      "h": 357
+    }
+  ],
+  "curtains": {
+    "file": "onsen/shower-curtains.png",
+    "w": 146,
+    "h": 200
+  },
+  "objectModules": {
+    "whale_bed": [
+      "xj-bed"
+    ],
+    "xj_computer": [
+      "xj-desk"
+    ],
+    "fish_tank": [
+      "xj-tank"
+    ],
+    "beanbag": [
+      "xj-sofa"
+    ],
+    "xj_corner": [
+      "xj-sofa"
+    ],
+    "round_window": [
+      "xj-window"
+    ],
+    "wave_rug": [],
+    "xj_plant": [
+      "xj-plant-west"
+    ],
+    "xj_lamp": [],
+    "xj_bookshelf": [
+      "xj-bookshelf"
+    ],
+    "xj_rabbit": [
+      "xj-rabbit"
+    ],
+    "xj_album": [
+      "xj-album"
+    ],
+    "xj_easel": [
+      "xj-easel"
+    ],
+    "xj_notes": [
+      "xj-desk-book"
+    ],
+    "xj_accessories": [
+      "xj-accessory_table"
+    ],
+    "xj_phone": [
+      "xj-phone"
+    ],
+    "xj_headphones": [
+      "xj-headphones"
+    ],
+    "big_tree": [
+      "big-tree"
+    ],
+    "bench": [
+      "bench"
+    ],
+    "swing": [
+      "swing"
+    ],
+    "slide": [
+      "slide"
+    ],
+    "carousel": [
+      "carousel"
+    ],
+    "flower_bed": [
+      "flowers"
+    ],
+    "meadow": [],
+    "pier": [
+      "pier"
+    ],
+    "river": [
+      "river-east"
+    ],
+    "bridge": [
+      "bridge"
+    ],
+    "park_lamps": [],
+    "seesaw": [
+      "seesaw"
+    ],
+    "rider": [
+      "rider"
+    ],
+    "snack_shelf": [
+      "snack-shelf"
+    ],
+    "drink_fridge": [
+      "drink-fridge"
+    ],
+    "freezer": [
+      "freezer"
+    ],
+    "daily_shelf": [
+      "daily-shelf"
+    ],
+    "counter": [
+      "counter"
+    ],
+    "shop_window": [
+      "shop-window"
+    ],
+    "food_shelf": [
+      "food-shelf"
+    ],
+    "bread_shelf": [
+      "bread-shelf"
+    ],
+    "produce_shelf": [
+      "produce"
+    ],
+    "magazine_shelf": [
+      "magazines"
+    ],
+    "hot_cabinet": [
+      "hot-cabinet"
+    ],
+    "long_bench": [
+      "long-bench"
+    ],
+    "onsen_pool": [
+      "onsen-pool"
+    ],
+    "onsen_soak": [],
+    "onsen_shower": [],
+    "onsen_bench": [],
+    "onsen_locker": [],
+    "arcade_snake": [
+      "arcade_snake"
+    ],
+    "arcade_blocks": [
+      "arcade_blocks"
+    ],
+    "arcade_mines": [
+      "arcade_mines"
+    ],
+    "arcade_xiangqi": [
+      "arcade_xiangqi"
+    ],
+    "home_chess_xjhome": []
+  }
+}

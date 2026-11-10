@@ -1,0 +1,297 @@
+{
+  "scene": "xiaojingyu-home",
+  "scale": 2,
+  "ground": {
+    "file": "../seaside/ground-dynamic.png",
+    "x": 0,
+    "y": 0,
+    "w": 960,
+    "h": 640
+  },
+  "layers": [
+    {
+      "id": "xj-bed",
+      "file": "../seaside/xj-bed.png",
+      "x": 109,
+      "y": 78,
+      "w": 76,
+      "h": 110,
+      "depth": 182
+    },
+    {
+      "id": "quilt",
+      "file": "../seaside/quilt.png",
+      "x": 114,
+      "y": 135,
+      "w": 66,
+      "h": 48,
+      "depth": 183,
+      "hide_on_sleep": true
+    },
+    {
+      "id": "xj-bookshelf",
+      "file": "../seaside/xj-bookshelf.png",
+      "x": 464,
+      "y": 48,
+      "w": 87,
+      "h": 78,
+      "depth": 120
+    },
+    {
+      "id": "xj-writing_desk",
+      "file": "../seaside/xj-writing_desk.png",
+      "x": 580,
+      "y": 160,
+      "w": 88,
+      "h": 58,
+      "depth": 204
+    },
+    {
+      "id": "xj-desk",
+      "file": "../seaside/xj-desk.png",
+      "x": 110,
+      "y": 335,
+      "w": 61,
+      "h": 111,
+      "depth": 427
+    },
+    {
+      "id": "xj-computer-chair",
+      "file": "../seaside/xj-computer-chair.png",
+      "x": 137,
+      "y": 344,
+      "w": 110,
+      "h": 88.5,
+      "depth": 401
+    },
+    {
+      "id": "xj-desk-chair",
+      "file": "../seaside/xj-desk-chair.png",
+      "x": 607,
+      "y": 141,
+      "w": 32,
+      "h": 43,
+      "depth": 171
+    },
+    {
+      "id": "xj-easel",
+      "file": "../seaside/xj-easel.png",
+      "x": 744,
+      "y": 70,
+      "w": 52,
+      "h": 84,
+      "depth": 152
+    },
+    {
+      "id": "xj-easel-seat",
+      "file": "../seaside/xj-easel-seat.png",
+      "x": 744,
+      "y": 158,
+      "w": 33,
+      "h": 32,
+      "depth": 178
+    },
+    {
+      "id": "xj-tank",
+      "file": "../seaside/xj-tank.png",
+      "x": 722,
+      "y": 282,
+      "w": 100,
+      "h": 89,
+      "depth": 366
+    },
+    {
+      "id": "xj-sofa",
+      "file": "../seaside/xj-sofa.png",
+      "x": 733,
+      "y": 387,
+      "w": 102,
+      "h": 81,
+      "depth": 458
+    },
+    {
+      "id": "xj-album-cabinet",
+      "file": "../seaside/xj-album-cabinet.png",
+      "x": 379,
+      "y": 289,
+      "w": 96,
+      "h": 65,
+      "depth": 348
+    },
+    {
+      "id": "xj-album-seat",
+      "file": "../seaside/xj-album-seat.png",
+      "x": 398,
+      "y": 357,
+      "w": 30,
+      "h": 22,
+      "depth": 368
+    },
+    {
+      "id": "xj-accessory_table",
+      "file": "../seaside/xj-accessory_table.png",
+      "x": 614,
+      "y": 376,
+      "w": 58,
+      "h": 48,
+      "depth": 406
+    },
+    {
+      "id": "xj-lamp-floor",
+      "file": "../seaside/xj-lamp-floor.png",
+      "x": 197,
+      "y": 77,
+      "w": 23,
+      "h": 45,
+      "depth": 120
+    },
+    {
+      "id": "xj-lamp-shelf",
+      "file": "../seaside/xj-lamp-shelf.png",
+      "x": 522,
+      "y": 29,
+      "w": 25,
+      "h": 26,
+      "depth": 121
+    },
+    {
+      "id": "xj-album",
+      "file": "../seaside/xj-album.png",
+      "x": 401,
+      "y": 279,
+      "w": 50,
+      "h": 32,
+      "depth": 350
+    },
+    {
+      "id": "xj-desk-book",
+      "file": "../seaside/xj-desk-book.png",
+      "x": 607,
+      "y": 158,
+      "w": 40,
+      "h": 24,
+      "depth": 205
+    },
+    {
+      "id": "xj-phone",
+      "file": "../seaside/xj-phone.png",
+      "x": 622,
+      "y": 365,
+      "w": 11,
+      "h": 19,
+      "depth": 407,
+      "item": "phone",
+      "away": "hand"
+    },
+    {
+      "id": "xj-plant-west",
+      "file": "../seaside/xj-plant-west.png",
+      "x": 695,
+      "y": 437,
+      "w": 33,
+      "h": 42,
+      "depth": 477
+    },
+    {
+      "id": "xj-rabbit",
+      "file": "../seaside/xj-rabbit.png",
+      "x": 492,
+      "y": 28,
+      "w": 19,
+      "h": 24,
+      "depth": 121
+    },
+    {
+      "id": "xj-main-light",
+      "file": "../seaside/xj-main-light.png",
+      "x": 532,
+      "y": 270,
+      "w": 23,
+      "h": 29,
+      "depth": 299
+    },
+    {
+      "id": "xj-window",
+      "file": "../seaside/xj-window.png",
+      "x": 590,
+      "y": 28,
+      "w": 82,
+      "h": 60,
+      "depth": 86
+    },
+    {
+      "id": "xj-ocean-rug",
+      "file": "../seaside/xj-ocean-rug.png",
+      "x": 279,
+      "y": 419,
+      "w": 191,
+      "h": 102,
+      "depth": 1
+    },
+    {
+      "id": "chess-seat-left",
+      "file": "../seaside/chess-seat-left.png",
+      "x": 306,
+      "y": 450,
+      "w": 32,
+      "h": 25,
+      "depth": 2
+    },
+    {
+      "id": "chess-seat-right",
+      "file": "../seaside/chess-seat-right.png",
+      "x": 408,
+      "y": 450,
+      "w": 32,
+      "h": 25,
+      "depth": 2
+    },
+    {
+      "id": "xj-plant-shelf",
+      "file": "../seaside/xj-plant-shelf.png",
+      "x": 464,
+      "y": 26,
+      "w": 23,
+      "h": 28,
+      "depth": 121
+    },
+    {
+      "id": "xj-plant-desk",
+      "file": "../seaside/xj-plant-desk.png",
+      "x": 579,
+      "y": 142,
+      "w": 21,
+      "h": 28,
+      "depth": 205
+    },
+    {
+      "id": "xj-plant-east",
+      "file": "../seaside/xj-plant-east.png",
+      "x": 322,
+      "y": 175,
+      "w": 36,
+      "h": 45,
+      "depth": 218
+    },
+    {
+      "id": "speaker-left",
+      "file": "",
+      "x": 115,
+      "y": 323,
+      "w": 14,
+      "h": 22,
+      "depth": 345,
+      "procedural": "speaker"
+    },
+    {
+      "id": "speaker-right",
+      "file": "",
+      "x": 146,
+      "y": 423,
+      "w": 14,
+      "h": 22,
+      "depth": 445,
+      "procedural": "speaker"
+    }
+  ]
+}

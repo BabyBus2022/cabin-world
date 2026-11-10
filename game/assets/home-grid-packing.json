@@ -1,0 +1,10 @@
+{
+  "cell": 32,
+  "origin": [
+    28,
+    21
+  ],
+  "previous_full_cells": 190,
+  "full_cells": 224,
+  "method": "maximum full-cell coverage, one uniform origin, no cell resizing"
+}

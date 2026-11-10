@@ -1,0 +1,408 @@
+{
+  "format": "cabinworld-seating/1",
+  "scenes": {
+    "qianxia-park": {
+      "bench": {
+        "module": "bench",
+        "anchor_ratio": [
+          0.5,
+          0.69
+        ],
+        "facing": "south",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ]
+      }
+    },
+    "qianxia-shop": {
+      "bench_a": {
+        "module": "long-bench",
+        "anchor_ratio": [
+          0.5,
+          0.192
+        ],
+        "facing": "west",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ]
+      },
+      "bench_b": {
+        "module": "long-bench",
+        "anchor_ratio": [
+          0.5,
+          0.544
+        ],
+        "facing": "west",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ]
+      },
+      "bench_c": {
+        "module": "long-bench",
+        "anchor_ratio": [
+          0.5,
+          0.896
+        ],
+        "facing": "west",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ]
+      }
+    },
+    "world-arcade": {
+      "arcade_bench": {
+        "module": "arcade_bench",
+        "anchor_ratio": [
+          0.5,
+          0.63
+        ],
+        "facing": "south",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ]
+      },
+      "arcade_xiangqi_far": {
+        "module": "chess-far-seat",
+        "anchor_ratio": [
+          0.5,
+          0.22
+        ],
+        "facing": "east",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ]
+      },
+      "arcade_xiangqi_near": {
+        "module": "chess-near-seat",
+        "anchor_ratio": [
+          0.5,
+          0.22
+        ],
+        "facing": "west",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ]
+      },
+      "arcade_xiangqi": {
+        "module": "chess-far-seat",
+        "anchor_ratio": [
+          0.5,
+          0.22
+        ],
+        "facing": "east",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ]
+      }
+    },
+    "xiaojingyu-home": {
+      "xj_desk": {
+        "module": "xj-computer-chair",
+        "anchor_ratio": [
+          0.46,
+          0.64
+        ],
+        "facing": "west",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ]
+      },
+      "xj_notes": {
+        "module": "xj-desk-chair",
+        "anchor_ratio": [
+          0.5,
+          0.66
+        ],
+        "facing": "south",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ]
+      },
+      "xj_draw": {
+        "module": "xj-easel-seat",
+        "anchor_ratio": [
+          0.5,
+          0.32
+        ],
+        "facing": "north",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ]
+      },
+      "xj_album": {
+        "module": "xj-album-seat",
+        "anchor_ratio": [
+          0.5,
+          0.4
+        ],
+        "facing": "north",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ]
+      },
+      "xj_sofa": {
+        "module": "xj-sofa",
+        "anchor_ratio": [
+          0.5,
+          0.69
+        ],
+        "facing": "south",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ]
+      },
+      "chess_xj_a": {
+        "module": "chess-seat-left",
+        "anchor_ratio": [
+          0.5,
+          0.45
+        ],
+        "facing": "east",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ],
+        "sort_at_anchor": true
+      },
+      "chess_xj_b": {
+        "module": "chess-seat-right",
+        "anchor_ratio": [
+          0.5,
+          0.45
+        ],
+        "facing": "west",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ],
+        "sort_at_anchor": true
+      }
+    },
+    "world-onsen": {
+      "onsen_rest_a": {
+        "module": "onsen-bench-w",
+        "anchor_ratio": [
+          0.5,
+          0.35
+        ],
+        "facing": "south",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ]
+      },
+      "onsen_rest_b": {
+        "module": "onsen-bench-e",
+        "anchor_ratio": [
+          0.5,
+          0.35
+        ],
+        "facing": "south",
+        "effects": [
+          "sit",
+          "bench",
+          "typing",
+          "chess",
+          "read",
+          "write",
+          "draw"
+        ],
+        "actions": [
+          "read",
+          "write",
+          "working",
+          "draw"
+        ]
+      }
+    }
+  }
+}

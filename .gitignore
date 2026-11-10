@@ -1,0 +1,9 @@
+# 运行时数据：存档、连接信息、token —— 永远不要提交
+/data/*
+!/data/.gitkeep
+/runtime/
+/build/
+/CabinWorld.exe
+game/.godot/
+*.log
+bridge/bridge.config.local.json

@@ -1,0 +1,8 @@
+{
+  "bridge_json": {
+    "description": "小屋世界 data\\bridge.json 的完整路径",
+    "type": "string",
+    "hint": "例如 D:\\CabinWorld\\data\\bridge.json。小屋世界桥每次启动会重写它（地址 + 随机 token）。",
+    "default": "D:\\CabinWorld\\data\\bridge.json"
+  }
+}

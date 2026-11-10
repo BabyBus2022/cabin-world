@@ -1,0 +1,87 @@
+{
+  "format": "cabinworld-avatar-action/1",
+  "action": "sit_idle",
+  "frame_count": 1,
+  "directions": [
+    "south",
+    "west",
+    "east",
+    "north"
+  ],
+  "direction_vectors": {
+    "south": [
+      0,
+      1
+    ],
+    "west": [
+      -1,
+      0
+    ],
+    "east": [
+      1,
+      0
+    ],
+    "north": [
+      0,
+      -1
+    ]
+  },
+  "anchor_kind": "pelvis_contact",
+  "coordinates": "region-local pixels, +x right, +y down",
+  "avatars": {
+    "xiaojingyu": {
+      "sheet": "avatars/xiaojingyu-sit-idle.png",
+      "pixel_scale": 0.125,
+      "frames": {
+        "south": {
+          "rect": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "seat_anchor": [
+            328,
+            463
+          ]
+        },
+        "north": {
+          "rect": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "seat_anchor": [
+            289,
+            479
+          ]
+        },
+        "west": {
+          "rect": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "seat_anchor": [
+            335,
+            474
+          ]
+        },
+        "east": {
+          "rect": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "seat_anchor": [
+            280,
+            474
+          ]
+        }
+      }
+    }
+  }
+}
