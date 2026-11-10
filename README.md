@@ -10,13 +10,7 @@
 |---|---|
 | ![小鲸鱼家](docs/images/xjhome.png) | ![小卖部](docs/images/shop.png) |
 
-## 三步装好
 
-1. **下载**：从 Releases 下载 `CabinWorld-win64.zip`，解压到一个**可写**的文件夹（例如 `D:\CabinWorld`，不要放在 `C:\Program Files`）。
-2. **装 Node.js 18 或更新版本**：<https://nodejs.org>（选 LTS，一路下一步）。已经装过就跳过。
-3. **双击 `start.cmd`**：会先启动“小屋世界桥”，再打开游戏窗口。看到“准备好了”就成功了。
-
-想确认一切正常：双击 `selfcheck.cmd`。它会用**临时空存档**真实跑一遍（走路→荡秋千→买饮料→喝掉→回家喂鱼→叫停），不碰你的正式存档。
 
 ## 接到你的机器人
 
