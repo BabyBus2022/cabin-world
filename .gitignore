@@ -1,9 +1,16 @@
-# 运行时数据：存档、连接信息、token —— 永远不要提交
+# Runtime data and local configuration must not be committed.
 /data/*
 !/data/.gitkeep
 /runtime/
 /build/
+/backups/
 /CabinWorld.exe
+/CabinWorld.pck
+/*.zip
 game/.godot/
+game/.DS_Store
 *.log
 bridge/bridge.config.local.json
+node_modules/
+.env
+.env.*

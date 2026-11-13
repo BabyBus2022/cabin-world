@@ -24,11 +24,14 @@ static func claim(owner: String, object: String, seconds: float) -> Dictionary:
 	var now: float = SharedFeed.now_ms()
 	# A refusal changes nothing: what she already holds stays hers.
 	var kept := {}
+	var owned_slot = null
 	for k in table:
 		if float(table[k].get("until", 0)) > now and table[k].get("owner") != owner:
 			kept[k] = table[k]
+		elif float(table[k].get("until", 0)) > now and table[k].get("owner") == owner and str(k).begins_with(object + ":"):
+			owned_slot = str(k).trim_prefix(object + ":")
 	var chosen = null
-	for s in SLOTS.get(object, ["only"]):
+	for s in ([owned_slot] if owned_slot != null else SLOTS.get(object, ["only"])):
 		if not kept.has(object + ":" + s):
 			chosen = s
 			break

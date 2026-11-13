@@ -9,8 +9,15 @@ enum State { IDLE, WALK, RUN, ASLEEP, DOING }
 const WALK_CYCLE := [1, 2, 3, 2]
 const RUN_FROM := 230.0
 const Crowd = preload("res://core/crowd.gd")
+const Motion = preload("res://entities/body_language.gd")
+var _language=Motion.new()
+var _language_view:Dictionary={}
 var replan_in := 0.0
 var blocked_for := 0.0
+var _crowd_contact_for:=0.0
+var _yielding_for:WeakRef
+var _yielding_spot:=Vector2.ZERO
+var _yield_retry:=0.0
 const ORDER_LOCK := 3.0
 ## With no save, how long to wait for a last known place before standing at her starting spot.
 const START_WAIT := 2.0
@@ -49,6 +56,8 @@ var place := ""
 var label := ""
 var action_phase := ""
 var action_label := ""
+var thinking_until:float=0
+var thinking_since:float=0
 var action_pose := -1
 var effect := {}
 var restaurant_owner := ""
@@ -99,10 +108,11 @@ var _actions_tex: Texture2D
 
 func setup(p_key: String, p_name: String, p_art: String) -> void:
 	key = p_key
+	_language.initialize(key)
 	Economy.gift_changed.connect(func(record):
 		if key in [record.from, record.to]: gift_event(record))
 	add_to_group("world_residents" if resident_actor else "world_npcs")
-	display_name = p_name
+	display_name = load("res://core/resident_personal.gd").label(key,p_name)
 	art = p_art
 	_home = Residents.person(key).get("home", {})
 	_pieces = Residents.person(key).get("pieces", {})
@@ -231,6 +241,7 @@ func _fishing_seat() -> Vector2:
 ##   id, actor (both required), scene (required), zone (optional), next (optional: walk to the door towards this room)
 ## Answers walk.arrived: id, scene, x, y, plus replaced when a newer order took over.
 func walk_order(frame: Dictionary) -> void:
+	_yielding_for=null # a new explicit body order always supersedes courtesy movement
 	if frame.get("type","")=="walk.cancel":
 		if str(frame.get("id",""))==order_id:
 			order_id="";route.clear();state=State.IDLE;want_scene=scene_id;want_zone="";next_scene="";target=feet;_remember();report_position()
@@ -257,6 +268,9 @@ static func nz(v, d):
 ##   travel: next, or route with to -> next_scene
 ##   action -> what she does at her spot    items (Xiaojingyu) or view { items, computer, bed } (Qianxia) -> body
 func apply_presence(p: Dictionary) -> void:
+	var names=load("res://core/resident_personal.gd")
+	var incoming=p.get("name",display_name)
+	if names.valid_name(incoming):display_name=names.label(key,incoming.strip_edges())
 	action = str(p.get("action", ""))
 	var seen = p.get("view")
 	body = seen if seen is Dictionary else {}
@@ -275,6 +289,9 @@ func apply_presence(p: Dictionary) -> void:
 		want_zone = str(p.get("zone", ""))
 	place = str(p.get("place", ""))
 	label = str(p.get("label", "")) if p.get("label") != null else ""
+	var thought=p.get("thinking")
+	thinking_until=float(thought.get("expires",0)) if thought is Dictionary else 0.0
+	thinking_since=float(thought.get("since",0)) if thought is Dictionary else 0.0
 	sleeping = p.get("sleeping") == true
 	robe = p.get("outfit") == "yukata"
 	if ordered:
@@ -307,7 +324,11 @@ func tick(delta: float) -> void:
 	if scene_id != previous_scene and scene_id == want_scene:
 		_choose_destination()
 	_move(delta)
-	if order_id != "" and scene_id == want_scene and not is_walking() and feet.distance_to(target)<=Crowd.GAP+1:
+	var reached:bool=feet.distance_to(target)<=Crowd.GAP+1
+	if next_scene!="" and scene_id==want_scene:
+		var onward=WorldData.exit_to(scene_id,next_scene)
+		reached=onward!=null and _at_door(onward)
+	if order_id != "" and scene_id == want_scene and not is_walking() and reached:
 		VadsLink.send({"type": "walk.arrived", "id": order_id, "actor":key, "scene": scene_id, "zone":want_zone, "x": feet.x, "y": feet.y})
 		order_id = ""
 		_order_lock = ORDER_LOCK
@@ -332,7 +353,13 @@ func tick(delta: float) -> void:
 	stage = _stage_now() if not is_walking() and scene_id == want_scene and scene_id != "" else {}
 	if not is_walking():
 		_display = stage.get("feet",feet) if stage.get("snap",false) else _display.move_toward(stage.get("feet", feet), SEAT_SPEED * clampf(delta, 0.0, 0.05))
-	position = Vector2(_display.x, float(stage.get("sort", _display.y)))
+	position = Vector2(_display.x, _sort_depth())
+
+
+## A resident standing beside the bed is in front of its near edge even when
+## the bed's authored depth line is a few pixels below the exit anchor.
+func _sort_depth() -> float:
+	return load("res://entities/bed_depth.gd").sort(_display, stage, WorldData.scenes.get(scene_id, {}).get("modules", {}))
 
 
 func is_walking() -> bool:
@@ -341,7 +368,11 @@ func is_walking() -> bool:
 
 func _process(delta: float) -> void:
 	_time += delta
+	## character-motion switched off (core/features.gd): no idle actions, transitions or mood posture, as in 1.0.
+	if Features.on("character-motion"):_language_tick(delta)
+	else:_language_view={}
 	_update_sprite()
+	_language_transform()
 	var restaurant_scale:float=WorldData.scenes.get(scene_id,{}).get("actorScale",1.0)
 	if restaurant_scale!=1.0:
 		var shift:=Vector2(0,_display.y-position.y)
@@ -411,6 +442,7 @@ func _bed_rect() -> Rect2:
 	return Rect2()
 
 func _stage_bed() -> Dictionary:
+	if not _home.has("bed"):return {}
 	var bed: Dictionary = _home["bed"]
 	if bed["mode"] == "staged":
 		var state_of = body.get("bed")
@@ -497,7 +529,21 @@ func _place_first() -> void:
 	report_position()
 
 
+## The arrival point is slightly inside the threshold. A resident standing on
+## that entry must not make the required door reach smaller than body clearance.
+func _at_door(door:Dictionary)->bool:
+	var threshold:=WorldData.point(door)
+	var entry:Dictionary=WorldData.scenes[scene_id].entries.get(door.get("id",""),{})
+	var inset:float=minf(32.0,WorldData.point(entry).distance_to(threshold)) if not entry.is_empty() else 0.0
+	return feet.distance_to(threshold)<=Crowd.GAP+Crowd.SPOT_MARGIN+inset+0.1 and WorldData.nav(scene_id).clear_line(feet,threshold)
+
 func _choose_destination() -> void:
+	if _yielding_for!=null:
+		var walker=_yielding_for.get_ref()
+		if walker!=null and walker.scene_id==scene_id and walker.is_walking() and order_id=="" and not sleeping and not has_pose() and _effect_active()=="":
+			go(_yielding_spot)
+			return
+		_yielding_for=null
 	if not WorldData.scenes.has(want_scene):
 		return
 	if scene_id != want_scene:
@@ -510,7 +556,7 @@ func _choose_destination() -> void:
 		var threshold := WorldData.point(door)
 		# A doorway has room to pass within one body clearance. Requiring both
 		# feet to touch its centre makes each person's clearance block the other.
-		if feet.distance_to(threshold) <= Crowd.GAP and WorldData.nav(scene_id).clear_line(feet, threshold):
+		if _at_door(door):
 			_enter(path[1], door["entry"])
 			return
 		go(threshold)
@@ -523,7 +569,7 @@ func _choose_destination() -> void:
 			var threshold := WorldData.point(door)
 			# Staging is arrival in the doorway, not ownership of its exact centre.
 			# The host then issues the crossing order. Use the same body clearance.
-			if feet.distance_to(threshold) <= Crowd.GAP and WorldData.nav(scene_id).clear_line(feet,threshold):
+			if _at_door(door):
 				target=threshold
 				route.clear()
 				state = State.IDLE
@@ -586,6 +632,7 @@ func go(to: Vector2) -> void:
 
 
 func _move(delta: float) -> void:
+	_yield_retry=maxf(0.0,_yield_retry-delta)
 	if not is_walking():
 		velocity = 0.0
 		return
@@ -595,13 +642,16 @@ func _move(delta: float) -> void:
 		velocity = 0.0
 		return
 	var s: Dictionary = WorldData.scenes[scene_id]
-	var want: float = s["run"] if state == State.RUN else s["speed"]
+	var want: float = (s["run"] if state == State.RUN else s["speed"])*Motion.speed(mood_icon,mood_word)
 	delta = clampf(delta, 0.0, 0.05)
 	velocity = minf(want, velocity + want * delta * 4.0) if velocity < want else maxf(want, velocity - float(s["run"]) * delta * 3.0)
 	var nearby := _nearby()
 	var people := nearby.map(func(c): return c.feet)
+	# Door approaches, crowded queues and occupied destinations need the full
+	# route planner. Local steering is for two pedestrians in open travel.
+	var local_travel:bool=next_scene=="" and nearby.size()<2 and feet.distance_to(target)>85
 	replan_in = maxf(0.0, replan_in-delta)
-	if replan_in<=0 and nearby.any(func(c): return (key>c.key or not c.is_walking()) and feet.distance_to(c.feet)<85):
+	if (not local_travel or maxf(blocked_for,_crowd_contact_for)>=.35) and replan_in<=0 and nearby.any(func(c): return (key>c.key or not c.is_walking()) and feet.distance_to(c.feet)<85):
 		var crowd_nav := Crowd.navigation(s,people,feet) # one grid for both the standing spot and the detour
 		var alternative = Crowd.standing(crowd_nav,target,people,feet)
 		if alternative!=null:
@@ -610,6 +660,7 @@ func _move(delta: float) -> void:
 				target=alternative
 				route=detour
 		replan_in=.6
+		_crowd_contact_for=0
 	var original := route.duplicate() if not people.is_empty() else []
 	var budget := velocity * delta
 	var before := feet
@@ -628,10 +679,29 @@ func _move(delta: float) -> void:
 		# spot) any step is allowed, so they can separate instead of freezing and giving up the walk after 2.5 s.
 		if before.distance_to(p)<Crowd.GAP*0.5: continue
 		if feet.distance_to(p)<Crowd.GAP and feet.distance_to(p)<=before.distance_to(p):
+			_crowd_contact_for+=delta
 			feet=before
 			route.assign(original)
+			# The lower key keeps its lane; the other resident takes a short,
+			# collision-checked sidestep before an expensive route calculation.
+			var yield_to_peer:bool=nearby.any(func(c):return key>c.key or not c.is_walking())
+			if local_travel and yield_to_peer and not route.is_empty():
+				var aside=Crowd.local_step(WorldData.nav(scene_id),before,route[0],velocity*delta,people,1)
+				if aside is Vector2:
+					feet=aside
+					break
 			velocity=0
 			blocked_for+=delta
+			if blocked_for>=.6 and _yield_retry<=0:
+				_yield_retry=2.0
+				for peer in nearby:
+					if peer.feet.distance_to(feet)>Crowd.GAP+4 or not peer.resident_actor or peer.is_walking() or peer.order_id!="" or peer.sleeping or peer.has_pose() or peer._effect_active()!="" or peer.restaurant_owner!="" or peer._yielding_for!=null:continue
+					if peer._body_says("bed.occupied") or peer._body_says("computer.chairOccupied"):continue
+					var others:Array=people.filter(func(point):return point!=peer.feet)
+					var wait_spot=Crowd.yield_spot(s,peer.feet,feet,target,others)
+					if wait_spot is Vector2:
+						peer._yielding_for=weakref(self);peer._yielding_spot=wait_spot;peer.go(wait_spot)
+						break
 			if blocked_for>2.5:
 				blocked_for=0
 				if order_id=="" and want_scene==scene_id and next_scene=="": route.clear()
@@ -646,10 +716,12 @@ func _move(delta: float) -> void:
 	var moved := feet - before
 	if absf(moved.x) + absf(moved.y) > 0.001:
 		row = (3 if moved.y < 0 else 0) if absf(moved.y) > absf(moved.x) else (1 if moved.x < 0 else 2)
+		_language.moving(moved,_time)
 	_display = feet
 	if route.is_empty():
 		state = State.IDLE
 		velocity = 0.0
+		_crowd_contact_for=0
 
 
 func _enter(to: String, entry: String) -> void:
@@ -726,7 +798,21 @@ func _update_sprite() -> void:
 	if not _sprite.visible:
 		return
 	_gift_draw = false
+	if not is_walking() and _effect_active()=="custom_furniture":
+		var maker=load("res://core/furniture_maker.gd")
+		var module:String=effect.get("module","")
+		var p:Dictionary=maker.pose(scene_id,module,key,str(effect.get("use","")))
+		if not p.is_empty():
+			var tex:Texture2D=maker.texture(p.file)
+			if tex!=null:
+				var m:Dictionary=WorldData.scenes[scene_id].modules[module]
+				var origin:=Vector2(m.x+float(m.collision.x),m.y+float(m.collision.y))
+				var at:=origin+Vector2(p.feet[0],p.feet[1])-feet+shift
+				var frame:=int(_effect_seconds()*float(p.fps))%int(p.frames)
+				_body_sprite(tex,Rect2(frame*float(p.cell[0]),0,p.cell[0],p.cell[1]),Vector2(p.anchor[0],p.anchor[1]),float(p.scale),at,0)
+				return
 	if _show_gift(shift): return
+	if _show_motion_transition(shift):return
 	if state == State.DOING and has_pose() and stage.is_empty(): # the action can end between the tick and this draw
 		_show_pose()
 		_sprite.position += shift
@@ -775,9 +861,10 @@ func _update_sprite() -> void:
 		_show_standing(shift)
 		return
 	var walking := is_walking()
+	if walking and not robe and _show_motion_walk(shift):return
 	var frame := 0
 	if walking:
-		var step := int(floor(_time * 7.0)) % 4
+		var step := int(floor(_time * (5.5 if Motion.mood(mood_icon,mood_word)=="tired" else 7.0))) % 4
 		frame = step if robe else WALK_CYCLE[step]
 	var index := (row if walking else 0) * 4 + frame
 	var source: Dictionary = _robe if robe else _walk
@@ -802,7 +889,7 @@ func _show_carried_meal(facing:String,shift:Vector2):
 	var found:Array=menu.dishes.filter(func(d):return d.id==restaurant_effect.get("dish",""))
 	if found.is_empty():return
 	var r:Array=found[0].region
-	_meal_sprite.texture=rig.texture(menu.sheet);_meal_sprite.region_enabled=true;_meal_sprite.region_rect=Rect2(r[0],r[1],r[2],r[3])
+	_meal_sprite.texture=rig.texture(found[0].get("sheet",menu.sheet));_meal_sprite.region_enabled=true;_meal_sprite.region_rect=Rect2(r[0],r[1],r[2],r[3])
 	_meal_sprite.scale=Vector2(18/r[2],10/r[3]);_meal_sprite.position=shift+Vector2(-17 if facing=="west" else 17 if facing=="east" else 0,-23)
 	_meal_sprite.z_index=1;_meal_sprite.visible=true
 
@@ -820,6 +907,7 @@ func _show_sleep_pose() -> void:
 	_front_piece(Vector2.ZERO)
 
 func _show_shared_sit(shift:Vector2) -> void:
+	if _show_motion_seated_chat(shift):return
 	var sample:Dictionary=stage.sit_idle
 	var presentation=load("res://entities/sit_presentation.gd")
 	_upper.z_index=0;_front.z_index=0
@@ -860,6 +948,7 @@ func _show_stage_pose(shift: Vector2) -> void:
 
 ## Rows of the actions sheet, used for sitting and painting in her own home.
 func _show_stage_row(shift: Vector2) -> void:
+	if stage.get("seat",false) and _show_motion_seated_chat(shift):return
 	var row_of: int = stage["row"]
 	var index := row_of * 4 + (0 if stage.get("still",false) else int(floorf(_time * 3.0)) % 4)
 	var r: Array = _actions["rects"][index]
@@ -871,7 +960,11 @@ func _show_stage_row(shift: Vector2) -> void:
 
 ## Standing on the walk sheet: facing the way the stage says, and breathing.
 func _show_standing(shift: Vector2) -> void:
-	var facing: int = stage.get("dir", 0)
+	var facing: int = _language_view.get("facing",stage.get("dir", 0))
+	if _language_view.get("safe",false) and _language.idle_kind=="idle_look":
+		var phase:int=clampi(int((_time-_language.idle_at)/Motion.duration("idle_look")*4),0,3)
+		facing=[1,facing,2,facing][phase]
+	if _show_motion_standing(shift,facing):return
 	if stage.get("spin") == true:
 		facing = [0, 2, 3, 1][int(floorf(_time * 4.0)) % 4]
 	var index := facing * 4 + (int(floorf(_time*3))%4 if stage.get("animated",false) else 0)
@@ -1039,6 +1132,13 @@ func _draw_overlay() -> void:
 
 	if not placed:
 		return
+	if is_thinking() and not sleeping:
+		var origin:=Vector2(_visual_head.get_center().x+10,_visual_head.position.y-13)
+		_overlay.draw_rect(Rect2(origin-Vector2(2,2),Vector2(25,12)),Color("5b493d"))
+		_overlay.draw_rect(Rect2(origin-Vector2(1,1),Vector2(23,10)),Color("fff0cf"))
+		_overlay.draw_rect(Rect2(origin+Vector2(1,10),Vector2(3,3)),Color("fff0cf"))
+		for dot in 3:
+			_overlay.draw_rect(Rect2(origin+Vector2(3+dot*6,3),Vector2(3,3)),Color("436b9a") if int(_time*2)%3==dot else Color("b8b2a5"))
 	if not is_walking():
 		AmbientArt.paint(_overlay,AmbientArt.food(effect,SharedFeed.now_ms()))
 		_draw_transfer()
@@ -1057,6 +1157,7 @@ func _draw_overlay() -> void:
 		var rain := float(SharedFeed.weather.get("rain",0)) if SharedFeed.weather is Dictionary else 0.0
 		load("res://entities/play_extras.gd").draw(_overlay,effect,_effect_seconds(),_visual_head,Vector2.ZERO,modules,_time,scene_id=="qianxia-park" and rain>0 and Economy.people.get(key,{}).get("bag",{}).get("umbrella",0)>0)
 		if action=="chat": AmbientArt.paint(_overlay,ActorEffects.chat(_visual_head,_time))
+		_draw_body_language()
 		var kind := _effect_active()
 		if kind!="":
 			var sec := _effect_seconds()
@@ -1143,3 +1244,132 @@ func _white_body() -> StyleBoxFlat:
 	return body_style
 
 
+
+## Animation state is separate from physical position and task completion.
+func _language_tick(delta:float)->void:
+	_language_view={}
+	if not resident_actor or not placed or art=="":return
+	var seated:bool=stage.get("seat",false) or stage.has("sit_idle")
+	var posture:String="lying" if sleeping or state==State.ASLEEP or stage.get("asleep",false) else "seated" if seated else "pick" if _items().get("transfer") is Dictionary else "walking" if is_walking() else "standing"
+	var busy:bool=action=="chat" or state==State.DOING or restaurant_owner!="" or _effect_active()!="" or not gift_visual.is_empty() or robe
+	var kind:String=Motion.mood(mood_icon,mood_word)
+	_language.tick(delta,_time,posture,busy,kind,_items().get("phone","")=="hand")
+	var safe:bool=posture=="standing" and not busy and not stage.has("pose") and not stage.has("row") and not stage.has("clip") and not stage.get("snap",false)
+	_language_view={"safe":safe,"mood":kind,"posture":posture}
+	if posture!="standing" or robe or state==State.DOING or restaurant_owner!="" or not gift_visual.is_empty():return
+	Motion.note_history(VadsLink.arcade_view.get("history",[]),SharedFeed.now_ms())
+	var nearest:Character=null
+	var distance:float=float(Motion.config().chatDistance)
+	for candidate in neighbours:
+		if candidate==self or not candidate.placed or candidate.scene_id!=scene_id or candidate.is_walking() or candidate.sleeping or candidate.state!=State.IDLE or candidate.stage.get("seat",false) or candidate.stage.has("sit_idle") or candidate.robe:continue
+		var gap:float=feet.distance_to(candidate.feet)
+		if gap<distance:nearest=candidate;distance=gap
+	if nearest==null:return
+	var celebrate:float=Motion.celebration(key,nearest.key,distance,SharedFeed.now_ms(),safe and nearest.restaurant_owner=="" and nearest._effect_active()=="" and nearest.gift_visual.is_empty())
+	if action=="chat" or celebrate>=0:
+		_language_view.facing=1 if nearest.feet.x<feet.x else 2
+		_language_view.peer_offset=nearest.feet-feet
+		_language_view.chat=action=="chat"
+		_language_view.celebrate=celebrate
+
+func _motion_pose(sample:Dictionary,shift:Vector2)->bool:
+	if sample.is_empty():return false
+	_body_sprite(sample.texture,sample.region,sample.anchor,sample.scale,shift,0)
+	_accessories(shift,Rect2(-17,-60,34,29),"phone" if sample.get("id")=="idle_phone" else "")
+	return true
+
+func _show_motion_transition(shift:Vector2)->bool:
+	if robe or restaurant_owner!="" or not resident_actor or _language.transition_at<0:return false
+	var elapsed:float=_time-_language.transition_at
+	if elapsed>=Motion.duration(_language.transition):return false
+	var direction:int=(0 if row==1 else 1) if _language.transition in ["lie_down","get_up"] else row
+	var sample:Dictionary=Motion.sample(art,_language.transition,direction,elapsed,float(_walk.scale))
+	if sample.is_empty():return false
+	if stage.get("seat",false):sample.anchor.y=235
+	if _motion_pose(sample,shift):
+		_front_piece(shift)
+		return true
+	return false
+
+func _show_motion_seated_chat(shift:Vector2)->bool:
+	if action!="chat" or robe or restaurant_owner!="":return false
+	var peer:Character=null;var distance:float=80
+	for candidate in neighbours:
+		if candidate==self or not candidate.placed or candidate.scene_id!=scene_id or candidate.is_walking() or candidate.sleeping:continue
+		if not candidate.stage.get("seat",false) or absf(candidate.feet.y-feet.y)>20:continue
+		var gap:float=candidate.feet.distance_to(feet)
+		if gap<distance:peer=candidate;distance=gap
+	if peer==null:return false
+	var sample:Dictionary=Motion.sample(art,"sit_chat",0 if peer.feet.x<feet.x else 1,_time,float(_walk.scale))
+	if sample.is_empty():return false
+	sample.anchor.y=235
+	if _motion_pose(sample,shift):
+		_front_piece(shift)
+		return true
+	return false
+
+func _show_motion_walk(shift:Vector2)->bool:
+	var kind:String=Motion.mood(mood_icon,mood_word)
+	if kind=="tired" and _motion_pose(Motion.sample(art,"walk_tired",row,_time,float(_walk.scale)),shift):return true
+	if _motion_pose(Motion.sample(art,"walk8",_language.direction8,_time,float(_walk.scale)),shift):return true
+	var turn:float=_time-_language.turn_at
+	if _language.turn_at>=0 and turn<float(Motion.config().turnSeconds):
+		var diagonal:int=[0,0,3,1][row]
+		if _motion_pose(Motion.sample(art,"turn",diagonal,turn,float(_walk.scale)),shift):return true
+		var between:int=Motion.cardinal_between(_language.previous_facing,row)
+		if between!=row:
+			var index:int=between*4
+			var r:Array=_walk.rects[index]
+			_body_sprite(_walk_tex,Rect2(r[0],r[1],r[2],r[3]),_point(_walk.anchors[index]),float(_walk.scale),shift,0)
+			return true
+	return false
+
+func _show_motion_standing(shift:Vector2,facing:int)->bool:
+	if stage.has("clip") or stage.get("snap",false) or stage.get("spin",false):return false
+	if is_thinking() and _language_view.get("safe",false) and not robe and body.get("items",{}).get("phone","")!="hand":
+		if _motion_pose(Motion.sample(art,"thinking",facing,_time,float(_walk.scale)),shift):return true
+	var id:String="";var elapsed:float=0;var direction:int=facing
+	if float(_language_view.get("celebrate",-1))>=0:
+		id="high_five";elapsed=float(_language_view.celebrate);direction=0 if facing==1 else 1
+	elif _language_view.get("chat",false):
+		id="chat";elapsed=_time;direction=0 if facing==1 else 1
+	elif _language_view.get("safe",false):
+		if _language.idle_kind!="":id=_language.idle_kind;elapsed=_time-_language.idle_at
+		elif _language_view.get("mood","")!="":
+			id="mood_"+str(_language_view.mood)
+			elapsed=fmod(_time,8.0)
+			if elapsed>=Motion.duration(id):elapsed=0
+	if id!="" and _motion_pose(Motion.sample(art,id,direction,elapsed,float(_walk.scale)),shift):return true
+	return false
+
+func is_thinking()->bool:
+	return VadsLink.connected and thinking_until>SharedFeed.now_ms()
+
+func _language_transform()->void:
+	if not resident_actor or not placed or not _sprite.visible:return
+	var safe:bool=_language_view.get("safe",false)
+	var bob:float=0;var stretch:float=1
+	var transition:float=(_time-_language.transition_at)/float(Motion.config().transitionSeconds)
+	# Existing seated/bed silhouettes retain their calibrated anchors and occlusion.
+	if _language.transition_at>=0 and transition>=0 and transition<1 and restaurant_owner=="" and not _gift_draw:
+		stretch=1.0-sin(transition*PI)*.025
+	if safe and not is_thinking():
+		if _language_view.get("mood","") in ["sad","tired"]:stretch*=.97
+		if _language.idle_kind=="idle_stretch":
+			var phase:float=(_time-_language.idle_at)/Motion.duration("idle_stretch")
+			stretch*=1.0+sin(clampf(phase,0,1)*PI)*.025
+	var celebration:float=_language_view.get("celebrate",-1)
+	if celebration>=0 and celebration<.5:bob=-sin(celebration/.5*PI)*2
+	for part in [_sprite,_upper,_phone,_phones]:
+		if part.visible:part.scale.y*=stretch;part.position.y+=bob
+	_visual_head.position.y+=bob
+
+func _draw_body_language()->void:
+	if _language_view.get("safe",false) and _language.idle_kind=="idle_yawn" and _mood_tex!=null:
+		var tile:Vector2=_mood_tex.get_size()/4.0
+		_overlay.draw_texture_rect_region(_mood_tex,Rect2(-8,-78,16,16),Rect2(Vector2(1,2)*tile,tile))
+	var celebration:float=_language_view.get("celebrate",-1)
+	if celebration>=.25 and celebration<.55 and _language_view.has("peer_offset"):
+		var middle:Vector2=Vector2(_language_view.peer_offset)*.5+Vector2(0,-37)
+		_overlay.draw_line(middle-Vector2(3,0),middle+Vector2(3,0),Color("ffe9a0"),2)
+		_overlay.draw_line(middle-Vector2(0,3),middle+Vector2(0,3),Color("ffe9a0"),2)

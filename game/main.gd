@@ -12,7 +12,7 @@ var follow := 0
 var view_scene := "qianxia-home"
 
 var _hud: Hud
-var _settings: WorldSettings
+var _settings: Control ## WorldSettings, or the 1.0 panel when the settings-ui module is off (core/features.gd)
 var _display: FixedWindow
 var _landscape: Landscape
 var _petals: CPUParticles2D
@@ -26,6 +26,8 @@ var _room_camera:Node
 var _restaurant:Node
 var _home_editor:Control
 var _home_editor_notice:AcceptDialog
+var _map_editor:Control ## separate map editor, opened from Settings (see ui/map_editor.gd)
+var _map_notice:AcceptDialog
 
 var _test_seconds := -1.0
 var _trace_file: FileAccess
@@ -41,6 +43,16 @@ func _ready() -> void:
 	if "--home-editor" in OS.get_cmdline_user_args():
 		get_tree().call_deferred("change_scene_to_file", "res://ui/home_editor.tscn")
 		return
+	if "--map-cli" in OS.get_cmdline_user_args(): ## AI / script map commands, no window needed (core/map_commands.gd, docs/MAP-AI-COMMANDS.md)
+		get_tree().quit(load("res://core/map_commands.gd").cli(OS.get_cmdline_user_args()))
+		return
+	if "--map-editor" in OS.get_cmdline_user_args(): ## standalone map editor (also used by tests)
+		get_tree().call_deferred("change_scene_to_file", "res://ui/map_editor.tscn")
+		return
+	load("res://core/resident_registry.gd").restore()
+	WorldData.resident_registered.connect(_resident_registered)
+	WorldData.resident_removed.connect(_resident_removed)
+	WorldData.resident_named.connect(func(_key):_hud.queue_redraw();_layout())
 	_display = FixedWindow.new()
 	add_child(_display)
 	get_window().title = "小屋世界"
@@ -86,11 +98,13 @@ func _ready() -> void:
 	if WorldData.scenes.has("world-restaurant"):
 		_restaurant=load("res://entities/restaurant_service.gd").new()
 		add_child(_restaurant);_restaurant.setup(self)
-	_settings = WorldSettings.new()
+	_settings = WorldSettings.new() if Features.on("settings-ui") else load("res://ui/classic/settings_panel_1_0.gd").new()
 	_settings.display = _display
-	add_child(_settings)
+	var settings_layer:=CanvasLayer.new();settings_layer.name="SettingsLayer";settings_layer.layer=20;add_child(settings_layer)
+	settings_layer.add_child(_settings)
 	_hud.settings_picked.connect(_settings.open)
 	_settings.furniture_requested.connect(_open_home_editor)
+	if _settings.has_signal("map_requested"):_settings.connect("map_requested",_open_map_editor)
 	_settings.refresh_requested.connect(func():SharedFeed.poll();_dock.refresh())
 	_settings.observe_requested.connect(func():observing=not observing;_layout())
 	SharedFeed.presence_changed.connect(_on_presence)
@@ -114,7 +128,7 @@ func _open_home_editor() -> void:
 	if is_instance_valid(_home_editor):
 		_home_editor.request_exit()
 		return
-	if view_scene not in ["xiaojingyu-home","world-arcade","world-restaurant","qianxia-park","qianxia-shop"]:
+	if view_scene not in ["xiaojingyu-home","world-arcade","world-restaurant","qianxia-park","qianxia-shop"] and not HomeGrid.definitions.has(view_scene):
 		_home_editor_message("请先切换到公园、小卖部、小鲸鱼家、电玩城或餐厅，再按 F6 布置家具。")
 		return
 	_settings.close()
@@ -133,6 +147,25 @@ func _roomkit_dir() -> String:
 	for base in [ProjectSettings.globalize_path("res://").path_join("../roomkit"),OS.get_executable_path().get_base_dir().path_join("roomkit"),OS.get_executable_path().get_base_dir().get_base_dir().path_join("roomkit"),OS.get_executable_path().get_base_dir().get_base_dir().get_base_dir().path_join("roomkit")]:
 		if DirAccess.dir_exists_absolute(str(base).path_join("rooms")):return str(base).simplify_path()
 	return ""
+
+func _open_map_editor() -> void:
+	if is_instance_valid(_map_editor):
+		_map_editor.request_exit()
+		return
+	## The new map editor (phase 3, docs/MAP-EDITOR-DESIGN.md) needs no roomkit folder: it saves maps in its own folder.
+	_settings.close()
+	_map_editor=load("res://ui/map_editor.tscn").instantiate()
+	_map_editor.embedded=true;_map_editor.scene_hint=view_scene
+	_map_editor.exit_requested.connect(_close_map_editor)
+	_view.hide()
+	add_child(_map_editor)
+
+func _close_map_editor() -> void:
+	if not is_instance_valid(_map_editor):return
+	_map_editor.hide();_map_editor.set_process_input(false);_map_editor.queue_free()
+	_map_editor=null
+	_view.show()
+	_layout()
 
 func _close_home_editor() -> void:
 	if not is_instance_valid(_home_editor):return
@@ -251,6 +284,33 @@ func _build_petals() -> void:
 	add_child(p)
 	_petals = p
 
+
+func _resident_registered(key:String)->void:
+	var person:=Residents.person(key)
+	var id:String=person.home.scene
+	if rooms.has(id):
+		rooms[id].queue_free()
+	var room:=Room.new();room.setup(id);_stage.add_child(room);rooms[id]=room
+	if not characters.any(func(c):return c.key==key):
+		var c:=_make_character(key,person.name,person.art)
+		c.wake()
+	else:
+		for c in characters:
+			if c.key==key:c._home=person.home
+	for c in characters:c.neighbours=characters
+	_hud.characters=characters;_hud.queue_redraw()
+	if view_scene==id:_show_room(id)
+	_layout()
+
+func _resident_removed(key:String,scene:String)->void:
+	if is_instance_valid(_home_editor):_close_home_editor()
+	follow=-1
+	if view_scene==scene:_show_room("qianxia-park")
+	for c in characters.duplicate():
+		if c.key==key:characters.erase(c);c.queue_free()
+	for c in characters:c.neighbours=characters
+	if rooms.has(scene):rooms[scene].queue_free();rooms.erase(scene)
+	_hud.characters=characters;_hud.queue_redraw();_layout()
 
 func _make_character(key: String, display_name: String, art: String) -> Character:
 	var c := Character.new()
@@ -431,6 +491,9 @@ func _layout() -> void:
 ## start-up and keep a reference so Room's own load() finds it cached. Purely a cache: nothing is shown or changed.
 var _warm_paths: Array = []
 var _warm_held: Array = []
+var _room_warm_complete:bool=false
+var _keepsake_poll:float=0.0
+var _keepsake_sent:Dictionary={}
 func _warm_room_art() -> void:
 	var seen := {}
 	for id in WorldData.layers:
@@ -445,6 +508,8 @@ func _warm_room_art() -> void:
 			if seen.has(p) or not ResourceLoader.exists(p): continue
 			seen[p] = true
 			if ResourceLoader.load_threaded_request(p) == OK: _warm_paths.append(p)
+	await load("res://entities/scene_warmup.gd").run(self)
+	_room_warm_complete=true
 
 func _collect_warm_art() -> void:
 	for i in range(_warm_paths.size() - 1, -1, -1):
@@ -453,7 +518,26 @@ func _collect_warm_art() -> void:
 		if status == ResourceLoader.THREAD_LOAD_LOADED: _warm_held.append(ResourceLoader.load_threaded_get(_warm_paths[i]))
 		_warm_paths.remove_at(i)
 
+func _discover_keepsakes()->void:
+	if not VadsLink.connected:_keepsake_sent.clear()
+	for c in get_tree().get_nodes_in_group("world_residents"):
+		if not c.placed or c.is_walking() or c.sleeping:continue
+		var notes:Array=Economy.people.get(c.key,{}).get("keepsakes",{}).get("notes",[])
+		if notes.any(func(n):return n.get("status")=="placed" and n.get("scene")==c.scene_id):
+			Economy.answer({"id":"discovery-"+c.key+"-"+str(Time.get_ticks_usec()),"actor":c.key,"op":"keepsake","use":"discover","scene":c.scene_id})
+		if not VadsLink.connected:continue
+		# Replay durable discovery receipts after reconnect. The shared journal
+		# deduplicates these IDs, even if a previous connection lost its reply.
+		for note in notes:
+			if not note.has("foundAt") or _keepsake_sent.has(note.id):continue
+			VadsLink.send({"type":"economy.activity","actor":c.key,"id":"found-"+str(note.id),"at":note.foundAt,"action":"discover","name":"发现主人留下的心意","detail":note.text,"space":note.scene,"status":"complete"})
+			_keepsake_sent[note.id]=true
+
 func _process(delta: float) -> void:
+	_keepsake_poll+=delta
+	if _keepsake_poll>=1:
+		_keepsake_poll=0
+		pass # Retired keepsake discovery; preserve historical save records.
 	if not _warm_paths.is_empty(): _collect_warm_art()
 	if _arcade != null and _arcade_show != ArcadePanel.available(view_scene): _layout()
 	if _test_seconds < 0.0:

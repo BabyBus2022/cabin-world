@@ -1,0 +1,8 @@
+{
+  "gate":"餐厅门口","hall":"餐厅前厅","kitchen":"后厨","pantry":"备餐区","wash":"洗手池旁","prep":"备菜台旁",
+  "cook_a":"一号灶台旁","cook_b":"二号灶台旁","oven":"烤箱旁","fryer":"炸锅旁","sushi":"寿司台旁","ingredients":"食材柜旁",
+  "order_a":"点餐台左侧","order_b":"点餐台右侧","pickup_a":"取餐台外侧","pickup_b":"取餐台里侧","return":"餐具回收台旁","water":"饮水台旁",
+  "seat-a1_use":"A桌一号座位","seat-a2_use":"A桌二号座位","seat-b1_use":"B桌一号座位","seat-b2_use":"B桌二号座位",
+  "seat-c1_use":"C桌一号座位","seat-c2_use":"C桌二号座位","seat-c3_use":"C桌三号座位","seat-c4_use":"C桌四号座位",
+  "seat-d1_use":"D桌一号座位","seat-d2_use":"D桌二号座位"
+}

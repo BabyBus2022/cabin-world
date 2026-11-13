@@ -1,5 +1,6 @@
 class_name HomeGrid
 extends RefCounted
+const Grid=preload("res://core/world_grid.gd")
 ## Layout is data: each independent item stores a grid cell; groups only store member IDs.
 ## The same resolved manifest, collision and interaction points drive the editor and game.
 static var definition: Dictionary = {}
@@ -10,12 +11,24 @@ static var selected_scene:="xiaojingyu-home"
 static var definitions:Dictionary={}
 static var instance_key := ""
 static var packing: Dictionary = {}
+static var facing_release:Dictionary={}
+static func release_issue(item:Dictionary)->String:
+	if facing_release.is_empty():facing_release=JSON.parse_string(FileAccess.get_file_as_string("res://assets/furniture-release-policy.json"))
+	var a:=asset_for(item)
+	if str(a.get("id","")) in facing_release.get("deferred",[]):return "这件家具的四向图仍在复核，暂时保留原图"
+	if not item.has("asset") and item.id in facing_release.get("boundDeferred",[]):return "这件家具的互动贴合仍在复核，暂时保留原图"
+	return ""
 static func grid_file(scene:String) -> String:
+	if scene.begins_with("resident-"):return scene
 	return "park" if scene=="qianxia-park" else "shop" if scene=="qianxia-shop" else "restaurant" if scene=="world-restaurant" else "arcade" if scene=="world-arcade" else "home"
 const Library = preload("res://core/furniture_library.gd")
+const MapCompile = preload("res://core/map_compile.gd")
+const FacingBindings = preload("res://core/furniture_facing_bindings.gd")
+static var use_maps := true
 
 static func grid_origin() -> Vector2:
 	if not data().get("_shape",{}).is_empty():return Vector2.ZERO
+	if data().has("gridOrigin"):return Vector2(data().gridOrigin[0],data().gridOrigin[1]) ## from the room's map file
 	var file := grid_file(selected_scene)
 	if not packing.has(file):packing[file]=JSON.parse_string(FileAccess.get_file_as_string("res://assets/"+file+"-grid-packing.json"))
 	var p:Array=packing[file].origin
@@ -27,7 +40,7 @@ static func snap_layout(value: Dictionary, ids: Array) -> Dictionary:
 	var item:Dictionary=data().catalog.filter(func(i):return i.id==ids[0])[0]
 	var foot:=moved_rect(item.foot,delta(value,item.id))
 	var origin:=grid_origin()
-	var shift:Vector2=((foot.position-origin)/32).round()*32+origin-foot.position
+	var shift:Vector2=((foot.position-origin)/Grid.CELL).round()*Grid.CELL+origin-foot.position
 	var out:=value.duplicate(true)
 	if not out.has("offsets"):out.offsets={}
 	for id in ids:
@@ -39,11 +52,120 @@ static func activate(layout: Dictionary) -> void:
 	if layout.get("scene", selected_scene) != selected_scene: choose(layout.scene)
 	var instances = layout.get("instances", {})
 	if not instances is Dictionary: return
-	var key := selected_scene + JSON.stringify(instances, "", true)
+	var facings = layout.get("facings", {})
+	if not facings is Dictionary: facings = {}
+	var key := selected_scene + JSON.stringify(instances, "", true) + JSON.stringify(facings, "", true)
 	if key == instance_key: return
-	definition = Library.augment(definitions[selected_scene], instances)
+	definition = Library.augment(definitions[selected_scene], instances) # always a copy, so facings never touch the base
+	apply_facings(definition, facings)
 	instance_key = key
 	validation_cache.clear()
+
+## ---- Furniture facings (2026-11-11) --------------------------------------------------------------------------------
+## A placed item can show another view of the same piece: S (front, the original art), W, N (back), E. The layout stores
+## {"facings": {item id: "E"}} (missing = S). Views come from the item's library entry: "facings" (per view: file, footprint,
+## art box, depth, collision, use spots, seat) and only when "facingsApproved" is set (size-checked art, see
+## handover/furniture-import-20261111). The footprint keeps its top-left cell and swaps width/height for E/W, so the
+## normal placement checks (floor, walls, overlaps, every use spot reachable) apply to the turned piece unchanged.
+const FACINGS := ["S","W","N","E"] ## R turns clockwise as seen from above
+const FACING_NAMES := {"S":"正面朝前","W":"朝左","N":"背面朝前","E":"朝右"}
+static func asset_for(item: Dictionary) -> Dictionary:
+	if item.has("asset"):return Library.all().get(str(item.asset),{})
+	var id:String=str(item.get("id",""))
+	if selected_scene=="world-arcade" and id in ["arcade_blocks","arcade_blocks_2","arcade_mines","arcade_snake"]:
+		return Library.all().get("world-arcade--station--"+("arcade_blocks" if id=="arcade_blocks_2" else id),{})
+	# Restaurant instances have semantic names; the library retains atlas IDs.
+	if selected_scene=="world-restaurant":
+		var atlas_ids:={"sink":7,"prep":8,"stove-a":6,"stove-b":6,"oven":16,"fryer":18,"sushi-prep":19,"fridge":13,"crockery":12,"order":9,"pickup":10,"return":11,"water":15,"menu":14,"table-a":0,"table-b":0,"table-c":1,"table-d":0,"rice-cooker":17,"seasoning":20,"hood-a":21,"hood-b":21}
+		if atlas_ids.has(id):return Library.all().get("world-restaurant--"+str(atlas_ids[id]),{})
+		for a in Library.all().values():
+			if not str(a.id).begins_with("world-restaurant--"):continue
+			var layer:Dictionary=a.layers[0]
+			if item.has("iconRegion") and layer.get("region",[])==item.iconRegion:return a
+	return Library.all().get(selected_scene+"--"+id,{})
+static func facing_views(item: Dictionary) -> Dictionary:
+	var a := asset_for(item)
+	if str(a.get("facingsApproved",""))=="" or not a.get("facings") is Dictionary:return {}
+	for face in a.facings:
+		var v=a.facings[face]
+		if face not in FACINGS or not v is Dictionary or not v.get("footprint") is Dictionary:return {}
+		var expected:=Grid.footprint(int(a.footprint.w),int(a.footprint.h),face)
+		if v.footprint.get("w")!=expected.x or v.footprint.get("h")!=expected.y:return {}
+	return a.facings
+static func facing_of(layout: Dictionary, id: String) -> String:
+	var f = layout.get("facings", {})
+	return str(f.get(id, "S")) if f is Dictionary else "S"
+static func catalog_item(id: String) -> Dictionary:
+	for item in data().catalog:
+		if item.id == id: return item
+	return {}
+## "" when the item may turn; otherwise the reason shown in the editor.
+static func rotation_issue(layout: Dictionary, id: String) -> String:
+	activate(layout)
+	var item := catalog_item(id)
+	if item.is_empty(): return "找不到这件家具"
+	var release:=release_issue(item)
+	if release!="":return release
+	var views := facing_views(item)
+	if views.size() < 4: return item.name+"还没有验收过的四个方向图"
+	if asset_for(item).get("rotationLocked",false):return item.name+"保留原朝向"
+	for group in layout.get("groups",[]):
+		if id in group: return item.name+"在组合里，先拆开组合再转向"
+	return ""
+## The layout with this item turned to the next facing (clockwise). Callers validate it (HomeGrid.validate) before keeping it.
+static func rotate(layout: Dictionary, id: String) -> Dictionary:
+	var out := layout.duplicate(true)
+	var facings: Dictionary = out.get("facings", {}) if out.get("facings") is Dictionary else {}
+	var next: String = FACINGS[(FACINGS.find(facing_of(layout, id)) + 1) % FACINGS.size()]
+	if next == "S": facings.erase(id)
+	else: facings[id] = next
+	if facings.is_empty(): out.erase("facings")
+	else: out.facings = facings
+	return out
+## Rewrites a definition copy so every item with approved views draws the new art of its facing (S when not turned):
+## footprint, art box, module, sort depth and art layer. Items with seats or zones keep their original art and data,
+## because their sitting poses, stand spots and stages are tied to that art (rotation v2).
+static func apply_facings(def: Dictionary, facings: Dictionary) -> void:
+	# The furniture-rotation module switched off (core/features.gd): every piece keeps its 1.0 art and facing.
+	if not Features.on("furniture-rotation"): return
+	# Legacy home chairs used fractional footprints. Keep their nearest edge
+	# clear of the desk after adopting whole cells, without changing a saved cell.
+	if def.scene=="xiaojingyu-home":
+		for i in def.catalog:
+			i._facing_original_foot=i.foot.duplicate()
+			if release_issue(i)!="":continue
+			if i.id=="xj-bed" and not i.has("asset"):i.foot[0]-=24
+			if i.id=="xj-computer-chair" and not i.has("asset"):i.foot[0]+=16
+			if i.id=="xj-desk-chair" and not i.has("asset"):i.foot[1]-=9
+			if i.id=="xj-easel" and not i.has("asset"):i.foot[0]-=26
+			if i.id=="xj-sofa" and not i.has("asset"):i.foot[1]-=13
+	for item in def.catalog:
+		var id: String = item.id
+		if release_issue(item)!="":continue
+		var face := str(facings.get(id, "S"))
+		var views := facing_views(item)
+		if views.size() < 4 or not views.has(face) or views[face].has("mirror"): continue # not approved: original art
+		var v: Dictionary = views[face]
+		var old_foot:=moved_rect(item.get("_facing_original_foot",item.foot),Vector2.ZERO)
+		var fx: float = item.foot[0]; var fy: float = item.foot[1]
+		var fw: float = float(v.footprint.w)*Grid.CELL; var fh: float = float(v.footprint.h)*Grid.CELL
+		var art: Dictionary = v.art; var depth: float = fy+float(v.depth)
+		item.foot = [fx, fy, fw, fh]
+		item.box = [fx+float(art.x), fy+float(art.y), float(art.w), float(art.h)]
+		item.facing = face
+		var m: Dictionary = def.sceneData.modules.get(id, {})
+		if not m.is_empty():
+			m.x = fx+float(art.x); m.y = fy+float(art.y); m.w = float(art.w); m.h = float(art.h); m.depth = depth
+			# The actual four-view artwork owns its screen and tabletop projection.
+			for key in ["boardQuad","boardPaper","screen","screenVisible"]:
+				if v.has(key):m[key]=v[key].duplicate(true) if v[key] is Array or v[key] is Dictionary else v[key]
+			if m.has("collision"): m.collision = {"x":-float(art.x),"y":-float(art.y),"w":fw,"h":fh}
+			FacingBindings.bind(def,item,m,old_foot,views,face)
+		def.manifest.layers = def.manifest.layers.filter(func(l):
+			var owner := str(l.get("owner", l.get("id","")))
+			return owner != id and not str(l.get("id","")).begins_with(id+"__"))
+		def.manifest.layers.append({"id":id,"owner":id,"file":str(v.file),"x":fx+float(art.x),"y":fy+float(art.y),"w":float(art.w),"h":float(art.h),"depth":depth,"scale":v.get("scale",.5)})
+		item.icon = "res://assets/baked/"+str(v.file); item.erase("iconRegion")
 
 static func hidden(layout: Dictionary, id: String) -> bool:
 	return id in layout.get("stored", [])
@@ -60,8 +182,13 @@ static func store_items(layout: Dictionary, ids: Array) -> Dictionary:
 static func choose(scene:String) -> void:
 	selected_scene=scene
 	if not definitions.has(scene):
-		var file:=grid_file(scene)+"-grid.json"
-		definitions[scene]=JSON.parse_string(FileAccess.get_file_as_string("res://assets/"+file))
+		## A room with a map file (assets/maps/<scene>/map.json, docs/MAP-EDITOR-DESIGN.md) is built from it; otherwise, or
+		## when the map cannot be read, from its old room file as before. use_maps=false forces the old file (tests).
+		## A 1.1 module switched off (core/features.gd) builds its room from the 1.0 grid, as 1.0 did.
+		if use_maps and MapCompile.has_map(scene):definitions[scene]=MapCompile.load_definition(scene)
+		if definitions.get(scene,{}).is_empty():
+			var file:=grid_file(scene)+"-grid.json"
+			definitions[scene]=JSON.parse_string(FileAccess.get_file_as_string(Features.asset(file)))
 	definition=definitions[scene]
 	instance_key=""
 	var rk_args:=OS.get_cmdline_user_args();var rk_index:=rk_args.find("--roomkit") ## opt-in, see RoomKitItems
@@ -81,6 +208,7 @@ static func data() -> Dictionary:
 
 static func path(scene:="") -> String:
 	if scene=="":scene=selected_scene
+	if scene.begins_with("resident-"):return Economy.save_path.get_base_dir().path_join("layouts").path_join(scene+".json")
 	var args:=OS.get_cmdline_user_args();var index:=args.find("--layout")
 	if index>=0 and index+1<args.size():
 		if scene==requested_scene():return args[index+1]
@@ -119,7 +247,7 @@ static func delta(layout: Dictionary,id: String) -> Vector2:
 		if item.id==id:
 			var cell:Array=layout.positions[id]
 			var offset:Array=layout.get("offsets",{}).get(id,[0,0])
-			return Vector2(float(cell[0])-item.cell[0],float(cell[1])-item.cell[1])*float(data().cell)+Vector2(offset[0],offset[1])
+			return Vector2(float(cell[0])-item.cell[0],float(cell[1])-item.cell[1])*Grid.CELL+Vector2(offset[0],offset[1])
 	return Vector2.ZERO
 
 ## Fixed walls: the built-in list, or full-cell "#" rects when a roomkit plan drives the room shape.
@@ -131,6 +259,7 @@ static func wall_list() -> Array:
 static func floor_mask() -> Array:
 	var shape:Dictionary=data().get("_shape",{})
 	if not shape.is_empty():return shape.floor
+	if data().has("floorPolygons"):return data().floorPolygons ## from the room's map file
 	return JSON.parse_string(FileAccess.get_file_as_string(data().get("floorFile","res://assets/home-grid-floor.json"))).polygons
 
 ## Fraction of `foot` (Rect2) covered by the floor rectangles (axis-aligned runs from the plan).
@@ -175,9 +304,11 @@ static func resolve(layout: Dictionary) -> Dictionary:
 		var owner:String=layer.get("owner", "xj-bed" if layer.id=="quilt" else layer.id)
 		var shift:=delta(layout,owner);layer.x+=shift.x;layer.y+=shift.y
 		if owner not in ["xj-ocean-rug","chess-seat-left","chess-seat-right"]:layer.depth+=shift.y
+	load("res://core/furniture_surfaces.gd").apply(load("res://core/home_grid.gd"),layout,scene,manifest)
 	if profile.has("home"):
 		var bed_shift:=delta(layout,"xj-bed")
-		profile.home.bed.lying[0]+=bed_shift.x;profile.home.bed.lying[1]+=bed_shift.y
+		if profile.home.has("bed"):
+			profile.home.bed.lying[0]+=bed_shift.x;profile.home.bed.lying[1]+=bed_shift.y
 		for stage in profile.home.stages:
 			var owner:String=d.zoneOwners.get(stage.get("zone",""),"")
 			var shift:=delta(layout,"xj-computer-chair" if stage.get("registered","")=="computer" else owner)
@@ -194,8 +325,12 @@ static func resolve(layout: Dictionary) -> Dictionary:
 	return {"scene":scene,"manifest":manifest,"profile":profile,"visual":visual}
 
 static func validate(layout: Dictionary,paths:=true) -> String:
+	if data().get("cell",Grid.CELL)!=Grid.CELL:return "家具格子与世界格子不一致，拒绝保存"
 	if not layout.get("instances", {}) is Dictionary or not layout.get("stored", []) is Array: return "家具收纳格式不正确"
 	if not layout.get("offsets",{}) is Dictionary:return "家具对齐数据不正确"
+	if not layout.get("facings",{}) is Dictionary:return "家具朝向数据不正确"
+	for id in layout.get("facings",{}):
+		if not layout.get("positions",{}).has(id) or not str(layout.facings[id]) in FACINGS:return "家具朝向数据不正确"
 	for id in layout.get("offsets",{}):
 		var offset=layout.offsets[id]
 		if not layout.get("positions",{}).has(id) or not offset is Array or offset.size()!=2:return "家具对齐数据不正确"
@@ -344,6 +479,7 @@ static func apply(layout: Dictionary) -> void:
 	var r:=resolve(layout);var id:String=data().scene
 	WorldData.scenes[id]=r.scene;WorldData.layers[id]=r.manifest;WorldData._navs.erase(id)
 	WorldPresentation.facts().scenes[id]=r.visual
+	preload("res://core/world_shortcuts.gd").refresh()
 	if not r.profile.is_empty():
 		for person in Residents.people():
 			# Layouts own furniture/pose geometry, never a resident's identity,

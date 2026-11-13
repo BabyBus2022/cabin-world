@@ -58,7 +58,7 @@ func populate():
  for dish in options:
   var button=Button.new();button.text=dish.name+"  "+str(int(dish.price))+" 币"
   button.alignment=HORIZONTAL_ALIGNMENT_LEFT;button.custom_minimum_size.y=88
-  var texture=AtlasTexture.new();texture.atlas=load(service.menu.sheet)
+  var texture=AtlasTexture.new();texture.atlas=load(dish.get("sheet",service.menu.sheet))
   var r:Array=dish.region;texture.region=Rect2(r[0],r[1],r[2],r[3])
   button.icon=texture;button.expand_icon=true;button.add_theme_constant_override("icon_max_width",76)
   button.pressed.connect(func():selected=dish.id;update_choice());list.add_child(button)

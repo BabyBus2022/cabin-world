@@ -8,6 +8,8 @@ static var cache := {}
 static func texture(id: String, name_of := "", space := "") -> Texture2D:
 	var key := id + ":" + space
 	if cache.has(key): return cache[key]
+	var own:="res://assets/ui/items/"+id+".png"
+	if ResourceLoader.exists(own):cache[key]=load(own);return cache[key]
 	var tex: Texture2D
 	var cell := HOT.find(id)
 	if cell >= 0:

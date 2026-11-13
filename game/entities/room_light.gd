@@ -89,7 +89,8 @@ static func draw_floor(c: CanvasItem, scene_id: String, light: Dictionary, size:
 	var beam := _rgba(light["beam"], alpha)
 	var length: float = light["length"]
 	var s: float = light["shift"]
-	var bounds := Rect2(16, 52, size.x - 32.0, size.y - 68.0)
+	var inset:Array=load("res://entities/window_scenery.gd").geometry().floorInsets
+	var bounds := Rect2(inset[0],inset[1],size.x-inset[0]-inset[2],size.y-inset[1]-inset[3])
 	for m in _windows(scene_id):
 		var y := float(m["y"]) + float(m["h"])
 		for col in 4:
@@ -129,9 +130,10 @@ static func _panes(m: Dictionary) -> Array:
 		for g in glass:
 			out.append(Rect2(x + float(g[0]) * w, y + float(g[1]) * h, float(g[2]) * w, float(g[3]) * h))
 	else:
-		for row in 4:
-			for col in 4:
-				out.append(Rect2(x + w * 0.085 + col * w * 0.213, y + h * 0.11 + row * h * 0.195, w * 0.194, h * 0.17))
+		var rule:Dictionary=load("res://entities/window_scenery.gd").geometry().defaultGlass
+		for row in int(rule.rows):
+			for col in int(rule.columns):
+				out.append(Rect2(x+w*rule.x+col*w*rule.stepX,y+h*rule.y+row*h*rule.stepY,w*rule.w,h*rule.h))
 	return out
 
 

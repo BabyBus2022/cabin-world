@@ -20,8 +20,9 @@ func setup(main:Control):
   dishes[d.id]=d
   Economy.catalog[d.id]={"id":d.id,"name":d.name,"price":d.price,"shelf":"restaurant","kind":"eat","satiety":d.get("satiety",40),"taste":d.get("sensory",d.name)}
  journal=Economy.save_path.get_base_dir().path_join("restaurant-operations.json")
- if FileAccess.file_exists(journal):
-  var saved=JSON.parse_string(FileAccess.get_file_as_string(journal))
+ var stored:Dictionary=load("res://core/safe_store.gd").read_document(journal,valid_save,true)
+ if stored.ok and not stored.data.is_empty():
+  var saved:Dictionary=stored.data
   if saved is Dictionary:
    completed=saved.get("completed",{})
    for actor in saved.get("pending",{}):
@@ -30,11 +31,16 @@ func setup(main:Control):
     completed[j.id]={"id":j.id,"actor":actor,"mode":j.mode,"dish":j.dish,"ok":committed,"finished":true,"status":"complete" if committed else "interrupted","at":SharedFeed.now_ms(),"recovered":true,"facts":facts(j) if committed else {},"error":"" if committed else "重启前操作未完成，不算已经吃饭或做菜"}
    _save()
  VadsLink.restaurant_requested.connect(handle)
+func valid_save(data:Dictionary)->bool:
+ if not data.get("pending",{}) is Dictionary or not data.get("completed",{}) is Dictionary:return false
+ if not data.has("pending") and not data.has("completed"):return false
+ for row in data.get("pending",{}).values():
+  if not row is Dictionary:return false
+  for field in ["id","mode","dish"]:
+   if not row.get(field) is String:return false
+ return data.get("completed",{}).values().all(func(row):return row is Dictionary)
 func _save()->bool:
- var f=FileAccess.open(journal+".tmp",FileAccess.WRITE)
- if f==null:return false
- f.store_string(JSON.stringify({"pending":jobs,"completed":completed}));f.close()
- return DirAccess.rename_absolute(ProjectSettings.globalize_path(journal+".tmp"),ProjectSettings.globalize_path(journal))==OK
+ return load("res://core/safe_store.gd").write_document(journal,{"version":1,"pending":jobs,"completed":completed},valid_save,true)
 func resident(key:String):
  for c in host.characters:
   if c.key==key:return c
@@ -132,7 +138,7 @@ func _step_done(actor:String):
  var j:Dictionary=jobs[actor];var step:Dictionary=j.steps[j.index]
  if step.action=="place":_plate(actor,j)
  if step.action in ["order","cook","eat"]:
-  var result=Economy._answer({"id":j.id+"-commit","actor":actor,"op":"buy" if step.action=="order" else "gift_in" if step.action=="cook" else "consume","product":j.dish,"kind":"eaten","space":"restaurant","who":Residents.person(actor).get("flavor","unknown")})
+  var result=Economy._answer({"id":j.id+"-commit","actor":actor,"op":"buy" if step.action=="order" else "gift_in" if step.action=="cook" else "consume","product":j.dish,"source":"restaurant_cook" if step.action=="cook" else "","kind":"eaten","space":"restaurant","who":Residents.person(actor).get("flavor","unknown")})
   if not result.ok:cancel(actor,result.get("error","保存失败"));return
   if step.action=="order":_npc("give",actor)
  _next(actor)
@@ -169,7 +175,7 @@ func _plate(actor:String,job:Dictionary):
  var t:Dictionary=room().modules.get(s.table,{})
  if t.is_empty():return
  var sprite=Sprite2D.new();sprite.centered=false;sprite.region_enabled=true
- var r:Array=dishes[job.dish].region;sprite.texture=load(menu.sheet);sprite.region_rect=Rect2(r[0],r[1],r[2],r[3])
+ var r:Array=dishes[job.dish].region;sprite.texture=load(dishes[job.dish].get("sheet",menu.sheet));sprite.region_rect=Rect2(r[0],r[1],r[2],r[3])
  sprite.scale=Vector2(26/r[2],22/r[3])
  var at=Vector2(t.x+t.w*.5-13,t.y+6)
  var direction:String=s.facing
@@ -190,7 +196,11 @@ func _physics_process(delta:float):
   if not zone_exists(step.zone):cancel(actor,"操作位置已收起");continue
   if c.want_scene!=SCENE or c.want_zone!=step.zone:cancel(actor,"位置或行动已改变");continue
   if j.phase=="walk":
-   if c.scene_id==SCENE and not c.is_walking() and c.feet.distance_to(WorldData.point(room().zones[step.zone]))<20:_arrived(actor)
+   ## Arrived: close to the spot, or the walk itself has finished nearby. With two residents at the counter the
+   ## anti-overlap spacing stops the first one ~36 px short of order_a (the other stands at order_b); a strict 20 px
+   ## test then waited until the 180 s timeout (2026-11-13, found by the 1.1 two-bot selfcheck).
+   var gap:float=c.feet.distance_to(WorldData.point(room().zones[step.zone]))
+   if c.scene_id==SCENE and not c.is_walking() and (gap<20 or (c.order_id=="" and gap<48)):_arrived(actor)
   else:
    if c.scene_id!=SCENE or c.is_walking():cancel(actor,"操作位置已改变");continue
    j.left-=delta*time_scale

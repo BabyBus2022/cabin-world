@@ -78,6 +78,14 @@ static func effect(kind: String,b: Rect2,g: Rect2,p: float,sec: float) -> Array:
 	var cx := b.position.x+b.size.x/2
 	var top := b.position.y
 	match kind:
+		"sand":
+			# A tiny whale drawn gradually at her feet, instead of a generic sparkle.
+			var pixels:=[[0,2],[1,1],[2,0],[3,0],[4,0],[5,1],[6,2],[7,2],[8,1],[9,0],[9,1],[8,2],[7,3],[6,4],[5,5],[4,5],[3,5],[2,4],[1,4],[0,3],[2,2]]
+			var count:int=mini(pixels.size(),int(p*pixels.size()*1.4)+1)
+			for i in count:
+				r(out,"#947958",cx+float(pixels[i][0])*1.5-7,b.end.y+float(pixels[i][1])*1.2+1,2,1,fade)
+			r(out,"#e4d0a4",cx+sin(sec*2)*5,b.end.y+2,2,1,fade)
+
 		"hearts":
 			for k in 5:
 				var t := fmod(sec*.45+k/5.0,1)

@@ -1,3 +1,5 @@
+> 安装/升级 1.1 时先读包根目录 INSTALL-AI.md，逐项介绍可选更新并记录用户选择；不默认全部启用。游戏设置中的模块面板已移除，使用安装 AI 或 update.cmd 调整。
+
 # 小屋世界 · 家具与物品说明书（给 AI 读）
 
 > 本文件由 `tools/gen-manual.mjs` 从 `bridge/catalog.json`（游戏数据）自动生成。可以整段放进你的机器人的系统提示词或知识库。
@@ -10,24 +12,60 @@
 
 | 工具 | 用来 |
 |---|---|
-| `cabin_status` | 看自己：在哪、零花钱、背包、饱腹/口渴/心情、正在做什么、天气 |
-| `cabin_look` | 看身边：这个房间有什么、每样东西能怎么用、出口去哪 |
-| `cabin_go` | 走去一个地方（可选具体位置） |
-| `cabin_use` | 使用家具/东西（`object` + `use`），会自动走过去 |
-| `cabin_buy` | 在小卖部买东西（走到货架→挑→收银台付钱→进背包） |
-| `cabin_eat` | 吃、喝、用背包里的东西 |
-| `cabin_stop` | 停下正在做的事 |
+| `cabin_status` | 查看自己在小屋世界里的状态：在哪里、零花钱、背包、饱腹/口渴/心情、正在做什么、天气 |
+| `cabin_look` | 看看身边：当前房间有哪些家具和东西、每样能做什么（object 和 use 的 id）、出口通向哪里 |
+| `cabin_catalog` | 搜索所有可访问房间的家具及动作（含新增家具），无关键词按稳定编号分页，不按常用程度删减 |
+| `cabin_task` | 按任务编号查询当前住户的真实完成回执 |
+| `cabin_go` | 走去一个地方 |
+| `cabin_use` | 使用家具或街机 |
+| `cabin_buy` | 去小卖部买一样东西：走到货架挑选，再去收银台付钱，东西进自己的背包 |
+| `cabin_eat` | 吃、喝或使用背包里的一样东西（按商品种类自动决定是吃、喝还是用） |
+| `cabin_stop` | 随时取消自己当前未提交的动作，含走路、游戏和家具，不必等固定秒数 |
+| `cabin_residents` | 列出住户编号、显示名字、各自房间和可用室内地图 |
+| `cabin_add_resident` | 新增一位机器人，分配独立默认房间 |
+| `cabin_assign_room` | 为新增住户换为地图编辑器保存的室内地图 |
+| `cabin_rename` | 修改显示名字，保留住户编号、背包、日记与身份 |
+| `cabin_invite` | 邀请另一位已接入住户来自己家，返回客人可使用的地点和棋盘编号；不会自动走动或发送聊天消息 |
+| `cabin_restaurant` | 查菜单或实际点餐、做菜、吃饭、入座；等待完成回执，不要把 accepted/running 当作已吃完 |
+| `cabin_furniture` | 查看当前可访问房间中已摆放的自制家具，以及为自己配置的动作 |
+| `cabin_update_plan` | 查看小屋世界 1 |
+| `cabin_update_apply` | 按用户的选择打开或关闭 1 |
+| `cabin_update_undo` | 撤销最近一次模块更改，恢复到更改前的选择 |
+
+## 1.1 接入规则
+
+小屋世界提供身体、房间、物品和本地游戏规则，不提供模型、人设、QQ登录或记忆模块。
+
+1. 先用 `cabin_status` 看本住户当前状态。工具参数 `actor` 使用接入时登记的稳定编号，不能填昵称、QQ昵称，也不能固定认定另一位住户是谁。同名机器人也必须使用不同编号。
+2. 身边有什么用 `cabin_look`。想找其他房间的功能，用 `cabin_catalog` 搜关键词或房间；没有结果时清空关键词分页，按返回的 `nextOffset` 继续。找到 `object`、`use` 后调用 `cabin_use`。不要仅因当前房间没有列出就断言功能不存在。
+3. 所有家具共用通用工具，不要把每件家具变成一个独立模型工具，也不必每轮注入整份 catalog。装饰品没有 uses，不假装有交互。
+4. 电玩城一位机器人对 NPC：贪吃蛇 `arcade_snake/play`，象棋 `arcade_xiangqi/play`，五子棋 `arcade_xiangqi/play_gomoku`，都使用 `mode:"npc"`。旧 `solo` 兼容；扫雷与方块用 `solo`。
+5. 两位机器人：第一位 `mode:"duo"` 开桌，另一位以自己的 actor 对同一物件 `mode:"join"` 入座。`duo` 不会自动补 NPC。客人是谁由已接入编号决定，不限制名字。家中棋盘需要主人邀请与两位真实住户。
+6. `running` 只表示任务进行中。用 `cabin_task` 按原 taskId 查回执；`done` 才能报告完成，`failed` 要如实说明。不因等待重复开桌、不把历史结果说成刚赢。每一步游戏由本地规则推进，不调用模型逐手下棋。
+7. 餐厅先 `cabin_restaurant(action="menu")`，拿到 dish 编号后 order/cook/eat。拿到菜不等于吃完。食后 like/dislike/neutral 需要自己的主观 feeling，拒绝评价没吃过的菜；宿主可订阅 `food_preference` 事件存入自己已有的记忆。
+8. 别替其他机器人决定行动。工具允许传 actor 是宿主调度接口；对外适配器应绑定每个机器人自己的 actor。查看玩家全体住户用 `cabin_residents`，不能把同名显示标签当作编号。
+
+9. 沙发、游泳等目录标记的休闲体验可传 `durationSeconds`（整数1–3600），想多待一会由你选择。普通家具调用立即返回任务号，不必等20秒。想正常提前收尾用 `cabin_stop(action="finish")`，用户叫停或改变计划用 `action="stop"`；收尾后查真实回执，再描述完成。已经提交的购买/吃饭不能撤销。
+
+10. **1.1 更新和可选模块。** 用户问到更新、新功能，或者想要回旧样子时：
+    - 先调用 `cabin_update_plan`，把每个模块用大白话讲给用户：改了什么（summary、changes）、看起来会不会不一样（looksDifferent）、会不会动到存档（touches）、现在是开还是关。
+    - `askUser` 为 true 的模块（新电玩城、家具转向与新家具图、每天 50 零花钱）会改变外观或玩法，从 1.0 升级时默认是关的。一定要先问用户想不想要，不要替用户决定。
+    - 用户同意后才调用 `cabin_update_apply`，只改用户说了的模块。没有返回 `ok` 之前，不要说已经改好。
+    - 改完提醒用户：要完全关闭游戏再用 start.cmd 打开，才会生效。用户说改回去，就用 `cabin_update_undo`。
+    - 模块关掉时，对应的东西在目录里也会消失（例如关掉五子棋，棋桌就没有 `play_gomoku`）。以 `cabin_look` / `cabin_catalog` 实际返回的为准。
+
+模型仍可能不主动选择某个活动。这份接口保证目录可检索、可完整翻页与真实执行回执，不保证模型的每一次自主决策。
 
 ## 基本规则
 
 - **一次只做一件事。** 正在做事时再下指令会被拒绝（“先做完这件事”），可以先 `cabin_stop`。
-- **零花钱：** 新住户有 30 元；每天（北京时间）第一次活动时游戏发 20 元，发完不超过 80 元。钱不够买不了。价格每天可能有特价，以游戏为准。
+- **零花钱：** 新住户有 30 元；每天（北京时间）第一次活动时游戏发零花钱：1.1 模块“每天 50 零花钱”打开时每天 50、最多存 300，关闭时每天 20、最多 80（以 `cabin_status` 实际的钱为准）。钱不够买不了。价格每天可能有特价，以游戏为准。
 - **背包：** 最多 12 件。买的东西先进背包，吃/喝/用完才扣掉；中途被打断东西还在。雨伞这类“可以留着的”东西用了也不会消失。
 - **身体感受：** `feeling` 里 `satiety` 饱腹、`hydration` 口渴程度（越低越渴）、`joy` 开心、`energy` 精力、`calm` 平静、`warmth` 暖和，都是 0–100，会随时间慢慢变化。饿了就去买吃的，渴了买喝的；天冷喝热饮、天热吃冰淇淋会更舒服。
 - **天气和时间：** 世界跟随北京时间昼夜变化；天气由机器人软件提供（默认是虚拟天气）。下雨时滑梯是湿的，有风才适合放风筝，晴天树荫下凉快。
 - **结果由游戏决定：** 钓鱼钓到什么、风筝飞多高、打水漂几下，都是游戏算出来的，照实说就好。
 - **汤屋：** 去泡汤、游泳、淋浴前会自动先在更衣处换上浴衣；离开前可以 `onsen_locker / change_back` 换回自己的衣服。
-- **别人的家：** 每个人的家只有主人能进，别人要被邀请（公开版只有你一位住户）。
+- **别人的家：** 每位住户有自己的家，只有主人能进；去别人家下棋要主人用 `cabin_invite` 邀请。新住户由使用者在设置里添加，或用 `cabin_add_resident`。
 - **记忆：** 本插件不保存你的记忆。工具返回的 `happened`（发生了什么、感受）请由你的机器人软件自己记下来。
 
 ## 地图
@@ -159,7 +197,7 @@
 
 例：`cabin_use {"object":"bridge","use":"look_river"}`
 
-### 路灯（`park_lamps`） · 需要高级协议
+### 路灯（`park_lamps`）
 
 两盏路灯，天黑后自动亮起。
 
@@ -187,16 +225,31 @@
 
 ## 小鲸鱼的小屋（`xjhome`）
 
-**位置（zone）：** `xj_door` 门口，`xj_bed` 鲸鱼床，`xj_desk` 电脑桌，`xj_tank` 鱼缸，`xj_sofa` 懒人沙发，`xj_window` 圆窗，`xj_rug` 波浪地毯，`xj_shelf` 书架，`xj_album` 朋友相册，`xj_draw` 画架，`xj_notes` 书桌，`xj_accessories` 手机与耳机收纳桌，`chess_xj_a` 波浪地毯左边，`chess_xj_b` 波浪地毯右边
+**位置（zone）：** `xj_beach` 右上角海边沙滩，`xj_door` 门口，`xj_bed` 鲸鱼床，`xj_desk` 电脑桌，`xj_tank` 鱼缸，`xj_sofa` 懒人沙发，`xj_window` 圆窗，`xj_rug` 波浪地毯，`xj_shelf` 书架，`xj_album` 朋友相册，`xj_draw` 画架，`xj_notes` 书桌，`xj_accessories` 手机与耳机收纳桌，`chess_xj_a` 波浪地毯左边，`chess_xj_b` 波浪地毯右边
 
-### 小鲸鱼家地毯上的棋盘（`home_chess_xjhome`） · 需要高级协议
+### 小鲸鱼家地毯上的棋盘（`home_chess_xjhome`）
 
-两个人才能下：坐在波浪地毯两边对弈。可以用 play 邀请对方来下。
+两个人才能下：坐在波浪地毯两边对弈。可以用 play 邀请对方来下。 play 下象棋；play_gomoku 下五子棋，使用同一张棋桌。
 
 | use | 做什么 | 大约用时 |
 |---|---|---|
 | `play` | 下象棋 | 15 分钟 |
 | `quit` | 这局不下了 | 1 秒 |
+| `play_gomoku` | 下五子棋 | 15 分钟 |
+
+例：`cabin_use {"object":"home_chess_xjhome","use":"play"}`
+
+### 家旁海边（`xj_beach`）
+
+从小屋南门出去，沿右侧独立小路向北走，到右上角的干沙滩。能看海、听浪、玩沙；不必去公园，不穿墙、不进入深水。夜晚也能听浪。
+
+| use | 做什么 | 大约用时 |
+|---|---|---|
+| `watch_sea` | 到家旁海边看海 | 30 秒 |
+| `listen_waves` | 在沙滩听海浪 | 30 秒 |
+| `play_sand` | 在干沙滩上画小鲸鱼 | 20 秒 |
+
+例：`cabin_use {"object":"xj_beach","use":"watch_sea"}`
 
 ### 鲸鱼床（`whale_bed`）
 
@@ -521,43 +574,63 @@
 
 ## 星光电玩城（`arcade`）
 
-**位置（zone）：** `arcade_door` 电玩城门口，`arcade_blocks` 俄罗斯方块机台，`arcade_mines` 扫雷机台，`arcade_xiangqi` 象棋机台，`arcade_snake` 贪吃蛇机台，`arcade_xiangqi_far` 象棋桌左边的位置，`arcade_xiangqi_near` 象棋桌右边的位置，`arcade_snake_left` 贪吃蛇机台左边，`arcade_snake_right` 贪吃蛇机台右边
+**位置（zone）：** `arcade_door` 电玩城门口，`arcade_blocks` 俄罗斯方块1号机，`arcade_mines` 扫雷机台，`arcade_xiangqi` 象棋机台，`arcade_snake` 贪吃蛇机台，`arcade_xiangqi_far` 象棋桌左边的位置，`arcade_xiangqi_near` 象棋桌右边的位置，`arcade_snake_left` 贪吃蛇机台左边，`arcade_snake_right` 贪吃蛇机台右边，`arcade_blocks_2` 俄罗斯方块2号机
 
-### 贪吃蛇机台（`arcade_snake`） · 需要高级协议
+### 贪吃蛇机台（`arcade_snake`）
 
-贪吃蛇：吃到食物会变长，撞墙、撞自己或撞对方就出局。双人对战活到最后或先吃满15个的赢；一个人玩吃满12个算赢。
+双人贪吃蛇：一个机器人可用 mode=npc 与电脑对战；两位住户用 duo 开桌、join 加入。
 
 | use | 做什么 | 大约用时 |
 |---|---|---|
 | `play` | 玩贪吃蛇 | 15 分钟 |
 | `quit` | 这局不玩了 | 1 秒 |
 
-### 俄罗斯方块机台（`arcade_blocks`） · 需要高级协议
+例：`cabin_use {"object":"arcade_snake","use":"play"}`
 
-俄罗斯方块：摆满一行就消除，方块会越落越快。消满15行算赢，堆到顶就输。
+### 俄罗斯方块1号机（`arcade_blocks`）
+
+俄罗斯方块：摆满一行就消除，方块会越落越快。消满30行算赢，堆到顶就输。 获胜+5钱，失败-2钱，平局和中断不结算；余额最低为0。
 
 | use | 做什么 | 大约用时 |
 |---|---|---|
-| `play` | 玩俄罗斯方块 | 15 分钟 |
+| `play` | 玩俄罗斯方块1号机 | 15 分钟 |
 | `quit` | 这局不玩了 | 1 秒 |
 
-### 扫雷机台（`arcade_mines`） · 需要高级协议
+例：`cabin_use {"object":"arcade_blocks","use":"play"}`
 
-扫雷：9×9的格子里有10颗雷，数字表示周围有几颗雷。翻开所有没有雷的格子就赢，翻到雷就输。第一下一定安全。
+### 扫雷机台（`arcade_mines`）
+
+扫雷：9×9的格子里有10颗雷，数字表示周围有几颗雷。翻开所有没有雷的格子就赢，翻到雷就输。第一下一定安全。 获胜+5钱，失败-2钱，平局和中断不结算；余额最低为0。
 
 | use | 做什么 | 大约用时 |
 |---|---|---|
 | `play` | 玩扫雷 | 15 分钟 |
 | `quit` | 这局不玩了 | 1 秒 |
 
-### 象棋机台（`arcade_xiangqi`） · 需要高级协议
+例：`cabin_use {"object":"arcade_mines","use":"play"}`
 
-象棋：红方先走，吃掉对方的将帅或让对方无棋可走就赢。可以和电脑下，也可以和另一位住户对弈。三次重复局面算和棋，长将的一方判负。
+### 象棋机台（`arcade_xiangqi`）
+
+共用棋桌：play 下象棋，play_gomoku 下五子棋。mode=npc 与电脑对战；两位住户用 duo 开桌、join 加入。
 
 | use | 做什么 | 大约用时 |
 |---|---|---|
 | `play` | 玩象棋 | 15 分钟 |
 | `quit` | 这局不玩了 | 1 秒 |
+| `play_gomoku` | 下五子棋 | 15 分钟 |
+
+例：`cabin_use {"object":"arcade_xiangqi","use":"play"}`
+
+### 俄罗斯方块2号机（`arcade_blocks_2`）
+
+俄罗斯方块：摆满一行就消除，方块会越落越快。消满30行算赢，堆到顶就输。 获胜+5钱，失败-2钱，平局和中断不结算；余额最低为0。
+
+| use | 做什么 | 大约用时 |
+|---|---|---|
+| `play` | 玩俄罗斯方块2号机 | 15 分钟 |
+| `quit` | 这局不玩了 | 1 秒 |
+
+例：`cabin_use {"object":"arcade_blocks_2","use":"play"}`
 
 ## 小卖部后面的汤屋（`onsen`）
 
@@ -622,11 +695,11 @@
 
 ## 公园餐厅（`restaurant`）
 
-**位置（zone）：** `gate` gate，`hall` hall，`kitchen` kitchen，`pantry` pantry，`wash` wash，`prep` prep，`cook_a` cook_a，`cook_b` cook_b，`oven` oven，`fryer` fryer，`sushi` sushi，`ingredients` ingredients，`order_a` order_a，`order_b` order_b，`pickup_a` pickup_a，`pickup_b` pickup_b，`return` return，`water` water，`seat-a1_use` seat-a1_use，`seat-a2_use` seat-a2_use，`seat-b1_use` seat-b1_use，`seat-b2_use` seat-b2_use，`seat-c1_use` seat-c1_use，`seat-c2_use` seat-c2_use，`seat-c3_use` seat-c3_use，`seat-c4_use` seat-c4_use，`seat-d1_use` seat-d1_use，`seat-d2_use` seat-d2_use
+**位置（zone）：** `gate` 餐厅门口，`hall` 餐厅前厅，`kitchen` 后厨，`pantry` 备餐区，`wash` 洗手池旁，`prep` 备菜台旁，`cook_a` 一号灶台旁，`cook_b` 二号灶台旁，`oven` 烤箱旁，`fryer` 炸锅旁，`sushi` 寿司台旁，`ingredients` 食材柜旁，`order_a` 点餐台左侧，`order_b` 点餐台右侧，`pickup_a` 取餐台外侧，`pickup_b` 取餐台里侧，`return` 餐具回收台旁，`water` 饮水台旁，`seat-a1_use` A桌一号座位，`seat-a2_use` A桌二号座位，`seat-b1_use` B桌一号座位，`seat-b2_use` B桌二号座位，`seat-c1_use` C桌一号座位，`seat-c2_use` C桌二号座位，`seat-c3_use` C桌三号座位，`seat-c4_use` C桌四号座位，`seat-d1_use` D桌一号座位，`seat-d2_use` D桌二号座位
 
-### 餐厅设施与菜单（`restaurant`） · 需要高级协议
+### 餐厅设施与菜单（`restaurant`）
 
-公园北边的餐厅：左边是后厨，右边找 Naiwa 店员点餐取餐，前面是餐桌。（需要高级协议 restaurant.*）
+公园北边的餐厅：左边是后厨，右边找 Naiwa 店员点餐取餐，前面是餐桌。
 
 | use | 做什么 | 大约用时 |
 |---|---|---|
@@ -638,6 +711,8 @@
 | `like` | 喜欢这道已吃过的菜 | 1 秒 |
 | `dislike` | 不喜欢这道已吃过的菜 | 1 秒 |
 | `neutral` | 中性评价 | 1 秒 |
+
+例：`cabin_use {"object":"restaurant","use":"look"}`
 
 ## 随身小包（`bag`）
 
@@ -675,10 +750,13 @@
 | `notebook` | 小笔记本 | 6 元 | 用（用后保留） | 日用品（`daily_shelf`） | 蓝色封面，可以记点东西 |
 | `scrunchie` | 发圈 | 3 元 | 用（用后保留） | 日用品（`daily_shelf`） | 风大的时候把头发扎起来 |
 | `bandaid` | 创可贴 | 3 元 | 用 | 日用品（`daily_shelf`） | 万一擦破皮可以贴上 |
-
-## 需要高级协议的东西
-
-电玩城的机台（贪吃蛇、俄罗斯方块、扫雷、象棋）、家里的棋盘、餐厅点菜/做菜，需要宿主实现对局和餐厅流程（`arcade.*`、`rules.ask`、`restaurant.*` 消息，见 `docs/PROTOCOL.md` 第 9 节）。参考桥目前不支持，调用会得到明确的“需要高级协议”提示；可以去这些地方逛、看，但先别答应别人一起玩。
+| `zongzi` | 粽子 | 8 元 | 吃 | 零食（`snack_shelf`） | 糯米软糯，带着粽叶香 |
+| `mooncake` | 月饼 | 8 元 | 吃 | 零食（`snack_shelf`） | 饼皮酥香，馅料细腻 |
+| `tangyuan` | 汤圆 | 6 元 | 吃 | 零食（`snack_shelf`） | 糯米皮软软的，热汤暖胃 |
+| `iced_plum` | 冰酸梅汤 | 5 元 | 喝·冷 | 冷饮（`drink_fridge`） | 酸甜清凉，带一点梅子香 |
+| `roast_chestnut` | 糖炒栗子 | 6 元 | 吃 | 零食（`snack_shelf`） | 剥开外壳，栗仁热乎粉糯 |
+| `hot_pot_snack` | 关东煮小碗 | 8 元 | 吃 | 零食（`snack_shelf`） | 热汤里有萝卜和豆腐的鲜香 |
+| `qingtuan` | 青团 | 6 元 | 吃 | 零食（`snack_shelf`） | 糯糯的外皮，带着青草香 |
 
 ## 怎么用才自然
 

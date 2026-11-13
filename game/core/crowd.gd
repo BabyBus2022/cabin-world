@@ -10,6 +10,23 @@ const SPOT_MARGIN := 4.0
 static func clear(p: Vector2, others: Array, gap := GAP) -> bool:
 	return others.all(func(other): return p.distance_to(other)>=gap)
 
+## Small local steps avoid rebuilding a navigation grid for passing pedestrians.
+## Both the segment and each person's clearance must be safe, including when a
+## save restores two people on top of one another (only separation is allowed).
+static func local_step(nav:RoomNav, start:Vector2, toward:Vector2, budget:float, others:Array, yield_side:int)->Variant:
+	var forward:Vector2=(toward-start).normalized()
+	if budget<=0 or forward==Vector2.ZERO:return null
+	var side:=Vector2(-forward.y,forward.x)*yield_side
+	for direction in [(forward+side*1.5).normalized(),side,(forward-side*1.5).normalized(),-side]:
+		var next:Vector2=start+direction*budget
+		if not nav.walkable(next) or not nav.clear_line(start,next):continue
+		var safe:bool=true
+		for other in others:
+			var old_distance:float=start.distance_to(other)
+			if next.distance_to(other)<GAP and next.distance_to(other)<=old_distance+.001:safe=false;break
+		if safe:return next
+	return null
+
 static func standing(nav: RoomNav, wanted: Vector2, others: Array, origin: Variant = null) -> Variant:
 	if nav.walkable(wanted) and clear(wanted,others,GAP+SPOT_MARGIN) and (origin==null or not nav.route(origin,wanted).is_empty()):
 		return wanted
@@ -22,6 +39,19 @@ static func standing(nav: RoomNav, wanted: Vector2, others: Array, origin: Varia
 
 static func detour(scene: Dictionary, start: Vector2, end: Vector2, others: Array) -> Array[Vector2]:
 	return navigation(scene,others,start).route(start,end)
+
+## Find an actual reachable waiting place for an idle resident blocking a one-person aisle.
+## Moving there must leave the requester's whole route open; a tiny sidestep can still seal the aisle.
+static func yield_spot(scene:Dictionary, origin:Vector2, walker:Vector2, goal:Vector2, others:Array)->Variant:
+	var peer_nav:=navigation(scene,others+[walker],origin)
+	for radius in [36,48,64,88,128,192,256,320,384]:
+		for direction in DIRECTIONS:
+			var spot:Vector2=origin+direction*radius
+			if not peer_nav.walkable(spot) or not clear(spot,others+[walker],GAP+SPOT_MARGIN):continue
+			if peer_nav.route(origin,spot).is_empty():continue
+			if navigation(scene,others+[spot],walker).route(walker,goal).is_empty():continue
+			return spot
+	return null
 
 ## `origin` is where the walker stands. A circle that already contains her (two bodies restored or arriving on the
 ## same spot) is left out: otherwise her start is inside an obstacle, no route exists and she can never walk away.

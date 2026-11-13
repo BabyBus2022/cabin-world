@@ -1,0 +1,962 @@
+{
+  "items": [
+    {
+      "id": "sink",
+      "index": 7,
+      "name": "双槽洗碗台",
+      "foot": [
+        64,
+        160,
+        64,
+        32
+      ],
+      "layer": {
+        "id": "sink",
+        "file": "../restaurant/furniture.png",
+        "x": 64.0,
+        "y": 116,
+        "w": 64,
+        "h": 76,
+        "depth": 192,
+        "fit_art": true,
+        "region": [
+          977,
+          341,
+          240,
+          249
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "prep",
+      "index": 8,
+      "name": "备料台",
+      "foot": [
+        128,
+        160,
+        64,
+        32
+      ],
+      "layer": {
+        "id": "prep",
+        "file": "../restaurant/furniture.png",
+        "x": 128.0,
+        "y": 134,
+        "w": 64,
+        "h": 58,
+        "depth": 192,
+        "fit_art": true,
+        "region": [
+          25,
+          711,
+          265,
+          173
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "stove-a",
+      "index": 6,
+      "name": "双炉灶台",
+      "foot": [
+        256,
+        160,
+        64,
+        32
+      ],
+      "layer": {
+        "id": "stove-a",
+        "file": "../restaurant/furniture.png",
+        "x": 248.0,
+        "y": 112,
+        "w": 80,
+        "h": 80,
+        "depth": 192,
+        "fit_art": true,
+        "region": [
+          664,
+          357,
+          238,
+          233
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "stove-b",
+      "index": 6,
+      "name": "双炉灶台",
+      "foot": [
+        352,
+        160,
+        64,
+        32
+      ],
+      "layer": {
+        "id": "stove-b",
+        "file": "../restaurant/furniture.png",
+        "x": 344.0,
+        "y": 112,
+        "w": 80,
+        "h": 80,
+        "depth": 192,
+        "fit_art": true,
+        "region": [
+          664,
+          357,
+          238,
+          233
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "oven",
+      "index": 16,
+      "name": "烤箱",
+      "foot": [
+        64,
+        224,
+        64,
+        32
+      ],
+      "layer": {
+        "id": "oven",
+        "file": "../restaurant/kitchen-extras.png",
+        "x": 64.0,
+        "y": 192,
+        "w": 64,
+        "h": 64,
+        "depth": 256,
+        "fit_art": true,
+        "region": [
+          137,
+          146,
+          286,
+          296
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "fryer",
+      "index": 18,
+      "name": "炸锅",
+      "foot": [
+        160,
+        224,
+        32,
+        32
+      ],
+      "layer": {
+        "id": "fryer",
+        "file": "../restaurant/kitchen-extras.png",
+        "x": 156.0,
+        "y": 196,
+        "w": 40,
+        "h": 60,
+        "depth": 256,
+        "fit_art": true,
+        "region": [
+          1115,
+          87,
+          317,
+          363
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "sushi-prep",
+      "index": 19,
+      "name": "寿司备料台",
+      "foot": [
+        352,
+        224,
+        64,
+        32
+      ],
+      "layer": {
+        "id": "sushi-prep",
+        "file": "../restaurant/kitchen-extras.png",
+        "x": 352.0,
+        "y": 198,
+        "w": 64,
+        "h": 58,
+        "depth": 256,
+        "fit_art": true,
+        "region": [
+          70,
+          659,
+          399,
+          267
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "fridge",
+      "index": 13,
+      "name": "冷藏柜",
+      "foot": [
+        512,
+        160,
+        64,
+        32
+      ],
+      "layer": {
+        "id": "fridge",
+        "file": "../restaurant/furniture.png",
+        "x": 514.0,
+        "y": 92,
+        "w": 60,
+        "h": 100,
+        "depth": 192,
+        "fit_art": true,
+        "region": [
+          401,
+          969,
+          139,
+          252
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "crockery",
+      "index": 12,
+      "name": "碗碟柜",
+      "foot": [
+        608,
+        160,
+        64,
+        32
+      ],
+      "layer": {
+        "id": "crockery",
+        "file": "../restaurant/furniture.png",
+        "x": 608.0,
+        "y": 112,
+        "w": 64,
+        "h": 80,
+        "depth": 192,
+        "fit_art": true,
+        "region": [
+          37,
+          970,
+          241,
+          258
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "order",
+      "index": 9,
+      "name": "Naiwa点餐台",
+      "foot": [
+        736,
+        160,
+        160,
+        32
+      ],
+      "layer": {
+        "id": "order",
+        "file": "../restaurant/furniture.png",
+        "x": 736.0,
+        "y": 108,
+        "w": 160,
+        "h": 84,
+        "depth": 192,
+        "fit_art": true,
+        "region": [
+          328,
+          684,
+          284,
+          206
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "pickup",
+      "index": 10,
+      "name": "取餐台",
+      "foot": [
+        512,
+        224,
+        96,
+        32
+      ],
+      "layer": {
+        "id": "pickup",
+        "file": "../restaurant/furniture.png",
+        "x": 512.0,
+        "y": 192,
+        "w": 96,
+        "h": 64,
+        "depth": 256,
+        "fit_art": true,
+        "region": [
+          642,
+          728,
+          286,
+          162
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "return",
+      "index": 11,
+      "name": "餐具回收柜",
+      "foot": [
+        64,
+        352,
+        64,
+        32
+      ],
+      "layer": {
+        "id": "return",
+        "file": "../restaurant/furniture.png",
+        "x": 64.0,
+        "y": 320,
+        "w": 64,
+        "h": 64,
+        "depth": 384,
+        "fit_art": true,
+        "region": [
+          973,
+          691,
+          249,
+          200
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "water",
+      "index": 15,
+      "name": "饮水餐具柜",
+      "foot": [
+        800,
+        352,
+        96,
+        32
+      ],
+      "layer": {
+        "id": "water",
+        "file": "../restaurant/furniture.png",
+        "x": 800.0,
+        "y": 320,
+        "w": 96,
+        "h": 64,
+        "depth": 384,
+        "fit_art": true,
+        "region": [
+          962,
+          986,
+          270,
+          214
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "menu",
+      "index": 14,
+      "name": "菜单牌",
+      "foot": [
+        736,
+        352,
+        32,
+        32
+      ],
+      "layer": {
+        "id": "menu",
+        "file": "../restaurant/furniture.png",
+        "x": 733.0,
+        "y": 320,
+        "w": 38,
+        "h": 64,
+        "depth": 384,
+        "fit_art": true,
+        "region": [
+          695,
+          973,
+          176,
+          248
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "table-a",
+      "index": 0,
+      "name": "双人餐桌",
+      "foot": [
+        128,
+        416,
+        128,
+        64
+      ],
+      "layer": {
+        "id": "table-a",
+        "file": "../restaurant/furniture.png",
+        "x": 128.0,
+        "y": 392,
+        "w": 128,
+        "h": 88,
+        "depth": 480,
+        "fit_art": true,
+        "region": [
+          74,
+          88,
+          168,
+          187
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "table-b",
+      "index": 0,
+      "name": "双人餐桌",
+      "foot": [
+        128,
+        512,
+        128,
+        32
+      ],
+      "layer": {
+        "id": "table-b",
+        "file": "../restaurant/furniture.png",
+        "x": 128.0,
+        "y": 472,
+        "w": 128,
+        "h": 72,
+        "depth": 544,
+        "fit_art": true,
+        "region": [
+          74,
+          88,
+          168,
+          187
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "table-c",
+      "index": 1,
+      "name": "四人餐桌",
+      "foot": [
+        416,
+        416,
+        128,
+        64
+      ],
+      "layer": {
+        "id": "table-c",
+        "file": "../restaurant/furniture.png",
+        "x": 416.0,
+        "y": 392,
+        "w": 128,
+        "h": 88,
+        "depth": 480,
+        "fit_art": true,
+        "region": [
+          329,
+          88,
+          283,
+          187
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "table-d",
+      "index": 0,
+      "name": "双人餐桌",
+      "foot": [
+        736,
+        448,
+        128,
+        64
+      ],
+      "layer": {
+        "id": "table-d",
+        "file": "../restaurant/furniture.png",
+        "x": 736.0,
+        "y": 424,
+        "w": 128,
+        "h": 88,
+        "depth": 512,
+        "fit_art": true,
+        "region": [
+          74,
+          88,
+          168,
+          187
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "seat-a1",
+      "index": 2,
+      "name": "餐椅·朝南",
+      "foot": [
+        160,
+        384,
+        32,
+        32
+      ],
+      "layer": {
+        "id": "seat-a1",
+        "file": "../restaurant/furniture.png",
+        "x": 156.0,
+        "y": 352,
+        "w": 40,
+        "h": 64,
+        "depth": 395,
+        "fit_art": true,
+        "region": [
+          713,
+          47,
+          141,
+          239
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "seat-a2",
+      "index": 4,
+      "name": "餐椅·朝西",
+      "foot": [
+        256,
+        416,
+        32,
+        32
+      ],
+      "layer": {
+        "id": "seat-a2",
+        "file": "../restaurant/furniture.png",
+        "x": 252.0,
+        "y": 384,
+        "w": 40,
+        "h": 64,
+        "depth": 427,
+        "fit_art": true,
+        "region": [
+          86,
+          352,
+          141,
+          240
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "seat-b1",
+      "index": 2,
+      "name": "餐椅·朝南",
+      "foot": [
+        160,
+        480,
+        32,
+        32
+      ],
+      "layer": {
+        "id": "seat-b1",
+        "file": "../restaurant/furniture.png",
+        "x": 156.0,
+        "y": 448,
+        "w": 40,
+        "h": 64,
+        "depth": 491,
+        "fit_art": true,
+        "region": [
+          713,
+          47,
+          141,
+          239
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "seat-b2",
+      "index": 4,
+      "name": "餐椅·朝西",
+      "foot": [
+        256,
+        512,
+        32,
+        32
+      ],
+      "layer": {
+        "id": "seat-b2",
+        "file": "../restaurant/furniture.png",
+        "x": 252.0,
+        "y": 480,
+        "w": 40,
+        "h": 64,
+        "depth": 523,
+        "fit_art": true,
+        "region": [
+          86,
+          352,
+          141,
+          240
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "seat-c1",
+      "index": 2,
+      "name": "餐椅·朝南",
+      "foot": [
+        448,
+        384,
+        32,
+        32
+      ],
+      "layer": {
+        "id": "seat-c1",
+        "file": "../restaurant/furniture.png",
+        "x": 444.0,
+        "y": 352,
+        "w": 40,
+        "h": 64,
+        "depth": 395,
+        "fit_art": true,
+        "region": [
+          713,
+          47,
+          141,
+          239
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "seat-c2",
+      "index": 3,
+      "name": "餐椅·朝北",
+      "foot": [
+        448,
+        480,
+        32,
+        32
+      ],
+      "layer": {
+        "id": "seat-c2",
+        "file": "../restaurant/furniture.png",
+        "x": 444.0,
+        "y": 448,
+        "w": 40,
+        "h": 64,
+        "depth": 491,
+        "fit_art": true,
+        "region": [
+          1025,
+          58,
+          145,
+          225
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "seat-c3",
+      "index": 5,
+      "name": "餐椅·朝东",
+      "foot": [
+        384,
+        416,
+        32,
+        32
+      ],
+      "layer": {
+        "id": "seat-c3",
+        "file": "../restaurant/furniture.png",
+        "x": 380.0,
+        "y": 384,
+        "w": 40,
+        "h": 64,
+        "depth": 427,
+        "fit_art": true,
+        "region": [
+          401,
+          351,
+          141,
+          241
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "seat-c4",
+      "index": 4,
+      "name": "餐椅·朝西",
+      "foot": [
+        544,
+        416,
+        32,
+        32
+      ],
+      "layer": {
+        "id": "seat-c4",
+        "file": "../restaurant/furniture.png",
+        "x": 540.0,
+        "y": 384,
+        "w": 40,
+        "h": 64,
+        "depth": 427,
+        "fit_art": true,
+        "region": [
+          86,
+          352,
+          141,
+          240
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "seat-d1",
+      "index": 2,
+      "name": "餐椅·朝南",
+      "foot": [
+        768,
+        416,
+        32,
+        32
+      ],
+      "layer": {
+        "id": "seat-d1",
+        "file": "../restaurant/furniture.png",
+        "x": 764.0,
+        "y": 384,
+        "w": 40,
+        "h": 64,
+        "depth": 427,
+        "fit_art": true,
+        "region": [
+          713,
+          47,
+          141,
+          239
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "seat-d2",
+      "index": 3,
+      "name": "餐椅·朝北",
+      "foot": [
+        768,
+        512,
+        32,
+        32
+      ],
+      "layer": {
+        "id": "seat-d2",
+        "file": "../restaurant/furniture.png",
+        "x": 764.0,
+        "y": 480,
+        "w": 40,
+        "h": 64,
+        "depth": 523,
+        "fit_art": true,
+        "region": [
+          1025,
+          58,
+          145,
+          225
+        ]
+      },
+      "surface": false
+    },
+    {
+      "id": "rice-cooker",
+      "index": 17,
+      "name": "电饭煲",
+      "foot": [
+        160,
+        128,
+        32,
+        32
+      ],
+      "layer": {
+        "id": "rice-cooker",
+        "file": "../restaurant/kitchen-extras.png",
+        "x": 160.0,
+        "y": 128,
+        "w": 32,
+        "h": 32,
+        "depth": 160,
+        "fit_art": true,
+        "region": [
+          624,
+          144,
+          289,
+          296
+        ]
+      },
+      "surface": true
+    },
+    {
+      "id": "seasoning",
+      "index": 20,
+      "name": "调味罐",
+      "foot": [
+        192,
+        128,
+        32,
+        32
+      ],
+      "layer": {
+        "id": "seasoning",
+        "file": "../restaurant/kitchen-extras.png",
+        "x": 192.0,
+        "y": 128,
+        "w": 32,
+        "h": 32,
+        "depth": 160,
+        "fit_art": true,
+        "region": [
+          588,
+          647,
+          353,
+          243
+        ]
+      },
+      "surface": true
+    },
+    {
+      "id": "hood-a",
+      "index": 21,
+      "name": "抽油烟机",
+      "foot": [
+        256,
+        96,
+        64,
+        32
+      ],
+      "layer": {
+        "id": "hood-a",
+        "file": "../restaurant/kitchen-extras.png",
+        "x": 256.0,
+        "y": 96,
+        "w": 64,
+        "h": 32,
+        "depth": 128,
+        "fit_art": true,
+        "region": [
+          1047,
+          604,
+          417,
+          307
+        ]
+      },
+      "surface": true
+    },
+    {
+      "id": "hood-b",
+      "index": 21,
+      "name": "抽油烟机",
+      "foot": [
+        352,
+        96,
+        64,
+        32
+      ],
+      "layer": {
+        "id": "hood-b",
+        "file": "../restaurant/kitchen-extras.png",
+        "x": 352.0,
+        "y": 96,
+        "w": 64,
+        "h": 32,
+        "depth": 128,
+        "fit_art": true,
+        "region": [
+          1047,
+          604,
+          417,
+          307
+        ]
+      },
+      "surface": true
+    }
+  ],
+  "seats": [
+    {
+      "id": "seat-a1",
+      "zone": "seat-a1_use",
+      "facing": "south",
+      "table": "table-a"
+    },
+    {
+      "id": "seat-a2",
+      "zone": "seat-a2_use",
+      "facing": "west",
+      "table": "table-a"
+    },
+    {
+      "id": "seat-b1",
+      "zone": "seat-b1_use",
+      "facing": "south",
+      "table": "table-b"
+    },
+    {
+      "id": "seat-b2",
+      "zone": "seat-b2_use",
+      "facing": "west",
+      "table": "table-b"
+    },
+    {
+      "id": "seat-c1",
+      "zone": "seat-c1_use",
+      "facing": "south",
+      "table": "table-c"
+    },
+    {
+      "id": "seat-c2",
+      "zone": "seat-c2_use",
+      "facing": "north",
+      "table": "table-c"
+    },
+    {
+      "id": "seat-c3",
+      "zone": "seat-c3_use",
+      "facing": "east",
+      "table": "table-c"
+    },
+    {
+      "id": "seat-c4",
+      "zone": "seat-c4_use",
+      "facing": "west",
+      "table": "table-c"
+    },
+    {
+      "id": "seat-d1",
+      "zone": "seat-d1_use",
+      "facing": "south",
+      "table": "table-d"
+    },
+    {
+      "id": "seat-d2",
+      "zone": "seat-d2_use",
+      "facing": "north",
+      "table": "table-d"
+    }
+  ]
+}

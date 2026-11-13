@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "deferred": [
+    "qianxia-park--rider",
+    "qianxia-park--seesaw",
+    "qianxia-park--swing",
+    "xiaojingyu-home--xj-bed",
+    "xiaojingyu-home--xj-tank"
+  ],
+  "boundDeferred": [
+    "xj-tank"
+  ],
+  "reason": "Only animated playground mechanisms, bed lying poses and tank depth await dedicated binding review; other approved views enabled 2026-11-12."
+}

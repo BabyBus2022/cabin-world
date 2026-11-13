@@ -45,7 +45,186 @@
           "h": 23.14749262536873
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-park--bench/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -29,
+            "w": 98,
+            "h": 61
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": {
+            "x": 32,
+            "y": 21.44,
+            "face": "S"
+          },
+          "seats": [
+            {
+              "x": 32,
+              "y": 21.44,
+              "face": "S"
+            },
+            {
+              "x": 64,
+              "y": 21.44,
+              "face": "S"
+            }
+          ]
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-park--bench/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -29,
+            "w": 34,
+            "h": 125
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": {
+            "x": 21.44,
+            "y": 64,
+            "face": "E"
+          },
+          "seats": [
+            {
+              "x": 21.44,
+              "y": 64,
+              "face": "E"
+            },
+            {
+              "x": 21.44,
+              "y": 32,
+              "face": "E"
+            }
+          ]
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-park--bench/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -29,
+            "w": 98,
+            "h": 61
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": {
+            "x": 64,
+            "y": 10.559999999999999,
+            "face": "N"
+          },
+          "seats": [
+            {
+              "x": 64,
+              "y": 10.559999999999999,
+              "face": "N"
+            },
+            {
+              "x": 32,
+              "y": 10.559999999999999,
+              "face": "N"
+            }
+          ]
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-park--bench/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -29,
+            "w": 34,
+            "h": 125
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": {
+            "x": 10.559999999999999,
+            "y": 32,
+            "face": "W"
+          },
+          "seats": [
+            {
+              "x": 10.559999999999999,
+              "y": 32,
+              "face": "W"
+            },
+            {
+              "x": 10.559999999999999,
+              "y": 64,
+              "face": "W"
+            }
+          ]
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-park--swing",
@@ -83,7 +262,166 @@
           "h": 42.81437125748503
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-park--swing/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -19.5,
+            "w": 98,
+            "h": 83.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": {
+            "x": 48,
+            "y": 32,
+            "face": "S"
+          },
+          "seats": [
+            {
+              "x": 48,
+              "y": 32,
+              "face": "S"
+            }
+          ]
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-park--swing/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -19.5,
+            "w": 66,
+            "h": 115.5
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": {
+            "x": 32,
+            "y": 48,
+            "face": "E"
+          },
+          "seats": [
+            {
+              "x": 32,
+              "y": 48,
+              "face": "E"
+            }
+          ]
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-park--swing/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -19.5,
+            "w": 98,
+            "h": 83.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": {
+            "x": 48,
+            "y": 32,
+            "face": "N"
+          },
+          "seats": [
+            {
+              "x": 48,
+              "y": 32,
+              "face": "N"
+            }
+          ]
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-park--swing/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -19.5,
+            "w": 66,
+            "h": 115.5
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": {
+            "x": 32,
+            "y": 48,
+            "face": "W"
+          },
+          "seats": [
+            {
+              "x": 32,
+              "y": 48,
+              "face": "W"
+            }
+          ]
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-park--slide",
@@ -121,7 +459,8 @@
           "h": 59.40013227513227
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "rotationLocked": true
     },
     {
       "id": "qianxia-park--carousel",
@@ -197,7 +536,186 @@
           "h": 34.58519553072625
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-park--seesaw/S.png",
+          "footprint": {
+            "w": 4,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": 28.5,
+            "w": 130,
+            "h": 35.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 128,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": {
+            "x": 14.5,
+            "y": 32,
+            "face": "S"
+          },
+          "seats": [
+            {
+              "x": 14.5,
+              "y": 32,
+              "face": "S"
+            },
+            {
+              "x": 113.5,
+              "y": 32,
+              "face": "S"
+            }
+          ]
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-park--seesaw/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 4
+          },
+          "art": {
+            "x": -1,
+            "y": 28.5,
+            "w": 66,
+            "h": 99.5
+          },
+          "depth": 128,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 128
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 2,
+              "face": "W"
+            }
+          ],
+          "seat": {
+            "x": 32,
+            "y": 113.5,
+            "face": "E"
+          },
+          "seats": [
+            {
+              "x": 32,
+              "y": 113.5,
+              "face": "E"
+            },
+            {
+              "x": 32,
+              "y": 14.5,
+              "face": "E"
+            }
+          ]
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-park--seesaw/N.png",
+          "footprint": {
+            "w": 4,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": 28.5,
+            "w": 130,
+            "h": 35.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 128,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": {
+            "x": 113.5,
+            "y": 32,
+            "face": "N"
+          },
+          "seats": [
+            {
+              "x": 113.5,
+              "y": 32,
+              "face": "N"
+            },
+            {
+              "x": 14.5,
+              "y": 32,
+              "face": "N"
+            }
+          ]
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-park--seesaw/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 4
+          },
+          "art": {
+            "x": -1,
+            "y": 28.5,
+            "w": 66,
+            "h": 99.5
+          },
+          "depth": 128,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 128
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 2,
+              "face": "E"
+            }
+          ],
+          "seat": {
+            "x": 32,
+            "y": 14.5,
+            "face": "W"
+          },
+          "seats": [
+            {
+              "x": 32,
+              "y": 14.5,
+              "face": "W"
+            },
+            {
+              "x": 32,
+              "y": 113.5,
+              "face": "W"
+            }
+          ]
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-park--rider",
@@ -235,7 +753,166 @@
           "h": 31.119296577946766
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-park--rider/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -34,
+            "w": 66,
+            "h": 66
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": {
+            "x": 32.5,
+            "y": 16,
+            "face": "S"
+          },
+          "seats": [
+            {
+              "x": 32.5,
+              "y": 16,
+              "face": "S"
+            }
+          ]
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-park--rider/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -34,
+            "w": 34,
+            "h": 98
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": {
+            "x": 16,
+            "y": 31.5,
+            "face": "E"
+          },
+          "seats": [
+            {
+              "x": 16,
+              "y": 31.5,
+              "face": "E"
+            }
+          ]
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-park--rider/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -34,
+            "w": 66,
+            "h": 66
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": {
+            "x": 31.5,
+            "y": 16,
+            "face": "N"
+          },
+          "seats": [
+            {
+              "x": 31.5,
+              "y": 16,
+              "face": "N"
+            }
+          ]
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-park--rider/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -34,
+            "w": 34,
+            "h": 98
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": {
+            "x": 16,
+            "y": 32.5,
+            "face": "W"
+          },
+          "seats": [
+            {
+              "x": 16,
+              "y": 32.5,
+              "face": "W"
+            }
+          ]
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-park--lamp-west",
@@ -349,7 +1026,122 @@
           "h": 29.2236328125
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--snack-shelf/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -45,
+            "w": 98,
+            "h": 77
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--snack-shelf/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -45,
+            "w": 34,
+            "h": 141
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--snack-shelf/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -45,
+            "w": 98,
+            "h": 77
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--snack-shelf/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -45,
+            "w": 34,
+            "h": 141
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--food-shelf",
@@ -387,7 +1179,122 @@
           "h": 28.84800771208226
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--food-shelf/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -44,
+            "w": 98,
+            "h": 76
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--food-shelf/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -44,
+            "w": 34,
+            "h": 140
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--food-shelf/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -44,
+            "w": 98,
+            "h": 76
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--food-shelf/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -44,
+            "w": 34,
+            "h": 140
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--daily-shelf",
@@ -425,7 +1332,122 @@
           "h": 28.77403846153846
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--daily-shelf/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -43.5,
+            "w": 98,
+            "h": 75.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--daily-shelf/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -43.5,
+            "w": 34,
+            "h": 139.5
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--daily-shelf/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -43.5,
+            "w": 98,
+            "h": 75.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--daily-shelf/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -43.5,
+            "w": 34,
+            "h": 139.5
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--bread-shelf",
@@ -463,7 +1485,122 @@
           "h": 27.91511194029851
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--bread-shelf/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -41.5,
+            "w": 98,
+            "h": 73.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--bread-shelf/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -41.5,
+            "w": 34,
+            "h": 137.5
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--bread-shelf/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -41.5,
+            "w": 98,
+            "h": 73.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--bread-shelf/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -41.5,
+            "w": 34,
+            "h": 137.5
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--drink-fridge",
@@ -501,7 +1638,122 @@
           "h": 36.67914438502674
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--drink-fridge/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -32.5,
+            "w": 66,
+            "h": 96.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--drink-fridge/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -32.5,
+            "w": 66,
+            "h": 96.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--drink-fridge/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -32.5,
+            "w": 66,
+            "h": 96.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--drink-fridge/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -32.5,
+            "w": 66,
+            "h": 96.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--drink-fridge-2",
@@ -539,7 +1791,122 @@
           "h": 36.67914438502674
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--drink-fridge-2/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -32.5,
+            "w": 66,
+            "h": 96.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--drink-fridge-2/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -32.5,
+            "w": 66,
+            "h": 96.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--drink-fridge-2/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -32.5,
+            "w": 66,
+            "h": 96.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--drink-fridge-2/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -32.5,
+            "w": 66,
+            "h": 96.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--food-island",
@@ -577,7 +1944,122 @@
           "h": 28.84800771208226
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--food-island/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -44,
+            "w": 98,
+            "h": 76
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--food-island/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -44,
+            "w": 34,
+            "h": 140
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--food-island/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -44,
+            "w": 98,
+            "h": 76
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--food-island/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -44,
+            "w": 34,
+            "h": 140
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--snack-island",
@@ -615,7 +2097,122 @@
           "h": 29.2236328125
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--snack-island/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -45,
+            "w": 98,
+            "h": 77
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--snack-island/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -45,
+            "w": 34,
+            "h": 141
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--snack-island/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -45,
+            "w": 98,
+            "h": 77
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--snack-island/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -45,
+            "w": 34,
+            "h": 141
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--daily-island",
@@ -653,7 +2250,122 @@
           "h": 28.77403846153846
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--daily-island/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -43.5,
+            "w": 98,
+            "h": 75.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--daily-island/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -43.5,
+            "w": 34,
+            "h": 139.5
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--daily-island/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -43.5,
+            "w": 98,
+            "h": 75.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--daily-island/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -43.5,
+            "w": 34,
+            "h": 139.5
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--snack-island-2",
@@ -691,7 +2403,122 @@
           "h": 29.2236328125
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--snack-island-2/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -45,
+            "w": 98,
+            "h": 77
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--snack-island-2/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -45,
+            "w": 34,
+            "h": 141
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--snack-island-2/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -45,
+            "w": 98,
+            "h": 77
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--snack-island-2/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -45,
+            "w": 34,
+            "h": 141
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--produce",
@@ -729,7 +2556,122 @@
           "h": 20.134328358208958
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--produce/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -21,
+            "w": 98,
+            "h": 53
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--produce/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -21,
+            "w": 34,
+            "h": 117
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--produce/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -21,
+            "w": 98,
+            "h": 53
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--produce/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -21,
+            "w": 34,
+            "h": 117
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--sale-island",
@@ -767,7 +2709,122 @@
           "h": 19.81489841986456
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--sale-island/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -20,
+            "w": 98,
+            "h": 52
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--sale-island/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -20,
+            "w": 34,
+            "h": 116
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--sale-island/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -20,
+            "w": 98,
+            "h": 52
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--sale-island/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -20,
+            "w": 34,
+            "h": 116
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--magazines",
@@ -805,7 +2862,122 @@
           "h": 14.467142857142857
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--magazines/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -6,
+            "w": 66,
+            "h": 38
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--magazines/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -6,
+            "w": 34,
+            "h": 70
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--magazines/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -6,
+            "w": 66,
+            "h": 38
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--magazines/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -6,
+            "w": 34,
+            "h": 70
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--freezer",
@@ -843,7 +3015,122 @@
           "h": 19.802816901408452
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--freezer/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -20,
+            "w": 66,
+            "h": 52
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--freezer/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -20,
+            "w": 34,
+            "h": 84
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--freezer/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -20,
+            "w": 66,
+            "h": 52
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--freezer/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -20,
+            "w": 34,
+            "h": 84
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--counter-extension",
@@ -881,7 +3168,122 @@
           "h": 19.741048593350385
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--counter-extension/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -20,
+            "w": 98,
+            "h": 52
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--counter-extension/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -20,
+            "w": 34,
+            "h": 116
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--counter-extension/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -20,
+            "w": 98,
+            "h": 52
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--counter-extension/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -20,
+            "w": 34,
+            "h": 116
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--counter",
@@ -919,7 +3321,122 @@
           "h": 19.741048593350385
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--counter/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -20,
+            "w": 98,
+            "h": 52
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--counter/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -20,
+            "w": 34,
+            "h": 116
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--counter/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -20,
+            "w": 98,
+            "h": 52
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--counter/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -20,
+            "w": 34,
+            "h": 116
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--register",
@@ -1023,7 +3540,122 @@
           "h": 12.46875
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--baskets/S.png",
+          "footprint": {
+            "w": 1,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -1,
+            "w": 34,
+            "h": 33
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 0,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--baskets/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -1,
+            "w": 34,
+            "h": 33
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 0,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--baskets/N.png",
+          "footprint": {
+            "w": 1,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -1,
+            "w": 34,
+            "h": 33
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 0,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--baskets/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -1,
+            "w": 34,
+            "h": 33
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 0,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--hot-cabinet",
@@ -1061,7 +3693,122 @@
           "h": 37
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--hot-cabinet/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -30,
+            "w": 66,
+            "h": 94
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--hot-cabinet/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -30,
+            "w": 66,
+            "h": 94
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--hot-cabinet/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -30,
+            "w": 66,
+            "h": 94
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--hot-cabinet/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -30,
+            "w": 66,
+            "h": 94
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--long-bench",
@@ -1099,7 +3846,186 @@
           "h": 125
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/qianxia-shop--long-bench/S.png",
+          "footprint": {
+            "w": 1,
+            "h": 4
+          },
+          "art": {
+            "x": 0,
+            "y": -19,
+            "w": 32,
+            "h": 147
+          },
+          "depth": 128,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 128
+          },
+          "use": [
+            {
+              "dx": 0,
+              "dy": 4,
+              "face": "N"
+            }
+          ],
+          "seat": {
+            "x": 16,
+            "y": 32,
+            "face": "S"
+          },
+          "seats": [
+            {
+              "x": 16,
+              "y": 32,
+              "face": "S"
+            },
+            {
+              "x": 16,
+              "y": 96,
+              "face": "S"
+            }
+          ]
+        },
+        "E": {
+          "file": "../furniture-views/qianxia-shop--long-bench/E.png",
+          "footprint": {
+            "w": 4,
+            "h": 1
+          },
+          "art": {
+            "x": 0,
+            "y": -19,
+            "w": 128,
+            "h": 51
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 128,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 4,
+              "dy": 0,
+              "face": "W"
+            }
+          ],
+          "seat": {
+            "x": 32,
+            "y": 16,
+            "face": "E"
+          },
+          "seats": [
+            {
+              "x": 32,
+              "y": 16,
+              "face": "E"
+            },
+            {
+              "x": 96,
+              "y": 16,
+              "face": "E"
+            }
+          ]
+        },
+        "N": {
+          "file": "../furniture-views/qianxia-shop--long-bench/N.png",
+          "footprint": {
+            "w": 1,
+            "h": 4
+          },
+          "art": {
+            "x": 0,
+            "y": -19,
+            "w": 32,
+            "h": 147
+          },
+          "depth": 128,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 128
+          },
+          "use": [
+            {
+              "dx": 0,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": {
+            "x": 16,
+            "y": 96,
+            "face": "N"
+          },
+          "seats": [
+            {
+              "x": 16,
+              "y": 96,
+              "face": "N"
+            },
+            {
+              "x": 16,
+              "y": 32,
+              "face": "N"
+            }
+          ]
+        },
+        "W": {
+          "file": "../furniture-views/qianxia-shop--long-bench/W.png",
+          "footprint": {
+            "w": 4,
+            "h": 1
+          },
+          "art": {
+            "x": 0,
+            "y": -19,
+            "w": 128,
+            "h": 51
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 128,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 0,
+              "face": "E"
+            }
+          ],
+          "seat": {
+            "x": 96,
+            "y": 16,
+            "face": "W"
+          },
+          "seats": [
+            {
+              "x": 96,
+              "y": 16,
+              "face": "W"
+            },
+            {
+              "x": 32,
+              "y": 16,
+              "face": "W"
+            }
+          ]
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "qianxia-shop--shop-light",
@@ -1180,7 +4106,128 @@
           "h": 84
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/xiaojingyu-home--xj-bed/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 3
+          },
+          "art": {
+            "x": 0,
+            "y": -24,
+            "w": 96,
+            "h": 120
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 3,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/xiaojingyu-home--xj-bed/E.png",
+          "footprint": {
+            "w": 3,
+            "h": 3
+          },
+          "art": {
+            "x": 0,
+            "y": -24,
+            "w": 96,
+            "h": 120
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 3,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/xiaojingyu-home--xj-bed/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 3
+          },
+          "art": {
+            "x": 0,
+            "y": -24,
+            "w": 96,
+            "h": 120
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/xiaojingyu-home--xj-bed/W.png",
+          "footprint": {
+            "w": 3,
+            "h": 3
+          },
+          "art": {
+            "x": 0,
+            "y": -24,
+            "w": 96,
+            "h": 120
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsReview": {
+        "status": "pilot-awaiting-owner",
+        "source": "FURNITURE-VIEWS.md",
+        "allSidesDrawn": true,
+        "originalLayersPreserved": true
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "xiaojingyu-home--xj-bookshelf",
@@ -1218,7 +4265,128 @@
           "h": 37
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/xiaojingyu-home--xj-bookshelf/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -12.5,
+            "w": 98,
+            "h": 76.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/xiaojingyu-home--xj-bookshelf/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -12.5,
+            "w": 66,
+            "h": 108.5
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/xiaojingyu-home--xj-bookshelf/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -12.5,
+            "w": 98,
+            "h": 76.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/xiaojingyu-home--xj-bookshelf/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -12.5,
+            "w": 66,
+            "h": 108.5
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsReview": {
+        "status": "pilot-awaiting-owner",
+        "source": "FURNITURE-VIEWS.md",
+        "allSidesDrawn": true,
+        "originalLayersPreserved": true
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "xiaojingyu-home--xj-writing_desk",
@@ -1228,7 +4396,7 @@
       "layer": "solid",
       "footprint": {
         "w": 3,
-        "h": 1
+        "h": 2
       },
       "layers": [
         {
@@ -1256,7 +4424,128 @@
           "h": 28
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/xiaojingyu-home--xj-writing_desk/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": 6,
+            "w": 98,
+            "h": 58
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/xiaojingyu-home--xj-writing_desk/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": 6,
+            "w": 66,
+            "h": 90
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/xiaojingyu-home--xj-writing_desk/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": 6,
+            "w": 98,
+            "h": 58
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/xiaojingyu-home--xj-writing_desk/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": 6,
+            "w": 66,
+            "h": 90
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsReview": {
+        "status": "pilot-awaiting-owner",
+        "source": "FURNITURE-VIEWS.md",
+        "allSidesDrawn": true,
+        "originalLayersPreserved": true
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "xiaojingyu-home--xj-desk",
@@ -1294,7 +4583,122 @@
           "h": 59
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/xiaojingyu-home--xj-desk/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -38.5,
+            "w": 66,
+            "h": 102.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/xiaojingyu-home--xj-desk/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -38.5,
+            "w": 66,
+            "h": 102.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/xiaojingyu-home--xj-desk/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -38.5,
+            "w": 66,
+            "h": 102.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/xiaojingyu-home--xj-desk/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -38.5,
+            "w": 66,
+            "h": 102.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "xiaojingyu-home--xj-computer-chair",
@@ -1332,7 +4736,166 @@
           "h": 24
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/xiaojingyu-home--xj-computer-chair/S.png",
+          "footprint": {
+            "w": 1,
+            "h": 1
+          },
+          "art": {
+            "x": 0,
+            "y": -47,
+            "w": 32,
+            "h": 79
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 0,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": {
+            "x": 16,
+            "y": 12,
+            "face": "S"
+          },
+          "seats": [
+            {
+              "x": 16,
+              "y": 12,
+              "face": "S"
+            }
+          ]
+        },
+        "E": {
+          "file": "../furniture-views/xiaojingyu-home--xj-computer-chair/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 1
+          },
+          "art": {
+            "x": 0,
+            "y": -47,
+            "w": 32,
+            "h": 79
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 0,
+              "face": "W"
+            }
+          ],
+          "seat": {
+            "x": 16,
+            "y": 12,
+            "face": "E"
+          },
+          "seats": [
+            {
+              "x": 16,
+              "y": 12,
+              "face": "E"
+            }
+          ]
+        },
+        "N": {
+          "file": "../furniture-views/xiaojingyu-home--xj-computer-chair/N.png",
+          "footprint": {
+            "w": 1,
+            "h": 1
+          },
+          "art": {
+            "x": 0,
+            "y": -47,
+            "w": 32,
+            "h": 79
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 0,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": {
+            "x": 16,
+            "y": 12,
+            "face": "N"
+          },
+          "seats": [
+            {
+              "x": 16,
+              "y": 12,
+              "face": "N"
+            }
+          ]
+        },
+        "W": {
+          "file": "../furniture-views/xiaojingyu-home--xj-computer-chair/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 1
+          },
+          "art": {
+            "x": 0,
+            "y": -47,
+            "w": 32,
+            "h": 79
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 0,
+              "face": "E"
+            }
+          ],
+          "seat": {
+            "x": 16,
+            "y": 12,
+            "face": "W"
+          },
+          "seats": [
+            {
+              "x": 16,
+              "y": 12,
+              "face": "W"
+            }
+          ]
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "xiaojingyu-home--xj-desk-chair",
@@ -1370,7 +4933,172 @@
           "h": 19
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/xiaojingyu-home--xj-desk-chair/S.png",
+          "footprint": {
+            "w": 1,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -11,
+            "w": 34,
+            "h": 43
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 0,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": {
+            "x": 16,
+            "y": 20.8,
+            "face": "S"
+          },
+          "seats": [
+            {
+              "x": 16,
+              "y": 20.8,
+              "face": "S"
+            }
+          ]
+        },
+        "E": {
+          "file": "../furniture-views/xiaojingyu-home--xj-desk-chair/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -11,
+            "w": 34,
+            "h": 43
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 0,
+              "face": "W"
+            }
+          ],
+          "seat": {
+            "x": 20.8,
+            "y": 16,
+            "face": "E"
+          },
+          "seats": [
+            {
+              "x": 20.8,
+              "y": 16,
+              "face": "E"
+            }
+          ]
+        },
+        "N": {
+          "file": "../furniture-views/xiaojingyu-home--xj-desk-chair/N.png",
+          "footprint": {
+            "w": 1,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -11,
+            "w": 34,
+            "h": 43
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 0,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": {
+            "x": 16,
+            "y": 11.2,
+            "face": "N"
+          },
+          "seats": [
+            {
+              "x": 16,
+              "y": 11.2,
+              "face": "N"
+            }
+          ]
+        },
+        "W": {
+          "file": "../furniture-views/xiaojingyu-home--xj-desk-chair/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -11,
+            "w": 34,
+            "h": 43
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 0,
+              "face": "E"
+            }
+          ],
+          "seat": {
+            "x": 11.2,
+            "y": 16,
+            "face": "W"
+          },
+          "seats": [
+            {
+              "x": 11.2,
+              "y": 16,
+              "face": "W"
+            }
+          ]
+        }
+      },
+      "facingsReview": {
+        "status": "pilot-awaiting-owner",
+        "source": "FURNITURE-VIEWS.md",
+        "allSidesDrawn": true,
+        "originalLayersPreserved": true
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "xiaojingyu-home--xj-easel",
@@ -1408,7 +5136,122 @@
           "h": 20
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/xiaojingyu-home--xj-easel/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -52,
+            "w": 66,
+            "h": 84
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/xiaojingyu-home--xj-easel/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -52,
+            "w": 34,
+            "h": 116
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/xiaojingyu-home--xj-easel/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -52,
+            "w": 66,
+            "h": 84
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/xiaojingyu-home--xj-easel/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -52,
+            "w": 34,
+            "h": 116
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "xiaojingyu-home--xj-easel-seat",
@@ -1484,7 +5327,122 @@
           "h": 30
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/xiaojingyu-home--xj-tank/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -51.5,
+            "w": 98,
+            "h": 83.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/xiaojingyu-home--xj-tank/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -51.5,
+            "w": 34,
+            "h": 147.5
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/xiaojingyu-home--xj-tank/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -51.5,
+            "w": 98,
+            "h": 83.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/xiaojingyu-home--xj-tank/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -51.5,
+            "w": 34,
+            "h": 147.5
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "xiaojingyu-home--xj-sofa",
@@ -1494,7 +5452,7 @@
       "layer": "solid",
       "footprint": {
         "w": 3,
-        "h": 1
+        "h": 2
       },
       "layers": [
         {
@@ -1522,7 +5480,192 @@
           "h": 31
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/xiaojingyu-home--xj-sofa/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -14,
+            "w": 98,
+            "h": 78
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": {
+            "x": 32,
+            "y": 42.88,
+            "face": "S"
+          },
+          "seats": [
+            {
+              "x": 32,
+              "y": 42.88,
+              "face": "S"
+            },
+            {
+              "x": 64,
+              "y": 42.88,
+              "face": "S"
+            }
+          ]
+        },
+        "E": {
+          "file": "../furniture-views/xiaojingyu-home--xj-sofa/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -14,
+            "w": 66,
+            "h": 110
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": {
+            "x": 42.88,
+            "y": 64,
+            "face": "E"
+          },
+          "seats": [
+            {
+              "x": 42.88,
+              "y": 64,
+              "face": "E"
+            },
+            {
+              "x": 42.88,
+              "y": 32,
+              "face": "E"
+            }
+          ]
+        },
+        "N": {
+          "file": "../furniture-views/xiaojingyu-home--xj-sofa/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -14,
+            "w": 98,
+            "h": 78
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": {
+            "x": 64,
+            "y": 21.119999999999997,
+            "face": "N"
+          },
+          "seats": [
+            {
+              "x": 64,
+              "y": 21.119999999999997,
+              "face": "N"
+            },
+            {
+              "x": 32,
+              "y": 21.119999999999997,
+              "face": "N"
+            }
+          ]
+        },
+        "W": {
+          "file": "../furniture-views/xiaojingyu-home--xj-sofa/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -14,
+            "w": 66,
+            "h": 110
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": {
+            "x": 21.119999999999997,
+            "y": 32,
+            "face": "W"
+          },
+          "seats": [
+            {
+              "x": 21.119999999999997,
+              "y": 32,
+              "face": "W"
+            },
+            {
+              "x": 21.119999999999997,
+              "y": 64,
+              "face": "W"
+            }
+          ]
+        }
+      },
+      "facingsReview": {
+        "status": "pilot-awaiting-owner",
+        "source": "FURNITURE-VIEWS.md",
+        "allSidesDrawn": true,
+        "originalLayersPreserved": true
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "xiaojingyu-home--xj-album-cabinet",
@@ -1560,7 +5703,122 @@
           "h": 12
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/xiaojingyu-home--xj-album-cabinet/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -33,
+            "w": 98,
+            "h": 65
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/xiaojingyu-home--xj-album-cabinet/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -33,
+            "w": 34,
+            "h": 129
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/xiaojingyu-home--xj-album-cabinet/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -33,
+            "w": 98,
+            "h": 65
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/xiaojingyu-home--xj-album-cabinet/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -33,
+            "w": 34,
+            "h": 129
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "xiaojingyu-home--xj-album-seat",
@@ -1631,7 +5889,122 @@
           "h": 20
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/xiaojingyu-home--xj-accessory_table/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -16,
+            "w": 66,
+            "h": 48
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/xiaojingyu-home--xj-accessory_table/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -16,
+            "w": 34,
+            "h": 80
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/xiaojingyu-home--xj-accessory_table/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -16,
+            "w": 66,
+            "h": 48
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/xiaojingyu-home--xj-accessory_table/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -16,
+            "w": 34,
+            "h": 80
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "xiaojingyu-home--xj-lamp-floor",
@@ -2183,7 +6556,122 @@
           "h": 36.15
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-arcade--arcade_blocks/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -56.5,
+            "w": 66,
+            "h": 120.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-arcade--arcade_blocks/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -56.5,
+            "w": 66,
+            "h": 120.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-arcade--arcade_blocks/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -56.5,
+            "w": 66,
+            "h": 120.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-arcade--arcade_blocks/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -56.5,
+            "w": 66,
+            "h": 120.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-arcade--arcade_mines",
@@ -2221,7 +6709,122 @@
           "h": 36
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-arcade--arcade_mines/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -56,
+            "w": 66,
+            "h": 120
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-arcade--arcade_mines/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -56,
+            "w": 66,
+            "h": 120
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-arcade--arcade_mines/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -56,
+            "w": 66,
+            "h": 120
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-arcade--arcade_mines/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -56,
+            "w": 66,
+            "h": 120
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-arcade--arcade_trophy",
@@ -2259,7 +6862,122 @@
           "h": 27.3
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-arcade--arcade_trophy/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -58,
+            "w": 66,
+            "h": 90
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-arcade--arcade_trophy/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -58,
+            "w": 34,
+            "h": 122
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-arcade--arcade_trophy/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -58,
+            "w": 66,
+            "h": 90
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-arcade--arcade_trophy/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -58,
+            "w": 34,
+            "h": 122
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-arcade--chess-far-seat",
@@ -2345,7 +7063,7 @@
       "layer": "solid",
       "footprint": {
         "w": 3,
-        "h": 1
+        "h": 2
       },
       "layers": [
         {
@@ -2373,7 +7091,266 @@
           "h": 22.05
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-arcade--arcade_xiangqi/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -9.5,
+            "w": 98,
+            "h": 73.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": null,
+          "boardQuad": [
+            [
+              20.693364260563385,
+              7.225774647887323
+            ],
+            [
+              76.78903010563381,
+              7.225774647887324
+            ],
+            [
+              79.6589980633803,
+              40.39394366197183
+            ],
+            [
+              17.8233963028169,
+              40.39394366197183
+            ]
+          ],
+          "boardPaper": [
+            [
+              17.426056338028168,
+              5.176056338028169
+            ],
+            [
+              80.05633802816902,
+              5.176056338028169
+            ],
+            [
+              83.67957746478874,
+              42.443661971830984
+            ],
+            [
+              13.802816901408448,
+              42.443661971830984
+            ]
+          ]
+        },
+        "E": {
+          "file": "../furniture-views/world-arcade--arcade_xiangqi/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -9.5,
+            "w": 66,
+            "h": 105.5
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null,
+          "boardQuad": [
+            [
+              52.50011936619718,
+              39.22577464788732
+            ],
+            [
+              54.96009190140846,
+              72.39394366197183
+            ],
+            [
+              11.03990809859155,
+              72.39394366197182
+            ],
+            [
+              13.49988063380282,
+              39.22577464788732
+            ]
+          ],
+          "boardPaper": [
+            [
+              11.260563380281692,
+              37.17605633802817
+            ],
+            [
+              54.739436619718305,
+              37.17605633802817
+            ],
+            [
+              57.845070422535215,
+              74.44366197183098
+            ],
+            [
+              8.154929577464788,
+              74.44366197183098
+            ]
+          ]
+        },
+        "N": {
+          "file": "../furniture-views/world-arcade--arcade_xiangqi/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -9.5,
+            "w": 98,
+            "h": 73.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null,
+          "boardQuad": [
+            [
+              79.19676329225354,
+              38.43739436619719
+            ],
+            [
+              17.796493749999996,
+              38.43739436619718
+            ],
+            [
+              20.691798503521127,
+              7.111901408450704
+            ],
+            [
+              76.7621275528169,
+              7.111901408450704
+            ]
+          ],
+          "boardPaper": [
+            [
+              17.426056338028168,
+              5.176056338028169
+            ],
+            [
+              80.05633802816902,
+              5.176056338028169
+            ],
+            [
+              83.16197183098592,
+              40.37323943661972
+            ],
+            [
+              13.802816901408448,
+              40.37323943661972
+            ]
+          ]
+        },
+        "W": {
+          "file": "../furniture-views/world-arcade--arcade_xiangqi/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -9.5,
+            "w": 66,
+            "h": 105.5
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null,
+          "boardQuad": [
+            [
+              11.03990809859155,
+              72.39394366197182
+            ],
+            [
+              13.49988063380282,
+              39.22577464788732
+            ],
+            [
+              52.50011936619718,
+              39.22577464788732
+            ],
+            [
+              54.96009190140846,
+              72.39394366197183
+            ]
+          ],
+          "boardPaper": [
+            [
+              11.260563380281692,
+              37.17605633802817
+            ],
+            [
+              54.739436619718305,
+              37.17605633802817
+            ],
+            [
+              57.845070422535215,
+              74.44366197183098
+            ],
+            [
+              8.154929577464788,
+              74.44366197183098
+            ]
+          ]
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-arcade--arcade_snake",
@@ -2411,7 +7388,186 @@
           "h": 36.75
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-arcade--arcade_snake/S.png",
+          "footprint": {
+            "w": 5,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -51.5,
+            "w": 162,
+            "h": 115.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 160,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": {
+            "x": 48,
+            "y": 57,
+            "face": "S"
+          },
+          "seats": [
+            {
+              "x": 48,
+              "y": 57,
+              "face": "S"
+            },
+            {
+              "x": 112,
+              "y": 57,
+              "face": "S"
+            }
+          ]
+        },
+        "E": {
+          "file": "../furniture-views/world-arcade--arcade_snake/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 5
+          },
+          "art": {
+            "x": -1,
+            "y": -51.5,
+            "w": 66,
+            "h": 211.5
+          },
+          "depth": 160,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 160
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 2,
+              "face": "W"
+            }
+          ],
+          "seat": {
+            "x": 57,
+            "y": 112,
+            "face": "E"
+          },
+          "seats": [
+            {
+              "x": 57,
+              "y": 112,
+              "face": "E"
+            },
+            {
+              "x": 57,
+              "y": 48,
+              "face": "E"
+            }
+          ]
+        },
+        "N": {
+          "file": "../furniture-views/world-arcade--arcade_snake/N.png",
+          "footprint": {
+            "w": 5,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -51.5,
+            "w": 162,
+            "h": 115.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 160,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": {
+            "x": 112,
+            "y": 7,
+            "face": "N"
+          },
+          "seats": [
+            {
+              "x": 112,
+              "y": 7,
+              "face": "N"
+            },
+            {
+              "x": 48,
+              "y": 7,
+              "face": "N"
+            }
+          ]
+        },
+        "W": {
+          "file": "../furniture-views/world-arcade--arcade_snake/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 5
+          },
+          "art": {
+            "x": -1,
+            "y": -51.5,
+            "w": 66,
+            "h": 211.5
+          },
+          "depth": 160,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 160
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 2,
+              "face": "E"
+            }
+          ],
+          "seat": {
+            "x": 7,
+            "y": 48,
+            "face": "W"
+          },
+          "seats": [
+            {
+              "x": 7,
+              "y": 48,
+              "face": "W"
+            },
+            {
+              "x": 7,
+              "y": 112,
+              "face": "W"
+            }
+          ]
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-arcade--arcade_tickets",
@@ -2449,7 +7605,122 @@
           "h": 26.4
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-arcade--arcade_tickets/S.png",
+          "footprint": {
+            "w": 4,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -54.5,
+            "w": 130,
+            "h": 86.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 128,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-arcade--arcade_tickets/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 4
+          },
+          "art": {
+            "x": -1,
+            "y": -54.5,
+            "w": 34,
+            "h": 182.5
+          },
+          "depth": 128,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 128
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 2,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-arcade--arcade_tickets/N.png",
+          "footprint": {
+            "w": 4,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -54.5,
+            "w": 130,
+            "h": 86.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 128,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-arcade--arcade_tickets/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 4
+          },
+          "art": {
+            "x": -1,
+            "y": -54.5,
+            "w": 34,
+            "h": 182.5
+          },
+          "depth": 128,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 128
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 2,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-arcade--arcade_vending",
@@ -2487,7 +7758,122 @@
           "h": 23.25
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-arcade--arcade_vending/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -45.5,
+            "w": 66,
+            "h": 77.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-arcade--arcade_vending/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -45.5,
+            "w": 34,
+            "h": 109.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-arcade--arcade_vending/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -45.5,
+            "w": 66,
+            "h": 77.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-arcade--arcade_vending/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -45.5,
+            "w": 34,
+            "h": 109.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-arcade--arcade_bench",
@@ -2525,7 +7911,186 @@
           "h": 19.2
         },
         "status": "grid-converted; original facing only; placement requires validation"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-arcade--arcade_bench/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -29.5,
+            "w": 98,
+            "h": 61.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": {
+            "x": 32,
+            "y": 21.44,
+            "face": "S"
+          },
+          "seats": [
+            {
+              "x": 32,
+              "y": 21.44,
+              "face": "S"
+            },
+            {
+              "x": 64,
+              "y": 21.44,
+              "face": "S"
+            }
+          ]
+        },
+        "E": {
+          "file": "../furniture-views/world-arcade--arcade_bench/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -29.5,
+            "w": 34,
+            "h": 125.5
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": {
+            "x": 21.44,
+            "y": 64,
+            "face": "E"
+          },
+          "seats": [
+            {
+              "x": 21.44,
+              "y": 64,
+              "face": "E"
+            },
+            {
+              "x": 21.44,
+              "y": 32,
+              "face": "E"
+            }
+          ]
+        },
+        "N": {
+          "file": "../furniture-views/world-arcade--arcade_bench/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -29.5,
+            "w": 98,
+            "h": 61.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": {
+            "x": 64,
+            "y": 10.559999999999999,
+            "face": "N"
+          },
+          "seats": [
+            {
+              "x": 64,
+              "y": 10.559999999999999,
+              "face": "N"
+            },
+            {
+              "x": 32,
+              "y": 10.559999999999999,
+              "face": "N"
+            }
+          ]
+        },
+        "W": {
+          "file": "../furniture-views/world-arcade--arcade_bench/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -29.5,
+            "w": 34,
+            "h": 125.5
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": {
+            "x": 10.559999999999999,
+            "y": 32,
+            "face": "W"
+          },
+          "seats": [
+            {
+              "x": 10.559999999999999,
+              "y": 32,
+              "face": "W"
+            },
+            {
+              "x": 10.559999999999999,
+              "y": 64,
+              "face": "W"
+            }
+          ]
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "xiaojingyu-home--legacy--quilt",
@@ -4240,7 +9805,132 @@
         "variant": "station",
         "file": "arcade-station/blocks.png",
         "status": "new independent artwork; existing playable machine ID preserved in scene"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-arcade--station--arcade_blocks/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -104,
+            "w": 98,
+            "h": 168
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": null,
+          "screenVisible": true,
+          "screen": [
+            17,
+            44,
+            64,
+            35
+          ]
+        },
+        "E": {
+          "file": "../furniture-views/world-arcade--station--arcade_blocks/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -104,
+            "w": 66,
+            "h": 200
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null,
+          "screenVisible": false
+        },
+        "N": {
+          "file": "../furniture-views/world-arcade--station--arcade_blocks/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -104,
+            "w": 98,
+            "h": 168
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null,
+          "screenVisible": false
+        },
+        "W": {
+          "file": "../furniture-views/world-arcade--station--arcade_blocks/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -104,
+            "w": 66,
+            "h": 200
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null,
+          "screenVisible": false
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-arcade--station--arcade_mines",
@@ -4275,7 +9965,132 @@
         "variant": "station",
         "file": "arcade-station/mines.png",
         "status": "new independent artwork; existing playable machine ID preserved in scene"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-arcade--station--arcade_mines/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -104,
+            "w": 98,
+            "h": 168
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": null,
+          "screenVisible": true,
+          "screen": [
+            16,
+            44,
+            65,
+            31
+          ]
+        },
+        "E": {
+          "file": "../furniture-views/world-arcade--station--arcade_mines/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -104,
+            "w": 66,
+            "h": 200
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null,
+          "screenVisible": false
+        },
+        "N": {
+          "file": "../furniture-views/world-arcade--station--arcade_mines/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -104,
+            "w": 98,
+            "h": 168
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null,
+          "screenVisible": false
+        },
+        "W": {
+          "file": "../furniture-views/world-arcade--station--arcade_mines/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -104,
+            "w": 66,
+            "h": 200
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null,
+          "screenVisible": false
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-arcade--station--arcade_snake",
@@ -4310,7 +10125,132 @@
         "variant": "station",
         "file": "arcade-station/snake.png",
         "status": "new independent artwork; existing playable machine ID preserved in scene"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-arcade--station--arcade_snake/S.png",
+          "footprint": {
+            "w": 7,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -100,
+            "w": 226,
+            "h": 164
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 224,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 3,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": null,
+          "screenVisible": true,
+          "screen": [
+            44,
+            38,
+            135,
+            49
+          ]
+        },
+        "E": {
+          "file": "../furniture-views/world-arcade--station--arcade_snake/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 7
+          },
+          "art": {
+            "x": -1,
+            "y": -100,
+            "w": 66,
+            "h": 324
+          },
+          "depth": 224,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 224
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 3,
+              "face": "W"
+            }
+          ],
+          "seat": null,
+          "screenVisible": false
+        },
+        "N": {
+          "file": "../furniture-views/world-arcade--station--arcade_snake/N.png",
+          "footprint": {
+            "w": 7,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -100,
+            "w": 226,
+            "h": 164
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 224,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 3,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null,
+          "screenVisible": false
+        },
+        "W": {
+          "file": "../furniture-views/world-arcade--station--arcade_snake/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 7
+          },
+          "art": {
+            "x": -1,
+            "y": -100,
+            "w": 66,
+            "h": 324
+          },
+          "depth": 224,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 224
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 3,
+              "face": "E"
+            }
+          ],
+          "seat": null,
+          "screenVisible": false
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-restaurant--0",
@@ -4349,7 +10289,122 @@
           64
         ],
         "status": "whole-cell independent sprite"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-restaurant--0/S.png",
+          "footprint": {
+            "w": 4,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -24,
+            "w": 130,
+            "h": 88
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 128,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-restaurant--0/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 4
+          },
+          "art": {
+            "x": -1,
+            "y": -24,
+            "w": 66,
+            "h": 152
+          },
+          "depth": 128,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 128
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 2,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-restaurant--0/N.png",
+          "footprint": {
+            "w": 4,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -24,
+            "w": 130,
+            "h": 88
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 128,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-restaurant--0/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 4
+          },
+          "art": {
+            "x": -1,
+            "y": -24,
+            "w": 66,
+            "h": 152
+          },
+          "depth": 128,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 128
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 2,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-restaurant--1",
@@ -4388,7 +10443,122 @@
           64
         ],
         "status": "whole-cell independent sprite"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-restaurant--1/S.png",
+          "footprint": {
+            "w": 4,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -21.5,
+            "w": 130,
+            "h": 85.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 128,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 2,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-restaurant--1/E.png",
+          "footprint": {
+            "w": 2,
+            "h": 4
+          },
+          "art": {
+            "x": -1,
+            "y": -21.5,
+            "w": 66,
+            "h": 149.5
+          },
+          "depth": 128,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 128
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 2,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-restaurant--1/N.png",
+          "footprint": {
+            "w": 4,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -21.5,
+            "w": 130,
+            "h": 85.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 128,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-restaurant--1/W.png",
+          "footprint": {
+            "w": 2,
+            "h": 4
+          },
+          "art": {
+            "x": -1,
+            "y": -21.5,
+            "w": 66,
+            "h": 149.5
+          },
+          "depth": 128,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 128
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 2,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-restaurant--2",
@@ -4583,7 +10753,122 @@
           32
         ],
         "status": "whole-cell independent sprite"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-restaurant--6/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -40,
+            "w": 66,
+            "h": 72
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-restaurant--6/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -40,
+            "w": 34,
+            "h": 104
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-restaurant--6/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -40,
+            "w": 66,
+            "h": 72
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-restaurant--6/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -40,
+            "w": 34,
+            "h": 104
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-restaurant--7",
@@ -4622,7 +10907,122 @@
           32
         ],
         "status": "whole-cell independent sprite"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-restaurant--7/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -43.5,
+            "w": 66,
+            "h": 75.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-restaurant--7/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -43.5,
+            "w": 34,
+            "h": 107.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-restaurant--7/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -43.5,
+            "w": 66,
+            "h": 75.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-restaurant--7/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -43.5,
+            "w": 34,
+            "h": 107.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-restaurant--8",
@@ -4661,7 +11061,122 @@
           32
         ],
         "status": "whole-cell independent sprite"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-restaurant--8/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -26,
+            "w": 66,
+            "h": 58
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-restaurant--8/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -26,
+            "w": 34,
+            "h": 90
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-restaurant--8/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -26,
+            "w": 66,
+            "h": 58
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-restaurant--8/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -26,
+            "w": 34,
+            "h": 90
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-restaurant--9",
@@ -4700,7 +11215,122 @@
           32
         ],
         "status": "whole-cell independent sprite"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-restaurant--9/S.png",
+          "footprint": {
+            "w": 5,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -43.5,
+            "w": 162,
+            "h": 75.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 160,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-restaurant--9/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 5
+          },
+          "art": {
+            "x": -1,
+            "y": -43.5,
+            "w": 34,
+            "h": 203.5
+          },
+          "depth": 160,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 160
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 2,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-restaurant--9/N.png",
+          "footprint": {
+            "w": 5,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -43.5,
+            "w": 162,
+            "h": 75.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 160,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 2,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-restaurant--9/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 5
+          },
+          "art": {
+            "x": -1,
+            "y": -43.5,
+            "w": 34,
+            "h": 203.5
+          },
+          "depth": 160,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 160
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 2,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-restaurant--10",
@@ -4739,7 +11369,122 @@
           32
         ],
         "status": "whole-cell independent sprite"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-restaurant--10/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -32,
+            "w": 98,
+            "h": 64
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-restaurant--10/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -32,
+            "w": 34,
+            "h": 128
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-restaurant--10/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -32,
+            "w": 98,
+            "h": 64
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-restaurant--10/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -32,
+            "w": 34,
+            "h": 128
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-restaurant--11",
@@ -4778,7 +11523,122 @@
           32
         ],
         "status": "whole-cell independent sprite"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-restaurant--11/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -29,
+            "w": 66,
+            "h": 61
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-restaurant--11/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -29,
+            "w": 34,
+            "h": 93
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-restaurant--11/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -29,
+            "w": 66,
+            "h": 61
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-restaurant--11/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -29,
+            "w": 34,
+            "h": 93
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-restaurant--12",
@@ -4817,7 +11677,122 @@
           32
         ],
         "status": "whole-cell independent sprite"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-restaurant--12/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -48,
+            "w": 66,
+            "h": 80
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-restaurant--12/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -48,
+            "w": 34,
+            "h": 112
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-restaurant--12/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -48,
+            "w": 66,
+            "h": 80
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-restaurant--12/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -48,
+            "w": 34,
+            "h": 112
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-restaurant--13",
@@ -4856,7 +11831,122 @@
           32
         ],
         "status": "whole-cell independent sprite"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-restaurant--13/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -67,
+            "w": 66,
+            "h": 99
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-restaurant--13/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -67,
+            "w": 34,
+            "h": 131
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-restaurant--13/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -67,
+            "w": 66,
+            "h": 99
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-restaurant--13/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -67,
+            "w": 34,
+            "h": 131
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-restaurant--14",
@@ -4934,7 +12024,122 @@
           32
         ],
         "status": "whole-cell independent sprite"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-restaurant--15/S.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -32,
+            "w": 98,
+            "h": 64
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-restaurant--15/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -32,
+            "w": 34,
+            "h": 128
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-restaurant--15/N.png",
+          "footprint": {
+            "w": 3,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -32,
+            "w": 98,
+            "h": 64
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 96,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-restaurant--15/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 3
+          },
+          "art": {
+            "x": -1,
+            "y": -32,
+            "w": 34,
+            "h": 128
+          },
+          "depth": 96,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 96
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-restaurant--16",
@@ -4973,7 +12178,122 @@
           32
         ],
         "status": "whole-cell independent sprite"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-restaurant--16/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -32,
+            "w": 66,
+            "h": 64
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-restaurant--16/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -32,
+            "w": 34,
+            "h": 96
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-restaurant--16/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -32,
+            "w": 66,
+            "h": 64
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-restaurant--16/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -32,
+            "w": 34,
+            "h": 96
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-restaurant--17",
@@ -5051,7 +12371,122 @@
           32
         ],
         "status": "whole-cell independent sprite"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-restaurant--18/S.png",
+          "footprint": {
+            "w": 1,
+            "h": 1
+          },
+          "art": {
+            "x": 0,
+            "y": -38,
+            "w": 32,
+            "h": 70
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 0,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-restaurant--18/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 1
+          },
+          "art": {
+            "x": 0,
+            "y": -38,
+            "w": 32,
+            "h": 70
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 0,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-restaurant--18/N.png",
+          "footprint": {
+            "w": 1,
+            "h": 1
+          },
+          "art": {
+            "x": 0,
+            "y": -38,
+            "w": 32,
+            "h": 70
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 0,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-restaurant--18/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 1
+          },
+          "art": {
+            "x": 0,
+            "y": -38,
+            "w": 32,
+            "h": 70
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 0,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-restaurant--19",
@@ -5090,7 +12525,122 @@
           32
         ],
         "status": "whole-cell independent sprite"
-      }
+      },
+      "facings": {
+        "S": {
+          "file": "../furniture-views/world-restaurant--19/S.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -25.5,
+            "w": 66,
+            "h": 57.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "N"
+            }
+          ],
+          "seat": null
+        },
+        "E": {
+          "file": "../furniture-views/world-restaurant--19/E.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -25.5,
+            "w": 34,
+            "h": 89.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": 1,
+              "face": "W"
+            }
+          ],
+          "seat": null
+        },
+        "N": {
+          "file": "../furniture-views/world-restaurant--19/N.png",
+          "footprint": {
+            "w": 2,
+            "h": 1
+          },
+          "art": {
+            "x": -1,
+            "y": -25.5,
+            "w": 66,
+            "h": 57.5
+          },
+          "depth": 32,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 64,
+            "h": 32
+          },
+          "use": [
+            {
+              "dx": 1,
+              "dy": -1,
+              "face": "S"
+            }
+          ],
+          "seat": null
+        },
+        "W": {
+          "file": "../furniture-views/world-restaurant--19/W.png",
+          "footprint": {
+            "w": 1,
+            "h": 2
+          },
+          "art": {
+            "x": -1,
+            "y": -25.5,
+            "w": 34,
+            "h": 89.5
+          },
+          "depth": 64,
+          "collision": {
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 64
+          },
+          "use": [
+            {
+              "dx": -1,
+              "dy": 1,
+              "face": "E"
+            }
+          ],
+          "seat": null
+        }
+      },
+      "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
     },
     {
       "id": "world-restaurant--20",

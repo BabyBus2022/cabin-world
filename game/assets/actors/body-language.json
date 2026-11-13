@@ -1,0 +1,180 @@
+{
+  "version": 1,
+  "cell": 314,
+  "anchor": [
+    157,
+    290
+  ],
+  "transitionSeconds": 0.28,
+  "turnSeconds": 0.09,
+  "idleAfter": 6,
+  "idleInterval": [
+    9,
+    20
+  ],
+  "chatDistance": 110,
+  "highFiveDistance": 50,
+  "highFiveWindow": 20,
+  "highFiveSeconds": 1.6,
+  "moods": {
+    "happy": {
+      "icons": [
+        "😄",
+        "😊",
+        "😎",
+        "🥰"
+      ],
+      "words": [
+        "很开心",
+        "开心",
+        "高兴",
+        "有点小得意"
+      ],
+      "speed": 1
+    },
+    "sad": {
+      "icons": [
+        "😔",
+        "🥺"
+      ],
+      "words": [
+        "低落",
+        "提不起劲",
+        "难过"
+      ],
+      "speed": 0.9
+    },
+    "tired": {
+      "icons": [
+        "🥱"
+      ],
+      "words": [
+        "困倦",
+        "困了",
+        "疲惫",
+        "累了"
+      ],
+      "speed": 0.82
+    }
+  },
+  "sheets": {
+    "walk8": {
+      "frames": 4,
+      "rows": 8,
+      "seconds": 0.142857,
+      "loop": true
+    },
+    "turn": {
+      "frames": 1,
+      "rows": 4,
+      "seconds": 0.09,
+      "loop": false
+    },
+    "sit_down": {
+      "frames": 4,
+      "rows": 4,
+      "seconds": 0.07,
+      "loop": false
+    },
+    "stand_up": {
+      "frames": 4,
+      "rows": 4,
+      "seconds": 0.07,
+      "loop": false
+    },
+    "pick_up": {
+      "frames": 5,
+      "rows": 4,
+      "seconds": 0.08,
+      "loop": false,
+      "holdFrame": 3,
+      "holdSeconds": 0.16
+    },
+    "lie_down": {
+      "frames": 5,
+      "rows": 2,
+      "seconds": 0.12,
+      "loop": false
+    },
+    "get_up": {
+      "frames": 5,
+      "rows": 2,
+      "seconds": 0.12,
+      "loop": false
+    },
+    "idle_stretch": {
+      "frames": 6,
+      "rows": 4,
+      "seconds": 0.11,
+      "loop": false
+    },
+    "idle_yawn": {
+      "frames": 6,
+      "rows": 4,
+      "seconds": 0.13,
+      "loop": false
+    },
+    "idle_look": {
+      "frames": 6,
+      "rows": 4,
+      "seconds": 0.25,
+      "loop": false
+    },
+    "idle_phone": {
+      "frames": 8,
+      "rows": 4,
+      "seconds": 0.2,
+      "loop": false
+    },
+    "mood_happy": {
+      "frames": 4,
+      "rows": 4,
+      "seconds": 0.16,
+      "loop": true
+    },
+    "mood_sad": {
+      "frames": 4,
+      "rows": 4,
+      "seconds": 0.3,
+      "loop": true
+    },
+    "mood_tired": {
+      "frames": 4,
+      "rows": 4,
+      "seconds": 0.3,
+      "loop": true
+    },
+    "walk_tired": {
+      "frames": 4,
+      "rows": 4,
+      "seconds": 0.18181818181818182,
+      "loop": true
+    },
+    "chat": {
+      "frames": 4,
+      "rows": 2,
+      "seconds": 0.22,
+      "loop": true
+    },
+    "sit_chat": {
+      "frames": 4,
+      "rows": 2,
+      "seconds": 0.26,
+      "loop": true
+    },
+    "high_five": {
+      "frames": 6,
+      "rows": 2,
+      "seconds": 0.09,
+      "loop": false,
+      "holdFrame": 3,
+      "holdSeconds": 0.18
+    },
+    "thinking": {
+      "frames": 4,
+      "rows": 4,
+      "seconds": 0.55,
+      "loop": true
+    }
+  }
+}

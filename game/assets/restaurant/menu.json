@@ -2,6 +2,25 @@
   "sheet": "res://assets/restaurant/food.png",
   "dishes": [
     {
+      "id": "restaurant-white-rice",
+      "name": "大白饭",
+      "category": "中餐",
+      "price": 2,
+      "method": "steam",
+      "sheet": "res://assets/ui/items/restaurant-white-rice.png",
+      "region": [300, 340, 650, 610],
+      "cook_seconds": 8,
+      "order_seconds": 3,
+      "eat_seconds": 8,
+      "energyKcal": 230,
+      "portion": "一碗",
+      "nutritionSource": "游戏平衡设定，不是真实营养测量",
+      "ingredients": ["大米", "清水"],
+      "process": ["淘米", "加水蒸熟", "盛饭"],
+      "sensory": "热乎乎的白米饭，米粒软糯，清淡米香",
+      "satiety": 28
+    },
+    {
       "id": "restaurant-fried-rice",
       "name": "黄金蛋炒饭",
       "category": "中餐",

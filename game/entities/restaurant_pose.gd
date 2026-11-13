@@ -25,6 +25,10 @@ static func resolve(avatar:String,scene:String,zone:String,effect:Dictionary,sec
  var depth:float
  var seated:bool=action=="eat"
  if not room.get("zones",{}).has(zone):return legacy
+ if not seated:
+  var turn:int=["S","W","N","E"].find(str(room.zones[zone].get("furnitureFacing","S")))
+  var directions:=["north","east","south","west"]
+  if turn>0 and facing in directions:facing=directions[(directions.find(facing)+turn)%4]
  at=WorldData.point(room.zones[zone]);depth=at.y
  if seated:
   var module:Dictionary=room.get("modules",{}).get(str(effect.get("seat","")),{})

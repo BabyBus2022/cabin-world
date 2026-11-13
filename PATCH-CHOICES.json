@@ -1,0 +1,27 @@
+{
+  "release": "1.1.0-choice1",
+  "includes": "1.1-remodel-hotfix-20261113",
+  "coreFixes": [
+    "idle resident yields in blocked one-person shop aisle"
+  ],
+  "optionalChoices": [
+    "add-bots",
+    "settings-ui",
+    "arcade-renovated",
+    "furniture-rotation",
+    "gomoku",
+    "furniture-workshop",
+    "map-editor",
+    "character-motion",
+    "seasons",
+    "seaside-path",
+    "pocket-money-50"
+  ],
+  "inGameModulePanel": false,
+  "gameSha256": "78cb15140a1f874b5b19efea3627775bc89acc99bf3b8b55cd8f6a6c49c5f6e0",
+  "releaseVersion": "1.1.0",
+  "build": "choice1-20261113",
+  "classicMapEditorCompatible": true,
+  "sourceBaseline": "1.1-remodel-hotfix-20261113",
+  "farmIncluded": false
+}

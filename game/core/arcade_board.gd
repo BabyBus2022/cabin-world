@@ -46,6 +46,7 @@ static func begin(a: Dictionary) -> Dictionary:
 	var s := {"kind":a.kind,"players":a.players,"skill":a.skill,"seed":int(a.seed)&0xffffffff,
 		"status":"playing","score":0,"ticks":0,"winner":null,"reason":""}
 	match a.kind:
+		"gomoku":s.merge(load("res://core/arcade_gomoku.gd").create(a.players))
 		"snake":
 			var duo: bool = a.players.size()>1
 			s.merge({"w":18,"h":14,"duo":duo,"target":15 if duo else 12,"snakes":[]})
@@ -56,7 +57,7 @@ static func begin(a: Dictionary) -> Dictionary:
 		"mines":
 			s.merge({"w":9,"h":9,"mines":[],"open":[],"flags":[],"armed":false,"total":10})
 		"blocks":
-			s.merge({"w":10,"h":20,"board":[],"lines":0,"bag":[],"pieceNo":0,"fall":0,"target":15,"plan":null})
+			s.merge({"w":10,"h":20,"board":[],"lines":0,"bag":[],"pieceNo":0,"fall":0,"target":30,"plan":null})
 			for i in 20: s.board.append([0,0,0,0,0,0,0,0,0,0])
 			refill(s)
 			s.nextPiece=s.bag.pop_back()
@@ -96,6 +97,7 @@ static func advance(s: Dictionary, action: Dictionary) -> Dictionary:
 		"mines": mines(s, action)
 		"blocks": blocks(s, action)
 		"xiangqi": Chess.step(s, action)
+		"gomoku":load("res://core/arcade_gomoku.gd").step(s,action)
 	return s
 
 static func snake(s: Dictionary, action: Dictionary) -> void:

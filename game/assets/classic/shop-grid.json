@@ -1,0 +1,1802 @@
+{
+  "version": 1,
+  "scene": "qianxia-shop",
+  "cell": 32,
+  "columns": 20,
+  "rows": 14,
+  "bounds": [
+    0,
+    0,
+    640,
+    427
+  ],
+  "floorFile": "res://assets/shop-grid-floor.json",
+  "catalog": [
+    {
+      "id": "drink-fridge",
+      "name": "饮料冰柜",
+      "cell": [
+        13,
+        4
+      ],
+      "layer": "solid",
+      "box": [
+        423,
+        81.81550802139037,
+        50,
+        96.524064171123
+      ],
+      "foot": [
+        416,
+        128,
+        64,
+        64
+      ],
+      "zoneIds": [
+        "drinks"
+      ],
+      "icon": "res://assets/baked/qianxia-shop.drink-fridge.png"
+    },
+    {
+      "id": "drink-fridge-2",
+      "name": "饮料冰柜（第二台）",
+      "cell": [
+        15,
+        5
+      ],
+      "layer": "solid",
+      "box": [
+        487,
+        113.81550802139037,
+        50,
+        96.524064171123
+      ],
+      "foot": [
+        480,
+        160,
+        64,
+        64
+      ],
+      "zoneIds": [],
+      "icon": "res://assets/baked/qianxia-shop.drink-fridge-2.png"
+    },
+    {
+      "id": "hot-cabinet",
+      "name": "热饮柜",
+      "cell": [
+        11,
+        4
+      ],
+      "layer": "solid",
+      "box": [
+        359,
+        79.39285714285714,
+        60,
+        99.10714285714286
+      ],
+      "foot": [
+        352,
+        128,
+        64,
+        64
+      ],
+      "zoneIds": [
+        "hot_cabinet"
+      ],
+      "icon": "res://assets/baked/qianxia-shop.hot-cabinet.png"
+    },
+    {
+      "id": "long-bench",
+      "name": "连续长凳",
+      "cell": [
+        18,
+        5
+      ],
+      "layer": "solid",
+      "box": [
+        577.3934817170111,
+        161.5,
+        29.213036565977742,
+        125
+      ],
+      "foot": [
+        576,
+        160,
+        32,
+        128
+      ],
+      "zoneIds": [
+        "bench_a",
+        "bench_b",
+        "bench_c"
+      ],
+      "icon": "res://assets/baked/qianxia-shop.long-bench.png"
+    },
+    {
+      "id": "snack-shelf",
+      "name": "零食货架",
+      "cell": [
+        1,
+        5
+      ],
+      "layer": "solid",
+      "box": [
+        37.8125,
+        113.70751953125,
+        84.375,
+        76.904296875
+      ],
+      "foot": [
+        32,
+        160,
+        96,
+        32
+      ],
+      "zoneIds": [
+        "snacks"
+      ],
+      "icon": "res://assets/baked/qianxia-shop.snack-shelf.png"
+    },
+    {
+      "id": "food-shelf",
+      "name": "食品货架",
+      "cell": [
+        4,
+        5
+      ],
+      "layer": "solid",
+      "box": [
+        133.8125,
+        114.50819408740362,
+        84.375,
+        75.91580976863753
+      ],
+      "foot": [
+        128,
+        160,
+        96,
+        32
+      ],
+      "zoneIds": [
+        "food"
+      ],
+      "icon": "res://assets/baked/qianxia-shop.food-shelf.png"
+    },
+    {
+      "id": "daily-shelf",
+      "name": "日用品货架",
+      "cell": [
+        7,
+        5
+      ],
+      "layer": "solid",
+      "box": [
+        229.8125,
+        114.66586538461539,
+        84.375,
+        75.72115384615384
+      ],
+      "foot": [
+        224,
+        160,
+        96,
+        32
+      ],
+      "zoneIds": [
+        "daily"
+      ],
+      "icon": "res://assets/baked/qianxia-shop.daily-shelf.png"
+    },
+    {
+      "id": "bread-shelf",
+      "name": "面包货架",
+      "cell": [
+        8,
+        8
+      ],
+      "layer": "solid",
+      "box": [
+        261.8125,
+        212.49673507462686,
+        84.375,
+        73.46082089552239
+      ],
+      "foot": [
+        256,
+        256,
+        96,
+        32
+      ],
+      "zoneIds": [
+        "bread"
+      ],
+      "icon": "res://assets/baked/qianxia-shop.bread-shelf.png"
+    },
+    {
+      "id": "food-island",
+      "name": "食品中岛",
+      "cell": [
+        2,
+        8
+      ],
+      "layer": "solid",
+      "box": [
+        69.8125,
+        210.5081940874036,
+        84.375,
+        75.91580976863753
+      ],
+      "foot": [
+        64,
+        256,
+        96,
+        32
+      ],
+      "zoneIds": [],
+      "icon": "res://assets/baked/qianxia-shop.food-island.png"
+    },
+    {
+      "id": "snack-island",
+      "name": "零食中岛",
+      "cell": [
+        4,
+        7
+      ],
+      "layer": "solid",
+      "box": [
+        133.8125,
+        177.70751953125,
+        84.375,
+        76.904296875
+      ],
+      "foot": [
+        128,
+        224,
+        96,
+        32
+      ],
+      "zoneIds": [],
+      "icon": "res://assets/baked/qianxia-shop.snack-island.png"
+    },
+    {
+      "id": "daily-island",
+      "name": "日用品中岛",
+      "cell": [
+        11,
+        8
+      ],
+      "layer": "solid",
+      "box": [
+        357.8125,
+        210.6658653846154,
+        84.375,
+        75.72115384615384
+      ],
+      "foot": [
+        352,
+        256,
+        96,
+        32
+      ],
+      "zoneIds": [],
+      "icon": "res://assets/baked/qianxia-shop.daily-island.png"
+    },
+    {
+      "id": "snack-island-2",
+      "name": "零食中岛（第二组）",
+      "cell": [
+        14,
+        8
+      ],
+      "layer": "solid",
+      "box": [
+        453.8125,
+        209.70751953125,
+        84.375,
+        76.904296875
+      ],
+      "foot": [
+        448,
+        256,
+        96,
+        32
+      ],
+      "zoneIds": [],
+      "icon": "res://assets/baked/qianxia-shop.snack-island-2.png"
+    },
+    {
+      "id": "produce",
+      "name": "果蔬摊",
+      "cell": [
+        1,
+        10
+      ],
+      "layer": "solid",
+      "box": [
+        42.5,
+        293.0820895522388,
+        75,
+        52.985074626865675
+      ],
+      "foot": [
+        32,
+        320,
+        96,
+        32
+      ],
+      "zoneIds": [
+        "produce"
+      ],
+      "icon": "res://assets/baked/qianxia-shop.produce.png"
+    },
+    {
+      "id": "sale-island",
+      "name": "促销台",
+      "cell": [
+        4,
+        10
+      ],
+      "layer": "solid",
+      "box": [
+        138.5,
+        293.7629796839729,
+        75,
+        52.144469525959366
+      ],
+      "foot": [
+        128,
+        320,
+        96,
+        32
+      ],
+      "zoneIds": [],
+      "icon": "res://assets/baked/qianxia-shop.sale-island.png"
+    },
+    {
+      "id": "counter-extension",
+      "name": "延伸柜台",
+      "cell": [
+        13,
+        10
+      ],
+      "layer": "solid",
+      "box": [
+        423.375,
+        293.92039641943734,
+        81.25,
+        51.950127877237854
+      ],
+      "foot": [
+        416,
+        320,
+        96,
+        32
+      ],
+      "zoneIds": [],
+      "icon": "res://assets/baked/qianxia-shop.counter-extension.png"
+    },
+    {
+      "id": "counter",
+      "name": "收银柜台",
+      "cell": [
+        16,
+        10
+      ],
+      "layer": "solid",
+      "box": [
+        519.375,
+        293.92039641943734,
+        81.25,
+        51.950127877237854
+      ],
+      "foot": [
+        512,
+        320,
+        96,
+        32
+      ],
+      "zoneIds": [
+        "counter"
+      ],
+      "icon": "res://assets/baked/qianxia-shop.counter.png"
+    },
+    {
+      "id": "magazines",
+      "name": "杂志架",
+      "cell": [
+        7,
+        10
+      ],
+      "layer": "solid",
+      "box": [
+        235.6875,
+        305.16214285714284,
+        40.625,
+        38.07142857142857
+      ],
+      "foot": [
+        224,
+        320,
+        64,
+        32
+      ],
+      "zoneIds": [
+        "magazines"
+      ],
+      "icon": "res://assets/baked/qianxia-shop.magazines.png"
+    },
+    {
+      "id": "freezer",
+      "name": "冷冻柜",
+      "cell": [
+        11,
+        10
+      ],
+      "layer": "solid",
+      "box": [
+        352.75,
+        293.78873239436615,
+        62.5,
+        52.11267605633803
+      ],
+      "foot": [
+        352,
+        320,
+        64,
+        32
+      ],
+      "zoneIds": [
+        "icecream"
+      ],
+      "icon": "res://assets/baked/qianxia-shop.freezer.png"
+    },
+    {
+      "id": "baskets",
+      "name": "购物篮",
+      "cell": [
+        13,
+        11
+      ],
+      "layer": "solid",
+      "box": [
+        418.25,
+        341.421875,
+        27.5,
+        32.8125
+      ],
+      "foot": [
+        416,
+        352,
+        32,
+        32
+      ],
+      "zoneIds": [],
+      "icon": "res://assets/baked/qianxia-shop.baskets.png"
+    },
+    {
+      "id": "register",
+      "name": "收银机",
+      "cell": [
+        18,
+        9
+      ],
+      "layer": "surface",
+      "box": [
+        550,
+        292.09162256257116,
+        20,
+        15.028901734104046
+      ],
+      "foot": [
+        576,
+        288,
+        32,
+        32
+      ],
+      "zoneIds": [],
+      "icon": "res://assets/baked/qianxia-shop.register.png"
+    },
+    {
+      "id": "shopping-bag",
+      "name": "购物袋",
+      "cell": [
+        15,
+        9
+      ],
+      "layer": "surface",
+      "box": [
+        449.9375,
+        288.5136540676675,
+        15.625,
+        18.606870229007633
+      ],
+      "foot": [
+        480,
+        288,
+        32,
+        32
+      ],
+      "zoneIds": [],
+      "icon": "res://assets/baked/qianxia-shop.shopping-bag.png"
+    },
+    {
+      "id": "shop-light",
+      "name": "店铺顶灯",
+      "cell": [
+        10,
+        2
+      ],
+      "layer": "surface",
+      "box": [
+        326,
+        76,
+        20,
+        8
+      ],
+      "foot": [
+        320,
+        64,
+        32,
+        32
+      ],
+      "zoneIds": [],
+      "icon": "res://assets/baked/qianxia-shop.shop-light.png"
+    }
+  ],
+  "zoneOwners": {
+    "snacks": "snack-shelf",
+    "food": "food-shelf",
+    "drinks": "drink-fridge",
+    "daily": "daily-shelf",
+    "bread": "bread-shelf",
+    "produce": "produce",
+    "magazines": "magazines",
+    "icecream": "freezer",
+    "counter": "counter",
+    "hot_cabinet": "hot-cabinet",
+    "bench_a": "long-bench",
+    "bench_b": "long-bench",
+    "bench_c": "long-bench"
+  },
+  "fixedObstacles": [],
+  "defaultGroups": [
+    [
+      "counter",
+      "register"
+    ],
+    [
+      "counter-extension",
+      "shopping-bag"
+    ]
+  ],
+  "sceneData": {
+    "id": "qianxia-shop",
+    "name": "公园小卖部",
+    "outdoor": false,
+    "width": 640,
+    "height": 427,
+    "walk": {
+      "x": 32,
+      "y": 119,
+      "w": 576,
+      "h": 294
+    },
+    "speed": 100,
+    "run": 190,
+    "clearance": 5,
+    "entries": {
+      "door": {
+        "x": 319,
+        "y": 394
+      },
+      "onsen": {
+        "x": 552,
+        "y": 132
+      }
+    },
+    "exits": [
+      {
+        "id": "door",
+        "x": 319,
+        "y": 411,
+        "to": "qianxia-park",
+        "entry": "shop"
+      },
+      {
+        "id": "onsen",
+        "x": 552,
+        "y": 124,
+        "to": "world-onsen",
+        "entry": "shop"
+      }
+    ],
+    "zones": {
+      "shop_door": {
+        "x": 318.75,
+        "y": 390.625
+      },
+      "snacks": {
+        "x": 80,
+        "y": 203.11181640625
+      },
+      "drinks": {
+        "x": 448,
+        "y": 199
+      },
+      "daily": {
+        "x": 272,
+        "y": 202.88701923076923
+      },
+      "icecream": {
+        "x": 376,
+        "y": 359
+      },
+      "counter": {
+        "x": 548,
+        "y": 376
+      },
+      "food": {
+        "x": 176,
+        "y": 202.92400385604114
+      },
+      "bread": {
+        "x": 304,
+        "y": 296.95755597014926
+      },
+      "produce": {
+        "x": 80,
+        "y": 360.4421641791045
+      },
+      "magazines": {
+        "x": 256,
+        "y": 359
+      },
+      "shop_onsen_door": {
+        "x": 552,
+        "y": 128
+      },
+      "hot_cabinet": {
+        "x": 384,
+        "y": 199
+      },
+      "bench_a": {
+        "x": 560.3934817170111,
+        "y": 179.5
+      },
+      "bench_b": {
+        "x": 560.3934817170111,
+        "y": 223.5
+      },
+      "bench_c": {
+        "x": 560.3934817170111,
+        "y": 267.5
+      }
+    },
+    "obstacles": [
+      {
+        "x": 416,
+        "y": 128,
+        "w": 64,
+        "h": 64
+      },
+      {
+        "x": 480,
+        "y": 160,
+        "w": 64,
+        "h": 64
+      },
+      {
+        "x": 352,
+        "y": 128,
+        "w": 64,
+        "h": 64
+      },
+      {
+        "x": 576,
+        "y": 160,
+        "w": 32,
+        "h": 128
+      },
+      {
+        "x": 32,
+        "y": 160,
+        "w": 96,
+        "h": 32
+      },
+      {
+        "x": 128,
+        "y": 160,
+        "w": 96,
+        "h": 32
+      },
+      {
+        "x": 224,
+        "y": 160,
+        "w": 96,
+        "h": 32
+      },
+      {
+        "x": 256,
+        "y": 256,
+        "w": 96,
+        "h": 32
+      },
+      {
+        "x": 64,
+        "y": 256,
+        "w": 96,
+        "h": 32
+      },
+      {
+        "x": 128,
+        "y": 224,
+        "w": 96,
+        "h": 32
+      },
+      {
+        "x": 352,
+        "y": 256,
+        "w": 96,
+        "h": 32
+      },
+      {
+        "x": 448,
+        "y": 256,
+        "w": 96,
+        "h": 32
+      },
+      {
+        "x": 32,
+        "y": 320,
+        "w": 96,
+        "h": 32
+      },
+      {
+        "x": 128,
+        "y": 320,
+        "w": 96,
+        "h": 32
+      },
+      {
+        "x": 448,
+        "y": 320,
+        "w": 96,
+        "h": 32
+      },
+      {
+        "x": 512,
+        "y": 352,
+        "w": 96,
+        "h": 32
+      },
+      {
+        "x": 224,
+        "y": 320,
+        "w": 64,
+        "h": 32
+      },
+      {
+        "x": 384,
+        "y": 320,
+        "w": 64,
+        "h": 32
+      },
+      {
+        "x": 416,
+        "y": 352,
+        "w": 32,
+        "h": 32
+      }
+    ],
+    "modules": {
+      "snack-shelf": {
+        "id": "snack-shelf",
+        "kind": "world-sprite",
+        "art": "retail-snacks",
+        "x": 37.8125,
+        "y": 113.70751953125,
+        "w": 84.375,
+        "h": 76.904296875,
+        "collision": {
+          "x": -5.8125,
+          "y": 46.29248046875,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 190.61181640625
+      },
+      "food-shelf": {
+        "id": "food-shelf",
+        "kind": "world-sprite",
+        "art": "retail-food",
+        "x": 133.8125,
+        "y": 114.50819408740362,
+        "w": 84.375,
+        "h": 75.91580976863753,
+        "collision": {
+          "x": -5.8125,
+          "y": 45.49180591259638,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 190.42400385604114
+      },
+      "daily-shelf": {
+        "id": "daily-shelf",
+        "kind": "world-sprite",
+        "art": "retail-daily",
+        "x": 229.8125,
+        "y": 114.66586538461539,
+        "w": 84.375,
+        "h": 75.72115384615384,
+        "collision": {
+          "x": -5.8125,
+          "y": 45.33413461538461,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 190.38701923076923
+      },
+      "bread-shelf": {
+        "id": "bread-shelf",
+        "kind": "world-sprite",
+        "art": "retail-bread",
+        "x": 261.8125,
+        "y": 212.49673507462686,
+        "w": 84.375,
+        "h": 73.46082089552239,
+        "collision": {
+          "x": -5.8125,
+          "y": 43.503264925373145,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 285.95755597014926
+      },
+      "drink-fridge": {
+        "id": "drink-fridge",
+        "kind": "world-sprite",
+        "art": "fridge",
+        "x": 423,
+        "y": 81.81550802139037,
+        "w": 50,
+        "h": 96.524064171123,
+        "collision": {
+          "x": -7,
+          "y": 46.18449197860963,
+          "w": 64,
+          "h": 64
+        },
+        "depth": 178.33957219251337
+      },
+      "drink-fridge-2": {
+        "id": "drink-fridge-2",
+        "kind": "world-sprite",
+        "art": "fridge",
+        "x": 487,
+        "y": 113.81550802139037,
+        "w": 50,
+        "h": 96.524064171123,
+        "collision": {
+          "x": -7,
+          "y": 46.18449197860963,
+          "w": 64,
+          "h": 64
+        },
+        "depth": 210.33957219251337
+      },
+      "food-island": {
+        "id": "food-island",
+        "kind": "world-sprite",
+        "art": "retail-food",
+        "x": 69.8125,
+        "y": 210.5081940874036,
+        "w": 84.375,
+        "h": 75.91580976863753,
+        "collision": {
+          "x": -5.8125,
+          "y": 45.49180591259639,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 286.42400385604117
+      },
+      "snack-island": {
+        "id": "snack-island",
+        "kind": "world-sprite",
+        "art": "retail-snacks",
+        "x": 133.8125,
+        "y": 177.70751953125,
+        "w": 84.375,
+        "h": 76.904296875,
+        "collision": {
+          "x": -5.8125,
+          "y": 46.29248046875,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 254.61181640625
+      },
+      "daily-island": {
+        "id": "daily-island",
+        "kind": "world-sprite",
+        "art": "retail-daily",
+        "x": 357.8125,
+        "y": 210.6658653846154,
+        "w": 84.375,
+        "h": 75.72115384615384,
+        "collision": {
+          "x": -5.8125,
+          "y": 45.33413461538461,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 286.3870192307692
+      },
+      "snack-island-2": {
+        "id": "snack-island-2",
+        "kind": "world-sprite",
+        "art": "retail-snacks",
+        "x": 453.8125,
+        "y": 209.70751953125,
+        "w": 84.375,
+        "h": 76.904296875,
+        "collision": {
+          "x": -5.8125,
+          "y": 46.29248046875,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 286.61181640625
+      },
+      "produce": {
+        "id": "produce",
+        "kind": "world-sprite",
+        "art": "retail-produce",
+        "x": 42.5,
+        "y": 293.0820895522388,
+        "w": 75,
+        "h": 52.985074626865675,
+        "collision": {
+          "x": -10.5,
+          "y": 26.917910447761187,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 346.0671641791045
+      },
+      "sale-island": {
+        "id": "sale-island",
+        "kind": "world-sprite",
+        "art": "retail-island",
+        "x": 138.5,
+        "y": 293.7629796839729,
+        "w": 75,
+        "h": 52.144469525959366,
+        "collision": {
+          "x": -10.5,
+          "y": 26.2370203160271,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 345.9074492099323
+      },
+      "magazines": {
+        "id": "magazines",
+        "kind": "world-sprite",
+        "art": "retail-magazines",
+        "x": 235.6875,
+        "y": 305.16214285714284,
+        "w": 40.625,
+        "h": 38.07142857142857,
+        "collision": {
+          "x": -11.6875,
+          "y": 14.83785714285716,
+          "w": 64,
+          "h": 32
+        },
+        "depth": 343.2335714285714
+      },
+      "freezer": {
+        "id": "freezer",
+        "kind": "world-sprite",
+        "art": "freezer",
+        "x": 352.75,
+        "y": 293.78873239436615,
+        "w": 62.5,
+        "h": 52.11267605633803,
+        "collision": {
+          "x": -0.75,
+          "y": 26.21126760563385,
+          "w": 64,
+          "h": 32
+        },
+        "depth": 345.9014084507042
+      },
+      "counter-extension": {
+        "id": "counter-extension",
+        "kind": "world-sprite",
+        "art": "counter",
+        "x": 423.375,
+        "y": 293.92039641943734,
+        "w": 81.25,
+        "h": 51.950127877237854,
+        "collision": {
+          "x": -7.375,
+          "y": 26.07960358056266,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 345.87052429667517
+      },
+      "counter": {
+        "id": "counter",
+        "kind": "world-sprite",
+        "art": "counter",
+        "x": 519.375,
+        "y": 293.92039641943734,
+        "w": 81.25,
+        "h": 51.950127877237854,
+        "collision": {
+          "x": -7.375,
+          "y": 26.07960358056266,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 345.87052429667517
+      },
+      "register": {
+        "id": "register",
+        "kind": "world-sprite",
+        "art": "register",
+        "x": 550,
+        "y": 292.09162256257116,
+        "w": 20,
+        "h": 15.028901734104046,
+        "sortOffset": 54.40390173410407,
+        "depth": 346.49552429667517
+      },
+      "shopping-bag": {
+        "id": "shopping-bag",
+        "kind": "world-sprite",
+        "art": "bag",
+        "x": 449.9375,
+        "y": 288.5136540676675,
+        "w": 15.625,
+        "h": 18.606870229007633,
+        "sortOffset": 57.981870229007654,
+        "depth": 346.49552429667517
+      },
+      "baskets": {
+        "id": "baskets",
+        "kind": "world-sprite",
+        "art": "retail-baskets",
+        "x": 418.25,
+        "y": 341.421875,
+        "w": 27.5,
+        "h": 32.8125,
+        "collision": {
+          "x": -2.25,
+          "y": 10.578125,
+          "w": 32,
+          "h": 32
+        },
+        "depth": 374.234375
+      },
+      "hot-cabinet": {
+        "id": "hot-cabinet",
+        "kind": "world-sprite",
+        "art": "hot-cabinet",
+        "x": 359,
+        "y": 79.39285714285714,
+        "w": 60,
+        "h": 99.10714285714286,
+        "collision": {
+          "x": -7,
+          "y": 48.60714285714286,
+          "w": 64,
+          "h": 64
+        },
+        "depth": 178.5
+      },
+      "long-bench": {
+        "id": "long-bench",
+        "kind": "world-sprite",
+        "art": "long-bench",
+        "x": 577.3934817170111,
+        "y": 161.5,
+        "w": 29.213036565977742,
+        "h": 125,
+        "collision": {
+          "x": -1.3934817170111273,
+          "y": -1.5,
+          "w": 32,
+          "h": 128
+        },
+        "depth": 286.5
+      },
+      "shop-window": {
+        "id": "shop-window",
+        "kind": "world-marker",
+        "x": 250,
+        "y": 70,
+        "w": 81.25,
+        "h": 12.5,
+        "depth": 82.5
+      },
+      "shop-light": {
+        "id": "shop-light",
+        "kind": "ceiling-light",
+        "x": 326,
+        "y": 76,
+        "w": 20,
+        "h": 8,
+        "light": {
+          "x": 10,
+          "y": 4,
+          "radius": 650
+        },
+        "depth": 84
+      }
+    },
+    "layoutRevision": "shop-grid-v1"
+  },
+  "manifest": {
+    "scene": "qianxia-shop",
+    "scale": 2,
+    "layers": [
+      {
+        "file": "qianxia-shop.snack-shelf.png",
+        "x": 37.5,
+        "y": 113.23681640625,
+        "w": 84.5,
+        "h": 77,
+        "depth": 190.61181640625,
+        "id": "snack-shelf"
+      },
+      {
+        "file": "qianxia-shop.food-shelf.png",
+        "x": 134,
+        "y": 114.04900385604115,
+        "w": 84.5,
+        "h": 76,
+        "depth": 190.42400385604114,
+        "id": "food-shelf"
+      },
+      {
+        "file": "qianxia-shop.daily-shelf.png",
+        "x": 229.5,
+        "y": 115.01201923076923,
+        "w": 84.5,
+        "h": 75.5,
+        "depth": 190.38701923076923,
+        "id": "daily-shelf"
+      },
+      {
+        "file": "qianxia-shop.bread-shelf.png",
+        "x": 262,
+        "y": 212.95755597014923,
+        "w": 84.5,
+        "h": 73.5,
+        "depth": 285.95755597014926,
+        "id": "bread-shelf"
+      },
+      {
+        "file": "qianxia-shop.drink-fridge.png",
+        "x": 423.5,
+        "y": 81.96457219251337,
+        "w": 50,
+        "h": 96.5,
+        "depth": 178.33957219251337,
+        "id": "drink-fridge"
+      },
+      {
+        "file": "qianxia-shop.drink-fridge-2.png",
+        "x": 487.5,
+        "y": 113.96457219251337,
+        "w": 50,
+        "h": 96.5,
+        "depth": 210.33957219251337,
+        "id": "drink-fridge-2"
+      },
+      {
+        "file": "qianxia-shop.food-island.png",
+        "x": 69.75,
+        "y": 210.54900385604114,
+        "w": 84.5,
+        "h": 76,
+        "depth": 286.42400385604117,
+        "id": "food-island"
+      },
+      {
+        "file": "qianxia-shop.snack-island.png",
+        "x": 134.25,
+        "y": 177.73681640625,
+        "w": 84.5,
+        "h": 77,
+        "depth": 254.61181640625,
+        "id": "snack-island"
+      },
+      {
+        "file": "qianxia-shop.daily-island.png",
+        "x": 357.75,
+        "y": 210.51201923076923,
+        "w": 84.5,
+        "h": 75.5,
+        "depth": 286.3870192307692,
+        "id": "daily-island"
+      },
+      {
+        "file": "qianxia-shop.snack-island-2.png",
+        "x": 454.25,
+        "y": 209.73681640625,
+        "w": 84.5,
+        "h": 77,
+        "depth": 286.61181640625,
+        "id": "snack-island-2"
+      },
+      {
+        "file": "qianxia-shop.produce.png",
+        "x": 42.375,
+        "y": 292.9421641791045,
+        "w": 75,
+        "h": 53,
+        "depth": 346.0671641791045,
+        "id": "produce"
+      },
+      {
+        "file": "qianxia-shop.sale-island.png",
+        "x": 138.125,
+        "y": 293.7824492099323,
+        "w": 75,
+        "h": 52,
+        "depth": 345.9074492099323,
+        "id": "sale-island"
+      },
+      {
+        "file": "qianxia-shop.magazines.png",
+        "x": 236.125,
+        "y": 305.1085714285714,
+        "w": 40.5,
+        "h": 38,
+        "depth": 343.2335714285714,
+        "id": "magazines"
+      },
+      {
+        "file": "qianxia-shop.freezer.png",
+        "x": 352.75,
+        "y": 293.7764084507042,
+        "w": 62.5,
+        "h": 52,
+        "depth": 345.9014084507042,
+        "id": "freezer"
+      },
+      {
+        "file": "qianxia-shop.counter-extension.png",
+        "x": 423.375,
+        "y": 293.74552429667517,
+        "w": 81.5,
+        "h": 52,
+        "depth": 345.87052429667517,
+        "id": "counter-extension"
+      },
+      {
+        "file": "qianxia-shop.counter.png",
+        "x": 519.125,
+        "y": 293.74552429667517,
+        "w": 81.5,
+        "h": 52,
+        "depth": 345.87052429667517,
+        "id": "counter"
+      },
+      {
+        "file": "qianxia-shop.register.png",
+        "x": 550.125,
+        "y": 291.7455242966752,
+        "w": 20,
+        "h": 15,
+        "depth": 346.49552429667517,
+        "id": "register"
+      },
+      {
+        "file": "qianxia-shop.shopping-bag.png",
+        "x": 450.375,
+        "y": 288.74552429667517,
+        "w": 15.5,
+        "h": 18.5,
+        "depth": 346.49552429667517,
+        "id": "shopping-bag"
+      },
+      {
+        "file": "qianxia-shop.baskets.png",
+        "x": 417.875,
+        "y": 340.984375,
+        "w": 27.5,
+        "h": 33,
+        "depth": 374.234375,
+        "id": "baskets"
+      },
+      {
+        "file": "qianxia-shop.hot-cabinet.png",
+        "x": 360,
+        "y": 81,
+        "w": 46.5,
+        "h": 94,
+        "depth": 178.5,
+        "id": "hot-cabinet"
+      },
+      {
+        "file": "qianxia-shop.long-bench.png",
+        "x": 577.3934817170111,
+        "y": 161.5,
+        "w": 29,
+        "h": 125,
+        "depth": 286.5,
+        "id": "long-bench"
+      },
+      {
+        "file": "qianxia-shop.shop-light.png",
+        "x": 324,
+        "y": 74,
+        "w": 24,
+        "h": 12,
+        "depth": 84,
+        "id": "shop-light"
+      }
+    ],
+    "ground": {
+      "file": "qianxia-shop.ground.png",
+      "x": 0,
+      "y": 0,
+      "w": 640,
+      "h": 427
+    }
+  },
+  "profile": {},
+  "visual": {
+    "background": true,
+    "width": 640,
+    "height": 427,
+    "outdoor": false,
+    "exits": [
+      {
+        "id": "door",
+        "name": "公园",
+        "point": {
+          "x": 319,
+          "y": 411
+        },
+        "to": {
+          "sceneId": "qianxia-park",
+          "entry": "shop"
+        }
+      },
+      {
+        "id": "onsen",
+        "name": "汤屋",
+        "point": {
+          "x": 552,
+          "y": 124
+        },
+        "to": {
+          "sceneId": "world-onsen",
+          "entry": "shop"
+        }
+      }
+    ],
+    "zones": {
+      "shop_door": {
+        "x": 318.75,
+        "y": 390.625
+      },
+      "snacks": {
+        "x": 80,
+        "y": 203.11181640625
+      },
+      "drinks": {
+        "x": 448,
+        "y": 199
+      },
+      "daily": {
+        "x": 272,
+        "y": 202.88701923076923
+      },
+      "icecream": {
+        "x": 376,
+        "y": 359
+      },
+      "counter": {
+        "x": 548,
+        "y": 376
+      },
+      "food": {
+        "x": 176,
+        "y": 202.92400385604114
+      },
+      "bread": {
+        "x": 304,
+        "y": 296.95755597014926
+      },
+      "produce": {
+        "x": 80,
+        "y": 360.4421641791045
+      },
+      "magazines": {
+        "x": 256,
+        "y": 359
+      },
+      "shop_onsen_door": {
+        "x": 552,
+        "y": 128
+      },
+      "hot_cabinet": {
+        "x": 384,
+        "y": 199
+      },
+      "bench_a": {
+        "x": 560.3934817170111,
+        "y": 179.5
+      },
+      "bench_b": {
+        "x": 560.3934817170111,
+        "y": 223.5
+      },
+      "bench_c": {
+        "x": 560.3934817170111,
+        "y": 267.5
+      }
+    },
+    "modules": {
+      "snack-shelf": {
+        "id": "snack-shelf",
+        "kind": "world-sprite",
+        "art": "retail-snacks",
+        "x": 37.8125,
+        "y": 113.70751953125,
+        "w": 84.375,
+        "h": 76.904296875,
+        "collision": {
+          "x": -5.8125,
+          "y": 46.29248046875,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 190.61181640625
+      },
+      "food-shelf": {
+        "id": "food-shelf",
+        "kind": "world-sprite",
+        "art": "retail-food",
+        "x": 133.8125,
+        "y": 114.50819408740362,
+        "w": 84.375,
+        "h": 75.91580976863753,
+        "collision": {
+          "x": -5.8125,
+          "y": 45.49180591259638,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 190.42400385604114
+      },
+      "daily-shelf": {
+        "id": "daily-shelf",
+        "kind": "world-sprite",
+        "art": "retail-daily",
+        "x": 229.8125,
+        "y": 114.66586538461539,
+        "w": 84.375,
+        "h": 75.72115384615384,
+        "collision": {
+          "x": -5.8125,
+          "y": 45.33413461538461,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 190.38701923076923
+      },
+      "bread-shelf": {
+        "id": "bread-shelf",
+        "kind": "world-sprite",
+        "art": "retail-bread",
+        "x": 261.8125,
+        "y": 212.49673507462686,
+        "w": 84.375,
+        "h": 73.46082089552239,
+        "collision": {
+          "x": -5.8125,
+          "y": 43.503264925373145,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 285.95755597014926
+      },
+      "drink-fridge": {
+        "id": "drink-fridge",
+        "kind": "world-sprite",
+        "art": "fridge",
+        "x": 423,
+        "y": 81.81550802139037,
+        "w": 50,
+        "h": 96.524064171123,
+        "collision": {
+          "x": -7,
+          "y": 46.18449197860963,
+          "w": 64,
+          "h": 64
+        },
+        "depth": 178.33957219251337
+      },
+      "drink-fridge-2": {
+        "id": "drink-fridge-2",
+        "kind": "world-sprite",
+        "art": "fridge",
+        "x": 487,
+        "y": 113.81550802139037,
+        "w": 50,
+        "h": 96.524064171123,
+        "collision": {
+          "x": -7,
+          "y": 46.18449197860963,
+          "w": 64,
+          "h": 64
+        },
+        "depth": 210.33957219251337
+      },
+      "food-island": {
+        "id": "food-island",
+        "kind": "world-sprite",
+        "art": "retail-food",
+        "x": 69.8125,
+        "y": 210.5081940874036,
+        "w": 84.375,
+        "h": 75.91580976863753,
+        "collision": {
+          "x": -5.8125,
+          "y": 45.49180591259639,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 286.42400385604117
+      },
+      "snack-island": {
+        "id": "snack-island",
+        "kind": "world-sprite",
+        "art": "retail-snacks",
+        "x": 133.8125,
+        "y": 177.70751953125,
+        "w": 84.375,
+        "h": 76.904296875,
+        "collision": {
+          "x": -5.8125,
+          "y": 46.29248046875,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 254.61181640625
+      },
+      "daily-island": {
+        "id": "daily-island",
+        "kind": "world-sprite",
+        "art": "retail-daily",
+        "x": 357.8125,
+        "y": 210.6658653846154,
+        "w": 84.375,
+        "h": 75.72115384615384,
+        "collision": {
+          "x": -5.8125,
+          "y": 45.33413461538461,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 286.3870192307692
+      },
+      "snack-island-2": {
+        "id": "snack-island-2",
+        "kind": "world-sprite",
+        "art": "retail-snacks",
+        "x": 453.8125,
+        "y": 209.70751953125,
+        "w": 84.375,
+        "h": 76.904296875,
+        "collision": {
+          "x": -5.8125,
+          "y": 46.29248046875,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 286.61181640625
+      },
+      "produce": {
+        "id": "produce",
+        "kind": "world-sprite",
+        "art": "retail-produce",
+        "x": 42.5,
+        "y": 293.0820895522388,
+        "w": 75,
+        "h": 52.985074626865675,
+        "collision": {
+          "x": -10.5,
+          "y": 26.917910447761187,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 346.0671641791045
+      },
+      "sale-island": {
+        "id": "sale-island",
+        "kind": "world-sprite",
+        "art": "retail-island",
+        "x": 138.5,
+        "y": 293.7629796839729,
+        "w": 75,
+        "h": 52.144469525959366,
+        "collision": {
+          "x": -10.5,
+          "y": 26.2370203160271,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 345.9074492099323
+      },
+      "magazines": {
+        "id": "magazines",
+        "kind": "world-sprite",
+        "art": "retail-magazines",
+        "x": 235.6875,
+        "y": 305.16214285714284,
+        "w": 40.625,
+        "h": 38.07142857142857,
+        "collision": {
+          "x": -11.6875,
+          "y": 14.83785714285716,
+          "w": 64,
+          "h": 32
+        },
+        "depth": 343.2335714285714
+      },
+      "freezer": {
+        "id": "freezer",
+        "kind": "world-sprite",
+        "art": "freezer",
+        "x": 352.75,
+        "y": 293.78873239436615,
+        "w": 62.5,
+        "h": 52.11267605633803,
+        "collision": {
+          "x": -0.75,
+          "y": 26.21126760563385,
+          "w": 64,
+          "h": 32
+        },
+        "depth": 345.9014084507042
+      },
+      "counter-extension": {
+        "id": "counter-extension",
+        "kind": "world-sprite",
+        "art": "counter",
+        "x": 423.375,
+        "y": 293.92039641943734,
+        "w": 81.25,
+        "h": 51.950127877237854,
+        "collision": {
+          "x": -7.375,
+          "y": 26.07960358056266,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 345.87052429667517
+      },
+      "counter": {
+        "id": "counter",
+        "kind": "world-sprite",
+        "art": "counter",
+        "x": 519.375,
+        "y": 293.92039641943734,
+        "w": 81.25,
+        "h": 51.950127877237854,
+        "collision": {
+          "x": -7.375,
+          "y": 26.07960358056266,
+          "w": 96,
+          "h": 32
+        },
+        "depth": 345.87052429667517
+      },
+      "register": {
+        "id": "register",
+        "kind": "world-sprite",
+        "art": "register",
+        "x": 550,
+        "y": 292.09162256257116,
+        "w": 20,
+        "h": 15.028901734104046,
+        "sortOffset": 54.40390173410407,
+        "depth": 346.49552429667517
+      },
+      "shopping-bag": {
+        "id": "shopping-bag",
+        "kind": "world-sprite",
+        "art": "bag",
+        "x": 449.9375,
+        "y": 288.5136540676675,
+        "w": 15.625,
+        "h": 18.606870229007633,
+        "sortOffset": 57.981870229007654,
+        "depth": 346.49552429667517
+      },
+      "baskets": {
+        "id": "baskets",
+        "kind": "world-sprite",
+        "art": "retail-baskets",
+        "x": 418.25,
+        "y": 341.421875,
+        "w": 27.5,
+        "h": 32.8125,
+        "collision": {
+          "x": -2.25,
+          "y": 10.578125,
+          "w": 32,
+          "h": 32
+        },
+        "depth": 374.234375
+      },
+      "hot-cabinet": {
+        "id": "hot-cabinet",
+        "kind": "world-sprite",
+        "art": "hot-cabinet",
+        "x": 359,
+        "y": 79.39285714285714,
+        "w": 60,
+        "h": 99.10714285714286,
+        "collision": {
+          "x": -7,
+          "y": 48.60714285714286,
+          "w": 64,
+          "h": 64
+        },
+        "depth": 178.5
+      },
+      "long-bench": {
+        "id": "long-bench",
+        "kind": "world-sprite",
+        "art": "long-bench",
+        "x": 577.3934817170111,
+        "y": 161.5,
+        "w": 29.213036565977742,
+        "h": 125,
+        "collision": {
+          "x": -1.3934817170111273,
+          "y": -1.5,
+          "w": 32,
+          "h": 128
+        },
+        "depth": 286.5
+      },
+      "shop-window": {
+        "id": "shop-window",
+        "kind": "world-marker",
+        "x": 250,
+        "y": 70,
+        "w": 81.25,
+        "h": 12.5,
+        "depth": 82.5
+      },
+      "shop-light": {
+        "id": "shop-light",
+        "kind": "ceiling-light",
+        "x": 326,
+        "y": 76,
+        "w": 20,
+        "h": 8,
+        "light": {
+          "x": 10,
+          "y": 4,
+          "radius": 650
+        },
+        "depth": 84
+      }
+    }
+  },
+  "revision": "shop-grid-v1"
+}

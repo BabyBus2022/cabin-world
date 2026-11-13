@@ -1,0 +1,27 @@
+{
+  "id": "shop-cream",
+  "name": "小卖部 · 奶油墙木护墙",
+  "kind": "indoor",
+  "floor": [
+    "floor-a.png",
+    "floor-b.png",
+    "floor-c.png",
+    "floor-d.png"
+  ],
+  "openings": {
+    "door-back": {
+      "wall": "back",
+      "w": 2
+    },
+    "door-front": {
+      "wall": "front",
+      "w": 6
+    },
+    "window": {
+      "wall": "back",
+      "w": 3,
+      "top": 50
+    }
+  },
+  "matches": "qianxia-shop"
+}

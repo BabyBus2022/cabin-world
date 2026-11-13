@@ -35,6 +35,26 @@ const TABLE := {
 	"write3": ["frames", 1120, 780, 280, 280, 62, 10, 157, 130, 140, 272],
 }
 static var _textures := {}
+static var _overrides:Dictionary={}
+static var _overrides_read:bool=false
+static var _head_calibration:Dictionary={}
+
+
+static func _record(pose:String)->Array:
+	if not _overrides_read:
+		_overrides_read=true
+		var config_file:="res://assets/actors/pose-overrides.json"
+		if FileAccess.file_exists(config_file):
+			var data=JSON.parse_string(FileAccess.get_file_as_string(config_file))
+			if data is Dictionary and data.get("version")==1:
+				_overrides=data.get("poses",{});_head_calibration=data.get("headWidths",{})
+	var custom:Array=_overrides.get(pose,[])
+	if custom.size()==11 and ResourceLoader.exists("res://assets/actors/"+str(custom[0])):
+		var art_of:Texture2D=texture(str(custom[0]))
+		if art_of.get_size()==Vector2(1256,1884):return custom
+	var record:Array=TABLE.get(pose,TABLE.idle0).duplicate()
+	if _head_calibration.has(pose):record[7]=float(_head_calibration[pose])
+	return record
 
 
 static func texture(file: String) -> Texture2D:
@@ -44,33 +64,33 @@ static func texture(file: String) -> Texture2D:
 
 
 static func sheet(pose: String) -> Texture2D:
-	return texture(FILES[TABLE[pose][0]])
+	return texture(FILES.get(_record(pose)[0],_record(pose)[0]))
 
 
 static func region(pose: String) -> Rect2:
-	var p: Array = TABLE[pose]
+	var p: Array = _record(pose)
 	var r := Rect2(p[1], p[2], p[3], p[4])
 	return Rect2(r.position * _factor(pose), r.size * _factor(pose))
 
 
 static func scale_of(pose: String) -> float:
-	return HEAD_WIDTH / float(TABLE[pose][7]) / _factor(pose)
+	return HEAD_WIDTH / float(_record(pose)[7]) / _factor(pose)
 
 
 static func foot(pose: String) -> Vector2:
-	var p: Array = TABLE[pose]
+	var p: Array = _record(pose)
 	return Vector2(p[9], p[10]) * _factor(pose)
 
 
 ## Where the head is, relative to the feet, in room units.
 static func head(pose: String) -> Rect2:
-	var p: Array = TABLE[pose]
+	var p: Array = _record(pose)
 	var k := HEAD_WIDTH / float(p[7])
 	return Rect2((float(p[5]) - float(p[9])) * k, (float(p[6]) - float(p[10])) * k, HEAD_WIDTH, float(p[8]) * k)
 
 
 static func _factor(pose: String) -> float:
-	return texture(FILES["bed"]).get_width() / BED_MEASURED_WIDTH if TABLE[pose][0] == "bed" else 1.0
+	return texture(FILES["bed"]).get_width() / BED_MEASURED_WIDTH if _record(pose)[0] == "bed" else 1.0
 
 
 static func _noise(n: float) -> float:
@@ -84,6 +104,8 @@ static func moment(base: String, zone: String, screen: String, audio: String, ti
 	var blinking := fmod(time, 3.7) < 0.14
 	if base.begins_with("phone"):
 		var burst := _noise(floorf(time / 1.6)) > 0.35
+		if _overrides.has("phone2"):
+			return {"pose":"phone%d"%([0,1,2,1][int(time*3)%4] if burst else 0),"breathe":breath}
 		return {"pose": "phone1" if burst and _noise(floorf(time * 5.0)) > 0.45 else "phone0", "breathe": breath}
 	if base == "listen":
 		return {"pose": base, "breathe": (0.5 if sin(time * TAU * 1.8) > 0.2 else 0.0) if audio == "playing" else breath}

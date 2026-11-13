@@ -10,6 +10,7 @@ static func skill(s: Dictionary, id: String) -> float:
 static func suggest(s: Dictionary) -> Dictionary:
 	if s.status!="playing": return {}
 	match s.kind:
+		"gomoku":return load("res://core/arcade_gomoku.gd").suggest(s)
 		"snake": return snake(s)
 		"blocks": return blocks(s)
 		"mines": return mines(s)

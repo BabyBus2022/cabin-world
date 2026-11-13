@@ -337,12 +337,15 @@ func experience(a: Dictionary) -> Dictionary:
 	var recent: bool = truthy(previous) and now - n(previous.get("at")) < 45 * 60000.0
 	var novelty := 0.35 if recent else 1.0
 	var preferred: Array = Residents.flavor(who)["preferred_objects"]
-	var play: bool = object_id in ["swing", "slide", "carousel", "seesaw", "rider", "pier", "meadow", "river"]
+	var play: bool = object_id in ["swing", "slide", "carousel", "seesaw", "rider", "pier", "meadow", "river", "xj_beach"]
 	var together: Array = companions.filter(func(p): return p.get("near") != false)
 	var social := 4.0 if not together.is_empty() and play else 0.0
 	var joy := (10.0 if play else (7.0 if object_id == "bag" else 4.0)) * novelty + (3.0 if object_id in preferred else 0.0) + social
 	var energy := -4.0 if play else (3.0 if object_id == "bag" else 1.0)
 	var calm := 7.0 if object_id == "pier" or object_id == "bench" else 2.0
+	if object_id=="xj_beach":
+		calm=6 if use=="play_sand" else 10
+		energy=-3 if use=="play_sand" else 2
 	var rain := n(weather.get("rain"))
 	var temp := n(weather.get("temp"))
 	var start_energy: float = state["energy"]
@@ -370,6 +373,8 @@ func experience(a: Dictionary) -> Dictionary:
 		bath_line = "坐在干爽的木长凳上慢慢缓过来，身上还带着水里的热气" if start_warmth >= 25 else "坐在木长凳上歇一歇，水汽慢慢飘过来"
 	elif object_id == "onsen_locker":
 		bath_line = "换上干爽的浴衣，棉布软软的，还带点烘过的暖意" if use == "change" else ("换回自己的衣服，身上还留着汤屋的暖和气" if start_warmth >= 15 else "换回自己的衣服")
+	if object_id=="xj_beach":
+		bath_line="手指在干沙上勾出一只小鲸鱼，细沙从指尖滑落" if use=="play_sand" else "海浪一阵阵靠近又退开，注意力慢慢落在浪声上" if use=="listen_waves" else "站在岸边看夜色中的海，近处的浪花明暗交替" if weather.get("phase")=="night" else "站在干沙滩看开阔海面，浪花沿着岸边铺开"
 	var first: String = str(or_(a.get("taste"), ""))
 	if first == "":
 		first = bath_line
@@ -522,7 +527,7 @@ func experience(a: Dictionary) -> Dictionary:
 		if id in BATH_OBJECTS and now - float(or_((history[id] if history[id] is Dictionary else {}).get("at"), 0)) < 90 * 60000.0:
 			bathed_lately = true
 	var out := state.duplicate()
-	out.merge({"joy": next_joy, "energy": next_energy, "calm": next_calm, "satiety": clamp100(satiety), "hydration": clamp100(hydration), "warmth": clamp100(warmth), "warmthFrom": warmth_from, "tastes": tastes, "last": _join(lines, "；"), "at": now, "objectId": a.get("objectId"), "use": use, "delta": {"joy": next_joy - float(state["joy"]), "energy": next_energy - start_energy, "calm": next_calm - float(state["calm"])}, "highlight": highlight, "memorable": highlight != "" or (bath != null and not bathed_lately)}, true)
+	out.merge({"joy": next_joy, "energy": next_energy, "calm": next_calm, "satiety": clamp100(satiety), "hydration": clamp100(hydration), "warmth": clamp100(warmth), "warmthFrom": warmth_from, "tastes": tastes, "last": _join(lines, "；"), "at": now, "objectId": a.get("objectId"), "use": use, "delta": {"joy": next_joy - float(state["joy"]), "energy": next_energy - start_energy, "calm": next_calm - float(state["calm"])}, "highlight": highlight, "memorable": (object_id=="xj_beach" and not recent and next_joy>float(state["joy"])) or highlight != "" or (bath != null and not bathed_lately)}, true)
 	return out
 
 
@@ -825,6 +830,9 @@ func record_interest(saved, event: Dictionary, now: float) -> Dictionary:
 		name_of = product.get("name")
 		category = "food"
 		reward = 12.0 if truthy(event.get("liked")) else 4.0
+	elif type=="use" and event.get("objectId")=="xj_beach":
+		id="xj_beach";name_of="家旁海边";category="seaside"
+		reward=clampf(float(event.get("experienceDelta",{}).get("joy",6)),-4,10)
 	elif type == "use" and event.get("space") == "park":
 		id = event.get("objectId")
 		name_of = event.get("label")
@@ -935,6 +943,10 @@ func apply_event(saved, event_in: Dictionary, who: String, day: String, now: flo
 	var peer := str(or_(event.get("partner"), _peer(who)))
 	match type:
 		"use":
+			if event.get("objectId")=="xj_beach" and event.get("memorable",false):
+				var sea_text:String=str(event.get("label","在家旁海边待了一会"))+"："+str(event.get("felt",""))
+				memorable.append(sea_text)
+				l["stories"]=_last(nz(l.get("stories"),[])+[{"id":"seaside-"+str(roundi(now)),"at":now,"name":"家旁海边","text":sea_text,"ownerSharedAt":0}],24)
 			var label_text := clip(event.get("label"), 14)
 			var seen: bool = label_text in t["plays"]
 			if event.get("space") == "park":

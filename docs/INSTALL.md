@@ -1,94 +1,15 @@
-# 安装与接入说明
+# 1.1 接入与迁移
 
-## 1. 准备
+使用配套1.1游戏、参考桥、工具定义和接入示例，不能只把新桥覆盖进1.0游戏。发布包应包括 `CabinWorld.exe`、`cabinworld.ini`、`start.cmd`、`selfcheck.cmd`、`bridge/`、`docs/`、`examples/`。
 
-| 需要 | 说明 |
-|---|---|
-| Windows 10/11 x64 | 游戏是 Windows 原生程序 |
-| Node.js 18+ | 运行“小屋世界桥”，<https://nodejs.org> 选 LTS。也可以把便携版 `node.exe` 放到 `runtime\node.exe`，启动脚本会优先用它 |
-| 你的机器人软件 | AstrBot、QQAgent 或任何能调用工具 / 发 HTTP 请求的程序 |
+1. 安装 Node.js 18 或更高版本；也可在包的 runtime/node.exe 放可用运行时。
+2. 编辑 bridge/bridge.config.json：resident 是默认机器人的稳定编号，displayName 是显示名字。多个机器人只运行一个桥，使用 residents 数组或游戏管理界面新增，每个适配器绑定自己的编号。
+3. 双击 start.cmd。宿主会启动游戏；控制台显示“住户已就位”后开始工具调用。
+4. 把 `GET /v1/tools` 返回的 tools 原样注册进机器人软件，工具调用原样转发 `/v1/tool`。使用1.1的 AI-MANUAL.md，别沿用“高级协议未实现”的旧说明，也别按每件家具生成数百个工具。
+5. AstrBot 用户更新 examples/astrbot 中 main.py、cabin_client.py 及配置；设置 bridge_json 和 resident_id。未安装真实 AstrBot 的本机检查不能替代所有第三方版本兼容验证。
 
-解压到一个普通的可写文件夹，例如 `D:\CabinWorld`。**不要**放在 `C:\Program Files`（没有写入权限，存档会失败），路径里有中文没关系。
+主要配置：dataDir 为宿主连接及事件目录，gameExe 为游戏路径；路径相对于 bridge.config.json。http.port 默认18790，设0自动选择空闲端口；waitMs 默认45000，设0立即返回任务编号。weather.mode 为 virtual 或 push。public 标准布局用根目录 cabinworld.ini 的 data=data、save=data/saves，便于便携迁移。
 
-## 2. 启动
+先运行 selfcheck.cmd 检查文件和配置。独立实机自检可以运行 `node bridge/selfcheck.mjs --live`，该命令使用临时存档。模型调用不包括在自检中。
 
-双击 `start.cmd`。它做的事：
-
-1. 检查 Node.js；
-2. 启动 `bridge\bridge.mjs`（桥）：在 `127.0.0.1` 上开一个只给游戏用的端口，把端口和一次性 token 写进 `data\world\game-link.json`；再开一个给机器人用的 HTTP 接口，地址和 token 写进 `data\bridge.json`；
-3. 打开 `CabinWorld.exe`，游戏读到 `game-link.json` 后自己连上来。
-
-窗口里出现“准备好了”即可。**关掉游戏窗口不会关掉桥**，再双击 `CabinWorld.exe` 会自动连回；关掉桥的黑色窗口（或按 Ctrl+C）不会强制关闭游戏。
-
-## 3. 自检
-
-双击 `selfcheck.cmd`（等于 `node bridge\selfcheck.mjs --live`）。它检查：Node 版本、游戏文件、游戏和桥是否用同一个数据目录、端口，然后用**临时空存档**无窗口地真实运行一遍。全部 ✔ 就说明安装没问题。加 `--full` 还会测试汤屋和吊灯；加 `--show` 可以看着它跑。
-
-## 4. 接入你的机器人
-
-### 4.1 通用方式（任何软件）
-
-1. 读取 `data\bridge.json` 里的 `url` 和 `token`（桥每次启动都会换新 token，所以每次调用前读一次，或者失败 401 时重新读）。
-2. 把 `bridge\openai-tools.json` 的 `tools` 交给模型（OpenAI function calling 格式）。
-3. 模型调用工具时：`POST {url}/v1/tool`，头 `Authorization: Bearer {token}`，正文 `{"name": 工具名, "arguments": 参数}`，把返回的 JSON 原样交还给模型。
-4. 把 `docs\AI-MANUAL.md` 加进角色的系统提示词或知识库。
-
-动作一般在几秒到半分钟内做完，桥默认最多等 45 秒（`bridge.config.json` 的 `waitMs`）。超过时返回 `{"status":"running","taskId":...}`，提醒模型“还没做完”，之后可以 `GET /v1/tasks/{taskId}` 查询。
-
-### 4.2 AstrBot
-
-把 `examples\astrbot\` 整个文件夹复制到 AstrBot 的插件目录（通常是 `data\plugins\astrbot_plugin_cabinworld`），在插件配置里填 `bridge_json` 为本机 `data\bridge.json` 的完整路径，重载插件。它把 7 个工具注册成 AstrBot 的 LLM 工具。详见该文件夹的 README。
-
-### 4.3 Python / 其他语言
-
-`examples\python\cabin_client.py` 只用标准库，可以直接 `import`，也可以 `python cabin_client.py status` 在命令行试。其他语言照 `docs\HTTP-API.md` 发 HTTP 请求即可。
-
-### 4.4 不想用桥？
-
-可以让你的软件直接当游戏的宿主，实现 `docs\PROTOCOL.md` 里的本地 TCP 协议。`bridge\cabin-host.mjs` 是一个约 120 行的参考实现。
-
-## 5. 配置 `bridge\bridge.config.json`
-
-| 字段 | 默认 | 说明 |
-|---|---|---|
-| `resident` | `xiaojingyu` | 游戏里的角色 key（`game/assets/residents.json`），公开版只有这一位 |
-| `displayName` | `小鲸鱼` | 桥日志和游戏卡片上用的名字（游戏内的名字见下文“改名字”） |
-| `hostName` | `我的机器人` | 显示在游戏天气牌提示里的宿主名字 |
-| `dataDir` | `../data` | 数据目录，**必须**与游戏旁 `cabinworld.ini` 的 `data=` 指向同一个文件夹 |
-| `gameExe` | `../CabinWorld.exe` | 游戏程序位置 |
-| `launchGame` | `true` | 桥启动后是否自动打开游戏 |
-| `http.port` | `18790` | 给机器人用的端口；`0` 表示自动选一个空闲端口（实际地址看 `data\bridge.json`） |
-| `weather.mode` | `virtual` | `virtual`：桥自带的虚拟天气；`push`：由你的机器人用 `POST /v1/weather` 推送真实天气 |
-| `waitMs` | `45000` | 一个工具调用最多等多久再返回“进行中” |
-
-相对路径都相对于配置文件所在的 `bridge\` 文件夹。
-
-## 6. 数据放在哪里
-
-| 位置 | 内容 | 能分享吗 |
-|---|---|---|
-| `data\saves\` | 游戏存档：位置、背包、钱、感受、使用记录 | 不要。升级时保留它 |
-| `data\world\game-link.json` | 本次运行的端口和 token | 不要，每次启动会重写 |
-| `data\bridge.json` | 给机器人用的接口地址和 token | 不要 |
-
-升级：解压新版本覆盖程序文件，保留 `data\` 文件夹即可。
-
-## 常见问题
-
-**双击 start.cmd 提示找不到 Node.js**：安装 Node.js 18+ 后重开窗口；或把 `node.exe` 放到 `runtime\node.exe`。
-
-**“端口 18790 已被占用”**：桥可能已经开着（看任务栏有没有另一个黑色窗口）；否则在 `bridge.config.json` 把 `http.port` 改成别的数字或 `0`。
-
-**“另一个宿主正在使用这份数据目录”**：已经有一个桥（或其他宿主程序）在用这个 `data`。先关掉它。上次是崩溃退出的话，桥会自动清理残留文件，不需要手动删。
-
-**游戏右上角一直“离线”**：确认是用 `start.cmd` 启动的，或者手动打开游戏时 `cabinworld.ini` 的 `data=` 和桥的 `dataDir` 一致（运行 `selfcheck.cmd` 会检查）。
-
-**机器人说“做好了”，游戏里却没动**：让模型以工具返回为准；`status: running` 表示还没做完。说明书 `docs\AI-MANUAL.md` 里已经写了这条规则，请确认它在提示词里。
-
-**改角色名字 / 外观**：卡片名字来自 `game\assets\residents.json` 的 `name`，外观在 `game\assets\actors\`。改完用 `tools\build-windows.cmd` 重新导出。
-
-**提供真实天气**：把 `weather.mode` 改成 `push`，然后由你的机器人定时 `POST /v1/weather`，格式见 `docs\HTTP-API.md`。不提供时用虚拟天气，不会联网。
-
-**多开（两个机器人各一个世界）**：复制整个文件夹，第二份把 `http.port` 改成别的数字。两个世界的存档互相独立。
-
-**想让两个机器人住在同一个世界**：公开版只带一位住户。增加住户需要在 `game\assets\residents.json` 添加角色和美术，并给每个角色各开一个 `Resident`（见 `bridge\lib\resident.mjs`），属于进阶改造。
+备份旧包和 data 后再迁移。不要把本仓库 handover 中模拟测试生成的空存档、临时token、日志当成玩家发布数据；正式发布包仅放程序、文档、示例及空 data 目录。当前任务没有重写旧的公开1.0包。
