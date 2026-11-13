@@ -1,0 +1,2491 @@
+{
+  "version": 1,
+  "scene": "xiaojingyu-home",
+  "cell": 32,
+  "columns": 30,
+  "rows": 20,
+  "catalog": [
+    {
+      "id": "xj-bed",
+      "name": "鲸鱼床",
+      "cell": [
+        3,
+        3
+      ],
+      "layer": "solid",
+      "box": [
+        109,
+        78,
+        76,
+        110
+      ],
+      "foot": [
+        112,
+        99,
+        68,
+        84
+      ],
+      "zoneIds": [
+        "xj_bed"
+      ]
+    },
+    {
+      "id": "xj-bookshelf",
+      "name": "书架",
+      "cell": [
+        14,
+        2
+      ],
+      "layer": "solid",
+      "box": [
+        464,
+        48,
+        87,
+        78
+      ],
+      "foot": [
+        466,
+        85,
+        83,
+        37
+      ],
+      "zoneIds": [
+        "xj_shelf"
+      ]
+    },
+    {
+      "id": "xj-writing_desk",
+      "name": "写字桌",
+      "cell": [
+        18,
+        5
+      ],
+      "layer": "solid",
+      "box": [
+        580,
+        160,
+        88,
+        58
+      ],
+      "foot": [
+        582,
+        178,
+        84,
+        28
+      ],
+      "zoneIds": [
+        "xj_notes"
+      ]
+    },
+    {
+      "id": "xj-desk",
+      "name": "电脑桌",
+      "cell": [
+        3,
+        11
+      ],
+      "layer": "solid",
+      "box": [
+        110,
+        335,
+        61,
+        111
+      ],
+      "foot": [
+        112,
+        369,
+        53,
+        59
+      ],
+      "zoneIds": [
+        "xj_desk"
+      ]
+    },
+    {
+      "id": "xj-computer-chair",
+      "name": "电脑椅",
+      "cell": [
+        5,
+        12
+      ],
+      "layer": "solid",
+      "box": [
+        137,
+        344,
+        110,
+        88.5
+      ],
+      "foot": [
+        168,
+        400,
+        29,
+        24
+      ],
+      "zoneIds": []
+    },
+    {
+      "id": "xj-desk-chair",
+      "name": "木椅",
+      "cell": [
+        19,
+        4
+      ],
+      "layer": "solid",
+      "box": [
+        607,
+        141,
+        32,
+        43
+      ],
+      "foot": [
+        610,
+        155,
+        24,
+        19
+      ],
+      "zoneIds": []
+    },
+    {
+      "id": "xj-easel",
+      "name": "画架",
+      "cell": [
+        23,
+        4
+      ],
+      "layer": "solid",
+      "box": [
+        744,
+        70,
+        52,
+        84
+      ],
+      "foot": [
+        751,
+        131,
+        39,
+        20
+      ],
+      "zoneIds": [
+        "xj_draw"
+      ]
+    },
+    {
+      "id": "xj-easel-seat",
+      "name": "画凳",
+      "cell": [
+        23,
+        5
+      ],
+      "layer": "solid",
+      "box": [
+        744,
+        158,
+        33,
+        32
+      ],
+      "foot": [
+        750,
+        176,
+        23,
+        11
+      ],
+      "zoneIds": []
+    },
+    {
+      "id": "xj-tank",
+      "name": "鱼缸",
+      "cell": [
+        22,
+        10
+      ],
+      "layer": "solid",
+      "box": [
+        722,
+        282,
+        100,
+        89
+      ],
+      "foot": [
+        725,
+        337,
+        93,
+        30
+      ],
+      "zoneIds": [
+        "xj_tank"
+      ]
+    },
+    {
+      "id": "xj-sofa",
+      "name": "沙发",
+      "cell": [
+        23,
+        13
+      ],
+      "layer": "solid",
+      "box": [
+        733,
+        387,
+        102,
+        81
+      ],
+      "foot": [
+        737,
+        431,
+        94,
+        31
+      ],
+      "zoneIds": [
+        "xj_sofa"
+      ]
+    },
+    {
+      "id": "xj-album-cabinet",
+      "name": "相册柜",
+      "cell": [
+        11,
+        10
+      ],
+      "layer": "solid",
+      "box": [
+        379,
+        289,
+        96,
+        65
+      ],
+      "foot": [
+        382,
+        337,
+        90,
+        12
+      ],
+      "zoneIds": [
+        "xj_album"
+      ]
+    },
+    {
+      "id": "xj-album-seat",
+      "name": "坐垫",
+      "cell": [
+        12,
+        11
+      ],
+      "layer": "floor",
+      "box": [
+        398,
+        357,
+        30,
+        22
+      ],
+      "foot": [
+        398,
+        367,
+        30,
+        12
+      ],
+      "zoneIds": []
+    },
+    {
+      "id": "xj-accessory_table",
+      "name": "手机收纳桌",
+      "cell": [
+        19,
+        12
+      ],
+      "layer": "solid",
+      "box": [
+        614,
+        376,
+        58,
+        48
+      ],
+      "foot": [
+        616,
+        401,
+        54,
+        20
+      ],
+      "zoneIds": [
+        "xj_accessories"
+      ]
+    },
+    {
+      "id": "xj-lamp-floor",
+      "name": "落地灯",
+      "cell": [
+        6,
+        3
+      ],
+      "layer": "solid",
+      "box": [
+        197,
+        77,
+        23,
+        45
+      ],
+      "foot": [
+        200,
+        108,
+        18,
+        11
+      ],
+      "zoneIds": []
+    },
+    {
+      "id": "xj-lamp-shelf",
+      "name": "小灯",
+      "cell": [
+        16,
+        1
+      ],
+      "layer": "surface",
+      "box": [
+        522,
+        29,
+        25,
+        26
+      ],
+      "foot": [
+        522,
+        43,
+        25,
+        12
+      ],
+      "zoneIds": []
+    },
+    {
+      "id": "xj-album",
+      "name": "相册",
+      "cell": [
+        12,
+        9
+      ],
+      "layer": "surface",
+      "box": [
+        401,
+        279,
+        50,
+        32
+      ],
+      "foot": [
+        401,
+        299,
+        50,
+        12
+      ],
+      "zoneIds": []
+    },
+    {
+      "id": "xj-desk-book",
+      "name": "笔记本",
+      "cell": [
+        18,
+        5
+      ],
+      "layer": "surface",
+      "box": [
+        607,
+        158,
+        40,
+        24
+      ],
+      "foot": [
+        607,
+        170,
+        40,
+        12
+      ],
+      "zoneIds": []
+    },
+    {
+      "id": "xj-phone",
+      "name": "手机",
+      "cell": [
+        19,
+        11
+      ],
+      "layer": "surface",
+      "box": [
+        622,
+        365,
+        11,
+        19
+      ],
+      "foot": [
+        622,
+        372,
+        11,
+        12
+      ],
+      "zoneIds": []
+    },
+    {
+      "id": "xj-plant-west",
+      "name": "盆栽",
+      "cell": [
+        21,
+        14
+      ],
+      "layer": "solid",
+      "box": [
+        695,
+        437,
+        33,
+        42
+      ],
+      "foot": [
+        699,
+        465,
+        24,
+        11
+      ],
+      "zoneIds": []
+    },
+    {
+      "id": "xj-rabbit",
+      "name": "兔子摆件",
+      "cell": [
+        15,
+        1
+      ],
+      "layer": "surface",
+      "box": [
+        492,
+        28,
+        19,
+        24
+      ],
+      "foot": [
+        492,
+        40,
+        19,
+        12
+      ],
+      "zoneIds": []
+    },
+    {
+      "id": "xj-ocean-rug",
+      "name": "波浪地毯",
+      "cell": [
+        8,
+        15
+      ],
+      "layer": "floor",
+      "box": [
+        279,
+        419,
+        191,
+        102
+      ],
+      "foot": [
+        279,
+        509,
+        191,
+        12
+      ],
+      "zoneIds": [
+        "xj_rug"
+      ]
+    },
+    {
+      "id": "chess-seat-left",
+      "name": "棋垫·左",
+      "cell": [
+        9,
+        14
+      ],
+      "layer": "floor",
+      "box": [
+        306,
+        450,
+        32,
+        25
+      ],
+      "foot": [
+        306,
+        463,
+        32,
+        12
+      ],
+      "zoneIds": [
+        "chess_xj_a"
+      ]
+    },
+    {
+      "id": "chess-seat-right",
+      "name": "棋垫·右",
+      "cell": [
+        12,
+        14
+      ],
+      "layer": "floor",
+      "box": [
+        408,
+        450,
+        32,
+        25
+      ],
+      "foot": [
+        408,
+        463,
+        32,
+        12
+      ],
+      "zoneIds": [
+        "chess_xj_b"
+      ]
+    },
+    {
+      "id": "xj-plant-shelf",
+      "name": "书架盆栽",
+      "cell": [
+        14,
+        1
+      ],
+      "layer": "surface",
+      "box": [
+        464,
+        26,
+        23,
+        28
+      ],
+      "foot": [
+        464,
+        42,
+        23,
+        12
+      ],
+      "zoneIds": []
+    },
+    {
+      "id": "xj-plant-desk",
+      "name": "桌面盆栽",
+      "cell": [
+        18,
+        4
+      ],
+      "layer": "surface",
+      "box": [
+        579,
+        142,
+        21,
+        28
+      ],
+      "foot": [
+        579,
+        158,
+        21,
+        12
+      ],
+      "zoneIds": []
+    },
+    {
+      "id": "xj-plant-east",
+      "name": "卧室盆栽",
+      "cell": [
+        10,
+        6
+      ],
+      "layer": "solid",
+      "box": [
+        322,
+        175,
+        36,
+        45
+      ],
+      "foot": [
+        327,
+        206,
+        26,
+        11
+      ],
+      "zoneIds": []
+    },
+    {
+      "id": "speaker-left",
+      "name": "音响·左",
+      "cell": [
+        3,
+        10
+      ],
+      "layer": "surface",
+      "box": [
+        115,
+        323,
+        14,
+        22
+      ],
+      "foot": [
+        115,
+        339,
+        14,
+        6
+      ],
+      "zoneIds": []
+    },
+    {
+      "id": "speaker-right",
+      "name": "音响·右",
+      "cell": [
+        4,
+        13
+      ],
+      "layer": "surface",
+      "box": [
+        146,
+        423,
+        14,
+        22
+      ],
+      "foot": [
+        146,
+        439,
+        14,
+        6
+      ],
+      "zoneIds": []
+    }
+  ],
+  "zoneOwners": {
+    "xj_bed": "xj-bed",
+    "xj_desk": "xj-desk",
+    "xj_shelf": "xj-bookshelf",
+    "xj_album": "xj-album-cabinet",
+    "xj_draw": "xj-easel",
+    "xj_notes": "xj-writing_desk",
+    "xj_accessories": "xj-accessory_table",
+    "xj_rug": "xj-ocean-rug",
+    "xj_tank": "xj-tank",
+    "xj_sofa": "xj-sofa",
+    "chess_xj_a": "chess-seat-left",
+    "chess_xj_b": "chess-seat-right"
+  },
+  "fixedObstacles": [
+    {
+      "x": 57,
+      "y": 247,
+      "w": 154,
+      "h": 85
+    },
+    {
+      "x": 301,
+      "y": 247,
+      "w": 265,
+      "h": 85
+    },
+    {
+      "x": 655,
+      "y": 247,
+      "w": 209,
+      "h": 85
+    },
+    {
+      "x": 404,
+      "y": 30,
+      "w": 26,
+      "h": 222
+    },
+    {
+      "x": 367,
+      "y": 40,
+      "w": 97,
+      "h": 127
+    },
+    {
+      "x": 800,
+      "y": 40,
+      "w": 74,
+      "h": 210
+    },
+    {
+      "x": 623,
+      "y": 482,
+      "w": 82,
+      "h": 136
+    },
+    {
+      "x": 807,
+      "y": 482,
+      "w": 76,
+      "h": 118
+    },
+    {
+      "x": 74,
+      "y": 547,
+      "w": 554,
+      "h": 72
+    },
+    {
+      "x": 64,
+      "y": 42,
+      "w": 16,
+      "h": 506
+    }
+  ],
+  "defaultGroups": [
+    [
+      "xj-desk",
+      "xj-computer-chair",
+      "speaker-left",
+      "speaker-right"
+    ],
+    [
+      "xj-bookshelf",
+      "xj-lamp-shelf",
+      "xj-rabbit",
+      "xj-plant-shelf"
+    ],
+    [
+      "xj-writing_desk",
+      "xj-desk-chair",
+      "xj-desk-book",
+      "xj-plant-desk"
+    ]
+  ],
+  "sceneData": {
+    "id": "xiaojingyu-home",
+    "name": "小鲸鱼的小屋",
+    "outdoor": false,
+    "width": 960,
+    "height": 640,
+    "walk": {
+      "x": 84,
+      "y": 69,
+      "w": 860,
+      "h": 555
+    },
+    "speed": 100,
+    "run": 190,
+    "clearance": 5,
+    "entries": {
+      "door": {
+        "x": 753,
+        "y": 574
+      }
+    },
+    "exits": [
+      {
+        "id": "door",
+        "x": 753,
+        "y": 580,
+        "to": "qianxia-park",
+        "entry": "xjhome"
+      }
+    ],
+    "zones": {
+      "xj_door": {
+        "x": 753,
+        "y": 555
+      },
+      "xj_bed": {
+        "x": 194,
+        "y": 175
+      },
+      "xj_desk": {
+        "x": 201,
+        "y": 433
+      },
+      "xj_shelf": {
+        "x": 496,
+        "y": 141
+      },
+      "xj_album": {
+        "x": 435,
+        "y": 368
+      },
+      "xj_draw": {
+        "x": 739,
+        "y": 165
+      },
+      "xj_notes": {
+        "x": 649,
+        "y": 146
+      },
+      "xj_accessories": {
+        "x": 645,
+        "y": 439
+      },
+      "xj_window": {
+        "x": 620,
+        "y": 118
+      },
+      "xj_rug": {
+        "x": 373,
+        "y": 468
+      },
+      "xj_tank": {
+        "x": 705,
+        "y": 358
+      },
+      "xj_sofa": {
+        "x": 724,
+        "y": 484
+      },
+      "chess_xj_a": {
+        "x": 322,
+        "y": 470
+      },
+      "chess_xj_b": {
+        "x": 424,
+        "y": 470
+      },
+      "xj_beach": {
+        "x": 906,
+        "y": 100
+      }
+    },
+    "obstacles": [
+      {
+        "x": 57,
+        "y": 247,
+        "w": 154,
+        "h": 85
+      },
+      {
+        "x": 301,
+        "y": 247,
+        "w": 265,
+        "h": 85
+      },
+      {
+        "x": 655,
+        "y": 247,
+        "w": 209,
+        "h": 85
+      },
+      {
+        "x": 404,
+        "y": 30,
+        "w": 26,
+        "h": 222
+      },
+      {
+        "x": 367,
+        "y": 40,
+        "w": 97,
+        "h": 127
+      },
+      {
+        "x": 800,
+        "y": 40,
+        "w": 74,
+        "h": 210
+      },
+      {
+        "x": 623,
+        "y": 482,
+        "w": 82,
+        "h": 136
+      },
+      {
+        "x": 807,
+        "y": 482,
+        "w": 76,
+        "h": 118
+      },
+      {
+        "x": 74,
+        "y": 547,
+        "w": 554,
+        "h": 72
+      },
+      {
+        "x": 64,
+        "y": 42,
+        "w": 16,
+        "h": 506
+      },
+      {
+        "x": 112,
+        "y": 99,
+        "w": 68,
+        "h": 84
+      },
+      {
+        "x": 466,
+        "y": 85,
+        "w": 83,
+        "h": 37
+      },
+      {
+        "x": 582,
+        "y": 178,
+        "w": 84,
+        "h": 28
+      },
+      {
+        "x": 112,
+        "y": 369,
+        "w": 53,
+        "h": 59
+      },
+      {
+        "x": 168,
+        "y": 400,
+        "w": 29,
+        "h": 24
+      },
+      {
+        "x": 610,
+        "y": 155,
+        "w": 24,
+        "h": 19
+      },
+      {
+        "x": 751,
+        "y": 131,
+        "w": 39,
+        "h": 20
+      },
+      {
+        "x": 750,
+        "y": 176,
+        "w": 23,
+        "h": 11
+      },
+      {
+        "x": 725,
+        "y": 337,
+        "w": 93,
+        "h": 30
+      },
+      {
+        "x": 737,
+        "y": 431,
+        "w": 94,
+        "h": 31
+      },
+      {
+        "x": 382,
+        "y": 337,
+        "w": 90,
+        "h": 12
+      },
+      {
+        "x": 616,
+        "y": 401,
+        "w": 54,
+        "h": 20
+      },
+      {
+        "x": 200,
+        "y": 108,
+        "w": 18,
+        "h": 11
+      },
+      {
+        "x": 699,
+        "y": 465,
+        "w": 24,
+        "h": 11
+      },
+      {
+        "x": 327,
+        "y": 206,
+        "w": 26,
+        "h": 11
+      }
+    ],
+    "modules": {
+      "xj-bed": {
+        "x": 109,
+        "y": 78,
+        "w": 76,
+        "h": 110,
+        "id": "xj-bed",
+        "depth": 182,
+        "kind": "bed",
+        "collision": {
+          "x": 3,
+          "y": 21,
+          "w": 68,
+          "h": 84
+        },
+        "anchors": {
+          "approach": {
+            "x": 85,
+            "y": 97
+          },
+          "edge": {
+            "x": 55,
+            "y": 74
+          },
+          "lying": {
+            "x": 38,
+            "y": 64
+          }
+        }
+      },
+      "quilt": {
+        "x": 114,
+        "y": 135,
+        "w": 66,
+        "h": 48,
+        "id": "quilt",
+        "depth": 183,
+        "kind": "decoration"
+      },
+      "xj-bookshelf": {
+        "x": 464,
+        "y": 48,
+        "w": 87,
+        "h": 78,
+        "id": "xj-bookshelf",
+        "depth": 120,
+        "kind": "decoration",
+        "collision": {
+          "x": 2,
+          "y": 37,
+          "w": 83,
+          "h": 37
+        }
+      },
+      "xj-writing_desk": {
+        "x": 580,
+        "y": 160,
+        "w": 88,
+        "h": 58,
+        "id": "xj-writing_desk",
+        "depth": 204,
+        "kind": "decoration",
+        "collision": {
+          "x": 2,
+          "y": 18,
+          "w": 84,
+          "h": 28
+        }
+      },
+      "xj-desk": {
+        "x": 110,
+        "y": 335,
+        "w": 61,
+        "h": 111,
+        "id": "xj-desk",
+        "depth": 427,
+        "kind": "seaside-computer",
+        "collision": {
+          "x": 2,
+          "y": 34,
+          "w": 53,
+          "h": 59
+        },
+        "anchors": {
+          "approach": {
+            "x": 91,
+            "y": 98
+          },
+          "seat": {
+            "x": 82,
+            "y": 66
+          },
+          "hands": {
+            "x": 46,
+            "y": 41
+          }
+        }
+      },
+      "xj-computer-chair": {
+        "x": 137,
+        "y": 344,
+        "w": 110,
+        "h": 88.5,
+        "id": "xj-computer-chair",
+        "depth": 401,
+        "kind": "decoration",
+        "collision": {
+          "x": 31,
+          "y": 56,
+          "w": 29,
+          "h": 24
+        }
+      },
+      "xj-desk-chair": {
+        "x": 607,
+        "y": 141,
+        "w": 32,
+        "h": 43,
+        "id": "xj-desk-chair",
+        "depth": 171,
+        "kind": "decoration",
+        "collision": {
+          "x": 3,
+          "y": 14,
+          "w": 24,
+          "h": 19
+        }
+      },
+      "xj-easel": {
+        "x": 744,
+        "y": 70,
+        "w": 52,
+        "h": 84,
+        "id": "xj-easel",
+        "depth": 152,
+        "kind": "decoration",
+        "collision": {
+          "x": 7,
+          "y": 61,
+          "w": 39,
+          "h": 20
+        }
+      },
+      "xj-easel-seat": {
+        "x": 744,
+        "y": 158,
+        "w": 33,
+        "h": 32,
+        "id": "xj-easel-seat",
+        "depth": 178,
+        "kind": "decoration",
+        "collision": {
+          "x": 6,
+          "y": 18,
+          "w": 23,
+          "h": 11
+        }
+      },
+      "xj-tank": {
+        "x": 722,
+        "y": 282,
+        "w": 100,
+        "h": 89,
+        "id": "xj-tank",
+        "depth": 366,
+        "kind": "seaside-tank",
+        "collision": {
+          "x": 3,
+          "y": 55,
+          "w": 93,
+          "h": 30
+        }
+      },
+      "xj-sofa": {
+        "x": 733,
+        "y": 387,
+        "w": 102,
+        "h": 81,
+        "id": "xj-sofa",
+        "depth": 458,
+        "kind": "decoration",
+        "collision": {
+          "x": 4,
+          "y": 44,
+          "w": 94,
+          "h": 31
+        }
+      },
+      "xj-album-cabinet": {
+        "x": 379,
+        "y": 289,
+        "w": 96,
+        "h": 65,
+        "id": "xj-album-cabinet",
+        "depth": 348,
+        "kind": "decoration",
+        "collision": {
+          "x": 3,
+          "y": 48,
+          "w": 90,
+          "h": 12
+        }
+      },
+      "xj-album-seat": {
+        "x": 398,
+        "y": 357,
+        "w": 30,
+        "h": 22,
+        "id": "xj-album-seat",
+        "depth": 368,
+        "kind": "decoration"
+      },
+      "xj-accessory_table": {
+        "x": 614,
+        "y": 376,
+        "w": 58,
+        "h": 48,
+        "id": "xj-accessory_table",
+        "depth": 406,
+        "kind": "decoration",
+        "collision": {
+          "x": 2,
+          "y": 25,
+          "w": 54,
+          "h": 20
+        }
+      },
+      "xj-lamp-floor": {
+        "x": 197,
+        "y": 77,
+        "w": 23,
+        "h": 45,
+        "light": {
+          "x": 11.5,
+          "y": 22.5,
+          "radius": 69
+        },
+        "id": "xj-lamp-floor",
+        "depth": 120,
+        "kind": "decoration",
+        "collision": {
+          "x": 3,
+          "y": 31,
+          "w": 18,
+          "h": 11
+        }
+      },
+      "xj-lamp-shelf": {
+        "x": 522,
+        "y": 29,
+        "w": 25,
+        "h": 26,
+        "light": {
+          "x": 12.5,
+          "y": 13,
+          "radius": 54
+        },
+        "id": "xj-lamp-shelf",
+        "depth": 121,
+        "kind": "decoration"
+      },
+      "xj-album": {
+        "x": 401,
+        "y": 279,
+        "w": 50,
+        "h": 32,
+        "id": "xj-album",
+        "depth": 350,
+        "kind": "decoration"
+      },
+      "xj-desk-book": {
+        "x": 607,
+        "y": 158,
+        "w": 40,
+        "h": 24,
+        "id": "xj-desk-book",
+        "depth": 205,
+        "kind": "decoration"
+      },
+      "xj-phone": {
+        "x": 622,
+        "y": 365,
+        "w": 11,
+        "h": 19,
+        "id": "xj-phone",
+        "depth": 407,
+        "kind": "decoration"
+      },
+      "xj-plant-west": {
+        "x": 695,
+        "y": 437,
+        "w": 33,
+        "h": 42,
+        "id": "xj-plant-west",
+        "depth": 477,
+        "kind": "decoration",
+        "collision": {
+          "x": 4,
+          "y": 28,
+          "w": 24,
+          "h": 11
+        },
+        "art": "seaside-plant"
+      },
+      "xj-rabbit": {
+        "x": 492,
+        "y": 28,
+        "w": 19,
+        "h": 24,
+        "id": "xj-rabbit",
+        "depth": 121,
+        "kind": "decoration"
+      },
+      "xj-main-light": {
+        "x": 532,
+        "y": 270,
+        "w": 23,
+        "h": 29,
+        "light": {
+          "x": 11.5,
+          "y": 14.5,
+          "radius": 105
+        },
+        "id": "xj-main-light",
+        "depth": 299,
+        "kind": "decoration"
+      },
+      "xj-window": {
+        "x": 590,
+        "y": 28,
+        "w": 82,
+        "h": 60,
+        "kind": "decoration",
+        "glass": [
+          [
+            0.24,
+            0.13,
+            0.5,
+            0.6
+          ]
+        ],
+        "id": "xj-window",
+        "depth": 86
+      },
+      "xj-ocean-rug": {
+        "x": 279,
+        "y": 419,
+        "w": 191,
+        "h": 102,
+        "id": "xj-ocean-rug",
+        "depth": 1,
+        "kind": "decoration"
+      },
+      "chess-seat-left": {
+        "x": 306,
+        "y": 450,
+        "w": 32,
+        "h": 25,
+        "id": "chess-seat-left",
+        "depth": 2,
+        "kind": "decoration"
+      },
+      "chess-seat-right": {
+        "x": 408,
+        "y": 450,
+        "w": 32,
+        "h": 25,
+        "id": "chess-seat-right",
+        "depth": 2,
+        "kind": "decoration"
+      },
+      "xj-plant-shelf": {
+        "x": 464,
+        "y": 26,
+        "w": 23,
+        "h": 28,
+        "id": "xj-plant-shelf",
+        "depth": 121,
+        "kind": "decoration"
+      },
+      "xj-plant-desk": {
+        "x": 579,
+        "y": 142,
+        "w": 21,
+        "h": 28,
+        "id": "xj-plant-desk",
+        "depth": 205,
+        "kind": "decoration"
+      },
+      "xj-plant-east": {
+        "x": 322,
+        "y": 175,
+        "w": 36,
+        "h": 45,
+        "id": "xj-plant-east",
+        "depth": 218,
+        "kind": "decoration",
+        "collision": {
+          "x": 5,
+          "y": 31,
+          "w": 26,
+          "h": 11
+        }
+      },
+      "speaker-left": {
+        "id": "speaker-left",
+        "file": "",
+        "x": 115,
+        "y": 323,
+        "w": 14,
+        "h": 22,
+        "depth": 345,
+        "procedural": "speaker",
+        "kind": "speaker"
+      },
+      "speaker-right": {
+        "id": "speaker-right",
+        "file": "",
+        "x": 146,
+        "y": 423,
+        "w": 14,
+        "h": 22,
+        "depth": 445,
+        "procedural": "speaker",
+        "kind": "speaker"
+      }
+    },
+    "layoutRevision": "seaside-grid-v1",
+    "walkRegions": [
+      [
+        [
+          84,
+          69
+        ],
+        [
+          858,
+          69
+        ],
+        [
+          858,
+          592
+        ],
+        [
+          84,
+          592
+        ]
+      ],
+      [
+        [
+          707,
+          574
+        ],
+        [
+          807,
+          574
+        ],
+        [
+          807,
+          600
+        ],
+        [
+          941,
+          600
+        ],
+        [
+          941,
+          624
+        ],
+        [
+          707,
+          624
+        ]
+      ],
+      [
+        [
+          909,
+          310
+        ],
+        [
+          941,
+          310
+        ],
+        [
+          941,
+          624
+        ],
+        [
+          909,
+          624
+        ]
+      ],
+      [
+        [
+          909,
+          324
+        ],
+        [
+          941,
+          324
+        ],
+        [
+          941,
+          225
+        ],
+        [
+          930,
+          196
+        ],
+        [
+          899,
+          174
+        ],
+        [
+          883,
+          154
+        ],
+        [
+          898,
+          125
+        ],
+        [
+          920,
+          108
+        ],
+        [
+          923,
+          82
+        ],
+        [
+          896,
+          82
+        ],
+        [
+          872,
+          112
+        ],
+        [
+          856,
+          149
+        ],
+        [
+          869,
+          178
+        ],
+        [
+          903,
+          207
+        ],
+        [
+          909,
+          232
+        ]
+      ]
+    ]
+  },
+  "manifest": {
+    "scene": "xiaojingyu-home",
+    "scale": 2,
+    "ground": {
+      "file": "../seaside/ground-dynamic.png",
+      "x": 0,
+      "y": 0,
+      "w": 960,
+      "h": 640
+    },
+    "layers": [
+      {
+        "id": "xj-bed",
+        "file": "../seaside/xj-bed.png",
+        "x": 109,
+        "y": 78,
+        "w": 76,
+        "h": 110,
+        "depth": 182
+      },
+      {
+        "id": "quilt",
+        "file": "../seaside/quilt.png",
+        "x": 114,
+        "y": 135,
+        "w": 66,
+        "h": 48,
+        "depth": 183,
+        "hide_on_sleep": true
+      },
+      {
+        "id": "xj-bookshelf",
+        "file": "../seaside/xj-bookshelf.png",
+        "x": 464,
+        "y": 48,
+        "w": 87,
+        "h": 78,
+        "depth": 120
+      },
+      {
+        "id": "xj-writing_desk",
+        "file": "../seaside/xj-writing_desk.png",
+        "x": 580,
+        "y": 160,
+        "w": 88,
+        "h": 58,
+        "depth": 204
+      },
+      {
+        "id": "xj-desk",
+        "file": "../seaside/xj-desk.png",
+        "x": 110,
+        "y": 335,
+        "w": 61,
+        "h": 111,
+        "depth": 427
+      },
+      {
+        "id": "xj-computer-chair",
+        "file": "../seaside/xj-computer-chair.png",
+        "x": 137,
+        "y": 344,
+        "w": 110,
+        "h": 88.5,
+        "depth": 401
+      },
+      {
+        "id": "xj-desk-chair",
+        "file": "../seaside/xj-desk-chair.png",
+        "x": 607,
+        "y": 141,
+        "w": 32,
+        "h": 43,
+        "depth": 171
+      },
+      {
+        "id": "xj-easel",
+        "file": "../seaside/xj-easel.png",
+        "x": 744,
+        "y": 70,
+        "w": 52,
+        "h": 84,
+        "depth": 152
+      },
+      {
+        "id": "xj-easel-seat",
+        "file": "../seaside/xj-easel-seat.png",
+        "x": 744,
+        "y": 158,
+        "w": 33,
+        "h": 32,
+        "depth": 178
+      },
+      {
+        "id": "xj-tank",
+        "file": "../seaside/xj-tank.png",
+        "x": 722,
+        "y": 282,
+        "w": 100,
+        "h": 89,
+        "depth": 366
+      },
+      {
+        "id": "xj-sofa",
+        "file": "../seaside/xj-sofa.png",
+        "x": 733,
+        "y": 387,
+        "w": 102,
+        "h": 81,
+        "depth": 458
+      },
+      {
+        "id": "xj-album-cabinet",
+        "file": "../seaside/xj-album-cabinet.png",
+        "x": 379,
+        "y": 289,
+        "w": 96,
+        "h": 65,
+        "depth": 348
+      },
+      {
+        "id": "xj-album-seat",
+        "file": "../seaside/xj-album-seat.png",
+        "x": 398,
+        "y": 357,
+        "w": 30,
+        "h": 22,
+        "depth": 368
+      },
+      {
+        "id": "xj-accessory_table",
+        "file": "../seaside/xj-accessory_table.png",
+        "x": 614,
+        "y": 376,
+        "w": 58,
+        "h": 48,
+        "depth": 406
+      },
+      {
+        "id": "xj-lamp-floor",
+        "file": "../seaside/xj-lamp-floor.png",
+        "x": 197,
+        "y": 77,
+        "w": 23,
+        "h": 45,
+        "depth": 120
+      },
+      {
+        "id": "xj-lamp-shelf",
+        "file": "../seaside/xj-lamp-shelf.png",
+        "x": 522,
+        "y": 29,
+        "w": 25,
+        "h": 26,
+        "depth": 121
+      },
+      {
+        "id": "xj-album",
+        "file": "../seaside/xj-album.png",
+        "x": 401,
+        "y": 279,
+        "w": 50,
+        "h": 32,
+        "depth": 350
+      },
+      {
+        "id": "xj-desk-book",
+        "file": "../seaside/xj-desk-book.png",
+        "x": 607,
+        "y": 158,
+        "w": 40,
+        "h": 24,
+        "depth": 205
+      },
+      {
+        "id": "xj-phone",
+        "file": "../seaside/xj-phone.png",
+        "x": 622,
+        "y": 365,
+        "w": 11,
+        "h": 19,
+        "depth": 407,
+        "item": "phone",
+        "away": "hand"
+      },
+      {
+        "id": "xj-plant-west",
+        "file": "../seaside/xj-plant-west.png",
+        "x": 695,
+        "y": 437,
+        "w": 33,
+        "h": 42,
+        "depth": 477
+      },
+      {
+        "id": "xj-rabbit",
+        "file": "../seaside/xj-rabbit.png",
+        "x": 492,
+        "y": 28,
+        "w": 19,
+        "h": 24,
+        "depth": 121
+      },
+      {
+        "id": "xj-main-light",
+        "file": "../seaside/xj-main-light.png",
+        "x": 532,
+        "y": 270,
+        "w": 23,
+        "h": 29,
+        "depth": 299
+      },
+      {
+        "id": "xj-window",
+        "file": "../seaside/xj-window.png",
+        "x": 590,
+        "y": 28,
+        "w": 82,
+        "h": 60,
+        "depth": 86
+      },
+      {
+        "id": "xj-ocean-rug",
+        "file": "../seaside/xj-ocean-rug.png",
+        "x": 279,
+        "y": 419,
+        "w": 191,
+        "h": 102,
+        "depth": 1
+      },
+      {
+        "id": "chess-seat-left",
+        "file": "../seaside/chess-seat-left.png",
+        "x": 306,
+        "y": 450,
+        "w": 32,
+        "h": 25,
+        "depth": 2
+      },
+      {
+        "id": "chess-seat-right",
+        "file": "../seaside/chess-seat-right.png",
+        "x": 408,
+        "y": 450,
+        "w": 32,
+        "h": 25,
+        "depth": 2
+      },
+      {
+        "id": "xj-plant-shelf",
+        "file": "../seaside/xj-plant-shelf.png",
+        "x": 464,
+        "y": 26,
+        "w": 23,
+        "h": 28,
+        "depth": 121
+      },
+      {
+        "id": "xj-plant-desk",
+        "file": "../seaside/xj-plant-desk.png",
+        "x": 579,
+        "y": 142,
+        "w": 21,
+        "h": 28,
+        "depth": 205
+      },
+      {
+        "id": "xj-plant-east",
+        "file": "../seaside/xj-plant-east.png",
+        "x": 322,
+        "y": 175,
+        "w": 36,
+        "h": 45,
+        "depth": 218
+      },
+      {
+        "id": "speaker-left",
+        "file": "",
+        "x": 115,
+        "y": 323,
+        "w": 14,
+        "h": 22,
+        "depth": 345,
+        "procedural": "speaker"
+      },
+      {
+        "id": "speaker-right",
+        "file": "",
+        "x": 146,
+        "y": 423,
+        "w": 14,
+        "h": 22,
+        "depth": 445,
+        "procedural": "speaker"
+      }
+    ]
+  },
+  "profile": {
+    "home": {
+      "scene": "xiaojingyu-home",
+      "defaultZone": "xj_rug",
+      "placeNames": [
+        {
+          "words": [
+            "床",
+            "被"
+          ],
+          "zone": "xj_bed"
+        },
+        {
+          "words": [
+            "桌",
+            "电脑",
+            "椅"
+          ],
+          "zone": "xj_desk"
+        },
+        {
+          "words": [
+            "鱼缸",
+            "鱼"
+          ],
+          "zone": "xj_tank"
+        },
+        {
+          "words": [
+            "沙发",
+            "懒人",
+            "柜",
+            "置物"
+          ],
+          "zone": "xj_sofa"
+        },
+        {
+          "words": [
+            "窗"
+          ],
+          "zone": "xj_window"
+        },
+        {
+          "words": [
+            "门"
+          ],
+          "zone": "xj_door"
+        }
+      ],
+      "bed": {
+        "mode": "simple",
+        "lying": [
+          147,
+          142
+        ],
+        "quilt_top": 57,
+        "clip": 58,
+        "effects": [
+          "nap",
+          "lie"
+        ],
+        "asleep_effects": [
+          "nap"
+        ],
+        "sleep_visual": {
+          "sheet": "../seaside/actors/sleep/sleeping.png",
+          "at_ratio": [
+            0.04,
+            0.07,
+            0.92,
+            0.424
+          ],
+          "quilt_top_ratio": 0.41
+        }
+      },
+      "stages": [
+        {
+          "zone": "xj_desk",
+          "feet": [
+            192,
+            401
+          ],
+          "sort": 401,
+          "dir": 1,
+          "registered": "computer"
+        },
+        {
+          "zone": "xj_notes",
+          "dir": 0
+        },
+        {
+          "zone": "xj_album",
+          "dir": 3
+        },
+        {
+          "zone": "xj_draw",
+          "dir": 2
+        },
+        {
+          "zone": "xj_tank",
+          "dir": 2
+        },
+        {
+          "zone": "xj_window",
+          "dir": 3
+        },
+        {
+          "zone": "xj_shelf",
+          "dir": 3
+        },
+        {
+          "zone": "xj_sofa",
+          "effect": "sit",
+          "feet": [
+            784,
+            443
+          ],
+          "sort": 459,
+          "row": 0,
+          "seat": true
+        }
+      ],
+      "idle": {
+        "dir": 0
+      },
+      "visual": {
+        "screen": "seaside",
+        "plant": "xj-plant-west",
+        "plant_art": "care-plant-xj",
+        "plant_region": [
+          490,
+          200,
+          510,
+          665
+        ],
+        "paint_zone": "xj_draw"
+      },
+      "gridLayout": true,
+      "audioOutput": "speakers"
+    }
+  },
+  "visual": {
+    "background": false,
+    "width": 960,
+    "height": 640,
+    "outdoor": false,
+    "exits": [
+      {
+        "id": "door",
+        "name": "公园",
+        "point": {
+          "x": 753,
+          "y": 580
+        },
+        "to": {
+          "sceneId": "qianxia-park",
+          "entry": "xjhome"
+        }
+      }
+    ],
+    "zones": {
+      "xj_door": {
+        "x": 753,
+        "y": 555
+      },
+      "xj_bed": {
+        "x": 194,
+        "y": 175
+      },
+      "xj_desk": {
+        "x": 201,
+        "y": 433
+      },
+      "xj_shelf": {
+        "x": 496,
+        "y": 141
+      },
+      "xj_album": {
+        "x": 435,
+        "y": 368
+      },
+      "xj_draw": {
+        "x": 739,
+        "y": 165
+      },
+      "xj_notes": {
+        "x": 649,
+        "y": 146
+      },
+      "xj_accessories": {
+        "x": 645,
+        "y": 439
+      },
+      "xj_window": {
+        "x": 620,
+        "y": 118
+      },
+      "xj_rug": {
+        "x": 373,
+        "y": 468
+      },
+      "xj_tank": {
+        "x": 705,
+        "y": 358
+      },
+      "xj_sofa": {
+        "x": 724,
+        "y": 484
+      },
+      "chess_xj_a": {
+        "x": 322,
+        "y": 470
+      },
+      "chess_xj_b": {
+        "x": 424,
+        "y": 470
+      },
+      "xj_beach": {
+        "x": 906,
+        "y": 100
+      }
+    },
+    "modules": {
+      "xj-bed": {
+        "x": 109,
+        "y": 78,
+        "w": 76,
+        "h": 110,
+        "id": "xj-bed",
+        "depth": 182,
+        "kind": "bed",
+        "collision": {
+          "x": 3,
+          "y": 21,
+          "w": 68,
+          "h": 84
+        },
+        "anchors": {
+          "approach": {
+            "x": 85,
+            "y": 97
+          },
+          "edge": {
+            "x": 55,
+            "y": 74
+          },
+          "lying": {
+            "x": 38,
+            "y": 64
+          }
+        }
+      },
+      "quilt": {
+        "x": 114,
+        "y": 135,
+        "w": 66,
+        "h": 48,
+        "id": "quilt",
+        "depth": 183,
+        "kind": "decoration"
+      },
+      "xj-bookshelf": {
+        "x": 464,
+        "y": 48,
+        "w": 87,
+        "h": 78,
+        "id": "xj-bookshelf",
+        "depth": 120,
+        "kind": "decoration",
+        "collision": {
+          "x": 2,
+          "y": 37,
+          "w": 83,
+          "h": 37
+        }
+      },
+      "xj-writing_desk": {
+        "x": 580,
+        "y": 160,
+        "w": 88,
+        "h": 58,
+        "id": "xj-writing_desk",
+        "depth": 204,
+        "kind": "decoration",
+        "collision": {
+          "x": 2,
+          "y": 18,
+          "w": 84,
+          "h": 28
+        }
+      },
+      "xj-desk": {
+        "x": 110,
+        "y": 335,
+        "w": 61,
+        "h": 111,
+        "id": "xj-desk",
+        "depth": 427,
+        "kind": "seaside-computer",
+        "collision": {
+          "x": 2,
+          "y": 34,
+          "w": 53,
+          "h": 59
+        },
+        "anchors": {
+          "approach": {
+            "x": 91,
+            "y": 98
+          },
+          "seat": {
+            "x": 82,
+            "y": 66
+          },
+          "hands": {
+            "x": 46,
+            "y": 41
+          }
+        }
+      },
+      "xj-computer-chair": {
+        "x": 137,
+        "y": 344,
+        "w": 110,
+        "h": 88.5,
+        "id": "xj-computer-chair",
+        "depth": 401,
+        "kind": "decoration",
+        "collision": {
+          "x": 31,
+          "y": 56,
+          "w": 29,
+          "h": 24
+        }
+      },
+      "xj-desk-chair": {
+        "x": 607,
+        "y": 141,
+        "w": 32,
+        "h": 43,
+        "id": "xj-desk-chair",
+        "depth": 171,
+        "kind": "decoration",
+        "collision": {
+          "x": 3,
+          "y": 14,
+          "w": 24,
+          "h": 19
+        }
+      },
+      "xj-easel": {
+        "x": 744,
+        "y": 70,
+        "w": 52,
+        "h": 84,
+        "id": "xj-easel",
+        "depth": 152,
+        "kind": "decoration",
+        "collision": {
+          "x": 7,
+          "y": 61,
+          "w": 39,
+          "h": 20
+        }
+      },
+      "xj-easel-seat": {
+        "x": 744,
+        "y": 158,
+        "w": 33,
+        "h": 32,
+        "id": "xj-easel-seat",
+        "depth": 178,
+        "kind": "decoration",
+        "collision": {
+          "x": 6,
+          "y": 18,
+          "w": 23,
+          "h": 11
+        }
+      },
+      "xj-tank": {
+        "x": 722,
+        "y": 282,
+        "w": 100,
+        "h": 89,
+        "id": "xj-tank",
+        "depth": 366,
+        "kind": "seaside-tank",
+        "collision": {
+          "x": 3,
+          "y": 55,
+          "w": 93,
+          "h": 30
+        }
+      },
+      "xj-sofa": {
+        "x": 733,
+        "y": 387,
+        "w": 102,
+        "h": 81,
+        "id": "xj-sofa",
+        "depth": 458,
+        "kind": "decoration",
+        "collision": {
+          "x": 4,
+          "y": 44,
+          "w": 94,
+          "h": 31
+        }
+      },
+      "xj-album-cabinet": {
+        "x": 379,
+        "y": 289,
+        "w": 96,
+        "h": 65,
+        "id": "xj-album-cabinet",
+        "depth": 348,
+        "kind": "decoration",
+        "collision": {
+          "x": 3,
+          "y": 48,
+          "w": 90,
+          "h": 12
+        }
+      },
+      "xj-album-seat": {
+        "x": 398,
+        "y": 357,
+        "w": 30,
+        "h": 22,
+        "id": "xj-album-seat",
+        "depth": 368,
+        "kind": "decoration"
+      },
+      "xj-accessory_table": {
+        "x": 614,
+        "y": 376,
+        "w": 58,
+        "h": 48,
+        "id": "xj-accessory_table",
+        "depth": 406,
+        "kind": "decoration",
+        "collision": {
+          "x": 2,
+          "y": 25,
+          "w": 54,
+          "h": 20
+        }
+      },
+      "xj-lamp-floor": {
+        "x": 197,
+        "y": 77,
+        "w": 23,
+        "h": 45,
+        "light": {
+          "x": 11.5,
+          "y": 22.5,
+          "radius": 69
+        },
+        "id": "xj-lamp-floor",
+        "depth": 120,
+        "kind": "decoration",
+        "collision": {
+          "x": 3,
+          "y": 31,
+          "w": 18,
+          "h": 11
+        }
+      },
+      "xj-lamp-shelf": {
+        "x": 522,
+        "y": 29,
+        "w": 25,
+        "h": 26,
+        "light": {
+          "x": 12.5,
+          "y": 13,
+          "radius": 54
+        },
+        "id": "xj-lamp-shelf",
+        "depth": 121,
+        "kind": "decoration"
+      },
+      "xj-album": {
+        "x": 401,
+        "y": 279,
+        "w": 50,
+        "h": 32,
+        "id": "xj-album",
+        "depth": 350,
+        "kind": "decoration"
+      },
+      "xj-desk-book": {
+        "x": 607,
+        "y": 158,
+        "w": 40,
+        "h": 24,
+        "id": "xj-desk-book",
+        "depth": 205,
+        "kind": "decoration"
+      },
+      "xj-phone": {
+        "x": 622,
+        "y": 365,
+        "w": 11,
+        "h": 19,
+        "id": "xj-phone",
+        "depth": 407,
+        "kind": "decoration"
+      },
+      "xj-plant-west": {
+        "x": 695,
+        "y": 437,
+        "w": 33,
+        "h": 42,
+        "id": "xj-plant-west",
+        "depth": 477,
+        "kind": "decoration",
+        "collision": {
+          "x": 4,
+          "y": 28,
+          "w": 24,
+          "h": 11
+        },
+        "art": "seaside-plant"
+      },
+      "xj-rabbit": {
+        "x": 492,
+        "y": 28,
+        "w": 19,
+        "h": 24,
+        "id": "xj-rabbit",
+        "depth": 121,
+        "kind": "decoration"
+      },
+      "xj-main-light": {
+        "x": 532,
+        "y": 270,
+        "w": 23,
+        "h": 29,
+        "light": {
+          "x": 11.5,
+          "y": 14.5,
+          "radius": 105
+        },
+        "id": "xj-main-light",
+        "depth": 299,
+        "kind": "decoration"
+      },
+      "xj-window": {
+        "x": 590,
+        "y": 28,
+        "w": 82,
+        "h": 60,
+        "kind": "decoration",
+        "glass": [
+          [
+            0.24,
+            0.13,
+            0.5,
+            0.6
+          ]
+        ],
+        "id": "xj-window",
+        "depth": 86
+      },
+      "xj-ocean-rug": {
+        "x": 279,
+        "y": 419,
+        "w": 191,
+        "h": 102,
+        "id": "xj-ocean-rug",
+        "depth": 1,
+        "kind": "decoration"
+      },
+      "chess-seat-left": {
+        "x": 306,
+        "y": 450,
+        "w": 32,
+        "h": 25,
+        "id": "chess-seat-left",
+        "depth": 2,
+        "kind": "decoration"
+      },
+      "chess-seat-right": {
+        "x": 408,
+        "y": 450,
+        "w": 32,
+        "h": 25,
+        "id": "chess-seat-right",
+        "depth": 2,
+        "kind": "decoration"
+      },
+      "xj-plant-shelf": {
+        "x": 464,
+        "y": 26,
+        "w": 23,
+        "h": 28,
+        "id": "xj-plant-shelf",
+        "depth": 121,
+        "kind": "decoration"
+      },
+      "xj-plant-desk": {
+        "x": 579,
+        "y": 142,
+        "w": 21,
+        "h": 28,
+        "id": "xj-plant-desk",
+        "depth": 205,
+        "kind": "decoration"
+      },
+      "xj-plant-east": {
+        "x": 322,
+        "y": 175,
+        "w": 36,
+        "h": 45,
+        "id": "xj-plant-east",
+        "depth": 218,
+        "kind": "decoration",
+        "collision": {
+          "x": 5,
+          "y": 31,
+          "w": 26,
+          "h": 11
+        }
+      },
+      "speaker-left": {
+        "id": "speaker-left",
+        "file": "",
+        "x": 115,
+        "y": 323,
+        "w": 14,
+        "h": 22,
+        "depth": 345,
+        "procedural": "speaker",
+        "kind": "speaker"
+      },
+      "speaker-right": {
+        "id": "speaker-right",
+        "file": "",
+        "x": 146,
+        "y": 423,
+        "w": 14,
+        "h": 22,
+        "depth": 445,
+        "procedural": "speaker",
+        "kind": "speaker"
+      }
+    }
+  }
+}

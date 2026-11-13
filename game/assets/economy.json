@@ -1,299 +1,390 @@
 {
- "products": [
-  {
-   "id": "gummy",
-   "name": "草莓软糖",
-   "price": 4,
-   "shelf": "snack",
-   "kind": "eat",
-   "taste": "软软的，草莓味很甜"
-  },
-  {
-   "id": "chips",
-   "name": "海苔薯片",
-   "price": 6,
-   "shelf": "snack",
-   "kind": "eat",
-   "taste": "咔嚓咔嚓，咸咸的有海苔香"
-  },
-  {
-   "id": "bread",
-   "name": "奶油面包",
-   "price": 5,
-   "shelf": "snack",
-   "kind": "eat",
-   "taste": "松软，奶油甜而不腻"
-  },
-  {
-   "id": "choco",
-   "name": "巧克力棒",
-   "price": 5,
-   "shelf": "snack",
-   "kind": "eat",
-   "taste": "巧克力在嘴里慢慢化开"
-  },
-  {
-   "id": "fishcookie",
-   "name": "小鱼饼干",
-   "price": 4,
-   "shelf": "snack",
-   "kind": "eat",
-   "taste": "小鱼形状，脆脆的，可以分给鸭子"
-  },
-  {
-   "id": "soda",
-   "name": "冰镇橘子汽水",
-   "price": 4,
-   "shelf": "drink",
-   "kind": "drink",
-   "taste": "气泡在舌头上炸开，冰得一激灵",
-   "cold": true
-  },
-  {
-   "id": "milk",
-   "name": "草莓牛奶",
-   "price": 5,
-   "shelf": "drink",
-   "kind": "drink",
-   "taste": "甜甜的奶香",
-   "cold": true
-  },
-  {
-   "id": "oolong",
-   "name": "乌龙茶",
-   "price": 4,
-   "shelf": "drink",
-   "kind": "drink",
-   "taste": "有点回甘，很解腻",
-   "cold": true
-  },
-  {
-   "id": "water",
-   "name": "矿泉水",
-   "price": 2,
-   "shelf": "drink",
-   "kind": "drink",
-   "taste": "清清凉凉",
-   "cold": true
-  },
-  {
-   "id": "lemontea",
-   "name": "柠檬茶",
-   "price": 4,
-   "shelf": "drink",
-   "kind": "drink",
-   "taste": "酸酸甜甜",
-   "cold": true
-  },
-  {
-   "id": "hot_milk",
-   "name": "热牛奶",
-   "price": 5,
-   "shelf": "hotdrink",
-   "kind": "drink",
-   "taste": "温温的奶香，喝下去胃里都暖了",
-   "hot": true
-  },
-  {
-   "id": "hot_coffee",
-   "name": "热咖啡",
-   "price": 6,
-   "shelf": "hotdrink",
-   "kind": "drink",
-   "taste": "有点苦，提神，香味飘了一路",
-   "hot": true
-  },
-  {
-   "id": "hot_latte",
-   "name": "热拿铁",
-   "price": 7,
-   "shelf": "hotdrink",
-   "kind": "drink",
-   "taste": "奶泡绵绵的，咖啡香很柔和",
-   "hot": true
-  },
-  {
-   "id": "hot_cocoa",
-   "name": "热可可",
-   "price": 6,
-   "shelf": "hotdrink",
-   "kind": "drink",
-   "taste": "浓浓的巧克力味，甜得很安心",
-   "hot": true
-  },
-  {
-   "id": "ginger_tea",
-   "name": "红糖姜茶",
-   "price": 5,
-   "shelf": "hotdrink",
-   "kind": "drink",
-   "taste": "辣辣甜甜，从喉咙一路暖到肚子",
-   "hot": true
-  },
-  {
-   "id": "hot_honey_lemon",
-   "name": "蜂蜜柠檬热饮",
-   "price": 5,
-   "shelf": "hotdrink",
-   "kind": "drink",
-   "taste": "酸酸甜甜，热气里带着柠檬香",
-   "hot": true
-  },
-  {
-   "id": "hot_green_tea",
-   "name": "热绿茶",
-   "price": 4,
-   "shelf": "hotdrink",
-   "kind": "drink",
-   "taste": "清清淡淡，有点回甘",
-   "hot": true
-  },
-  {
-   "id": "hot_corn_milk",
-   "name": "热玉米奶",
-   "price": 6,
-   "shelf": "hotdrink",
-   "kind": "drink",
-   "taste": "甜甜的玉米香，喝着很顶饱",
-   "hot": true
-  },
-  {
-   "id": "vanilla",
-   "name": "香草冰淇淋",
-   "price": 5,
-   "shelf": "icecream",
-   "kind": "eat",
-   "taste": "冰凉绵密，香草味很浓",
-   "cold": true
-  },
-  {
-   "id": "melonbar",
-   "name": "西瓜冰棍",
-   "price": 3,
-   "shelf": "icecream",
-   "kind": "eat",
-   "taste": "咬一口全是西瓜味的冰碴",
-   "cold": true
-  },
-  {
-   "id": "umbrella",
-   "name": "透明雨伞",
-   "price": 15,
-   "shelf": "daily",
-   "kind": "use",
-   "keep": true,
-   "taste": "下雨出门可以撑着，不会淋湿"
-  },
-  {
-   "id": "tissue",
-   "name": "小包纸巾",
-   "price": 2,
-   "shelf": "daily",
-   "kind": "use",
-   "taste": "擦擦手和脸"
-  },
-  {
-   "id": "sunscreen",
-   "name": "防晒霜",
-   "price": 12,
-   "shelf": "daily",
-   "kind": "use",
-   "keep": true,
-   "taste": "涂上凉凉的，大太阳下不容易晒伤"
-  },
-  {
-   "id": "notebook",
-   "name": "小笔记本",
-   "price": 6,
-   "shelf": "daily",
-   "kind": "use",
-   "keep": true,
-   "taste": "蓝色封面，可以记点东西"
-  },
-  {
-   "id": "scrunchie",
-   "name": "发圈",
-   "price": 3,
-   "shelf": "daily",
-   "kind": "use",
-   "keep": true,
-   "taste": "风大的时候把头发扎起来"
-  },
-  {
-   "id": "bandaid",
-   "name": "创可贴",
-   "price": 3,
-   "shelf": "daily",
-   "kind": "use",
-   "taste": "万一擦破皮可以贴上"
-  }
- ],
- "wallet": {
-  "start": 30,
-  "daily": 20,
-  "cap": 80,
-  "bagSlots": 12
- },
- "rewardCap": 150,
- "dailySales": [
-  "snack",
-  "drink",
-  "icecream",
-  null,
-  null,
-  null
- ],
- "saleChance": 0.72,
- "fish": [
-  [
-   "小鲫鱼",
-   30,
-   [
-    8,
-    16
-   ]
+  "products": [
+    {
+      "id": "gummy",
+      "name": "草莓软糖",
+      "price": 4,
+      "shelf": "snack",
+      "kind": "eat",
+      "taste": "软软的，草莓味很甜"
+    },
+    {
+      "id": "chips",
+      "name": "海苔薯片",
+      "price": 6,
+      "shelf": "snack",
+      "kind": "eat",
+      "taste": "咔嚓咔嚓，咸咸的有海苔香"
+    },
+    {
+      "id": "bread",
+      "name": "奶油面包",
+      "price": 5,
+      "shelf": "snack",
+      "kind": "eat",
+      "taste": "松软，奶油甜而不腻"
+    },
+    {
+      "id": "choco",
+      "name": "巧克力棒",
+      "price": 5,
+      "shelf": "snack",
+      "kind": "eat",
+      "taste": "巧克力在嘴里慢慢化开"
+    },
+    {
+      "id": "fishcookie",
+      "name": "小鱼饼干",
+      "price": 4,
+      "shelf": "snack",
+      "kind": "eat",
+      "taste": "小鱼形状，脆脆的，可以分给鸭子"
+    },
+    {
+      "id": "soda",
+      "name": "冰镇橘子汽水",
+      "price": 4,
+      "shelf": "drink",
+      "kind": "drink",
+      "taste": "气泡在舌头上炸开，冰得一激灵",
+      "cold": true
+    },
+    {
+      "id": "milk",
+      "name": "草莓牛奶",
+      "price": 5,
+      "shelf": "drink",
+      "kind": "drink",
+      "taste": "甜甜的奶香",
+      "cold": true
+    },
+    {
+      "id": "oolong",
+      "name": "乌龙茶",
+      "price": 4,
+      "shelf": "drink",
+      "kind": "drink",
+      "taste": "有点回甘，很解腻",
+      "cold": true
+    },
+    {
+      "id": "water",
+      "name": "矿泉水",
+      "price": 2,
+      "shelf": "drink",
+      "kind": "drink",
+      "taste": "清清凉凉",
+      "cold": true
+    },
+    {
+      "id": "lemontea",
+      "name": "柠檬茶",
+      "price": 4,
+      "shelf": "drink",
+      "kind": "drink",
+      "taste": "酸酸甜甜",
+      "cold": true
+    },
+    {
+      "id": "hot_milk",
+      "name": "热牛奶",
+      "price": 5,
+      "shelf": "hotdrink",
+      "kind": "drink",
+      "taste": "温温的奶香，喝下去胃里都暖了",
+      "hot": true
+    },
+    {
+      "id": "hot_coffee",
+      "name": "热咖啡",
+      "price": 6,
+      "shelf": "hotdrink",
+      "kind": "drink",
+      "taste": "有点苦，提神，香味飘了一路",
+      "hot": true
+    },
+    {
+      "id": "hot_latte",
+      "name": "热拿铁",
+      "price": 7,
+      "shelf": "hotdrink",
+      "kind": "drink",
+      "taste": "奶泡绵绵的，咖啡香很柔和",
+      "hot": true
+    },
+    {
+      "id": "hot_cocoa",
+      "name": "热可可",
+      "price": 6,
+      "shelf": "hotdrink",
+      "kind": "drink",
+      "taste": "浓浓的巧克力味，甜得很安心",
+      "hot": true
+    },
+    {
+      "id": "ginger_tea",
+      "name": "红糖姜茶",
+      "price": 5,
+      "shelf": "hotdrink",
+      "kind": "drink",
+      "taste": "辣辣甜甜，从喉咙一路暖到肚子",
+      "hot": true
+    },
+    {
+      "id": "hot_honey_lemon",
+      "name": "蜂蜜柠檬热饮",
+      "price": 5,
+      "shelf": "hotdrink",
+      "kind": "drink",
+      "taste": "酸酸甜甜，热气里带着柠檬香",
+      "hot": true
+    },
+    {
+      "id": "hot_green_tea",
+      "name": "热绿茶",
+      "price": 4,
+      "shelf": "hotdrink",
+      "kind": "drink",
+      "taste": "清清淡淡，有点回甘",
+      "hot": true
+    },
+    {
+      "id": "hot_corn_milk",
+      "name": "热玉米奶",
+      "price": 6,
+      "shelf": "hotdrink",
+      "kind": "drink",
+      "taste": "甜甜的玉米香，喝着很顶饱",
+      "hot": true
+    },
+    {
+      "id": "vanilla",
+      "name": "香草冰淇淋",
+      "price": 5,
+      "shelf": "icecream",
+      "kind": "eat",
+      "taste": "冰凉绵密，香草味很浓",
+      "cold": true
+    },
+    {
+      "id": "melonbar",
+      "name": "西瓜冰棍",
+      "price": 3,
+      "shelf": "icecream",
+      "kind": "eat",
+      "taste": "咬一口全是西瓜味的冰碴",
+      "cold": true
+    },
+    {
+      "id": "umbrella",
+      "name": "透明雨伞",
+      "price": 15,
+      "shelf": "daily",
+      "kind": "use",
+      "keep": true,
+      "taste": "下雨出门可以撑着，不会淋湿"
+    },
+    {
+      "id": "tissue",
+      "name": "小包纸巾",
+      "price": 2,
+      "shelf": "daily",
+      "kind": "use",
+      "taste": "擦擦手和脸"
+    },
+    {
+      "id": "sunscreen",
+      "name": "防晒霜",
+      "price": 12,
+      "shelf": "daily",
+      "kind": "use",
+      "keep": true,
+      "taste": "涂上凉凉的，大太阳下不容易晒伤"
+    },
+    {
+      "id": "notebook",
+      "name": "小笔记本",
+      "price": 6,
+      "shelf": "daily",
+      "kind": "use",
+      "keep": true,
+      "taste": "蓝色封面，可以记点东西"
+    },
+    {
+      "id": "scrunchie",
+      "name": "发圈",
+      "price": 3,
+      "shelf": "daily",
+      "kind": "use",
+      "keep": true,
+      "taste": "风大的时候把头发扎起来"
+    },
+    {
+      "id": "bandaid",
+      "name": "创可贴",
+      "price": 3,
+      "shelf": "daily",
+      "kind": "use",
+      "taste": "万一擦破皮可以贴上"
+    },
+    {
+      "id": "zongzi",
+      "name": "粽子",
+      "price": 8,
+      "shelf": "snack",
+      "kind": "eat",
+      "taste": "糯米软糯，带着粽叶香",
+      "months": [
+        5,
+        6
+      ]
+    },
+    {
+      "id": "mooncake",
+      "name": "月饼",
+      "price": 8,
+      "shelf": "snack",
+      "kind": "eat",
+      "taste": "饼皮酥香，馅料细腻",
+      "months": [
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "id": "tangyuan",
+      "name": "汤圆",
+      "price": 6,
+      "shelf": "snack",
+      "kind": "eat",
+      "taste": "糯米皮软软的，热汤暖胃",
+      "months": [
+        1,
+        2,
+        12
+      ]
+    },
+    {
+      "id": "iced_plum",
+      "name": "冰酸梅汤",
+      "price": 5,
+      "shelf": "drink",
+      "kind": "drink",
+      "taste": "酸甜清凉，带一点梅子香",
+      "months": [
+        6,
+        7,
+        8
+      ],
+      "cold": true
+    },
+    {
+      "id": "roast_chestnut",
+      "name": "糖炒栗子",
+      "price": 6,
+      "shelf": "snack",
+      "kind": "eat",
+      "taste": "剥开外壳，栗仁热乎粉糯",
+      "months": [
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "id": "hot_pot_snack",
+      "name": "关东煮小碗",
+      "price": 8,
+      "shelf": "snack",
+      "kind": "eat",
+      "taste": "热汤里有萝卜和豆腐的鲜香",
+      "months": [
+        11,
+        12,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "qingtuan",
+      "name": "青团",
+      "price": 6,
+      "shelf": "snack",
+      "kind": "eat",
+      "taste": "糯糯的外皮，带着青草香",
+      "months": [
+        3,
+        4
+      ]
+    }
   ],
-  [
-   "麦穗鱼",
-   22,
-   [
-    4,
-    8
-   ]
+  "wallet": {
+    "start": 30,
+    "daily": 50,
+    "cap": 300,
+    "bagSlots": 12
+  },
+  "rewardCap": 150,
+  "dailySales": [
+    "snack",
+    "drink",
+    "icecream",
+    null,
+    null,
+    null
   ],
-  [
-   "小鲤鱼",
-   10,
-   [
-    15,
-    28
-   ]
-  ],
-  [
-   "青鳉",
-   14,
-   [
-    2,
-    4
-   ]
-  ],
-  [
-   "小河虾",
-   12,
-   [
-    3,
-    6
-   ]
-  ],
-  [
-   "一团水草",
-   8,
-   null
-  ],
-  [
-   "空钩",
-   26,
-   null
+  "saleChance": 0.72,
+  "fish": [
+    [
+      "小鲫鱼",
+      30,
+      [
+        8,
+        16
+      ]
+    ],
+    [
+      "麦穗鱼",
+      22,
+      [
+        4,
+        8
+      ]
+    ],
+    [
+      "小鲤鱼",
+      10,
+      [
+        15,
+        28
+      ]
+    ],
+    [
+      "青鳉",
+      14,
+      [
+        2,
+        4
+      ]
+    ],
+    [
+      "小河虾",
+      12,
+      [
+        3,
+        6
+      ]
+    ],
+    [
+      "一团水草",
+      8,
+      null
+    ],
+    [
+      "空钩",
+      26,
+      null
+    ]
   ]
- ]
 }

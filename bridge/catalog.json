@@ -1,6 +1,6 @@
 {
   "format": "cabinworld-catalog/1",
-  "generated": "2026-11-10",
+  "generated": "2026-11-12",
   "note": "Generated from the game data. Scene ids qianxia-park / qianxia-shop are historical ids of the shared park and shop.",
   "wallet": {
     "start": 30,
@@ -117,6 +117,11 @@
         "park"
       ],
       "zones": [
+        {
+          "id": "xj_beach",
+          "name": "右上角海边沙滩",
+          "position": "屋外右上，沿右侧小路到达"
+        },
         {
           "id": "xj_door",
           "name": "门口",
@@ -296,7 +301,7 @@
         },
         {
           "id": "arcade_blocks",
-          "name": "俄罗斯方块机台",
+          "name": "俄罗斯方块1号机",
           "position": ""
         },
         {
@@ -332,6 +337,11 @@
         {
           "id": "arcade_snake_right",
           "name": "贪吃蛇机台右边",
+          "position": ""
+        },
+        {
+          "id": "arcade_blocks_2",
+          "name": "俄罗斯方块2号机",
           "position": ""
         }
       ]
@@ -412,142 +422,142 @@
       "zones": [
         {
           "id": "gate",
-          "name": "gate",
+          "name": "餐厅门口",
           "position": ""
         },
         {
           "id": "hall",
-          "name": "hall",
+          "name": "餐厅前厅",
           "position": ""
         },
         {
           "id": "kitchen",
-          "name": "kitchen",
+          "name": "后厨",
           "position": ""
         },
         {
           "id": "pantry",
-          "name": "pantry",
+          "name": "备餐区",
           "position": ""
         },
         {
           "id": "wash",
-          "name": "wash",
+          "name": "洗手池旁",
           "position": ""
         },
         {
           "id": "prep",
-          "name": "prep",
+          "name": "备菜台旁",
           "position": ""
         },
         {
           "id": "cook_a",
-          "name": "cook_a",
+          "name": "一号灶台旁",
           "position": ""
         },
         {
           "id": "cook_b",
-          "name": "cook_b",
+          "name": "二号灶台旁",
           "position": ""
         },
         {
           "id": "oven",
-          "name": "oven",
+          "name": "烤箱旁",
           "position": ""
         },
         {
           "id": "fryer",
-          "name": "fryer",
+          "name": "炸锅旁",
           "position": ""
         },
         {
           "id": "sushi",
-          "name": "sushi",
+          "name": "寿司台旁",
           "position": ""
         },
         {
           "id": "ingredients",
-          "name": "ingredients",
+          "name": "食材柜旁",
           "position": ""
         },
         {
           "id": "order_a",
-          "name": "order_a",
+          "name": "点餐台左侧",
           "position": ""
         },
         {
           "id": "order_b",
-          "name": "order_b",
+          "name": "点餐台右侧",
           "position": ""
         },
         {
           "id": "pickup_a",
-          "name": "pickup_a",
+          "name": "取餐台外侧",
           "position": ""
         },
         {
           "id": "pickup_b",
-          "name": "pickup_b",
+          "name": "取餐台里侧",
           "position": ""
         },
         {
           "id": "return",
-          "name": "return",
+          "name": "餐具回收台旁",
           "position": ""
         },
         {
           "id": "water",
-          "name": "water",
+          "name": "饮水台旁",
           "position": ""
         },
         {
           "id": "seat-a1_use",
-          "name": "seat-a1_use",
+          "name": "A桌一号座位",
           "position": ""
         },
         {
           "id": "seat-a2_use",
-          "name": "seat-a2_use",
+          "name": "A桌二号座位",
           "position": ""
         },
         {
           "id": "seat-b1_use",
-          "name": "seat-b1_use",
+          "name": "B桌一号座位",
           "position": ""
         },
         {
           "id": "seat-b2_use",
-          "name": "seat-b2_use",
+          "name": "B桌二号座位",
           "position": ""
         },
         {
           "id": "seat-c1_use",
-          "name": "seat-c1_use",
+          "name": "C桌一号座位",
           "position": ""
         },
         {
           "id": "seat-c2_use",
-          "name": "seat-c2_use",
+          "name": "C桌二号座位",
           "position": ""
         },
         {
           "id": "seat-c3_use",
-          "name": "seat-c3_use",
+          "name": "C桌三号座位",
           "position": ""
         },
         {
           "id": "seat-c4_use",
-          "name": "seat-c4_use",
+          "name": "C桌四号座位",
           "position": ""
         },
         {
           "id": "seat-d1_use",
-          "name": "seat-d1_use",
+          "name": "D桌一号座位",
           "position": ""
         },
         {
           "id": "seat-d2_use",
-          "name": "seat-d2_use",
+          "name": "D桌二号座位",
           "position": ""
         }
       ]
@@ -559,7 +569,7 @@
       "name": "餐厅设施与菜单",
       "space": "restaurant",
       "zone": "gate",
-      "description": "公园北边的餐厅：左边是后厨，右边找 Naiwa 店员点餐取餐，前面是餐桌。（需要高级协议 restaurant.*）",
+      "description": "公园北边的餐厅：左边是后厨，右边找 Naiwa 店员点餐取餐，前面是餐桌。",
       "seats": null,
       "uses": [
         {
@@ -619,14 +629,14 @@
           "module": null
         }
       ],
-      "bridge": "advanced"
+      "bridge": "supported"
     },
     {
       "id": "home_chess_xjhome",
       "name": "小鲸鱼家地毯上的棋盘",
       "space": "xjhome",
       "zone": "chess_xj_a",
-      "description": "两个人才能下：坐在波浪地毯两边对弈。可以用 play 邀请对方来下。",
+      "description": "两个人才能下：坐在波浪地毯两边对弈。可以用 play 邀请对方来下。 play 下象棋；play_gomoku 下五子棋，使用同一张棋桌。",
       "seats": null,
       "uses": [
         {
@@ -642,16 +652,23 @@
           "seconds": 1,
           "effect": "chess",
           "module": null
+        },
+        {
+          "id": "play_gomoku",
+          "label": "下五子棋",
+          "seconds": 900,
+          "effect": "chess",
+          "module": null
         }
       ],
-      "bridge": "advanced"
+      "bridge": "supported"
     },
     {
       "id": "arcade_snake",
       "name": "贪吃蛇机台",
       "space": "arcade",
       "zone": "arcade_snake",
-      "description": "贪吃蛇：吃到食物会变长，撞墙、撞自己或撞对方就出局。双人对战活到最后或先吃满15个的赢；一个人玩吃满12个算赢。",
+      "description": "双人贪吃蛇：一个机器人可用 mode=npc 与电脑对战；两位住户用 duo 开桌、join 加入。",
       "seats": null,
       "uses": [
         {
@@ -669,19 +686,19 @@
           "module": "arcade_snake"
         }
       ],
-      "bridge": "advanced"
+      "bridge": "supported"
     },
     {
       "id": "arcade_blocks",
-      "name": "俄罗斯方块机台",
+      "name": "俄罗斯方块1号机",
       "space": "arcade",
       "zone": "arcade_blocks",
-      "description": "俄罗斯方块：摆满一行就消除，方块会越落越快。消满15行算赢，堆到顶就输。",
+      "description": "俄罗斯方块：摆满一行就消除，方块会越落越快。消满30行算赢，堆到顶就输。 获胜+5钱，失败-2钱，平局和中断不结算；余额最低为0。",
       "seats": null,
       "uses": [
         {
           "id": "play",
-          "label": "玩俄罗斯方块",
+          "label": "玩俄罗斯方块1号机",
           "seconds": 900,
           "effect": "typing",
           "module": "arcade_blocks"
@@ -694,14 +711,14 @@
           "module": "arcade_blocks"
         }
       ],
-      "bridge": "advanced"
+      "bridge": "supported"
     },
     {
       "id": "arcade_mines",
       "name": "扫雷机台",
       "space": "arcade",
       "zone": "arcade_mines",
-      "description": "扫雷：9×9的格子里有10颗雷，数字表示周围有几颗雷。翻开所有没有雷的格子就赢，翻到雷就输。第一下一定安全。",
+      "description": "扫雷：9×9的格子里有10颗雷，数字表示周围有几颗雷。翻开所有没有雷的格子就赢，翻到雷就输。第一下一定安全。 获胜+5钱，失败-2钱，平局和中断不结算；余额最低为0。",
       "seats": null,
       "uses": [
         {
@@ -719,14 +736,14 @@
           "module": "arcade_mines"
         }
       ],
-      "bridge": "advanced"
+      "bridge": "supported"
     },
     {
       "id": "arcade_xiangqi",
       "name": "象棋机台",
       "space": "arcade",
       "zone": "arcade_xiangqi",
-      "description": "象棋：红方先走，吃掉对方的将帅或让对方无棋可走就赢。可以和电脑下，也可以和另一位住户对弈。三次重复局面算和棋，长将的一方判负。",
+      "description": "共用棋桌：play 下象棋，play_gomoku 下五子棋。mode=npc 与电脑对战；两位住户用 duo 开桌、join 加入。",
       "seats": null,
       "uses": [
         {
@@ -742,9 +759,41 @@
           "seconds": 1,
           "effect": "typing",
           "module": "arcade_xiangqi"
+        },
+        {
+          "id": "play_gomoku",
+          "label": "下五子棋",
+          "seconds": 900,
+          "effect": "typing",
+          "module": "arcade_xiangqi"
         }
       ],
-      "bridge": "advanced"
+      "bridge": "supported"
+    },
+    {
+      "id": "arcade_blocks_2",
+      "name": "俄罗斯方块2号机",
+      "space": "arcade",
+      "zone": "arcade_blocks_2",
+      "description": "俄罗斯方块：摆满一行就消除，方块会越落越快。消满30行算赢，堆到顶就输。 获胜+5钱，失败-2钱，平局和中断不结算；余额最低为0。",
+      "seats": null,
+      "uses": [
+        {
+          "id": "play",
+          "label": "玩俄罗斯方块2号机",
+          "seconds": 900,
+          "effect": "typing",
+          "module": "arcade_blocks_2"
+        },
+        {
+          "id": "quit",
+          "label": "这局不玩了",
+          "seconds": 1,
+          "effect": "typing",
+          "module": "arcade_blocks_2"
+        }
+      ],
+      "bridge": "supported"
     },
     {
       "id": "big_tree",
@@ -976,7 +1025,7 @@
       "description": "两盏路灯，天黑后自动亮起。",
       "seats": null,
       "uses": [],
-      "bridge": "advanced"
+      "bridge": "decoration"
     },
     {
       "id": "seesaw",
@@ -1278,6 +1327,38 @@
           "seconds": 600,
           "effect": "bench",
           "module": "long-bench"
+        }
+      ],
+      "bridge": "supported"
+    },
+    {
+      "id": "xj_beach",
+      "name": "家旁海边",
+      "space": "xjhome",
+      "zone": "xj_beach",
+      "description": "从小屋南门出去，沿右侧独立小路向北走，到右上角的干沙滩。能看海、听浪、玩沙；不必去公园，不穿墙、不进入深水。夜晚也能听浪。",
+      "seats": null,
+      "uses": [
+        {
+          "id": "watch_sea",
+          "label": "到家旁海边看海",
+          "seconds": 30,
+          "effect": "sparkle",
+          "module": null
+        },
+        {
+          "id": "listen_waves",
+          "label": "在沙滩听海浪",
+          "seconds": 30,
+          "effect": "leaf",
+          "module": null
+        },
+        {
+          "id": "play_sand",
+          "label": "在干沙滩上画小鲸鱼",
+          "seconds": 20,
+          "effect": "sand",
+          "module": null
         }
       ],
       "bridge": "supported"
@@ -2212,6 +2293,99 @@
         "use": "buy",
         "zone": "daily"
       }
+    },
+    {
+      "id": "zongzi",
+      "name": "粽子",
+      "price": 8,
+      "kind": "eat",
+      "shelf": "snack",
+      "taste": "糯米软糯，带着粽叶香",
+      "buyAt": {
+        "object": "snack_shelf",
+        "use": "buy",
+        "zone": "snacks"
+      }
+    },
+    {
+      "id": "mooncake",
+      "name": "月饼",
+      "price": 8,
+      "kind": "eat",
+      "shelf": "snack",
+      "taste": "饼皮酥香，馅料细腻",
+      "buyAt": {
+        "object": "snack_shelf",
+        "use": "buy",
+        "zone": "snacks"
+      }
+    },
+    {
+      "id": "tangyuan",
+      "name": "汤圆",
+      "price": 6,
+      "kind": "eat",
+      "shelf": "snack",
+      "taste": "糯米皮软软的，热汤暖胃",
+      "buyAt": {
+        "object": "snack_shelf",
+        "use": "buy",
+        "zone": "snacks"
+      }
+    },
+    {
+      "id": "iced_plum",
+      "name": "冰酸梅汤",
+      "price": 5,
+      "kind": "drink",
+      "shelf": "drink",
+      "taste": "酸甜清凉，带一点梅子香",
+      "cold": true,
+      "buyAt": {
+        "object": "drink_fridge",
+        "use": "buy",
+        "zone": "drinks"
+      }
+    },
+    {
+      "id": "roast_chestnut",
+      "name": "糖炒栗子",
+      "price": 6,
+      "kind": "eat",
+      "shelf": "snack",
+      "taste": "剥开外壳，栗仁热乎粉糯",
+      "buyAt": {
+        "object": "snack_shelf",
+        "use": "buy",
+        "zone": "snacks"
+      }
+    },
+    {
+      "id": "hot_pot_snack",
+      "name": "关东煮小碗",
+      "price": 8,
+      "kind": "eat",
+      "shelf": "snack",
+      "taste": "热汤里有萝卜和豆腐的鲜香",
+      "buyAt": {
+        "object": "snack_shelf",
+        "use": "buy",
+        "zone": "snacks"
+      }
+    },
+    {
+      "id": "qingtuan",
+      "name": "青团",
+      "price": 6,
+      "kind": "eat",
+      "shelf": "snack",
+      "taste": "糯糯的外皮，带着青草香",
+      "buyAt": {
+        "object": "snack_shelf",
+        "use": "buy",
+        "zone": "snacks"
+      }
     }
-  ]
+  ],
+  "version": "1.1"
 }

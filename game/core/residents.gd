@@ -57,14 +57,10 @@ static func _file() -> String:
 static func saved(key: String) -> Dictionary:
 	if not _loaded:
 		_loaded = true
-		for path in [_file(), _file() + ".bak"]:
-			if FileAccess.file_exists(path):
-				var data = JSON.parse_string(FileAccess.get_file_as_string(path))
-				if data is Dictionary and data.get("people") is Dictionary:
-					_people = data["people"]
-					if data.get("seats") is Dictionary:
-						_seats = data["seats"]
-					break
+		var stored:Dictionary=load("res://core/safe_store.gd").read_document(_file(),valid_save,true)
+		if stored.ok:
+			_people=stored.data.get("people",{})
+			_seats=stored.data.get("seats",{})
 	var row = _people.get(key)
 	if row is Dictionary and WorldData.scenes.has(str(row.get("scene", ""))) and WorldData.scenes.has(str(row.get("want_scene", ""))):
 		return row
@@ -81,14 +77,13 @@ static func remember(key: String, row: Dictionary) -> void:
 	save_now()
 
 
+static func valid_save(data:Dictionary)->bool:
+	if not data.get("people") is Dictionary or not data.get("seats",{}) is Dictionary:return false
+	for row in data.people.values():
+		if not row is Dictionary or not row.get("scene") is String or not row.get("want_scene") is String:return false
+		for axis in ["x","y"]:
+			if not (row.get(axis) is int or row.get(axis) is float) or not is_finite(float(row[axis])):return false
+	return true
+
 static func save_now() -> void:
-	var path := _file()
-	var tmp := path + ".tmp"
-	var f := FileAccess.open(tmp, FileAccess.WRITE)
-	if f == null:
-		return
-	f.store_string(JSON.stringify({"version": 1, "people": _people, "seats": _seats}, "", false, true))
-	f.close()
-	if FileAccess.file_exists(path):
-		DirAccess.copy_absolute(ProjectSettings.globalize_path(path), ProjectSettings.globalize_path(path + ".bak"))
-	DirAccess.rename_absolute(ProjectSettings.globalize_path(tmp), ProjectSettings.globalize_path(path))
+	load("res://core/safe_store.gd").write_document(_file(),{"version":1,"people":_people,"seats":_seats},valid_save,true)

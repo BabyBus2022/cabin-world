@@ -4,8 +4,12 @@ extends Node
 ## DATA: res://assets/world.json holds scenes and actors, and baked/<room>.layers.json holds each room's art.
 ## Field lists: ../docs/INTERFACES.md section 13.
 const ORDER := ["qianxia-home", "qianxia-park", "qianxia-shop", "xiaojingyu-home", "world-arcade", "world-onsen", "world-restaurant"]
-const SPACE_SCENE := {"home": "qianxia-home", "park": "qianxia-park", "shop": "qianxia-shop", "arcade": "world-arcade", "onsen": "world-onsen", "xjhome": "xiaojingyu-home", "restaurant": "world-restaurant"}
+var SPACE_SCENE := {"home": "qianxia-home", "park": "qianxia-park", "shop": "qianxia-shop", "arcade": "world-arcade", "onsen": "world-onsen", "xjhome": "xiaojingyu-home", "restaurant": "world-restaurant"}
 
+signal resident_registered(key: String)
+signal resident_removed(key: String, scene: String)
+signal resident_named(key: String)
+var runtime_textures:Dictionary={}
 var scenes := {}
 var actors := {}
 var objects: Array = []
@@ -15,11 +19,17 @@ var _navs := {}
 
 func _ready() -> void:
 	var data = JSON.parse_string(FileAccess.get_file_as_string("res://assets/world.json"))
-	scenes = data["scenes"]
+	scenes = Features.scenes(data["scenes"]) ## a module switched off keeps its 1.0 scene (core/features.gd)
 	actors = data["actors"]
 	objects = data.get("objects", [])
+	## Module switches (core/features.gd): the beach path and the second Tetris machine exist only with their module on.
+	if not Features.on("seaside-path"):
+		objects = objects.filter(func(o): return o.get("id") != "xj_beach")
+		for s in scenes.values(): if s.get("zones") is Dictionary: s.zones.erase("xj_beach")
+	if not Features.on("arcade-renovated"):
+		objects = objects.filter(func(o): return o.get("id") != "arcade_blocks_2")
 	for id in available_order():
-		layers[id] = JSON.parse_string(FileAccess.get_file_as_string("res://assets/baked/%s.layers.json" % id))
+		layers[id] = JSON.parse_string(FileAccess.get_file_as_string(Features.asset("baked/%s.layers.json" % id)))
 	HomeGrid.initialize()
 
 

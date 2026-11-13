@@ -1,10 +1,10 @@
 extends RefCounted
 ## The active match clock is in memory. A host restart interrupts the match;
 ## results survive in ArcadeRecords. A game reconnect imports the live mirror.
-const NAMES := {"snake":"贪吃蛇","blocks":"俄罗斯方块","mines":"扫雷","xiangqi":"象棋"}
-const INTERVAL := {"snake":0.260,"blocks":0.220,"mines":0.650,"xiangqi":1.4}
-const LIMIT := {"snake":240000,"blocks":300000,"mines":180000,"xiangqi":600000}
-const SEATS := {"xiangqi":["arcade_xiangqi_far","arcade_xiangqi_near"],"snake":["arcade_snake_left","arcade_snake_right"]}
+const NAMES := {"snake":"贪吃蛇","blocks":"俄罗斯方块","mines":"扫雷","xiangqi":"象棋","gomoku":"五子棋"}
+const INTERVAL := {"snake":0.260,"blocks":0.220,"mines":0.650,"xiangqi":1.4,"gomoku":.8}
+const LIMIT := {"snake":240000,"blocks":300000,"mines":180000,"xiangqi":600000,"gomoku":600000}
+const SEATS := {"blocks@second":["arcade_blocks_2"],"xiangqi":["arcade_xiangqi_far","arcade_xiangqi_near"],"gomoku":["arcade_xiangqi_far","arcade_xiangqi_near"],"snake":["arcade_snake_left","arcade_snake_right"]}
 var sessions := {}
 
 static func profiles() -> Dictionary:
@@ -16,9 +16,10 @@ static func profiles() -> Dictionary:
 static func seat(a: Dictionary) -> Dictionary:
 	var kind: String=a.key.split("@")[0]
 	if not NAMES.has(kind): return {"error":"没有这个游戏："+kind}
-	if "@" in a.key and a.mode=="solo": return {"error":"家里的棋盘要两个人才能下"}
+	if kind=="gomoku" and not Features.on("gomoku"): return {"error":"五子棋模块未开启（可让安装 AI 单独启用，或通过 update.cmd 选择）"}
+	if (a.key.begins_with("xiangqi@") or a.key.begins_with("gomoku@")) and a.mode=="solo": return {"error":"家里的棋盘要两个人才能下"}
 	if a.mine!="": return {"error":"已经在玩%s了"%NAMES[a.mine]}
-	var duo := kind in ["snake","xiangqi"]
+	var duo := kind in ["snake","xiangqi","gomoku"]
 	var names := []
 	var taken := []
 	for m in a.members:
@@ -31,9 +32,9 @@ static func seat(a: Dictionary) -> Dictionary:
 	var index := maxi(0,a.residents.find(a.actor))%2 if duo else 0
 	if index in taken: index=1-index
 	var zones: Array=SEATS.get(a.key,["arcade_"+kind])
-	if "@" in a.key:
+	if (a.key.begins_with("xiangqi@") or a.key.begins_with("gomoku@")):
 		for profile in profiles().values():
-			if profile.get("board")==a.key:
+			if profile.get("board")==str(a.key).replace("gomoku@","xiangqi@"):
 				zones=profile.seats
 				break
 	return {"seat":index,"zone":zones[index] if index<zones.size() else zones[0],

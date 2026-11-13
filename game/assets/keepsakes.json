@@ -1,0 +1,304 @@
+{
+  "version": 1,
+  "goals": {
+    "save_frame": {
+      "name": "攒钱买一个小相框",
+      "need": 60
+    },
+    "recipe": {
+      "name": "练熟一道菜",
+      "need": 3
+    },
+    "arcade": {
+      "name": "超过同伴的一项电玩纪录",
+      "need": 1
+    }
+  },
+  "fish": [
+    "clown",
+    "tang",
+    "guppy",
+    "goldfish",
+    "betta",
+    "whale_toy"
+  ],
+  "motifs": [
+    "sea",
+    "park",
+    "flowers",
+    "cat",
+    "stars",
+    "portrait"
+  ],
+  "books": {
+    "cooking": "料理与食材",
+    "ocean": "海洋与鲸鱼",
+    "space": "星空与宇宙",
+    "history": "历史与旧时生活",
+    "poetry": "诗歌与文字",
+    "games": "游戏与解谜",
+    "music": "音乐与旋律",
+    "plants": "植物与四季"
+  },
+  "seasons": {
+    "spring": "春日",
+    "summer": "夏日",
+    "autumn": "秋日",
+    "winter": "冬日"
+  },
+  "wallSlots": {
+    "xiaojingyu-home": [
+      [
+        85,
+        34,
+        32,
+        32
+      ],
+      [
+        300,
+        34,
+        32,
+        32
+      ]
+    ]
+  },
+  "calendar": {
+    "2026-01-01": [
+      {
+        "id": "new_year",
+        "name": "元旦"
+      }
+    ],
+    "2026-02-17": [
+      {
+        "id": "spring_festival",
+        "name": "春节"
+      }
+    ],
+    "2026-03-03": [
+      {
+        "id": "lantern",
+        "name": "元宵节"
+      }
+    ],
+    "2026-04-05": [
+      {
+        "id": "qingming",
+        "name": "清明节"
+      }
+    ],
+    "2026-06-19": [
+      {
+        "id": "dragon_boat",
+        "name": "端午节"
+      }
+    ],
+    "2026-08-19": [
+      {
+        "id": "qixi",
+        "name": "七夕"
+      }
+    ],
+    "2026-09-25": [
+      {
+        "id": "mid_autumn",
+        "name": "中秋节"
+      }
+    ],
+    "2026-10-01": [
+      {
+        "id": "national_day",
+        "name": "国庆节"
+      }
+    ],
+    "2026-10-18": [
+      {
+        "id": "double_ninth",
+        "name": "重阳节"
+      }
+    ],
+    "2026-12-25": [
+      {
+        "id": "christmas",
+        "name": "圣诞节"
+      }
+    ],
+    "2027-01-01": [
+      {
+        "id": "new_year",
+        "name": "元旦"
+      }
+    ],
+    "2027-02-06": [
+      {
+        "id": "spring_festival",
+        "name": "春节"
+      }
+    ],
+    "2027-02-20": [
+      {
+        "id": "lantern",
+        "name": "元宵节"
+      }
+    ],
+    "2027-04-05": [
+      {
+        "id": "qingming",
+        "name": "清明节"
+      }
+    ],
+    "2027-06-09": [
+      {
+        "id": "dragon_boat",
+        "name": "端午节"
+      }
+    ],
+    "2027-08-08": [
+      {
+        "id": "qixi",
+        "name": "七夕"
+      }
+    ],
+    "2027-09-15": [
+      {
+        "id": "mid_autumn",
+        "name": "中秋节"
+      }
+    ],
+    "2027-10-01": [
+      {
+        "id": "national_day",
+        "name": "国庆节"
+      }
+    ],
+    "2027-10-08": [
+      {
+        "id": "double_ninth",
+        "name": "重阳节"
+      }
+    ],
+    "2027-12-25": [
+      {
+        "id": "christmas",
+        "name": "圣诞节"
+      }
+    ],
+    "2028-01-01": [
+      {
+        "id": "new_year",
+        "name": "元旦"
+      }
+    ],
+    "2028-01-26": [
+      {
+        "id": "spring_festival",
+        "name": "春节"
+      }
+    ],
+    "2028-02-09": [
+      {
+        "id": "lantern",
+        "name": "元宵节"
+      }
+    ],
+    "2028-04-04": [
+      {
+        "id": "qingming",
+        "name": "清明节"
+      }
+    ],
+    "2028-05-28": [
+      {
+        "id": "dragon_boat",
+        "name": "端午节"
+      }
+    ],
+    "2028-08-26": [
+      {
+        "id": "qixi",
+        "name": "七夕"
+      }
+    ],
+    "2028-10-01": [
+      {
+        "id": "national_day",
+        "name": "国庆节"
+      }
+    ],
+    "2028-10-03": [
+      {
+        "id": "mid_autumn",
+        "name": "中秋节"
+      }
+    ],
+    "2028-10-26": [
+      {
+        "id": "double_ninth",
+        "name": "重阳节"
+      }
+    ],
+    "2028-12-25": [
+      {
+        "id": "christmas",
+        "name": "圣诞节"
+      }
+    ]
+  },
+  "calendarYears": [
+    2026,
+    2028
+  ],
+  "calendarSources": [
+    "https://www.hko.gov.hk/en/gts/time/calendar/pdf/files/2026e.pdf",
+    "https://www.hko.gov.hk/en/gts/time/calendar/pdf/files/2027e.pdf",
+    "https://www.hko.gov.hk/en/gts/time/calendar/pdf/files/2028e.pdf"
+  ],
+  "decorationPositions": {
+    "xiaojingyu-home": [
+      453,
+      30
+    ],
+    "qianxia-park": [
+      65,
+      34
+    ],
+    "qianxia-shop": [
+      88,
+      32
+    ],
+    "world-arcade": [
+      92,
+      24
+    ],
+    "world-restaurant": [
+      75,
+      28
+    ]
+  },
+  "notePositions": {
+    "xiaojingyu-home": [
+      591,
+      362
+    ],
+    "qianxia-park": [
+      270,
+      105
+    ],
+    "qianxia-shop": [
+      257,
+      180
+    ],
+    "world-arcade": [
+      182,
+      166
+    ],
+    "world-onsen": [
+      107,
+      277
+    ],
+    "world-restaurant": [
+      267,
+      268
+    ]
+  }
+}

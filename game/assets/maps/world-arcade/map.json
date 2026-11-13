@@ -1,0 +1,2311 @@
+{
+  "cell": 32,
+  "decor": [
+    {
+      "file": "res://assets/map-pieces/arcade-coast-rich/clock.png",
+      "x": 2.4,
+      "y": 1.2
+    },
+    {
+      "file": "res://assets/map-pieces/arcade-coast-rich/marquee.png",
+      "x": 8.5,
+      "y": 1.2
+    },
+    {
+      "file": "res://assets/map-pieces/arcade-coast-rich/poster.png",
+      "x": 15.1,
+      "y": 1.2
+    },
+    {
+      "file": "res://assets/map-pieces/arcade-coast-rich/window.png",
+      "x": 22,
+      "y": 1.15
+    },
+    {
+      "file": "res://assets/map-pieces/arcade-coast-rich/beam.png",
+      "x": 18,
+      "y": 1.6
+    }
+  ],
+  "exits": {
+    "door": {
+      "entry": "arcade",
+      "to": "qianxia-park"
+    }
+  },
+  "floor": {
+    "palette": {
+      "a": "arcade-coast-wood",
+      "b": "arcade-coast-night"
+    },
+    "rows": [
+      "..............................",
+      "..............................",
+      "..............................",
+      "..............................",
+      ".aaaaaaaaaaaaaaaaaaaaaaaaaaaa.",
+      ".aaaaaaaaaaaaaaaaaaabbbbbbbba.",
+      ".bbbbbbbbbbbbbaaaaaabbbbbbbba.",
+      ".bbbbbbbbbbbbbaaaaaabbbbbbbba.",
+      ".bbbbbbbbbbbbbaaaaaabbbbbbbba.",
+      ".bbbbbbbbbbbbbaaaaaabbbbbbbba.",
+      ".aaaaaaaaaaaaaaaaaaabbbbbbbba.",
+      ".aaaaaaaaaaaaaaaaaaabbbbbbbba.",
+      ".aaaaaaaaaaaaaaaaaaabbbbbbbba.",
+      ".aaaaaaaaaaaaaaaaaaaaaaaaaaaa.",
+      ".abbbbbbbbbaaaaaaaaaaaaaaaaaa.",
+      ".abbbbbbbbbaaaaaaaaaaaaaaaaaa.",
+      ".abbbbbbbbbaaaaaaaaaaaaaaaaaa.",
+      ".abbbbbbbbbaaaaaaaaaaaaaaaaaa.",
+      ".aaaaaaaaaaaaaaaaaaaaaaaaaaaa.",
+      ".............................."
+    ]
+  },
+  "format": "cabin-map/1",
+  "furniture": {
+    "facings": {},
+    "groups": [
+      [
+        "arcade_xiangqi",
+        "chess-far-seat",
+        "chess-near-seat"
+      ]
+    ],
+    "instances": {},
+    "positions": {
+      "arcade_bench": [
+        22.0,
+        11.0
+      ],
+      "arcade_blocks": [
+        2.0,
+        7.0
+      ],
+      "arcade_blocks_2": [
+        10.0,
+        7.0
+      ],
+      "arcade_mines": [
+        6.0,
+        7.0
+      ],
+      "arcade_snake": [
+        3.0,
+        15.0
+      ],
+      "arcade_tickets": [
+        21.0,
+        16.0
+      ],
+      "arcade_trophy": [
+        15.0,
+        7.0
+      ],
+      "arcade_vending": [
+        26.0,
+        16.0
+      ],
+      "arcade_xiangqi": [
+        23.0,
+        7.0
+      ],
+      "chess-far-seat": [
+        22.0,
+        8.0
+      ],
+      "chess-near-seat": [
+        26.0,
+        8.0
+      ],
+      "station-plant-a": [
+        1.0,
+        10.0
+      ],
+      "station-plant-b": [
+        16.0,
+        10.0
+      ],
+      "station-plant-c": [
+        27.0,
+        11.0
+      ],
+      "station-token-lamp": [
+        11.0,
+        16.0
+      ]
+    }
+  },
+  "id": "world-arcade",
+  "kind": "indoor",
+  "legacy": {
+    "definition": {
+      "bounds": [
+        0.0,
+        0.0,
+        960.0,
+        640.0
+      ],
+      "catalog": [
+        {
+          "box": [
+            63.0,
+            120.0,
+            98.0,
+            168.0
+          ],
+          "cell": [
+            2.0,
+            7.0
+          ],
+          "foot": [
+            64.0,
+            224.0,
+            96.0,
+            64.0
+          ],
+          "icon": "res://assets/baked/../furniture-views/world-arcade--station--arcade_blocks/S.png",
+          "id": "arcade_blocks",
+          "layer": "solid",
+          "name": "方块街机",
+          "zoneIds": [
+            "arcade_blocks"
+          ]
+        },
+        {
+          "box": [
+            191.0,
+            120.0,
+            98.0,
+            168.0
+          ],
+          "cell": [
+            6.0,
+            7.0
+          ],
+          "foot": [
+            192.0,
+            224.0,
+            96.0,
+            64.0
+          ],
+          "icon": "res://assets/baked/../furniture-views/world-arcade--station--arcade_mines/S.png",
+          "id": "arcade_mines",
+          "layer": "solid",
+          "name": "扫雷街机",
+          "zoneIds": [
+            "arcade_mines"
+          ]
+        },
+        {
+          "box": [
+            479.0,
+            166.0,
+            66.0,
+            90.0
+          ],
+          "cell": [
+            15.0,
+            7.0
+          ],
+          "foot": [
+            480.0,
+            224.0,
+            64.0,
+            32.0
+          ],
+          "icon": "res://assets/baked/../furniture-views/world-arcade--arcade_trophy/S.png",
+          "id": "arcade_trophy",
+          "layer": "solid",
+          "name": "奖杯柜",
+          "zoneIds": [
+            "arcade_trophy"
+          ]
+        },
+        {
+          "box": [
+            704.0,
+            246.769230769231,
+            32.0,
+            41.2307692307692
+          ],
+          "cell": [
+            22.0,
+            8.0
+          ],
+          "foot": [
+            704.0,
+            256.0,
+            32.0,
+            32.0
+          ],
+          "icon": "res://assets/terminus/chess-far-seat.png",
+          "id": "chess-far-seat",
+          "layer": "solid",
+          "name": "棋凳·左",
+          "zoneIds": [
+            "arcade_xiangqi",
+            "arcade_xiangqi_far"
+          ]
+        },
+        {
+          "box": [
+            832.0,
+            246.769230769231,
+            32.0,
+            41.2307692307692
+          ],
+          "cell": [
+            26.0,
+            8.0
+          ],
+          "foot": [
+            832.0,
+            256.0,
+            32.0,
+            32.0
+          ],
+          "icon": "res://assets/terminus/chess-near-seat.png",
+          "id": "chess-near-seat",
+          "layer": "solid",
+          "name": "棋凳·右",
+          "zoneIds": [
+            "arcade_xiangqi_near"
+          ]
+        },
+        {
+          "box": [
+            735.0,
+            214.5,
+            98.0,
+            73.5
+          ],
+          "cell": [
+            23.0,
+            7.0
+          ],
+          "foot": [
+            736.0,
+            224.0,
+            96.0,
+            64.0
+          ],
+          "icon": "res://assets/baked/../furniture-views/world-arcade--arcade_xiangqi/S.png",
+          "id": "arcade_xiangqi",
+          "layer": "solid",
+          "name": "象棋桌",
+          "zoneIds": []
+        },
+        {
+          "box": [
+            95.0,
+            380.0,
+            226.0,
+            164.0
+          ],
+          "cell": [
+            3.0,
+            15.0
+          ],
+          "foot": [
+            96.0,
+            480.0,
+            224.0,
+            64.0
+          ],
+          "icon": "res://assets/baked/../furniture-views/world-arcade--station--arcade_snake/S.png",
+          "id": "arcade_snake",
+          "layer": "solid",
+          "name": "双人贪吃蛇机",
+          "zoneIds": [
+            "arcade_snake",
+            "arcade_snake_left",
+            "arcade_snake_right"
+          ]
+        },
+        {
+          "box": [
+            671.0,
+            457.5,
+            130.0,
+            86.5
+          ],
+          "cell": [
+            21.0,
+            16.0
+          ],
+          "foot": [
+            672.0,
+            512.0,
+            128.0,
+            32.0
+          ],
+          "icon": "res://assets/baked/../furniture-views/world-arcade--arcade_tickets/S.png",
+          "id": "arcade_tickets",
+          "layer": "solid",
+          "name": "服务柜台",
+          "zoneIds": [
+            "arcade_tickets"
+          ]
+        },
+        {
+          "box": [
+            831.0,
+            466.5,
+            66.0,
+            77.5
+          ],
+          "cell": [
+            26.0,
+            16.0
+          ],
+          "foot": [
+            832.0,
+            512.0,
+            64.0,
+            32.0
+          ],
+          "icon": "res://assets/baked/../furniture-views/world-arcade--arcade_vending/S.png",
+          "id": "arcade_vending",
+          "layer": "solid",
+          "name": "饮料机",
+          "zoneIds": [
+            "arcade_vending"
+          ]
+        },
+        {
+          "box": [
+            703.0,
+            322.5,
+            98.0,
+            61.5
+          ],
+          "cell": [
+            22.0,
+            11.0
+          ],
+          "foot": [
+            704.0,
+            352.0,
+            96.0,
+            32.0
+          ],
+          "icon": "res://assets/baked/../furniture-views/world-arcade--arcade_bench/S.png",
+          "id": "arcade_bench",
+          "layer": "solid",
+          "name": "休息长椅",
+          "zoneIds": [
+            "arcade_bench"
+          ]
+        },
+        {
+          "box": [
+            30.0,
+            303.0,
+            38.0,
+            49.0
+          ],
+          "cell": [
+            1.0,
+            10.0
+          ],
+          "foot": [
+            32.0,
+            320.0,
+            32.0,
+            32.0
+          ],
+          "icon": "res://assets/baked/xiaojingyu-home.xj-plant-west.png",
+          "id": "station-plant-a",
+          "layer": "solid",
+          "name": "盆栽",
+          "zoneIds": []
+        },
+        {
+          "box": [
+            510.0,
+            303.0,
+            38.0,
+            49.0
+          ],
+          "cell": [
+            16.0,
+            10.0
+          ],
+          "foot": [
+            512.0,
+            320.0,
+            32.0,
+            32.0
+          ],
+          "icon": "res://assets/baked/xiaojingyu-home.xj-plant-west.png",
+          "id": "station-plant-b",
+          "layer": "solid",
+          "name": "盆栽",
+          "zoneIds": []
+        },
+        {
+          "box": [
+            868.5,
+            354.0,
+            23.0,
+            30.0
+          ],
+          "cell": [
+            27.0,
+            11.0
+          ],
+          "foot": [
+            864.0,
+            352.0,
+            32.0,
+            32.0
+          ],
+          "icon": "res://assets/baked/xiaojingyu-home.xj-plant-east.png",
+          "id": "station-plant-c",
+          "layer": "solid",
+          "name": "卧室盆栽",
+          "zoneIds": []
+        },
+        {
+          "box": [
+            350.0,
+            469.0,
+            67.5,
+            81.0
+          ],
+          "cell": [
+            11.0,
+            16.0
+          ],
+          "foot": [
+            352.0,
+            512.0,
+            64.0,
+            32.0
+          ],
+          "icon": "res://assets/baked/world-arcade.arcade-token-lamp-0.png",
+          "id": "station-token-lamp",
+          "layer": "solid",
+          "name": "代币灯（左）",
+          "zoneIds": []
+        },
+        {
+          "box": [
+            319.0,
+            120.0,
+            98.0,
+            168.0
+          ],
+          "cell": [
+            10.0,
+            7.0
+          ],
+          "foot": [
+            320.0,
+            224.0,
+            96.0,
+            64.0
+          ],
+          "icon": "res://assets/baked/../furniture-views/world-arcade--station--arcade_blocks/S.png",
+          "id": "arcade_blocks_2",
+          "layer": "solid",
+          "name": "方块2号街机",
+          "zoneIds": [
+            "arcade_blocks_2"
+          ]
+        }
+      ],
+      "cell": 32.0,
+      "columns": 30.0,
+      "defaultGroups": [
+        [
+          "arcade_xiangqi",
+          "chess-far-seat",
+          "chess-near-seat"
+        ]
+      ],
+      "fixedObstacles": [],
+      "floorFile": "res://assets/arcade-grid-floor.json",
+      "gridOrigin": [
+        0.0,
+        0.0
+      ],
+      "manifest": {
+        "ground": {
+          "file": "../arcade-station/ground.png",
+          "h": 768.0,
+          "registration": {
+            "x": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                32.0,
+                32.0
+              ],
+              [
+                920.0,
+                608.0
+              ],
+              [
+                956.0,
+                640.0
+              ],
+              [
+                1064.0,
+                704.0
+              ],
+              [
+                1088.0,
+                736.0
+              ],
+              [
+                1164.0,
+                768.0
+              ],
+              [
+                1198.0,
+                800.0
+              ],
+              [
+                1328.0,
+                896.0
+              ],
+              [
+                1438.0,
+                960.0
+              ],
+              [
+                1460.0,
+                992.0
+              ],
+              [
+                1494.0,
+                1024.0
+              ],
+              [
+                1536.0,
+                1056.0
+              ]
+            ],
+            "y": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                192.0,
+                96.0
+              ],
+              [
+                280.0,
+                192.0
+              ],
+              [
+                332.0,
+                256.0
+              ],
+              [
+                388.0,
+                320.0
+              ],
+              [
+                416.0,
+                352.0
+              ],
+              [
+                608.0,
+                480.0
+              ],
+              [
+                736.0,
+                576.0
+              ],
+              [
+                944.0,
+                704.0
+              ],
+              [
+                1024.0,
+                768.0
+              ]
+            ]
+          },
+          "w": 1056.0,
+          "x": 0.0,
+          "y": 0.0
+        },
+        "layers": [
+          {
+            "depth": 288.0,
+            "file": "../terminus/chess-far-seat.png",
+            "h": 41.2307692307692,
+            "id": "chess-far-seat",
+            "scale": 0.615384615384615,
+            "w": 32.0,
+            "x": 704.0,
+            "y": 246.769230769231
+          },
+          {
+            "depth": 288.0,
+            "file": "../terminus/chess-near-seat.png",
+            "h": 41.2307692307692,
+            "id": "chess-near-seat",
+            "scale": 0.615384615384615,
+            "w": 32.0,
+            "x": 832.0,
+            "y": 246.769230769231
+          },
+          {
+            "depth": 352.0,
+            "file": "xiaojingyu-home.xj-plant-west.png",
+            "h": 49.0,
+            "id": "station-plant-a",
+            "w": 38.0,
+            "x": 30.0,
+            "y": 303.0
+          },
+          {
+            "depth": 352.0,
+            "file": "xiaojingyu-home.xj-plant-west.png",
+            "h": 49.0,
+            "id": "station-plant-b",
+            "w": 38.0,
+            "x": 510.0,
+            "y": 303.0
+          },
+          {
+            "depth": 384.0,
+            "file": "xiaojingyu-home.xj-plant-east.png",
+            "h": 30.0,
+            "id": "station-plant-c",
+            "w": 23.0,
+            "x": 868.5,
+            "y": 354.0
+          },
+          {
+            "depth": 544.0,
+            "file": "world-arcade.arcade-token-lamp-0.png",
+            "h": 81.0,
+            "id": "station-token-lamp",
+            "w": 67.5,
+            "x": 350.0,
+            "y": 469.0
+          },
+          {
+            "depth": 288.0,
+            "file": "../furniture-views/world-arcade--station--arcade_blocks/S.png",
+            "h": 168.0,
+            "id": "arcade_blocks",
+            "scale": 0.5,
+            "w": 98.0,
+            "x": 63.0,
+            "y": 120.0
+          },
+          {
+            "depth": 288.0,
+            "file": "../furniture-views/world-arcade--station--arcade_mines/S.png",
+            "h": 168.0,
+            "id": "arcade_mines",
+            "scale": 0.5,
+            "w": 98.0,
+            "x": 191.0,
+            "y": 120.0
+          },
+          {
+            "depth": 256.0,
+            "file": "../furniture-views/world-arcade--arcade_trophy/S.png",
+            "h": 90.0,
+            "id": "arcade_trophy",
+            "scale": 0.5,
+            "w": 66.0,
+            "x": 479.0,
+            "y": 166.0
+          },
+          {
+            "depth": 288.0,
+            "file": "../furniture-views/world-arcade--arcade_xiangqi/S.png",
+            "h": 73.5,
+            "id": "arcade_xiangqi",
+            "scale": 0.5,
+            "w": 98.0,
+            "x": 735.0,
+            "y": 214.5
+          },
+          {
+            "depth": 544.0,
+            "file": "../furniture-views/world-arcade--station--arcade_snake/S.png",
+            "h": 164.0,
+            "id": "arcade_snake",
+            "scale": 0.5,
+            "w": 226.0,
+            "x": 95.0,
+            "y": 380.0
+          },
+          {
+            "depth": 544.0,
+            "file": "../furniture-views/world-arcade--arcade_tickets/S.png",
+            "h": 86.5,
+            "id": "arcade_tickets",
+            "scale": 0.5,
+            "w": 130.0,
+            "x": 671.0,
+            "y": 457.5
+          },
+          {
+            "depth": 544.0,
+            "file": "../furniture-views/world-arcade--arcade_vending/S.png",
+            "h": 77.5,
+            "id": "arcade_vending",
+            "scale": 0.5,
+            "w": 66.0,
+            "x": 831.0,
+            "y": 466.5
+          },
+          {
+            "depth": 384.0,
+            "file": "../furniture-views/world-arcade--arcade_bench/S.png",
+            "h": 61.5,
+            "id": "arcade_bench",
+            "scale": 0.5,
+            "w": 98.0,
+            "x": 703.0,
+            "y": 322.5
+          },
+          {
+            "depth": 288.0,
+            "file": "../furniture-views/world-arcade--station--arcade_blocks/S.png",
+            "h": 168.0,
+            "id": "arcade_blocks_2",
+            "scale": 0.5,
+            "w": 98.0,
+            "x": 319.0,
+            "y": 120.0
+          }
+        ],
+        "scale": 2.0,
+        "scene": "world-arcade"
+      },
+      "profile": {},
+      "revision": "arcade-coast-partitions-v2-20261111",
+      "rows": 20.0,
+      "scene": "world-arcade",
+      "sceneData": {
+        "actorScale": 1.0,
+        "clearance": 3.0,
+        "enclosed": true,
+        "entries": {
+          "door": {
+            "x": 480.0,
+            "y": 584.0
+          }
+        },
+        "exits": [
+          {
+            "entry": "arcade",
+            "id": "door",
+            "to": "qianxia-park",
+            "x": 480.0,
+            "y": 600.0
+          }
+        ],
+        "height": 640.0,
+        "id": "world-arcade",
+        "modules": {
+          "arcade_bench": {
+            "collision": {
+              "h": 32.0,
+              "w": 96.0,
+              "x": 1.0,
+              "y": 29.5
+            },
+            "depth": 384.0,
+            "h": 61.5,
+            "id": "arcade_bench",
+            "kind": "pk-arcade",
+            "sitting": {
+              "slots": {
+                "arcade_bench": {
+                  "actions": [
+                    "read",
+                    "write",
+                    "working",
+                    "draw"
+                  ],
+                  "anchor": [
+                    49.0,
+                    50.94
+                  ],
+                  "effects": [
+                    "sit",
+                    "bench",
+                    "typing",
+                    "chess",
+                    "read",
+                    "write",
+                    "draw"
+                  ],
+                  "facing": "south",
+                  "module": "arcade_bench",
+                  "zone": "arcade_bench"
+                }
+              }
+            },
+            "w": 98.0,
+            "x": 703.0,
+            "y": 322.5
+          },
+          "arcade_blocks": {
+            "collision": {
+              "h": 64.0,
+              "w": 96.0,
+              "x": 1.0,
+              "y": 104.0
+            },
+            "depth": 288.0,
+            "h": 168.0,
+            "id": "arcade_blocks",
+            "kind": "pk-arcade",
+            "screen": [
+              17.0,
+              44.0,
+              64.0,
+              35.0
+            ],
+            "screenVisible": true,
+            "w": 98.0,
+            "x": 63.0,
+            "y": 120.0
+          },
+          "arcade_blocks_2": {
+            "collision": {
+              "h": 64.0,
+              "w": 96.0,
+              "x": 1.0,
+              "y": 104.0
+            },
+            "depth": 288.0,
+            "h": 168.0,
+            "id": "arcade_blocks_2",
+            "kind": "pk-arcade",
+            "screen": [
+              17.0,
+              44.0,
+              64.0,
+              35.0
+            ],
+            "screenVisible": true,
+            "w": 98.0,
+            "x": 319.0,
+            "y": 120.0
+          },
+          "arcade_mines": {
+            "collision": {
+              "h": 64.0,
+              "w": 96.0,
+              "x": 1.0,
+              "y": 104.0
+            },
+            "depth": 288.0,
+            "h": 168.0,
+            "id": "arcade_mines",
+            "kind": "pk-arcade",
+            "screen": [
+              16.0,
+              44.0,
+              65.0,
+              31.0
+            ],
+            "screenVisible": true,
+            "w": 98.0,
+            "x": 191.0,
+            "y": 120.0
+          },
+          "arcade_snake": {
+            "collision": {
+              "h": 64.0,
+              "w": 224.0,
+              "x": 1.0,
+              "y": 100.0
+            },
+            "depth": 544.0,
+            "h": 164.0,
+            "id": "arcade_snake",
+            "kind": "pk-arcade",
+            "screen": [
+              44.0,
+              38.0,
+              135.0,
+              49.0
+            ],
+            "screenVisible": true,
+            "w": 226.0,
+            "x": 95.0,
+            "y": 380.0
+          },
+          "arcade_tickets": {
+            "collision": {
+              "h": 32.0,
+              "w": 128.0,
+              "x": 1.0,
+              "y": 54.5
+            },
+            "depth": 544.0,
+            "h": 86.5,
+            "id": "arcade_tickets",
+            "kind": "pk-arcade",
+            "w": 130.0,
+            "x": 671.0,
+            "y": 457.5
+          },
+          "arcade_trophy": {
+            "collision": {
+              "h": 32.0,
+              "w": 64.0,
+              "x": 1.0,
+              "y": 58.0
+            },
+            "depth": 256.0,
+            "h": 90.0,
+            "id": "arcade_trophy",
+            "kind": "pk-arcade",
+            "w": 66.0,
+            "x": 479.0,
+            "y": 166.0
+          },
+          "arcade_vending": {
+            "collision": {
+              "h": 32.0,
+              "w": 64.0,
+              "x": 1.0,
+              "y": 45.5
+            },
+            "depth": 544.0,
+            "h": 77.5,
+            "id": "arcade_vending",
+            "kind": "pk-arcade",
+            "w": 66.0,
+            "x": 831.0,
+            "y": 466.5
+          },
+          "arcade_xiangqi": {
+            "boardPaper": [
+              [
+                17.4260563380282,
+                5.17605633802817
+              ],
+              [
+                80.056338028169,
+                5.17605633802817
+              ],
+              [
+                83.6795774647887,
+                42.443661971831
+              ],
+              [
+                13.8028169014084,
+                42.443661971831
+              ]
+            ],
+            "boardQuad": [
+              [
+                20.6933642605634,
+                7.22577464788732
+              ],
+              [
+                76.7890301056338,
+                7.22577464788732
+              ],
+              [
+                79.6589980633803,
+                40.3939436619718
+              ],
+              [
+                17.8233963028169,
+                40.3939436619718
+              ]
+            ],
+            "collision": {
+              "h": 64.0,
+              "w": 96.0,
+              "x": 1.0,
+              "y": 9.5
+            },
+            "depth": 288.0,
+            "h": 73.5,
+            "id": "arcade_xiangqi",
+            "kind": "pk-arcade",
+            "w": 98.0,
+            "x": 735.0,
+            "y": 214.5
+          },
+          "chess-far-seat": {
+            "collision": {
+              "h": 32.0,
+              "w": 32.0,
+              "x": 0.0,
+              "y": 9.23076923076923
+            },
+            "depth": 288.0,
+            "h": 41.2307692307692,
+            "id": "chess-far-seat",
+            "kind": "pk-arcade",
+            "w": 32.0,
+            "x": 704.0,
+            "y": 246.769230769231
+          },
+          "chess-near-seat": {
+            "collision": {
+              "h": 32.0,
+              "w": 32.0,
+              "x": 0.0,
+              "y": 9.23076923076923
+            },
+            "depth": 288.0,
+            "h": 41.2307692307692,
+            "id": "chess-near-seat",
+            "kind": "pk-arcade",
+            "w": 32.0,
+            "x": 832.0,
+            "y": 246.769230769231
+          },
+          "station-plant-a": {
+            "collision": {
+              "h": 32.0,
+              "w": 32.0,
+              "x": 2.0,
+              "y": 17.0
+            },
+            "depth": 352.0,
+            "h": 49.0,
+            "id": "station-plant-a",
+            "kind": "decoration",
+            "w": 38.0,
+            "x": 30.0,
+            "y": 303.0
+          },
+          "station-plant-b": {
+            "collision": {
+              "h": 32.0,
+              "w": 32.0,
+              "x": 2.0,
+              "y": 17.0
+            },
+            "depth": 352.0,
+            "h": 49.0,
+            "id": "station-plant-b",
+            "kind": "decoration",
+            "w": 38.0,
+            "x": 510.0,
+            "y": 303.0
+          },
+          "station-plant-c": {
+            "collision": {
+              "h": 32.0,
+              "w": 32.0,
+              "x": -4.5,
+              "y": -2.0
+            },
+            "depth": 384.0,
+            "h": 30.0,
+            "id": "station-plant-c",
+            "kind": "decoration",
+            "w": 23.0,
+            "x": 868.5,
+            "y": 354.0
+          },
+          "station-token-lamp": {
+            "collision": {
+              "h": 32.0,
+              "w": 64.0,
+              "x": 2.0,
+              "y": 43.0
+            },
+            "depth": 544.0,
+            "h": 81.0,
+            "id": "station-token-lamp",
+            "kind": "decoration",
+            "w": 67.5,
+            "x": 350.0,
+            "y": 469.0
+          }
+        },
+        "name": "星光电玩城",
+        "navigationStep": 8.0,
+        "obstacles": [
+          {
+            "h": 32.0,
+            "w": 1152.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "h": 32.0,
+            "w": 1152.0,
+            "x": 0.0,
+            "y": 32.0
+          },
+          {
+            "h": 32.0,
+            "w": 1152.0,
+            "x": 0.0,
+            "y": 64.0
+          },
+          {
+            "h": 32.0,
+            "w": 832.0,
+            "x": 0.0,
+            "y": 96.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 1120.0,
+            "y": 96.0
+          },
+          {
+            "h": 32.0,
+            "w": 832.0,
+            "x": 0.0,
+            "y": 128.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 1120.0,
+            "y": 128.0
+          },
+          {
+            "h": 32.0,
+            "w": 832.0,
+            "x": 0.0,
+            "y": 160.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 1120.0,
+            "y": 160.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 0.0,
+            "y": 192.0
+          },
+          {
+            "h": 32.0,
+            "w": 128.0,
+            "x": 704.0,
+            "y": 192.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 1120.0,
+            "y": 192.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 0.0,
+            "y": 224.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 800.0,
+            "y": 224.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 1120.0,
+            "y": 224.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 0.0,
+            "y": 256.0
+          },
+          {
+            "h": 32.0,
+            "w": 96.0,
+            "x": 800.0,
+            "y": 256.0
+          },
+          {
+            "h": 32.0,
+            "w": 160.0,
+            "x": 992.0,
+            "y": 256.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 0.0,
+            "y": 288.0
+          },
+          {
+            "h": 32.0,
+            "w": 96.0,
+            "x": 800.0,
+            "y": 288.0
+          },
+          {
+            "h": 32.0,
+            "w": 160.0,
+            "x": 992.0,
+            "y": 288.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 0.0,
+            "y": 320.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 1120.0,
+            "y": 320.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 0.0,
+            "y": 352.0
+          },
+          {
+            "h": 32.0,
+            "w": 448.0,
+            "x": 704.0,
+            "y": 352.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 0.0,
+            "y": 384.0
+          },
+          {
+            "h": 32.0,
+            "w": 448.0,
+            "x": 704.0,
+            "y": 384.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 0.0,
+            "y": 416.0
+          },
+          {
+            "h": 32.0,
+            "w": 448.0,
+            "x": 704.0,
+            "y": 416.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 0.0,
+            "y": 448.0
+          },
+          {
+            "h": 32.0,
+            "w": 448.0,
+            "x": 704.0,
+            "y": 448.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 0.0,
+            "y": 480.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 704.0,
+            "y": 480.0
+          },
+          {
+            "h": 32.0,
+            "w": 64.0,
+            "x": 1088.0,
+            "y": 480.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 0.0,
+            "y": 512.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 704.0,
+            "y": 512.0
+          },
+          {
+            "h": 32.0,
+            "w": 64.0,
+            "x": 1088.0,
+            "y": 512.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 0.0,
+            "y": 544.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 704.0,
+            "y": 544.0
+          },
+          {
+            "h": 32.0,
+            "w": 64.0,
+            "x": 1088.0,
+            "y": 544.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 0.0,
+            "y": 576.0
+          },
+          {
+            "h": 32.0,
+            "w": 64.0,
+            "x": 1088.0,
+            "y": 576.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 0.0,
+            "y": 608.0
+          },
+          {
+            "h": 32.0,
+            "w": 64.0,
+            "x": 1088.0,
+            "y": 608.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 0.0,
+            "y": 640.0
+          },
+          {
+            "h": 32.0,
+            "w": 64.0,
+            "x": 1088.0,
+            "y": 640.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 0.0,
+            "y": 672.0
+          },
+          {
+            "h": 32.0,
+            "w": 64.0,
+            "x": 1088.0,
+            "y": 672.0
+          },
+          {
+            "h": 32.0,
+            "w": 864.0,
+            "x": 0.0,
+            "y": 704.0
+          },
+          {
+            "h": 32.0,
+            "w": 96.0,
+            "x": 1056.0,
+            "y": 704.0
+          },
+          {
+            "h": 32.0,
+            "w": 864.0,
+            "x": 0.0,
+            "y": 736.0
+          },
+          {
+            "h": 32.0,
+            "w": 96.0,
+            "x": 1056.0,
+            "y": 736.0
+          },
+          {
+            "h": 64.0,
+            "w": 96.0,
+            "x": 96.0,
+            "y": 288.0
+          },
+          {
+            "h": 64.0,
+            "w": 96.0,
+            "x": 256.0,
+            "y": 288.0
+          },
+          {
+            "h": 64.0,
+            "w": 96.0,
+            "x": 448.0,
+            "y": 288.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 896.0,
+            "y": 192.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 1024.0,
+            "y": 192.0
+          },
+          {
+            "h": 64.0,
+            "w": 96.0,
+            "x": 928.0,
+            "y": 160.0
+          },
+          {
+            "h": 64.0,
+            "w": 224.0,
+            "x": 800.0,
+            "y": 576.0
+          },
+          {
+            "h": 64.0,
+            "w": 160.0,
+            "x": 96.0,
+            "y": 544.0
+          },
+          {
+            "h": 64.0,
+            "w": 64.0,
+            "x": 320.0,
+            "y": 544.0
+          },
+          {
+            "h": 64.0,
+            "w": 128.0,
+            "x": 448.0,
+            "y": 544.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 64.0,
+            "y": 384.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 544.0,
+            "y": 384.0
+          },
+          {
+            "h": 32.0,
+            "w": 32.0,
+            "x": 1056.0,
+            "y": 640.0
+          },
+          {
+            "h": 32.0,
+            "w": 64.0,
+            "x": 64.0,
+            "y": 640.0
+          }
+        ],
+        "outdoor": false,
+        "run": 190.0,
+        "speed": 90.0,
+        "walk": {
+          "h": 671.0,
+          "w": 1088.0,
+          "x": 32.0,
+          "y": 96.0
+        },
+        "walkRegions": [
+          [
+            [
+              32.0,
+              192.0
+            ],
+            [
+              704.0,
+              192.0
+            ],
+            [
+              704.0,
+              704.0
+            ],
+            [
+              32.0,
+              704.0
+            ]
+          ],
+          [
+            [
+              704.0,
+              224.0
+            ],
+            [
+              800.0,
+              224.0
+            ],
+            [
+              800.0,
+              352.0
+            ],
+            [
+              704.0,
+              352.0
+            ]
+          ],
+          [
+            [
+              832.0,
+              96.0
+            ],
+            [
+              1120.0,
+              96.0
+            ],
+            [
+              1120.0,
+              256.0
+            ],
+            [
+              832.0,
+              256.0
+            ]
+          ],
+          [
+            [
+              896.0,
+              256.0
+            ],
+            [
+              992.0,
+              256.0
+            ],
+            [
+              992.0,
+              320.0
+            ],
+            [
+              896.0,
+              320.0
+            ]
+          ],
+          [
+            [
+              800.0,
+              320.0
+            ],
+            [
+              1120.0,
+              320.0
+            ],
+            [
+              1120.0,
+              352.0
+            ],
+            [
+              800.0,
+              352.0
+            ]
+          ],
+          [
+            [
+              736.0,
+              480.0
+            ],
+            [
+              1088.0,
+              480.0
+            ],
+            [
+              1088.0,
+              704.0
+            ],
+            [
+              736.0,
+              704.0
+            ]
+          ],
+          [
+            [
+              704.0,
+              576.0
+            ],
+            [
+              736.0,
+              576.0
+            ],
+            [
+              736.0,
+              704.0
+            ],
+            [
+              704.0,
+              704.0
+            ]
+          ],
+          [
+            [
+              864.0,
+              704.0
+            ],
+            [
+              1056.0,
+              704.0
+            ],
+            [
+              1056.0,
+              768.0
+            ],
+            [
+              864.0,
+              768.0
+            ]
+          ]
+        ],
+        "width": 960.0,
+        "zones": {
+          "arcade_bench": {
+            "x": 752.0,
+            "y": 408.0
+          },
+          "arcade_blocks": {
+            "x": 112.0,
+            "y": 312.0
+          },
+          "arcade_blocks_2": {
+            "x": 368.0,
+            "y": 312.0
+          },
+          "arcade_car": {
+            "x": 480.0,
+            "y": 400.0
+          },
+          "arcade_door": {
+            "x": 480.0,
+            "y": 560.0
+          },
+          "arcade_mines": {
+            "x": 240.0,
+            "y": 312.0
+          },
+          "arcade_snake": {
+            "x": 208.0,
+            "y": 568.0
+          },
+          "arcade_snake_left": {
+            "x": 160.0,
+            "y": 568.0
+          },
+          "arcade_snake_right": {
+            "x": 256.0,
+            "y": 568.0
+          },
+          "arcade_tickets": {
+            "x": 736.0,
+            "y": 568.0
+          },
+          "arcade_trophy": {
+            "x": 512.0,
+            "y": 280.0
+          },
+          "arcade_vending": {
+            "x": 864.0,
+            "y": 568.0
+          },
+          "arcade_xiangqi": {
+            "x": 720.0,
+            "y": 308.0
+          },
+          "arcade_xiangqi_far": {
+            "x": 720.0,
+            "y": 308.0
+          },
+          "arcade_xiangqi_near": {
+            "x": 848.0,
+            "y": 308.0
+          }
+        }
+      },
+      "version": 1.0,
+      "visual": {
+        "background": true,
+        "enclosed": true,
+        "exits": [
+          {
+            "id": "door",
+            "name": "公园",
+            "point": {
+              "x": 480.0,
+              "y": 600.0
+            },
+            "to": {
+              "entry": "arcade",
+              "sceneId": "qianxia-park"
+            }
+          }
+        ],
+        "height": 640.0,
+        "modules": {
+          "arcade_bench": {
+            "collision": {
+              "h": 32.0,
+              "w": 96.0,
+              "x": 1.0,
+              "y": 29.5
+            },
+            "depth": 384.0,
+            "h": 61.5,
+            "id": "arcade_bench",
+            "kind": "pk-arcade",
+            "sitting": {
+              "slots": {
+                "arcade_bench": {
+                  "actions": [
+                    "read",
+                    "write",
+                    "working",
+                    "draw"
+                  ],
+                  "anchor": [
+                    49.0,
+                    50.94
+                  ],
+                  "effects": [
+                    "sit",
+                    "bench",
+                    "typing",
+                    "chess",
+                    "read",
+                    "write",
+                    "draw"
+                  ],
+                  "facing": "south",
+                  "module": "arcade_bench",
+                  "zone": "arcade_bench"
+                }
+              }
+            },
+            "w": 98.0,
+            "x": 703.0,
+            "y": 322.5
+          },
+          "arcade_blocks": {
+            "collision": {
+              "h": 64.0,
+              "w": 96.0,
+              "x": 1.0,
+              "y": 104.0
+            },
+            "depth": 288.0,
+            "h": 168.0,
+            "id": "arcade_blocks",
+            "kind": "pk-arcade",
+            "screen": [
+              17.0,
+              44.0,
+              64.0,
+              35.0
+            ],
+            "screenVisible": true,
+            "w": 98.0,
+            "x": 63.0,
+            "y": 120.0
+          },
+          "arcade_blocks_2": {
+            "collision": {
+              "h": 64.0,
+              "w": 96.0,
+              "x": 1.0,
+              "y": 104.0
+            },
+            "depth": 288.0,
+            "h": 168.0,
+            "id": "arcade_blocks_2",
+            "kind": "pk-arcade",
+            "screen": [
+              17.0,
+              44.0,
+              64.0,
+              35.0
+            ],
+            "screenVisible": true,
+            "w": 98.0,
+            "x": 319.0,
+            "y": 120.0
+          },
+          "arcade_mines": {
+            "collision": {
+              "h": 64.0,
+              "w": 96.0,
+              "x": 1.0,
+              "y": 104.0
+            },
+            "depth": 288.0,
+            "h": 168.0,
+            "id": "arcade_mines",
+            "kind": "pk-arcade",
+            "screen": [
+              16.0,
+              44.0,
+              65.0,
+              31.0
+            ],
+            "screenVisible": true,
+            "w": 98.0,
+            "x": 191.0,
+            "y": 120.0
+          },
+          "arcade_snake": {
+            "collision": {
+              "h": 64.0,
+              "w": 224.0,
+              "x": 1.0,
+              "y": 100.0
+            },
+            "depth": 544.0,
+            "h": 164.0,
+            "id": "arcade_snake",
+            "kind": "pk-arcade",
+            "screen": [
+              44.0,
+              38.0,
+              135.0,
+              49.0
+            ],
+            "screenVisible": true,
+            "w": 226.0,
+            "x": 95.0,
+            "y": 380.0
+          },
+          "arcade_tickets": {
+            "collision": {
+              "h": 32.0,
+              "w": 128.0,
+              "x": 1.0,
+              "y": 54.5
+            },
+            "depth": 544.0,
+            "h": 86.5,
+            "id": "arcade_tickets",
+            "kind": "pk-arcade",
+            "w": 130.0,
+            "x": 671.0,
+            "y": 457.5
+          },
+          "arcade_trophy": {
+            "collision": {
+              "h": 32.0,
+              "w": 64.0,
+              "x": 1.0,
+              "y": 58.0
+            },
+            "depth": 256.0,
+            "h": 90.0,
+            "id": "arcade_trophy",
+            "kind": "pk-arcade",
+            "w": 66.0,
+            "x": 479.0,
+            "y": 166.0
+          },
+          "arcade_vending": {
+            "collision": {
+              "h": 32.0,
+              "w": 64.0,
+              "x": 1.0,
+              "y": 45.5
+            },
+            "depth": 544.0,
+            "h": 77.5,
+            "id": "arcade_vending",
+            "kind": "pk-arcade",
+            "w": 66.0,
+            "x": 831.0,
+            "y": 466.5
+          },
+          "arcade_xiangqi": {
+            "boardPaper": [
+              [
+                17.4260563380282,
+                5.17605633802817
+              ],
+              [
+                80.056338028169,
+                5.17605633802817
+              ],
+              [
+                83.6795774647887,
+                42.443661971831
+              ],
+              [
+                13.8028169014084,
+                42.443661971831
+              ]
+            ],
+            "boardQuad": [
+              [
+                20.6933642605634,
+                7.22577464788732
+              ],
+              [
+                76.7890301056338,
+                7.22577464788732
+              ],
+              [
+                79.6589980633803,
+                40.3939436619718
+              ],
+              [
+                17.8233963028169,
+                40.3939436619718
+              ]
+            ],
+            "collision": {
+              "h": 64.0,
+              "w": 96.0,
+              "x": 1.0,
+              "y": 9.5
+            },
+            "depth": 288.0,
+            "h": 73.5,
+            "id": "arcade_xiangqi",
+            "kind": "pk-arcade",
+            "w": 98.0,
+            "x": 735.0,
+            "y": 214.5
+          },
+          "chess-far-seat": {
+            "collision": {
+              "h": 32.0,
+              "w": 32.0,
+              "x": 0.0,
+              "y": 9.23076923076923
+            },
+            "depth": 288.0,
+            "h": 41.2307692307692,
+            "id": "chess-far-seat",
+            "kind": "pk-arcade",
+            "w": 32.0,
+            "x": 704.0,
+            "y": 246.769230769231
+          },
+          "chess-near-seat": {
+            "collision": {
+              "h": 32.0,
+              "w": 32.0,
+              "x": 0.0,
+              "y": 9.23076923076923
+            },
+            "depth": 288.0,
+            "h": 41.2307692307692,
+            "id": "chess-near-seat",
+            "kind": "pk-arcade",
+            "w": 32.0,
+            "x": 832.0,
+            "y": 246.769230769231
+          },
+          "station-plant-a": {
+            "collision": {
+              "h": 32.0,
+              "w": 32.0,
+              "x": 2.0,
+              "y": 17.0
+            },
+            "depth": 352.0,
+            "h": 49.0,
+            "id": "station-plant-a",
+            "kind": "decoration",
+            "w": 38.0,
+            "x": 30.0,
+            "y": 303.0
+          },
+          "station-plant-b": {
+            "collision": {
+              "h": 32.0,
+              "w": 32.0,
+              "x": 2.0,
+              "y": 17.0
+            },
+            "depth": 352.0,
+            "h": 49.0,
+            "id": "station-plant-b",
+            "kind": "decoration",
+            "w": 38.0,
+            "x": 510.0,
+            "y": 303.0
+          },
+          "station-plant-c": {
+            "collision": {
+              "h": 32.0,
+              "w": 32.0,
+              "x": -4.5,
+              "y": -2.0
+            },
+            "depth": 384.0,
+            "h": 30.0,
+            "id": "station-plant-c",
+            "kind": "decoration",
+            "w": 23.0,
+            "x": 868.5,
+            "y": 354.0
+          },
+          "station-token-lamp": {
+            "collision": {
+              "h": 32.0,
+              "w": 64.0,
+              "x": 2.0,
+              "y": 43.0
+            },
+            "depth": 544.0,
+            "h": 81.0,
+            "id": "station-token-lamp",
+            "kind": "decoration",
+            "w": 67.5,
+            "x": 350.0,
+            "y": 469.0
+          }
+        },
+        "outdoor": false,
+        "width": 960.0,
+        "zones": {
+          "arcade_bench": {
+            "x": 752.0,
+            "y": 408.0
+          },
+          "arcade_blocks": {
+            "x": 112.0,
+            "y": 312.0
+          },
+          "arcade_blocks_2": {
+            "x": 368.0,
+            "y": 312.0
+          },
+          "arcade_car": {
+            "x": 480.0,
+            "y": 400.0
+          },
+          "arcade_door": {
+            "x": 480.0,
+            "y": 560.0
+          },
+          "arcade_mines": {
+            "x": 240.0,
+            "y": 312.0
+          },
+          "arcade_snake": {
+            "x": 208.0,
+            "y": 568.0
+          },
+          "arcade_snake_left": {
+            "x": 160.0,
+            "y": 568.0
+          },
+          "arcade_snake_right": {
+            "x": 256.0,
+            "y": 568.0
+          },
+          "arcade_tickets": {
+            "x": 736.0,
+            "y": 568.0
+          },
+          "arcade_trophy": {
+            "x": 512.0,
+            "y": 280.0
+          },
+          "arcade_vending": {
+            "x": 864.0,
+            "y": 568.0
+          },
+          "arcade_xiangqi": {
+            "x": 720.0,
+            "y": 308.0
+          },
+          "arcade_xiangqi_far": {
+            "x": 720.0,
+            "y": 308.0
+          },
+          "arcade_xiangqi_near": {
+            "x": 848.0,
+            "y": 308.0
+          }
+        }
+      },
+      "zoneOwners": {
+        "arcade_bench": "arcade_bench",
+        "arcade_blocks": "arcade_blocks",
+        "arcade_blocks_2": "arcade_blocks_2",
+        "arcade_mines": "arcade_mines",
+        "arcade_snake": "arcade_snake",
+        "arcade_snake_left": "arcade_snake",
+        "arcade_snake_right": "arcade_snake",
+        "arcade_tickets": "arcade_tickets",
+        "arcade_trophy": "arcade_trophy",
+        "arcade_vending": "arcade_vending",
+        "arcade_xiangqi": "chess-far-seat",
+        "arcade_xiangqi_far": "chess-far-seat",
+        "arcade_xiangqi_near": "chess-near-seat"
+      }
+    },
+    "gridOrigin": [
+      0,
+      0
+    ]
+  },
+  "name": "星光电玩城",
+  "openings": [
+    {
+      "exit": "door",
+      "id": "front_door_1",
+      "type": "front_door",
+      "x": 12,
+      "y": 18
+    }
+  ],
+  "revision": "arcade-coast-partitions-v2-20261111",
+  "size": [
+    30,
+    20
+  ],
+  "structure": "modular",
+  "walls": {
+    "doorways": [],
+    "inner": [
+      [
+        18,
+        4
+      ],
+      [
+        18,
+        5
+      ],
+      [
+        18,
+        6
+      ],
+      [
+        18,
+        7
+      ],
+      [
+        18,
+        8
+      ],
+      [
+        18,
+        12
+      ],
+      [
+        18,
+        13
+      ],
+      [
+        18,
+        14
+      ],
+      [
+        18,
+        15
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        2,
+        11
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        5,
+        11
+      ],
+      [
+        6,
+        11
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        8,
+        11
+      ],
+      [
+        9,
+        11
+      ],
+      [
+        10,
+        11
+      ],
+      [
+        21,
+        13
+      ],
+      [
+        22,
+        13
+      ],
+      [
+        23,
+        13
+      ],
+      [
+        24,
+        13
+      ],
+      [
+        25,
+        13
+      ],
+      [
+        26,
+        13
+      ],
+      [
+        27,
+        13
+      ],
+      [
+        28,
+        13
+      ]
+    ],
+    "style": {
+      "back": "arcade-coast-rich",
+      "front": "arcade-coast-rich",
+      "side": "arcade-coast-rich"
+    }
+  }
+}

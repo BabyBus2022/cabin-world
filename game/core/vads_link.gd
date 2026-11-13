@@ -101,7 +101,7 @@ func _process(delta: float) -> void:
 		return
 	if not _sent_hello:
 		_sent_hello = true
-		_write({"type": "hello", "token": _token, "game": "cabin-world", "restaurant": 2, "actions": 1, "economy": 1, "walk": 1, "residents": 1, "arcadeProfiles": Hall.profiles(), "worldRules": 1, "social": 1, "bodySave": 1, "sleepProfiles": ResidentSleep.profiles(), "toolPoses": ToolPoses.profiles()})
+		_write({"type": "hello", "token": _token, "game": "cabin-world", "furnitureMaker":1, "restaurant": 2, "personal":1, "residentRegistry":1, "actions": 1, "economy": 1, "walk": 1, "residents": 1, "arcadeProfiles": Hall.profiles(), "worldRules": 1, "social": 1, "bodySave": 1, "sleepProfiles": ResidentSleep.profiles(), "toolPoses": ToolPoses.profiles()})
 		_heard = _clock
 	_read()
 	if _peer == null:
@@ -155,6 +155,8 @@ func _read() -> void:
 		_drop()
 		return
 	_buffer.append_array(got[1])
+	if _buffer.size()>36*1024*1024:
+		_drop();return
 	_heard = _clock
 	while true:
 		var at := _buffer.find(10)
@@ -170,10 +172,16 @@ func _read() -> void:
 
 
 func _handle(frame: Dictionary) -> void:
+	# Deleted identities retain recovery saves, but stale hosts may not act on them.
+	var removed_actor:String=str(frame.get("actor",frame.get("owner","")))
+	if removed_actor!="" and load("res://core/resident_registry.gd").removed(removed_actor) and frame.get("type")!="resident.do":
+		var responses:={"economy.do":"economy.result","personal.do":"personal.result","body.open":"body.saved","body.patch":"body.saved","body.get":"body.state","body.do":"body.state","body.sync":"body.state","seat.claim":"seat.result","walk.go":"walk.arrived","restaurant.do":"restaurant.result","restaurant.get":"restaurant.result","entry.route":"entry.result","entry.pass":"entry.result","action.start":"action.cancelled"}
+		if responses.has(frame.get("type")):send({"type":responses[frame.type],"id":frame.get("id",""),"actor":removed_actor,"ok":false,"error":"住户已删除"})
+		return
 	match frame.get("type"):
 		"welcome":
 			var host_info: Dictionary = frame.get("host", {}) if frame.get("host", {}) is Dictionary else {}
-			host_name = str(host_info.get("name", "机器人软件")).strip_edges().left(40)
+			host_name = str(host_info.get("name", "VADS")).strip_edges().left(40)
 			if host_name.is_empty(): host_name = "机器人软件"
 			supports_audio_settings = host_info.get("audioSettings", true) == true
 			connected = true
@@ -183,7 +191,7 @@ func _handle(frame: Dictionary) -> void:
 			if body_persistence:
 				BodySave.load_rows()
 				for actor in BodySave.people:
-					Body.of(actor).load_committed(BodySave.people[actor])
+					if not load("res://core/resident_registry.gd").removed(actor):Body.of(actor).load_committed(BodySave.people[actor])
 			_ping = 0.0
 			SharedFeed.set_link(true)
 			connection_changed.emit(true)
@@ -208,6 +216,17 @@ func _handle(frame: Dictionary) -> void:
 			walk_ordered.emit(frame)
 		"restaurant.do", "restaurant.get":
 			restaurant_requested.emit(frame)
+		"resident.do":
+			var reply:Dictionary=load("res://core/resident_registry.gd").accept(frame)
+			send(reply.merged({"type":"resident.result","id":frame.get("id",""),"actor":frame.get("actor","")}))
+			if reply.get("ok",false) and frame.get("action") in ["remove","rename_home"]:
+				send({"type":"resident.changed","actor":frame.get("actor",""),"removed":frame.get("action")=="remove"})
+		"furniture.do":
+			var reply:Dictionary=load("res://core/furniture_maker.gd").accept(frame)
+			send(reply.merged({"type":"furniture.result","id":frame.get("id",""),"actor":frame.get("actor","")}))
+		"personal.do":
+			var reply:Dictionary=load("res://core/resident_personal.gd").accept(frame)
+			send(reply.merged({"type":"personal.result","id":frame.get("id",""),"actor":frame.get("actor","")}))
 		"panel.data":
 			panel_arrived.emit(frame)
 		"panel.did":

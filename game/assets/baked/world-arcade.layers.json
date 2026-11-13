@@ -110,7 +110,7 @@
     {
       "id": "arcade_blocks",
       "file": "../arcade-station/blocks.png",
-      "x": 96.0,
+      "x": 96,
       "y": 184,
       "w": 96,
       "h": 168,
@@ -126,7 +126,7 @@
     {
       "id": "arcade_mines",
       "file": "../arcade-station/mines.png",
-      "x": 256.0,
+      "x": 256,
       "y": 184,
       "w": 96,
       "h": 168,
@@ -142,7 +142,7 @@
     {
       "id": "arcade_trophy",
       "file": "../terminus/arcade_trophy.png",
-      "x": 448.0,
+      "x": 448,
       "y": 219,
       "w": 96,
       "h": 133,
@@ -152,7 +152,7 @@
     {
       "id": "chess-far-seat",
       "file": "../terminus/chess-far-seat.png",
-      "x": 800.0,
+      "x": 800,
       "y": 182,
       "w": 32,
       "h": 42,
@@ -162,7 +162,7 @@
     {
       "id": "chess-near-seat",
       "file": "../terminus/chess-near-seat.png",
-      "x": 928.0,
+      "x": 928,
       "y": 182,
       "w": 32,
       "h": 42,
@@ -172,7 +172,7 @@
     {
       "id": "arcade_xiangqi",
       "file": "../terminus/arcade_xiangqi.png",
-      "x": 830.0,
+      "x": 830,
       "y": 131,
       "w": 100,
       "h": 93,
@@ -182,7 +182,7 @@
     {
       "id": "arcade_snake",
       "file": "../arcade-station/snake.png",
-      "x": 704.0,
+      "x": 704,
       "y": 476,
       "w": 224,
       "h": 164,
@@ -198,7 +198,7 @@
     {
       "id": "arcade_tickets",
       "file": "../terminus/arcade_tickets.png",
-      "x": 96.0,
+      "x": 96,
       "y": 483,
       "w": 160,
       "h": 125,
@@ -208,7 +208,7 @@
     {
       "id": "arcade_vending",
       "file": "../terminus/arcade_vending.png",
-      "x": 320.0,
+      "x": 320,
       "y": 499,
       "w": 64,
       "h": 109,
@@ -218,7 +218,7 @@
     {
       "id": "arcade_bench",
       "file": "../terminus/arcade_bench.png",
-      "x": 448.0,
+      "x": 448,
       "y": 517,
       "w": 128,
       "h": 91,
@@ -227,39 +227,55 @@
     },
     {
       "file": "xiaojingyu-home.xj-plant-west.png",
-      "x": 62.0,
+      "x": 62,
       "y": 367,
-      "w": 38.0,
-      "h": 49.0,
+      "w": 38,
+      "h": 49,
       "depth": 416,
       "id": "station-plant-a"
     },
     {
       "file": "xiaojingyu-home.xj-plant-west.png",
-      "x": 542.0,
+      "x": 542,
       "y": 367,
-      "w": 38.0,
-      "h": 49.0,
+      "w": 38,
+      "h": 49,
       "depth": 416,
       "id": "station-plant-b"
     },
     {
       "file": "xiaojingyu-home.xj-plant-east.png",
       "x": 964.5,
-      "y": 642.0,
-      "w": 23.0,
-      "h": 30.0,
+      "y": 642,
+      "w": 23,
+      "h": 30,
       "depth": 672,
       "id": "station-plant-c"
     },
     {
       "file": "world-arcade.arcade-token-lamp-0.png",
-      "x": 62.0,
+      "x": 62,
       "y": 597,
       "w": 67.5,
-      "h": 81.0,
+      "h": 81,
       "depth": 672,
       "id": "station-token-lamp"
+    },
+    {
+      "id": "arcade_blocks_2",
+      "file": "../arcade-station/blocks.png",
+      "x": 352,
+      "y": 184,
+      "w": 96,
+      "h": 168,
+      "depth": 352,
+      "fit_art": true,
+      "region": [
+        102,
+        38,
+        820,
+        1440
+      ]
     }
   ]
 }

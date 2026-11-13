@@ -97,7 +97,7 @@ func build() -> void:
 		var depth: float = layer["depth"]
 		s.position = Vector2(layer["x"], depth)
 		s.offset = Vector2(0, (float(layer["y"]) - depth) * 2.0)
-		if str(layer["file"]).begins_with("roomkit:"): # own pixel scale instead of the baked 0.5
+		if layer.has("scale") or str(layer["file"]).begins_with("roomkit:") or str(layer["file"]).begins_with("made:"): # uniform scale; never stretch user artwork
 			s.scale = Vector2.ONE * float(layer.get("scale", 1.0))
 			s.offset = Vector2(0, (float(layer["y"]) - depth) / s.scale.y)
 		elif layer.get("fit_art",false):
@@ -122,6 +122,8 @@ func build() -> void:
 	ArcadeScreen.mount(self, scene_id)
 	WorldMechanism.mount(self, scene_id)
 	AmbientArt.mount(self, scene_id)
+	var keepsakes=load("res://entities/keepsake_art.gd").new()
+	keepsakes.scene=scene_id;keepsakes.z_index=98;add_child(keepsakes)
 	FurnitureState.mount(self,scene_id,WorldPresentation.facts().scenes[scene_id].modules,furniture)
 
 
@@ -207,6 +209,10 @@ func _draw_glow() -> void:
 func _sprite(file: String) -> Sprite2D:
 	var s := Sprite2D.new()
 	s.centered = false
+	if file.begins_with("made:"):
+		s.texture=load("res://core/furniture_maker.gd").texture(file);return s
+	if file.begins_with("runtime:"):
+		s.texture=WorldData.runtime_textures.get(file.trim_prefix("runtime:"));s.scale=Vector2(.5,.5);return s
 	if file.begins_with("roomkit:"): # roomkit art lives outside res:// (see core/roomkit_items.gd); the caller sets scale/offset
 		s.texture = load("res://core/roomkit_items.gd").texture_for(file.trim_prefix("roomkit:"))
 		return s

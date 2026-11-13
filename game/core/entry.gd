@@ -12,14 +12,14 @@ extends RefCounted
 ## DATA MAPPING: space ids are the ones in WorldData.SPACE_SCENE. Passes are kept in memory, as in VADS; the host sends them again when the link opens.
 
 ## links: the doors, in the order they are tried. owner: only she may enter without a pass.
-const SPACES := {
+static var SPACES := {
 	"home": {"links": ["park"], "owner": "Final01"},
 	"park": {"links": ["home", "shop", "xjhome", "arcade", "restaurant"], "owner": ""},
-	"xjhome": {"links": ["park"], "owner": "xiaojingyu"},
+	"xjhome": {"links": ["park", "restaurant"], "owner": "xiaojingyu"},
 	"shop": {"links": ["park", "onsen"], "owner": ""},
 	"arcade": {"links": ["park"], "owner": ""},
 	"onsen": {"links": ["shop"], "owner": ""},
-	"restaurant": {"links": ["park"], "owner": ""},
+	"restaurant": {"links": ["park", "xjhome"], "owner": ""},
 }
 
 static var _passes := {}

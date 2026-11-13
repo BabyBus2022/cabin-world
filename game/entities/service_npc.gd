@@ -160,6 +160,9 @@ func _draw() -> void:
 ## Arcade role reads the real board. Draws no extra opponent in resident-vs-resident matches.
 func advance_arcade(delta: float) -> void:
 	var row: Dictionary = VadsLink.arcade_view.get("sessions",{}).get(profile.match_key,{})
+	if profile.match_key=="xiangqi":
+		var alternate:Dictionary=VadsLink.arcade_view.get("sessions",{}).get("gomoku",{})
+		if alternate.get("status") in ["waiting","playing"]:row=alternate
 	var board = row.get("game")
 	visible = false
 	if not board is Dictionary or row.get("status") in ["waiting","interrupted"]: return
@@ -181,7 +184,7 @@ func advance_arcade(delta: float) -> void:
 	pose_flip = seat.flip and not celebrating
 	pose_time = age if celebrating else pose_time+delta
 	if not active and not celebrating: pose_time=0
-	if active and board.kind=="xiangqi" and board.sides[int(board.turn)]!=opponent: pose_time=0
+	if active and board.kind in ["xiangqi","gomoku"] and board.sides[int(board.turn)]!=opponent: pose_time=0
 
 static func arcade_seat(scene:String,match_key:String,index:int,fallback:Dictionary) -> Dictionary:
 	var room:Dictionary=WorldData.scenes.get(scene,{})

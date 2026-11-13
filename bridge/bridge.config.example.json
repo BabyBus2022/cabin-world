@@ -6,7 +6,12 @@
   "dataDir": "../data",
   "gameExe": "../CabinWorld.exe",
   "launchGame": true,
-  "http": { "port": 18790 },
-  "weather": { "mode": "virtual" },
-  "waitMs": 45000
+  "http": {
+    "port": 18790
+  },
+  "weather": {
+    "mode": "virtual"
+  },
+  "waitMs": 45000,
+  "residents": []
 }

@@ -60,7 +60,7 @@ static func draw_floor(c:CanvasItem,light:Dictionary) -> void:
 	prepare()
 	if float(light.beamAlpha)<=0:return
 	var shift:=clampf(float(light.shift),-65,65)
-	for win in [[168.0,92.0,138.0,135.0],[596.0,104.0,166.0,143.0]]:
+	for win in geometry.floorWindows:
 		for col in 5:
 			for row in 3:
 				var start:float=row*win[3]/3.0;var end:float=start+win[3]/3.0-7

@@ -8,6 +8,7 @@ extends Node
 ##   phase_done(frame) action.done: id, index, ok
 ##   interrupt(frame)  action.interrupt: id
 ##   skip(frame)       action.skip: id; cuts the current phase's remaining time short
+##   A negative phase ms holds indefinitely; only skip/interrupt/disconnect ends it.
 ##   Sends action.phase (id, index) and action.finished (id) through VadsLink.
 ## Signals carry the actor key, which matches Character.key and the presence keys.
 signal phase_started(actor: String, phase: String, label: String, pose: int)
@@ -19,6 +20,7 @@ var _running := {}
 func start(frame: Dictionary) -> void:
 	var actor := str(frame.get("actor", ""))
 	if _running.has(actor):
+		VadsLink.send({"type":"action.cancelled","id":_running[actor].id,"actor":actor,"error":"动作被新的指令替换，未确认完成"})
 		action_ended.emit(actor)
 	_running[actor] = {"id": frame.get("id"), "kind": frame.get("kind", ""), "phases": frame.get("phases", []), "index": -1, "left": 0.0, "waiting": false}
 	_next(actor)
@@ -37,7 +39,9 @@ func phase_done(frame: Dictionary) -> void:
 		return
 	var ms: float = 0.0 if a.get("skip", false) else float(a["phases"][a["index"]].get("ms", 0))
 	a["skip"] = false
-	if ms > 0.0:
+	if ms < 0.0:
+		a["left"] = -1.0 # hold this phase until action.skip or action.interrupt
+	elif ms > 0.0:
 		a["left"] = ms / 1000.0
 	else:
 		_next(actor)
@@ -48,7 +52,7 @@ func skip(frame: Dictionary) -> void:
 	if actor == "":
 		return
 	var a: Dictionary = _running[actor]
-	if a["left"] > 0.0:
+	if a["left"] != 0.0:
 		a["left"] = 0.0
 		_next(actor)
 	elif a["waiting"]:
@@ -58,6 +62,7 @@ func skip(frame: Dictionary) -> void:
 func interrupt(frame: Dictionary) -> void:
 	var actor := _actor_of(frame.get("id"))
 	if actor != "":
+		VadsLink.send({"type":"action.cancelled","id":frame.get("id"),"actor":actor,"error":"动作已中断"})
 		_finish(actor)
 
 

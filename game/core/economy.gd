@@ -93,6 +93,9 @@ func _ready() -> void:
 	for p in data["products"]:
 		catalog[p["id"]] = p
 	limits = data["wallet"]
+	## pocket-money-50 switched off (core/features.gd): the 1.0 allowance, +20 a day and savings up to 80.
+	if not Features.on("pocket-money-50"):
+		limits = limits.duplicate(); limits["daily"] = 20; limits["cap"] = 80
 	reward_cap = int(data["rewardCap"])
 	daily_sales = data["dailySales"]
 	sale_chance = float(data["saleChance"])
@@ -146,6 +149,10 @@ func price_today(product: Dictionary, day: String) -> int:
 
 func today() -> String:
 	return Time.get_date_string_from_unix_time(int(SharedFeed.now_ms() / 1000.0) + 8 * 3600)
+
+static func available_today(product:Dictionary,day:String)->bool:
+	if product.has("months") and not Features.on("seasons"):return false ## seasonal goods belong to the seasons module
+	return not product.has("months") or int(day.substr(5,2)) in product.months
 
 
 func _now_ms() -> int:
@@ -214,6 +221,7 @@ func reading(actor: String, context: Dictionary = {}) -> Dictionary:
 	var asleep: bool = Body.known(actor) and Body.of(actor).bed_snapshot(now).get("asleep",false)
 	var life:=Life.life_view({"who":who,"life":s.get("life"),"feeling":feeling,"weather":weather if weather is Dictionary else {},"day":day,"now":now,"sleeping":asleep})
 	var environment:Dictionary=load("res://core/room_observation.gd").reading(actor)
+
 	if not environment.is_empty():
 		life["environment"]=environment
 		# Existing hosts already expose life.events in both world_look and chat lifeNote.
@@ -251,6 +259,8 @@ func _answer(frame: Dictionary) -> Dictionary:
 		out["error"] = problem
 		out["state"] = people.get(actor, s)
 		return out
+	# Keep ordinary reading, painting and cooking records; owner keepsake actions are retired.
+	load("res://core/keepsakes.gd").record(s,op,frame)
 	s["rev"] = int(s.get("rev", 0)) + 1
 	var before = people.get(actor)
 	var old_seen := _seen.duplicate()
@@ -269,6 +279,8 @@ func _answer(frame: Dictionary) -> Dictionary:
 		return out
 	out["state"] = s
 	transaction_committed.emit({"id":id,"actor":actor,"op":op,"product":frame.get("product","")})
+	for discovered in out.get("discovered",[]):
+		VadsLink.send({"type":"economy.activity","actor":actor,"id":"found-"+str(discovered.id),"at":SharedFeed.now_ms(),"action":"discover","name":"发现主人留下的心意","detail":str(discovered.text),"space":discovered.scene,"status":"complete"})
 	return out
 
 
@@ -276,11 +288,14 @@ func _apply(s: Dictionary, op: String, frame: Dictionary, out: Dictionary) -> St
 	var id := str(frame.get("product", ""))
 	var day := today()
 	match op:
+		"keepsake":
+			return "留言、礼物与纪念册已停用"
 		"top_up":
 			_top_up(s, day)
 		"buy":
 			if not catalog.has(id):
 				return "没有这个东西"
+			if not available_today(catalog[id],day):return "这个时令商品本月暂未上架"
 			_top_up(s, day)
 			var price := price_today(catalog[id], day)
 			if int(s["wallet"]["coins"]) < price:
@@ -346,8 +361,21 @@ func _apply(s: Dictionary, op: String, frame: Dictionary, out: Dictionary) -> St
 			s["feeling"] = _tidy(Life.arcade_feeling(args))
 		"life_event":
 			var now_ms := float(frame.get("now", 0))
+			var was_settled: bool = frame.get("event", {}).get("matchId", "") in s.get("life", {}).get("records", {}).get("arcadeMatches", [])
 			var result := Life.apply_event(s.get("life"), frame.get("event", {}), str(frame.get("who", "")), str(frame.get("day", "")), now_ms, frame.get("weather", {}) if frame.get("weather") is Dictionary else {})
 			s["life"] = _tidy(result["life"])
+			var event: Dictionary = frame.get("event", {})
+			if event.get("type")=="arcade" and event.get("result") in ["won","lost","draw"] and not str(event.get("matchId", "")).is_empty():
+				var payouts: Dictionary = s.get("arcadePayouts", {})
+				var match_id: String = str(event.matchId)
+				if not payouts.has(match_id):
+					var before := int(s["wallet"]["coins"])
+					var delta := 0 if was_settled else 5 if event.result=="won" else -2 if event.result=="lost" else 0
+					s["wallet"]["coins"] = maxi(0, before + delta)
+					payouts[match_id] = int(s["wallet"]["coins"]) - before
+					s["arcadePayouts"] = payouts
+					if payouts[match_id]!=0: result["notes"].append("对局结算：%+d钱" % int(payouts[match_id]))
+				out["arcadeCoins"] = int(payouts[match_id])
 			if float(result["joy"]) != 0.0:
 				var f := Life.feeling_now(s.get("feeling"), now_ms)
 				f["joy"] = minf(100.0, float(f["joy"]) + float(result["joy"]))
@@ -384,6 +412,7 @@ func _need_plan(frame: Dictionary) -> Dictionary:
 	var feeling := Life.feeling_now(s.get("feeling"), now)
 	var shop: Array = catalog.values()
 	var in_bag: Array = shop.filter(func(p): return int(s["bag"].get(p["id"], 0)) > 0)
+	shop=shop.filter(func(p):return available_today(p,str(frame.get("day",today()))))
 	var w = frame.get("weather")
 	var weather: Dictionary = w if w is Dictionary else {}
 	var queue: Array = frame.get("rands", []).duplicate() if frame.get("rands") is Array else []
@@ -404,7 +433,11 @@ func _sync(frame: Dictionary) -> Dictionary:
 	var actor := str(frame.get("actor", ""))
 	var theirs := int(frame.get("rev", 0))
 	if not people.has(actor) or theirs > int(people[actor].get("rev", 0)):
+		var keepsakes:Dictionary=people.get(actor,{}).get("keepsakes",{}).duplicate(true)
+		var payouts:Dictionary=people.get(actor,{}).get("arcadePayouts",{}).duplicate(true)
 		people[actor] = _clean(frame)
+		if not keepsakes.is_empty():people[actor].keepsakes=keepsakes
+		if not payouts.is_empty():people[actor].arcadePayouts=payouts
 		people[actor]["rev"] = theirs
 		_save()
 	else:
@@ -441,7 +474,7 @@ func _clean(raw: Dictionary) -> Dictionary:
 				var v = foods[k][field]
 				r[field] = int(v) if v is float else v
 			out["foods"][k] = r
-	for field in ["feeling", "life", "uses", "usage", "fishing", "options"]:
+	for field in ["feeling", "life", "uses", "usage", "fishing", "options", "keepsakes", "arcadePayouts"]:
 		if raw.get(field) is Dictionary:
 			out[field] = _tidy(raw[field])
 	if raw.get("fishBlanks") != null:
@@ -471,36 +504,29 @@ static func _tidy(v):
 
 # ---- Saving -----------------------------------------------------------------
 
-func _save() -> bool:
-	var text := JSON.stringify({"version": 1, "people": people, "seen": _seen, "social":social, "relationships":relationships}, "", false, true)
-	var tmp := save_path + ".tmp"
-	var f := FileAccess.open(tmp, FileAccess.WRITE)
-	if f == null:
-		return false
-	f.store_string(text)
-	f.close()
-	if FileAccess.file_exists(save_path) and not _main_broken:
-		DirAccess.copy_absolute(ProjectSettings.globalize_path(save_path), ProjectSettings.globalize_path(save_path + ".bak"))
-	var saved := DirAccess.rename_absolute(ProjectSettings.globalize_path(tmp), ProjectSettings.globalize_path(save_path)) == OK
-	if saved:
-		_main_broken = false
-	return saved
+func _valid_save(data:Dictionary)->bool:
+	if not data.get("people") is Dictionary or not data.people.values().all(func(p):return p is Dictionary):return false
+	if not data.get("seen",[]) is Array or not data.get("social",{}) is Dictionary or not data.get("relationships",{}) is Dictionary:return false
+	for person in data.people.values():
+		if person.get("keepsakes") is Dictionary and not load("res://core/keepsakes.gd").valid(person.keepsakes):return false
+		if person.has("arcadePayouts") and (not person.arcadePayouts is Dictionary or not person.arcadePayouts.values().all(func(v): return (v is int or v is float) and is_finite(float(v)) and v>=-2 and v<=5)):return false
+		for field in ["bag","foods","uses","usage","options","keepsakes","arcadePayouts"]:
+			if person.has(field) and not person[field] is Dictionary:return false
+		if person.has("wallet"):
+			var wallet=person.wallet
+			if not wallet is Dictionary or not (wallet.get("coins") is int or wallet.get("coins") is float) or not is_finite(float(wallet.coins)):return false
+	return true
 
+func _save() -> bool:
+	return load("res://core/safe_store.gd").write_document(save_path,{"version":1,"people":people,"seen":_seen,"social":social,"relationships":relationships},_valid_save,true)
 
 func _load() -> void:
-	for path in [save_path, save_path + ".bak"]:
-		if not FileAccess.file_exists(path):
-			continue
-		var data = JSON.parse_string(FileAccess.get_file_as_string(path))
-		if data is Dictionary and data.get("people") is Dictionary:
-			for actor in data["people"]:
-				people[actor] = _clean(data["people"][actor])
-			_seen = data.get("seen", [])
-			social = data.get("social", {})
-			relationships = data.get("relationships", {})
-			return
-		if path == save_path:
-			_main_broken = true
+	var stored:Dictionary=load("res://core/safe_store.gd").read_document(save_path,_valid_save,true)
+	_main_broken=stored.recovered
+	if not stored.ok:return
+	var data:Dictionary=stored.data
+	for actor in data.get("people",{}):people[actor]=_clean(data.people[actor])
+	_seen=data.get("seen",[]);social=data.get("social",{});relationships=data.get("relationships",{})
 
 
 # Test support: every product's price over a run of days, to compare against the host's copy of the rule.
@@ -516,3 +542,4 @@ func _write_price_table(file: String) -> void:
 	var f := FileAccess.open(file, FileAccess.WRITE)
 	f.store_string(JSON.stringify(table))
 	f.close()
+

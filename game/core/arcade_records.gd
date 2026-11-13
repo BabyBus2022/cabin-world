@@ -13,12 +13,10 @@ static func read_rows(path: String) -> Variant:
 
 static func merge_history(rows: Array) -> Variant:
 	var path := ProjectSettings.globalize_path(Economy.save_path.get_base_dir().path_join("arcade-records.json"))
-	var saved = read_rows(path)
-	var good_primary := saved is Array
-	if saved==null: saved=read_rows(path+".bak")
-	if saved==null:
-		if FileAccess.file_exists(path) or FileAccess.file_exists(path+".bak"): return null
-		saved=[]
+	var stored:Dictionary=load("res://core/safe_store.gd").read_document(path,valid_save)
+	if not stored.ok:return null
+	var saved:Array=stored.data.get("history",[])
+	var good_primary:bool=not stored.recovered and FileAccess.file_exists(path)
 	var known := {}
 	var history: Array = saved.duplicate()
 	for row in history: known[row.matchId]=true
@@ -30,12 +28,7 @@ static func merge_history(rows: Array) -> Variant:
 		history.insert(insert_at,row)
 	history=history.slice(maxi(0,history.size()-40))
 	if history==saved and good_primary: return history
-	var f := FileAccess.open(path+".tmp",FileAccess.WRITE)
-	if f==null: return null
-	f.store_string(JSON.stringify({"version":1,"history":history},"",false,true))
-	f.flush()
-	var ok := f.get_error()==OK
-	f.close()
-	if not ok or (good_primary and DirAccess.copy_absolute(path,path+".bak")!=OK): return null
-	if DirAccess.rename_absolute(path+".tmp",path)!=OK: return null
-	return history
+	return history if load("res://core/safe_store.gd").write_document(path,{"version":1,"history":history},valid_save) else null
+
+static func valid_save(data:Dictionary)->bool:
+	return data.get("history") is Array and data.history.all(valid_record)

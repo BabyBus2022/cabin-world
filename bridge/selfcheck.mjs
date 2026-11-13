@@ -10,7 +10,8 @@ import { fileURLToPath } from 'node:url';
 import { loadConfig, startBridge } from './bridge.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
-const args = process.argv.slice(2), live = args.includes('--live'), full = args.includes('--full'), show = args.includes('--show');
+//   node selfcheck.mjs --live --multi  1.1：再加一位住户，测试两位一起玩（两台方块机、贪吃蛇/象棋/五子棋双人、对电脑、邀请、餐厅、分开的钱包）
+const args = process.argv.slice(2), live = args.includes('--live'), full = args.includes('--full'), show = args.includes('--show'), multi = args.includes('--multi');
 const reportFile = args.includes('--report') ? path.resolve(args[args.indexOf('--report') + 1]) : null;
 const cfgFile = args.includes('--config') ? path.resolve(args[args.indexOf('--config') + 1]) : path.join(HERE, 'bridge.config.json');
 const results = []; let failed = 0;
@@ -43,6 +44,8 @@ if (live && !failed) {
   console.log('\n实机测试（临时空存档，不碰正式数据）');
   const temp = await fsp.mkdtemp(path.join(os.tmpdir(), 'cabinworld-selfcheck-'));
   const t = { ...cfg, dataDir: path.join(temp, 'data'), http: { host: '127.0.0.1', port: 0 }, waitMs: 0 };
+  // The optional multiplayer suite explicitly selects all features in its disposable fixture only.
+  if (multi) { const desc=JSON.parse(fs.readFileSync(path.join(HERE,'update/modules.json'),'utf8'));await fsp.mkdir(t.dataDir,{recursive:true});await fsp.writeFile(path.join(t.dataDir,'features.json'),JSON.stringify({version:1,modules:Object.fromEntries(desc.modules.map(m=>[m.id,true]))})); }
   let b;
   const until = async (fn, ms, what) => { const end = Date.now() + ms; for (;;) { const v = await fn(); if (v) return v; if (Date.now() > end) throw Error('等待超时：' + what); await new Promise(r => setTimeout(r, 300)); } };
   const run = async (name, args) => { const r = await b.runTool(name, args, 0); if (!r.taskId) return r; const task = b.resident.tasks.get(r.taskId); await Promise.race([task.promise, new Promise((_, j) => setTimeout(() => j(Error('超过 3 分钟没有完成')), 180000))]); if (task.status !== 'done') throw Error(task.error || task.status); return task.result; };
@@ -75,6 +78,37 @@ if (live && !failed) {
     if (full) {
       await check('汤屋：先换浴衣，再泡汤', async () => { await until(() => !b.resident.task, 30000, '空闲'); const r = await run('cabin_use', { object: 'onsen_soak', use: 'soak' }); assert(b.resident.outfit === 'yukata', '没换浴衣'); return r.label; });
       await check('开关吊灯', async () => { await run('cabin_use', { object: 'xj_lamp', use: 'on' }); return 'on'; });
+    }
+    if (multi) {
+      // 1.1: several bots in one world, without any owner-edition resident. Blocks the release if any of these fails.
+      const R = k => b.residents.get(k), wait = (task, ms = 180000) => Promise.race([task.promise, new Promise((_, j) => setTimeout(() => j(Error('超过 ' + ms / 1000 + ' 秒没有完成')), ms))]);
+      const runA = async (actor, name, a, ms) => { const r = await b.runTool(name, { ...a, actor }, 0); if (!r.taskId) return r; const t = R(actor).tasks.get(r.taskId); await wait(t, ms); if (t.status !== 'done') throw Error(t.error || t.status); return t.result; };
+      const startA = (actor, name, a) => b.runTool(name, { ...a, actor }, 0);
+      const playing = (kind, n) => until(() => [...b.arcade.sessions.values()].find(s => s.kind === kind && s.status === 'playing' && s.members.length === n), 150000, kind + ' 开局（' + n + ' 人）');
+      const here = () => ['xiaojingyu', 'bot_2'].filter(k => R(k));
+      const idle = async () => { for (const a of here()) { try { await b.runTool('cabin_stop', { actor: a }, 0); } catch { /* 本来就空闲 */ } } await until(() => ![...b.arcade.sessions.values()].some(s => ['waiting', 'playing'].includes(s.status)) && here().every(k => !R(k).task), 60000, '住户都停下'); };
+      await check('新增第二位住户 bot_2（有自己的家）', async () => { await idle(); const r = await b.runTool('cabin_add_resident', { key: 'bot_2', name: '小蓝' }); assert(r.ok && R('bot_2'), '没有加上'); await until(() => R('bot_2').state?.wallet, 30000, 'bot_2 经济初始化'); return r.name + ' · ' + (r.home?.fullName || '自己的家'); });
+      await check('两位的钱包和背包分开', async () => {
+        const xjBefore = R('xiaojingyu').state.wallet.coins, b2 = R('bot_2').state.wallet.coins;
+        const drink = b.resident.catalog.products.filter(p => p.kind === 'drink' && p.price <= b2).sort((x, y) => x.price - y.price)[0];
+        await runA('bot_2', 'cabin_buy', { product: drink.id });
+        assert(R('bot_2').state.bag[drink.id] === 1, 'bot_2 背包里没有'); assert(!R('xiaojingyu').state.bag?.[drink.id], '东西进了小鲸鱼的背包'); assert(R('xiaojingyu').state.wallet.coins === xjBefore, '扣了小鲸鱼的钱');
+        return `bot_2 买了${drink.name}，小鲸鱼的钱和背包没变`;
+      });
+      await check('两台俄罗斯方块机同时开局', async () => { await idle(); await startA('xiaojingyu', 'cabin_use', { object: 'arcade_blocks', use: 'play', mode: 'solo' }); await playing('blocks', 1); await startA('bot_2', 'cabin_use', { object: 'arcade_blocks', use: 'play', mode: 'solo' }); await until(() => [...b.arcade.sessions.values()].filter(s => s.kind === 'blocks' && s.status === 'playing').length === 2, 150000, '第二台方块机开局'); await idle(); return '1 号、2 号各一位'; });
+      for (const [label, object, use] of [['贪吃蛇双人', 'arcade_snake', 'play'], ['象棋双人', 'arcade_xiangqi', 'play'], ['五子棋双人', 'arcade_xiangqi', 'play_gomoku']])
+        await check(label + '（duo 开桌，join 入座）', async () => { await idle(); await startA('xiaojingyu', 'cabin_use', { object, use, mode: 'duo' }); await until(() => [...b.arcade.sessions.values()].some(s => s.status === 'waiting'), 30000, '开桌'); await startA('bot_2', 'cabin_use', { object, use, mode: 'join' }); const s = await playing(use === 'play_gomoku' ? 'gomoku' : object === 'arcade_snake' ? 'snake' : 'xiangqi', 2); await idle(); return s.members.map(m => m.r.key).join(' vs '); });
+      await check('五子棋对电脑（npc）', async () => { await idle(); await startA('bot_2', 'cabin_use', { object: 'arcade_xiangqi', use: 'play_gomoku', mode: 'npc' }); const s = await playing('gomoku', 1); const sides = s.board?.sides || s.board?.players || []; assert(sides.includes('computer'), '对手不是电脑：' + JSON.stringify(sides)); await idle(); return 'bot_2 vs 电脑'; });
+      await check('家中棋盘邀请', async () => { const r = await b.runTool('cabin_invite', { actor: 'xiaojingyu', guest: 'bot_2' }); assert(r.ok && r.chessObject, '没有给出棋盘'); return r.chessObject; });
+      await check('餐厅同时接待两位', async () => {
+        await idle(); const menu = await b.runTool('cabin_restaurant', { actor: 'xiaojingyu', action: 'menu' }); const dish = (menu.dishes || []).find(d => d.price == null || d.price <= Math.min(R('xiaojingyu').state.wallet.coins, R('bot_2').state.wallet.coins)) || menu.dishes?.[0];
+        assert(dish, '菜单是空的');
+        // one counter, one staff member: the two orders are served one after the other, so allow time for both
+        const t0 = Date.now(), took = {};
+        await Promise.all(['xiaojingyu', 'bot_2'].map(k => runA(k, 'cabin_restaurant', { action: 'order', dish: dish.id }, 480000).then(() => { took[k] = Math.round((Date.now() - t0) / 1000); })));
+        assert(R('xiaojingyu').state.bag?.[dish.id] >= 1 && R('bot_2').state.bag?.[dish.id] >= 1, '菜没有分别进两位的背包');
+        return `两位各点了一份${dish.name || dish.id}（${took.xiaojingyu} 秒 / ${took.bot_2} 秒）`;
+      });
     }
     await check('存档只写在临时目录', async () => { const files = await fsp.readdir(path.join(temp, 'save')); assert(files.includes('economy.json'), '没有经济存档'); return files.join(', '); });
     await check('关闭桥后游戏仍在运行（窗口归用户管）', async () => { await b.close(); await new Promise(r => setTimeout(r, 1200)); assert(b.child && b.child.exitCode === null, '游戏跟着退出了'); return '游戏仍在运行'; });

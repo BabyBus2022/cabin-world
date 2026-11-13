@@ -1,0 +1,26 @@
+{
+  "label": "1.1-remodel-hotfix-20261113",
+  "originalVersion": "1.1.0",
+  "originalReleaseUntouched": true,
+  "fixed": [
+    "CW11-QA-01 home remodel draft",
+    "CW11-QA-02 shop remodel draft",
+    "CW11-QA-03 park remodel draft",
+    "published maps loaded from correct save directory on restart",
+    "seaside path and park scenery retained"
+  ],
+  "privacy": {
+    "residentKeys": [
+      "xiaojingyu"
+    ],
+    "excluded": [
+      ".godot",
+      "owner data",
+      "AI test transcripts",
+      "API configuration"
+    ]
+  },
+  "scope": "Includes previous lifecycle/rice/activities hotfix; no 1.2 farm code.",
+  "historicalBaseGameSha256": "17871370c08c55ad11da8557858b44cab7cfcd0c3dfd7ddd54103767fc437cd2",
+  "supersededBy": "PATCH-CHOICES.json"
+}

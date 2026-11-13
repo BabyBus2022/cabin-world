@@ -38,10 +38,10 @@ func _ready() -> void:
 	add_child(shade)
 	_sheet = PanelContainer.new()
 	_sheet.set_anchors_preset(Control.PRESET_CENTER)
-	_sheet.offset_left = -340
-	_sheet.offset_right = 340
-	_sheet.offset_top = -365
-	_sheet.offset_bottom = 365
+	_sheet.offset_left = -380
+	_sheet.offset_right = 380
+	_sheet.offset_top = -300
+	_sheet.offset_bottom = 300
 	_sheet.add_theme_stylebox_override("panel",_box(Hud.PAPER,Hud.WOOD,4,20))
 	add_child(_sheet)
 	var theme_of := Theme.new()
@@ -67,49 +67,73 @@ func _ready() -> void:
 	_sheet.add_child(column)
 	var head := HBoxContainer.new()
 	column.add_child(head)
+	var emblem:=Control.new();emblem.custom_minimum_size=Vector2(36,36);emblem.mouse_filter=MOUSE_FILTER_IGNORE;head.add_child(emblem)
+	emblem.draw.connect(func():
+		for r in [Rect2(4,12,28,16),Rect2(8,8,20,4),Rect2(12,4,12,4)]:emblem.draw_rect(r,Color("365a80"))
+		emblem.draw_rect(Rect2(14,17,8,11),Hud.PAPER_H)
+		emblem.draw_rect(Rect2(8,13,4,4),Color("e3b665"))
+		emblem.draw_rect(Rect2(24,13,4,4),Color("e3b665")))
 	var title := _label("小屋设置",head)
 	title.add_theme_font_size_override("font_size",24)
 	title.size_flags_horizontal = SIZE_EXPAND_FILL
 	_button("关闭",close,head)
-	var scroll := ScrollContainer.new()
-	scroll.size_flags_vertical = SIZE_EXPAND_FILL
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	column.add_child(scroll)
-	var body := VBoxContainer.new()
-	body.size_flags_horizontal = SIZE_EXPAND_FILL
-	body.add_theme_constant_override("separation",10)
-	scroll.add_child(body)
+	var trim:=Control.new();trim.custom_minimum_size.y=8;trim.mouse_filter=MOUSE_FILTER_IGNORE;column.add_child(trim)
+	trim.draw.connect(func():
+		trim.draw_rect(Rect2(0,3,trim.size.x,2),Hud.WOOD_L)
+		for x in [4,12,20]:trim.draw_rect(Rect2(x,1,4,6),Color("365a80")))
+	var tabs:=TabContainer.new()
+	tabs.add_theme_stylebox_override("panel",_box(Hud.PAPER,Hud.PAPER,0,0))
+	tabs.add_theme_stylebox_override("tab_selected",_box(Hud.PAPER_H,Hud.WOOD_L,1,12))
+	tabs.add_theme_stylebox_override("tab_unselected",_box(Hud.PAPER_D,Hud.PAPER,0,12))
+	tabs.add_theme_stylebox_override("tab_hovered",_box(Hud.PAPER_H,Hud.WOOD_L,1,12))
+	tabs.add_theme_color_override("font_selected_color",Hud.INK)
+	tabs.add_theme_color_override("font_unselected_color",Hud.INK2)
+	tabs.add_theme_color_override("font_hovered_color",Hud.INK)
+	tabs.name="SettingsTabs";tabs.size_flags_vertical=SIZE_EXPAND_FILL;column.add_child(tabs)
+	var body:=_page(tabs,"常用")
 	_label("画面",body).add_theme_font_size_override("font_size",20)
-	_label("固定 16:9（1920 × 1080），整幅画面一起缩放。",body)
 	_resolution = OptionButton.new()
 	for value in SIZES: _resolution.add_item("%d × %d" % [value.x,value.y])
 	body.add_child(_resolution)
 	_fullscreen = CheckBox.new()
-	_fullscreen.text = "全屏显示（保持比例）"
+	_fullscreen.text = "全屏"
+	_fullscreen.size_flags_horizontal=SIZE_SHRINK_BEGIN
 	body.add_child(_fullscreen)
-	_button("应用画面设置",_apply_display,body)
 	_display_status = _label("",body)
 	_resolution.item_selected.connect(func(_index):
 		_fullscreen.set_pressed_no_signal(false)
 		_apply_display())
 	_fullscreen.toggled.connect(func(_on): _apply_display())
-	_build_npc_settings(body)
 	body.add_child(HSeparator.new())
-	_label("世界",body).add_theme_font_size_override("font_size",20)
-	var controls := HBoxContainer.new()
+	_label("工具",body).add_theme_font_size_override("font_size",20)
+	var controls := GridContainer.new();controls.columns=2;controls.add_theme_constant_override("h_separation",12);controls.add_theme_constant_override("v_separation",12)
 	body.add_child(controls)
 	_button("刷新近况",func():refresh_requested.emit(),controls)
-	_button("专注观察 / 恢复面板",func():observe_requested.emit();close(),controls)
-	_button("布置当前场景家具 · F6",func():close();furniture_requested.emit(),body)
-	# Roomkit's map editor is temporarily hidden from Settings.
-	_label("暂停只影响自主探索，聊天和手动工具继续可用。",body)
+	_button("专注观察",func():observe_requested.emit();close(),controls)
+	_button("家具布置 · F6",func():close();furniture_requested.emit(),controls)
+	if Features.on("map-editor"):_button("地图编辑",func():close();map_requested.emit(),controls) # the new map editor (ui/map_editor.gd), owner D4; module switch, core/features.gd
+	body=_page(tabs,"住户")
+	if Features.on("add-bots"):_button("新增住户 / 分配房间",func():add_child(load("res://ui/resident_manager.gd").new()),body) ## module switch; bots added earlier stay
 	for resident in Residents.people():
-		var row := HBoxContainer.new()
-		body.add_child(row)
-		_label(resident.name,row).size_flags_horizontal=SIZE_EXPAND_FILL
-		var pause := CheckBox.new()
-		pause.text="暂停自主探索"
+		var card:=PanelContainer.new();card.add_theme_stylebox_override("panel",_box(Hud.PAPER_H,Hud.WOOD_L,1,14));body.add_child(card)
+		var content:=VBoxContainer.new();content.add_theme_constant_override("separation",12);card.add_child(content)
+		var heading:=HBoxContainer.new();content.add_child(heading)
+		for character in get_tree().get_nodes_in_group("world_residents"):
+			if character.key!=resident.key:continue
+			var f:Dictionary=character.portrait_frame();var r:Array=f.rect;var anchor:Array=f.anchor
+			var portrait:=TextureRect.new();var atlas:=AtlasTexture.new();atlas.atlas=f.texture
+			atlas.region=Rect2(float(r[0])+float(anchor[0])-92.5,float(r[1])+float(anchor[1])-278.0,185,185)
+			portrait.texture=atlas;portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;portrait.texture_filter=TEXTURE_FILTER_NEAREST;portrait.custom_minimum_size=Vector2(48,48);heading.add_child(portrait)
+		var name_label:=_label(load("res://core/resident_personal.gd").label(resident.key,resident.name),heading)
+		name_label.add_theme_font_size_override("font_size",22);name_label.size_flags_horizontal=SIZE_EXPAND_FILL
+		_button("改名",func():_rename(resident,name_label),heading)
+		var row:=HBoxContainer.new();row.add_theme_constant_override("separation",18);content.add_child(row)
+		var pause := CheckButton.new()
+		pause.text="暂停探索"
+		pause.tooltip_text="只暂停自主活动，聊天与手动操作仍可使用。"
+		pause.size_flags_horizontal=SIZE_SHRINK_BEGIN
 		row.add_child(pause)
+		var spacer:=Control.new();spacer.size_flags_horizontal=SIZE_EXPAND_FILL;row.add_child(spacer)
 		var lamps := OptionButton.new()
 		for label in ["灯光 · 自动","灯光 · 开","灯光 · 关"]:lamps.add_item(label)
 		row.add_child(lamps)
@@ -117,9 +141,14 @@ func _ready() -> void:
 		pause.toggled.connect(func(on):_world_option(resident.key,{"paused":on}))
 		lamps.item_selected.connect(func(i):_world_option(resident.key,{"lamps":["auto","on","off"][i]}))
 	body.add_child(HSeparator.new())
-	_label("音频与接口",body).add_theme_font_size_override("font_size",20)
+	body=_page(tabs,"外观")
+	_build_npc_settings(body)
+	body=_page(tabs,"音频")
+	tabs.tab_changed.connect(func(index):
+		if index==3:_load_audio())
+	_label("音频理解",body).add_theme_font_size_override("font_size",20)
 	_audio_description = _label("音频由连接的机器人软件提供。",body)
-	_endpoint = _field("接口地址 · 由机器人软件提供",body)
+	_endpoint = _field("接口地址",body)
 	_endpoint.editable = false
 	_endpoint.placeholder_text = "连接机器人软件后读取"
 	_model = _field("音频模型",body)
@@ -132,10 +161,10 @@ func _ready() -> void:
 	body.add_child(_enabled)
 	var buttons := HBoxContainer.new()
 	body.add_child(buttons)
-	_save = _button("保存到机器人软件",_save_audio,buttons)
-	_test = _button("测试已保存的连接",_test_audio,buttons)
+	_save = _button("保存",_save_audio,buttons)
+	_test = _button("测试连接",_test_audio,buttons)
 	_reload = _button("重新读取",_load_audio,buttons)
-	_status = _label("",body)
+	_status = _label("",column)
 	_audio_notice = _label("",body)
 	_audio_notice.add_theme_font_size_override("font_size",13)
 	VadsLink.panel_arrived.connect(_on_data)
@@ -145,7 +174,7 @@ func _ready() -> void:
 
 func _build_npc_settings(body:VBoxContainer) -> void:
 	body.add_child(HSeparator.new())
-	_label("NPC 设置",body).add_theme_font_size_override("font_size",20)
+	_label("NPC 形象",body).add_theme_font_size_override("font_size",20)
 	var npc_row:=HBoxContainer.new()
 	npc_row.add_theme_constant_override("separation",12)
 	body.add_child(npc_row)
@@ -165,19 +194,19 @@ func _build_npc_settings(body:VBoxContainer) -> void:
 		card.toggle_mode=true
 		card.pressed.connect(_choose_npc_skin.bind(i))
 		npc_row.add_child(card);_npc_cards.append(card)
-	_npc_status=_label("统一更换小卖部、餐厅和游戏对手的外观。",body)
+	_npc_status=_label("",body)
 	_load_npc_skin()
 
 func _load_npc_skin() -> void:
 	for i in _npc_cards.size():
 		var active:bool=NpcAppearance.IDS[i]==NpcAppearance.current()
 		_npc_cards[i].set_pressed_no_signal(active)
-		_npc_cards[i].text=("团团" if i==0 else "Naiwa")+"\n"+("✓ 使用中" if active else "点击换上")
+		_npc_cards[i].text=("团团" if i==0 else "Naiwa")+"\n"+("✓ 使用中" if active else "选择")
 
 func _choose_npc_skin(index:int) -> void:
 	var error:=NpcAppearance.choose(NpcAppearance.IDS[index],get_tree())
 	_load_npc_skin()
-	_npc_status.text="已换成"+NpcAppearance.label()+"，下次打开仍会使用。" if error==OK else "皮肤保存失败，请重试。"
+	_npc_status.text="已换成"+NpcAppearance.label()+"" if error==OK else "皮肤保存失败，请重试。"
 
 func _world_option(actor: String,fields: Dictionary) -> void:
 	if not Economy.people.has(actor):
@@ -202,6 +231,7 @@ func _box(color: Color, border: Color, width: int, pad: int) -> StyleBoxFlat:
 	box.border_color = border
 	box.set_border_width_all(width)
 	box.set_content_margin_all(pad)
+	box.set_corner_radius_all(6)
 	return box
 
 func _label(value: String, parent: Node) -> Label:
@@ -214,6 +244,8 @@ func _label(value: String, parent: Node) -> Label:
 func _button(value: String, action: Callable, parent: Node) -> Button:
 	var button := Button.new()
 	button.text = value
+	button.custom_minimum_size.y=40
+	button.size_flags_horizontal=SIZE_EXPAND_FILL if parent is GridContainer else SIZE_FILL
 	button.pressed.connect(action)
 	parent.add_child(button)
 	return button
@@ -235,7 +267,7 @@ func open() -> void:
 	_resolution.select(nearest)
 	_fullscreen.button_pressed = get_window().mode == Window.MODE_FULLSCREEN
 	_display_status.text = "当前窗口：%d × %d" % [get_window().size.x,get_window().size.y]
-	_load_audio()
+	_status.text=""
 
 func close() -> void:
 	_key.clear()
@@ -340,7 +372,7 @@ func _connection(on: bool) -> void:
 	_key.clear()
 	_request = ""
 	_loaded = false
-	if visible:
+	if visible and _sheet.get_child(0).get_node("SettingsTabs").current_tab==3:
 		if on: _load_audio()
 		else:
 			_status.text = "%s 已断开，请重新连接后读取。" % VadsLink.host_name
@@ -354,3 +386,20 @@ func _process(delta: float) -> void:
 		_status.text = "请求超时。保存结果尚未确认，请重新读取后再操作。"
 		_loaded = false
 		_controls()
+
+func _page(tabs:TabContainer,title:String)->VBoxContainer:
+	var scroll:=ScrollContainer.new();scroll.name=title;scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;tabs.add_child(scroll)
+	var margin:=MarginContainer.new();margin.size_flags_horizontal=SIZE_EXPAND_FILL;scroll.add_child(margin)
+	for side in ["left","right","top","bottom"]:margin.add_theme_constant_override("margin_"+side,16)
+	var body:=VBoxContainer.new();body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12);margin.add_child(body)
+	return body
+
+func _rename(resident:Dictionary,target:Label)->void:
+	var dialog:=ConfirmationDialog.new();dialog.title="修改名字";dialog.ok_button_text="保存";dialog.cancel_button_text="取消";dialog.size=Vector2i(360,140)
+	var field:=LineEdit.new();field.text=target.text;field.max_length=32;dialog.add_child(field)
+	dialog.confirmed.connect(func():
+		var result:Dictionary=load("res://core/resident_personal.gd").accept({"actor":resident.key,"action":"rename","name":field.text})
+		if result.ok:target.text=field.text.strip_edges()
+		_status.text="名字已保存" if result.ok else str(result.error)
+		dialog.queue_free())
+	dialog.canceled.connect(dialog.queue_free);add_child(dialog);dialog.popup_centered();field.grab_focus()

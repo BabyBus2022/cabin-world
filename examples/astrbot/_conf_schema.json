@@ -4,5 +4,11 @@
     "type": "string",
     "hint": "例如 D:\\CabinWorld\\data\\bridge.json。小屋世界桥每次启动会重写它（地址 + 随机 token）。",
     "default": "D:\\CabinWorld\\data\\bridge.json"
+  },
+  "resident_id": {
+    "description": "本机器人绑定的住户稳定编号",
+    "type": "string",
+    "hint": "留空用桥默认住户。多个机器人各自绑定不同编号；不要填写昵称。",
+    "default": ""
   }
 }

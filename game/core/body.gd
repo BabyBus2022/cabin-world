@@ -197,7 +197,9 @@ func items_snapshot(at: float) -> Dictionary:
 	if bed_snapshot(at).asleep:
 		if out.phone=="hand":out.phone="pocket"
 		out.transfer=null
-		out.audio="stopped"
+		# Nothing plays while she sleeps (sleep mute). A playback that already finished or failed keeps that
+		# result, as VADS RoomAccessories reports it (body-sync diverged here: "finished" vs "stopped").
+		if out.audio=="playing":out.audio="stopped"
 		return out
 	var t = items["transfer"]
 	if t is Dictionary:

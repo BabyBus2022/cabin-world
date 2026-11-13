@@ -10,7 +10,7 @@ signal follow_picked(index: int)
 signal room_clicked(at: Vector2)
 
 const U := 2.0
-const TAB_NAMES := {"qianxia-home": "芊夏家", "qianxia-park": "公园", "qianxia-shop": "小卖部", "xiaojingyu-home": "小鲸鱼家", "world-arcade": "电玩城", "world-onsen": "汤屋", "world-restaurant": "餐厅"}
+const TAB_NAMES := {"qianxia-park": "公园", "qianxia-shop": "小卖部", "xiaojingyu-home": "小鲸鱼家", "world-arcade": "电玩城", "world-onsen": "汤屋", "world-restaurant": "餐厅"}
 const WOOD_D := Color("3b2416")
 const WOOD := Color("7a4a26")
 const WOOD_L := Color("a96f3b")
@@ -294,6 +294,8 @@ func _draw_card(index: int, x: float, y: float, w: float, h: float) -> void:
 	_text(where, tx + 14, ly + 15, tw - 14, 14, INK)
 	# Pocket money and mood: from the game's own save when it has moved here, otherwise as VADS reports them.
 	var saved: Dictionary = Economy.people.get(c.key, {})
+	var bond:Dictionary=saved.get("life",{}).get("bond",{})
+	var has_bond := not str(Residents.person(c.key).get("peer_name", "")).is_empty() and not bond.is_empty()
 	var purse = saved.get("wallet")
 	var money = purse["coins"] if purse is Dictionary else c.coins
 	var word := c.mood_word
@@ -306,9 +308,18 @@ func _draw_card(index: int, x: float, y: float, w: float, h: float) -> void:
 	if word != "":
 		parts.append(word)
 	if not parts.is_empty():
-		_text(" · ".join(parts), tx, y + h - 5 * U - 3, tw, 12, INK2)
+		_text(" · ".join(parts), tx, y + h - 5 * U - 3, tw - (62 if has_bond else 0), 12, INK2)
+	if has_bond:
+		var bx := tx + tw - 54
+		var by := y + h - 5 * U - 16
+		var closeness := clampi(int(bond.get("closeness", 0)), 0, 100)
+		_icon([[".rr.rr.", "rrrrrrr", "rrrrrrr", ".rrrrr.", "..rrr..", "...r..."], {"r":"c45663"}], bx, by + 1)
+		_text(str(closeness), bx + 19, by + 13, 35, 12, INK2, _bold)
+		if Rect2(bx-3,by-3,60,22).has_point(_mouse):
+			tooltip_text = "与" + str(Residents.person(c.key).get("peer_name", "同伴")) + "的友谊 · %d/100" % closeness + "\n" + Life.bond_word(closeness)
 	_box(tx, ly + 22, tw, 2, PAPER_D)
-	var doing: String = c.action_label if c.action_label != "" else ("正在睡觉" if c.sleeping else (c.label if c.label != "" else c.place))
+	var doing:String=preload("res://ui/resident_status.gd").status(c.action_label,c.sleeping,c.label,c.place,c.scene_id,c.want_zone,c.is_walking())
+	if c.is_thinking():doing+="\n"+("正在思考…" if SharedFeed.now_ms()-c.thinking_since<30000 else "思考较久 · 等待回复")
 	draw_multiline_string(_font, Vector2(tx, ly + 42), doing, HORIZONTAL_ALIGNMENT_LEFT, tw, 13, 2, INK2)
 
 

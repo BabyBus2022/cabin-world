@@ -22,6 +22,8 @@ static func resolve(rule: String, args: Dictionary) -> Variant:
 			return null
 		"homeZone":
 			var home: Dictionary = Residents.person(str(args.actor)).get("home", {})
+			var place:String=str(args.place)
+			if home.get("scene","")!="qianxia-home" and ("日记" in place or "书桌" in place or "写字" in place):return "xj_notes"
 			for row in home.get("placeNames", []):
 				for word in row.words:
 					if str(word) in str(args.place):

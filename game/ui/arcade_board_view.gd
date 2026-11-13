@@ -39,6 +39,8 @@ static func text(canvas: CanvasItem, font_of: Font, value: String, at: Vector2, 
 static func draw_board(canvas: CanvasItem, game: Dictionary, area: Rect2, font_of: Font = null) -> void:
 	canvas.draw_rect(area, Color("0b1020"))
 	if game.is_empty(): return
+	if game.kind=="gomoku":
+		draw_gomoku(canvas,game,area);return
 	if game.kind == "xiangqi":
 		draw_chess(canvas, game, area, font_of)
 		return
@@ -79,6 +81,22 @@ static func draw_board(canvas: CanvasItem, game: Dictionary, area: Rect2, font_o
 				for y in game.piece.size():
 					for x in game.piece[y].size():
 						if game.piece[y][x] and game.y+y>=0: cell.call(game.x+x,game.y+y,COLORS[clampi(int(game.color),0,7)])
+
+static func draw_gomoku(canvas:CanvasItem,game:Dictionary,area:Rect2)->void:
+	canvas.draw_rect(area,Color("dfb67b"))
+	var step:=minf(area.size.x,area.size.y)/16.0
+	var origin:=area.get_center()-Vector2.ONE*step*7
+	for i in 15:
+		canvas.draw_line(origin+Vector2(i*step,0),origin+Vector2(i*step,14*step),Color("80562f"),1)
+		canvas.draw_line(origin+Vector2(0,i*step),origin+Vector2(14*step,i*step),Color("80562f"),1)
+	for p in [Vector2(3,3),Vector2(11,3),Vector2(7,7),Vector2(3,11),Vector2(11,11)]:canvas.draw_circle(origin+p*step,step*.12,Color("80562f"))
+	for k in game.get("board",[]).size():
+		var side:int=game.board[k]
+		if side<0:continue
+		var at:=origin+Vector2(k%15,k/15)*step
+		canvas.draw_circle(at,step*.43,Color("252735") if side==0 else Color("fff6e4"))
+		canvas.draw_arc(at,step*.43,0,TAU,16,Color("866e50"),.7)
+		if game.get("last")==k:canvas.draw_circle(at,step*.12,Color("c94b45"))
 
 static func draw_chess(canvas: CanvasItem, game: Dictionary, area: Rect2, font_of: Font) -> void:
 	canvas.draw_rect(area,Color("e7c389"))
