@@ -25,6 +25,10 @@ const PROP_TABS := [["xjhome", "小鲸鱼的小屋"], ["park", "公园"], ["shop
 ## [key, name] of each resident, from residents.json.
 var RESIDENTS: Array = Residents.people().map(func(p): return [p["key"], p["name"]])
 var tab := "log"
+var _external_chat: ExternalConversation
+var _resident_select: OptionButton
+var _resident_manager: AcceptDialog
+var _resident_key := ""
 var usage := {}
 var activity: Array = []
 var _font: SystemFont
@@ -95,6 +99,20 @@ func _ready() -> void:
 	_top = HBoxContainer.new()
 	_top.add_theme_constant_override("separation", 4)
 	column.add_child(_top)
+	if Features.on("add-bots") or not ExternalHost.actor_key.is_empty():
+		var resident_row := HBoxContainer.new()
+		column.add_child(resident_row)
+		_resident_select = OptionButton.new()
+		_resident_select.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		_resident_select.fit_to_longest_item = false
+		resident_row.add_child(_resident_select)
+		_resident_select.item_selected.connect(func(index: int): select_resident(str(_resident_select.get_item_metadata(index))))
+		if Features.on("add-bots"):
+			_button("管理住户", false, _open_current_resident, resident_row)
+		WorldData.resident_registered.connect(func(_key): _fill_residents())
+		WorldData.resident_removed.connect(func(_key, _scene): _fill_residents())
+		WorldData.resident_named.connect(func(_key): _fill_residents())
+		_fill_residents()
 	_bar = HFlowContainer.new()
 	_bar.add_theme_constant_override("h_separation", 4)
 	_bar.add_theme_constant_override("v_separation", 4)
@@ -114,6 +132,9 @@ func _ready() -> void:
 	_scroll.add_child(_list)
 	_collection = ContentList.new()
 	column.add_child(_collection)
+	if not ExternalHost.actor_key.is_empty():
+		_external_chat = ExternalConversation.new()
+		column.add_child(_external_chat)
 	VadsLink.panel_arrived.connect(_on_panel)
 	VadsLink.panel_done.connect(_on_done)
 	VadsLink.connection_changed.connect(func(_c): _next_usage = 0.0; _next_activity = 0.0; rebuild())
@@ -126,6 +147,50 @@ func _ready() -> void:
 		_prop_tab = args[i + 1]
 	_open_first = args.has("--open-first-photo")
 	rebuild()
+
+
+func _fill_residents() -> void:
+	if _resident_select == null:
+		return
+	var rows := Residents.people()
+	var occurrences := {}
+	for row in rows:
+		occurrences[row.name] = int(occurrences.get(row.name, 0)) + 1
+	_resident_select.clear()
+	for row in rows:
+		var label_of := str(row.name)
+		if occurrences[row.name] > 1:
+			label_of += " · " + str(row.key)
+		_resident_select.add_item(label_of)
+		var index := _resident_select.item_count - 1
+		_resident_select.set_item_metadata(index, row.key)
+		if row.key == _resident_key:
+			_resident_select.select(index)
+	if _resident_select.selected >= 0:
+		_resident_key = str(_resident_select.get_selected_metadata())
+
+func select_resident(key: String) -> void:
+	if _resident_select == null:
+		return
+	for index in _resident_select.item_count:
+		if _resident_select.get_item_metadata(index) != key:
+			continue
+		_resident_select.select(index)
+		_resident_key = key
+		_log_who = key
+		_diary_who = key
+		_who = key
+		_next_activity = 0.0
+		rebuild()
+		break
+
+func _open_current_resident() -> void:
+	if is_instance_valid(_resident_manager):
+		_resident_manager.grab_focus()
+		return
+	_resident_manager = load("res://ui/resident_manager.gd").new()
+	_resident_manager.preferred_resident = _resident_key
+	add_child(_resident_manager)
 
 
 func _process(delta: float) -> void:
@@ -324,6 +389,12 @@ func rebuild() -> void:
 	for pair in [["log", "记录"], ["props", "道具"], ["bag", "背包"], ["diary", "日记"]]:
 		var id: String = pair[0]
 		_button(pair[1], tab == id, func(): _change(func(): tab = id; _next_activity = 0.0), _top)
+	if _external_chat != null:
+		_button("对话", tab == "external-chat", func(): _change(func(): tab = "external-chat"), _top)
+		_external_chat.visible = tab == "external-chat"
+		if _external_chat.visible:
+			_scroll.hide()
+			return
 	if tab not in ["bag", "props"] and not VadsLink.connected and usage.is_empty():
 		if collection_view: _collection.present(tab,[],1,"","机器人软件没有连上，暂时看不到这些记录。")
 		else: _list.add_child(_label("机器人软件没有连上，暂时看不到这些记录。", 13, Hud.INK2))

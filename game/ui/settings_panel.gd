@@ -178,14 +178,15 @@ func _build_npc_settings(body:VBoxContainer) -> void:
 	var npc_row:=HBoxContainer.new()
 	npc_row.add_theme_constant_override("separation",12)
 	body.add_child(npc_row)
-	for i in NpcAppearance.IDS.size():
-		var skin:Dictionary=NpcAppearance.data().skins[NpcAppearance.IDS[i]]
+	var ids := NpcAppearance.ids()
+	for i in ids.size():
+		var skin:Dictionary=NpcAppearance.data().skins[ids[i]]
 		var frame:Dictionary=skin.frames[skin.animations.idle.frames[0]]
 		var atlas:=AtlasTexture.new()
 		atlas.atlas=load(frame.get("texture",skin.texture))
 		atlas.region=Rect2(frame.rect[0],frame.rect[1],frame.rect[2],frame.rect[3])
 		var card:=Button.new()
-		card.name="NpcSkin_"+NpcAppearance.IDS[i]
+		card.name="NpcSkin_"+ids[i]
 		card.custom_minimum_size=Vector2(0,116)
 		card.size_flags_horizontal=SIZE_EXPAND_FILL
 		card.icon=atlas;card.expand_icon=true
@@ -198,13 +199,14 @@ func _build_npc_settings(body:VBoxContainer) -> void:
 	_load_npc_skin()
 
 func _load_npc_skin() -> void:
+	var ids := NpcAppearance.ids()
 	for i in _npc_cards.size():
-		var active:bool=NpcAppearance.IDS[i]==NpcAppearance.current()
+		var active:bool=ids[i]==NpcAppearance.current()
 		_npc_cards[i].set_pressed_no_signal(active)
 		_npc_cards[i].text=("团团" if i==0 else "Naiwa")+"\n"+("✓ 使用中" if active else "选择")
 
 func _choose_npc_skin(index:int) -> void:
-	var error:=NpcAppearance.choose(NpcAppearance.IDS[index],get_tree())
+	var error:=NpcAppearance.choose(NpcAppearance.ids()[index],get_tree())
 	_load_npc_skin()
 	_npc_status.text="已换成"+NpcAppearance.label()+"" if error==OK else "皮肤保存失败，请重试。"
 

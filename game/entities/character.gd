@@ -104,6 +104,10 @@ var _walk: Dictionary
 var _robe: Dictionary
 var _actions: Dictionary
 var _actions_tex: Texture2D
+var external_portrait: Texture2D
+var _external_texture: Texture2D
+var _external_feet: Vector2
+var _external_scale: float
 
 
 func setup(p_key: String, p_name: String, p_art: String) -> void:
@@ -200,6 +204,30 @@ func report_position() -> void:
 
 func portrait_frame() -> Dictionary:
 	return {"texture": _walk_tex, "rect": _walk["rects"][0], "anchor": _walk["anchors"][0]}
+
+func show_external_body(image: Texture2D, feet_anchor: Vector2, pixels_per_body: float) -> void:
+	_external_texture = image
+	_external_feet = feet_anchor
+	_external_scale = 84.0 / pixels_per_body
+
+func clear_external_appearance() -> void:
+	_external_texture = null
+	external_portrait = null
+
+func _draw_external_body() -> void:
+	if not _sprite.visible:
+		return
+	var region := Rect2(Vector2.ZERO, _external_texture.get_size())
+	var crop := clampf(float(stage.get("crop", 1.0)), 0.15, 1.0)
+	region.size.y *= crop
+	var facing := -1.0 if row == 1 else 1.0
+	_body_sprite(_external_texture, region, _external_feet, _external_scale * facing, _sprite.position, 0)
+	for previous in [_upper, _front, _phones, _phone]:
+		previous.visible = false
+	_visual_head = Rect2(-16, -78, 32, 27)
+
+func external_body_visible() -> bool:
+	return _external_texture != null and is_visible_in_tree() and _sprite.visible
 
 
 func set_action(phase: String, text: String, pose := -1) -> void:
@@ -372,7 +400,10 @@ func _process(delta: float) -> void:
 	if Features.on("character-motion"):_language_tick(delta)
 	else:_language_view={}
 	_update_sprite()
-	_language_transform()
+	if _external_texture == null:
+		_language_transform()
+	else:
+		_draw_external_body()
 	var restaurant_scale:float=WorldData.scenes.get(scene_id,{}).get("actorScale",1.0)
 	if restaurant_scale!=1.0:
 		var shift:=Vector2(0,_display.y-position.y)

@@ -10,6 +10,7 @@ var delete_dialog:=ConfirmationDialog.new()
 var delete_key:=""
 var keys:Array=[]
 var map_ids:Array=[]
+var preferred_resident := ""
 func _ready()->void:
 	title="机器人与房间";min_size=Vector2i(600,600)
 	var box:=VBoxContainer.new();box.add_theme_constant_override("separation",12);add_child(box)
@@ -47,9 +48,14 @@ func _ready()->void:
 	notice=Label.new();notice.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;notice.text="先在地图编辑器保存室内地图，再到这里选择。入住后入口接到公园；换房前请让所有人离开该房间。";box.add_child(notice)
 	_refresh();popup_centered();confirmed.connect(queue_free);canceled.connect(queue_free)
 func _refresh()->void:
+	var selected_key := preferred_resident
+	if people.selected >= 0 and people.selected < keys.size():
+		selected_key = str(keys[people.selected])
 	people.clear();keys=[]
 	for p in Residents.people():
 		if Registry.rows.has(p.key):people.add_item(p.name+" · "+Registry.describe(p.key).homeName+" · "+p.key);keys.append(p.key)
+	if selected_key in keys:
+		people.select(keys.find(selected_key))
 	maps.clear();maps.add_item("默认房间 · 小鲸鱼同款");map_ids=[""]
 	for m in Registry.maps():maps.add_item(m.name+" · "+m.id);map_ids.append(m.id)
 func _result(r:Dictionary)->void:

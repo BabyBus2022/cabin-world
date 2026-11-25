@@ -56,6 +56,7 @@ var follow := 0
 var characters: Array[Character] = []
 var frame_rect := Rect2()
 var card_rects: Array[Rect2] = []
+var card_residents: Array[int] = []
 var decor_area := Rect2()
 var tabs_bottom := 58.0
 var grass_height := 28.0
@@ -171,7 +172,7 @@ func _draw() -> void:
 	_wood(frame_rect.position.x - 4 * U, frame_rect.position.y - 4 * U, frame_rect.size.x + 8 * U, frame_rect.size.y + 8 * U)
 	for i in card_rects.size():
 		var r := card_rects[i]
-		_draw_card(i, r.position.x, r.position.y, r.size.x, r.size.y)
+		_draw_card(card_residents[i] if i < card_residents.size() else i, r.position.x, r.position.y, r.size.x, r.size.y)
 	if decor_area.size.y > 0.0:
 		_draw_decor(decor_area.position.x, decor_area.position.y, decor_area.size.x, decor_area.end.y)
 
@@ -247,12 +248,19 @@ func occupants(id: String) -> Array:
 
 func _draw_avatar(c: Character, area: Rect2) -> void:
 	draw_circle(area.get_center(),13,PAPER_D)
+	if c.external_portrait != null:
+		_draw_host_portrait(c.external_portrait, area, Color.WHITE)
+		return
 	var f := c.portrait_frame()
 	var r: Array = f.rect
 	var anchor: Array = f.anchor
 	var source := Rect2(float(r[0])+float(anchor[0])-92.5,float(r[1])+float(anchor[1])-278.0,185,185)
 	draw_texture_rect_region(f.texture,area,source)
 
+func _draw_host_portrait(image: Texture2D, area: Rect2, tint: Color) -> void:
+	var bounds := image.get_size()
+	var fitted := bounds * minf(area.size.x / bounds.x, area.size.y / bounds.y)
+	draw_texture_rect(image, Rect2(area.get_center() - fitted / 2, fitted), false, tint)
 
 func _draw_card(index: int, x: float, y: float, w: float, h: float) -> void:
 	if index >= characters.size():
@@ -272,7 +280,11 @@ func _draw_card(index: int, x: float, y: float, w: float, h: float) -> void:
 	# The head and shoulders of her standing frame.
 	var src := Rect2(float(r[0]) + float(an[0]) - 92.5, float(r[1]) + float(an[1]) - 278.0, 185.0, 185.0)
 	var tint := Color(1, 1, 1, 0.55) if c.sleeping else Color.WHITE
-	draw_texture_rect_region(f["texture"], Rect2(px, py, ps, ps), src, tint)
+	var area_for_portrait := Rect2(px, py, ps, ps)
+	if c.external_portrait == null:
+		draw_texture_rect_region(f["texture"], area_for_portrait, src, tint)
+	else:
+		_draw_host_portrait(c.external_portrait, area_for_portrait, tint)
 	var tx := px + ps + 5 * U
 	var tw := x + w - tx - 5 * U
 	_text(c.display_name, tx, y + 5 * U + 18, tw, 17, INK, _bold)
