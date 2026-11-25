@@ -96,6 +96,14 @@ tools\build-windows.cmd "D:\Godot\Godot_v4.7.2-stable_win64_console.exe"
 
 导出结果在 `build/CabinWorld.exe`，把它复制到仓库根目录即可用 `start.cmd` 启动。
 
+需要随第三方产品分发时，可让构建只使用团团店员素材。工具在临时项目里完成替换并排除 Naiwa 贴图，原项目文件保持原样。
+
+```bat
+node tools/export-game.mjs "D:\Godot\Godot_v4.7.2-stable_win64_console.exe" build/CabinWorld.exe --mochi-staff
+```
+
+有外部角色画面和会话的宿主，可参考 [本机宿主扩展接口](docs/EXTERNAL-HOST.md) 和现有 [HTTP 桥](docs/HTTP-API.md)。
+
 ## 许可
 
 作者 **VADS**。开源：代码使用 [MIT](LICENSE)，美术、数据和文档使用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。任何人都可以免费使用、修改、分享，包括商业用途，只要注明“Cabin World by VADS”。

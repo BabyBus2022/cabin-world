@@ -15,6 +15,7 @@ VadsLink="*res://core/vads_link.gd"
 Actions="*res://core/actions.gd"
 Economy="*res://core/economy.gd"
 Life="*res://core/life.gd"
+ExternalHost="*res://core/external_host.gd"
 
 [display]
 window/size/viewport_width=1920

@@ -1,0 +1,10 @@
+{
+  "format": "cabin-world.figures",
+  "version": 1,
+  "world": "world.json",
+  "residents": "residents.json",
+  "atlases": "actors",
+  "motion": "actors/body-language.json",
+  "credit": "Cabin World by VADS",
+  "license": "CC-BY-4.0"
+}

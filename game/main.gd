@@ -37,6 +37,22 @@ var _test_poke := ""
 var _test_pick := -1
 var _test_clock := 0.0
 var _next_log := 0.0
+var _last_host_resident: Character
+
+func follow_external_resident(key: String) -> Character:
+	for index in characters.size():
+		var resident := characters[index]
+		if resident.key != key or not resident.placed:
+			continue
+		if _last_host_resident != resident:
+			_last_host_resident = resident
+			if follow != index:
+				_on_follow_picked(index)
+		return resident
+	return null
+
+func refresh_external_portraits() -> void:
+	_hud.queue_redraw()
 
 
 func _ready() -> void:
@@ -399,6 +415,7 @@ func _on_follow_picked(index: int) -> void:
 	follow = -1 if follow == index else index
 	if follow >= 0 and characters[follow].placed:
 		_show_room(characters[follow].scene_id)
+	_dock.select_resident(characters[index].key)
 	_hud.follow = follow
 	_hud.queue_redraw()
 
@@ -431,6 +448,7 @@ func _layout() -> void:
 	var room: Room = rooms[view_scene]
 	var wide := true # fixed logical canvas; resizing never rearranges the interface
 	var cards: Array[Rect2] = []
+	var card_residents: Array[int] = []
 	var k := 1.0
 	var sw := 0.0
 	var sh := 0.0
@@ -446,8 +464,13 @@ func _layout() -> void:
 		sx = floorf(margin + (right - margin - sw) / 2.0)
 		sy = floorf(top + (low - top - sh) / 2.0)
 		var cx := W - side - margin
-		cards = [Rect2(cx, top, side, 124.0), Rect2(cx, top + 130.0, side, 124.0)]
-		dock_rect = Rect2(cx, top + 260.0, side, low - top - 260.0)
+		var card_limit := mini(characters.size(), 3)
+		var first := clampi(follow - card_limit + 1, 0, maxi(0, characters.size() - card_limit))
+		for i in card_limit:
+			card_residents.append(first + i)
+			cards.append(Rect2(cx, top + 130.0 * i, side, 124.0))
+		var dock_top := top + 130.0 * card_limit
+		dock_rect = Rect2(cx, dock_top, side, low - dock_top)
 	else:
 		var cards_h := 116.0
 		var room_limit := maxf(180.0, (low - top) * (0.58 if H >= 620.0 else 0.5))
@@ -466,16 +489,22 @@ func _layout() -> void:
 	_hud.size = size
 	if observing:cards.clear()
 	_hud.card_rects = cards
+	_hud.card_residents = card_residents
 	_hud.frame_rect = Rect2(sx, sy, sw, sh)
 	_hud.queue_redraw()
 	_arcade_show = ArcadePanel.available(view_scene)
 	_arcade.visible = _arcade_show and not observing
 	if _arcade_show:
-		var half := floorf((dock_rect.size.y - 6.0) / 2.0)
+		var dock_minimum := 226.0 if not ExternalHost.actor_key.is_empty() else 156.0
+		var half := minf(floorf(dock_rect.size.y / 2.0), maxf(0, dock_rect.size.y - dock_minimum - 6))
+		_arcade.visible = _arcade.visible and half >= 150.0
+		if not _arcade.visible:
+			half = 0.0
 		_arcade.position = dock_rect.position
 		_arcade.size = Vector2(dock_rect.size.x, half)
-		dock_rect.position.y += half + 6.0
-		dock_rect.size.y -= half + 6.0
+		if half > 0.0:
+			dock_rect.position.y += half + 6.0
+			dock_rect.size.y -= half + 6.0
 	_dock.visible = dock_rect.size.y >= 120.0 and not observing
 	if _dock.visible:
 		_dock.position = dock_rect.position

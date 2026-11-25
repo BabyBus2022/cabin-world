@@ -12,8 +12,11 @@ var selected := ""
 var elapsed := 0.0
 
 static func recent(row: Dictionary) -> bool:
-	var game=row.get("game")
-	return row.get("status")=="playing" and game is Dictionary and game.get("status","playing")=="playing"
+	var status: String = row.get("status", "")
+	if status in ["playing", "waiting"]:
+		return true
+	var ended := float(row.get("endedAt", 0))
+	return ended > 0 and Time.get_unix_time_from_system() * 1000 - ended < 45000
 
 static func available(scene := "") -> bool:
 	return not live_choices(VadsLink.arcade_view.get("sessions",{})).is_empty()
@@ -33,7 +36,7 @@ func _ready() -> void:
 	add_theme_font_override("font",font_of)
 	add_theme_font_size_override("font_size",13)
 	var title := Label.new()
-	title.text = "星光电玩城 · 实时对局"
+	title.text = "星光电玩城 · 最近对局"
 	title.add_theme_font_size_override("font_size",14)
 	title.add_theme_color_override("font_color",Hud.WOOD)
 	box.add_child(title)
@@ -199,11 +202,15 @@ func _refresh_card(chosen: Dictionary) -> void:
 		_state.text = ""
 		_detail.text = ""
 		return
-	var players: Array = chosen.get("players",[]).map(func(p): return str(p.get("name",name_of(str(p.get("id",""))))))
+	var players: Array = chosen.get("players",[]).map(func(p):
+		var label_of := str(p.get("name",name_of(str(p.get("id","")))))
+		var seat := str(p.get("seat", ""))
+		return label_of if seat.is_empty() else label_of + " (" + seat + ")")
 	if chosen.get("passerby"): players.append(name_of("computer"))
 	_who.text = ("方块2号机" if chosen.get("cabinetKey")=="blocks@second" else "方块1号机" if chosen.kind=="blocks" else NAMES.get(chosen.kind,chosen.kind)) + " · " + " × ".join(PackedStringArray(players))
 	_who.tooltip_text = _who.text
 	var status: String = chosen.get("status","")
+	_board.visible = status == "playing" and game is Dictionary
 	_state.text = {"playing":"进行中","waiting":"等待入座","draw":"平局","lost":"这局输了","interrupted":"已中断，不算输赢","won":"赢了"}.get(status,status)
 	if status=="won" and game is Dictionary: _state.text = name_of(str(game.get("winner",""))) + "赢了"
 	if status!="playing" and str(chosen.get("reason",""))!="": _state.text += " · " + chosen.reason
