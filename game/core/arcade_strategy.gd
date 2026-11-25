@@ -7,6 +7,15 @@ const Chess = preload("res://core/arcade_chess.gd")
 static func skill(s: Dictionary, id: String) -> float:
 	return s.skill.get(id,0.68 if id=="computer" else 0.7)
 
+## 2026-11-20 Claude (arcade-mind): a resident's own plan for the real-time games, chosen by her AI in VADS
+## (src/core/sim/arcade-mind.mjs) and sent with each tick as board.style[id]:
+##   snake  {greed 0..1: how far she risks herself for food, nerve 0..1: how close she dares to go to the other snake}
+##   blocks {risk 0..1: keep a well for a 4-line clear vs. stack flat and safe}
+## Without a plan every factor is 1.0, so play is exactly as before.
+static func plan(s: Dictionary, id: String, field: String) -> float:
+	var row = s.get("style", {}).get(id, {})
+	return clampf(float(row.get(field, 0.5)), 0.0, 1.0) if row is Dictionary else 0.5
+
 static func suggest(s: Dictionary) -> Dictionary:
 	if s.status!="playing": return {}
 	match s.kind:
@@ -39,10 +48,12 @@ static func snake(s: Dictionary) -> Dictionary:
 			var cost := 1000000
 			if bounds.has_point(pos) and not taken.has(pos):
 				var space := reachable(pos,bounds,taken,a.body.size()+6)
-				cost=maxi(0,a.body.size()+2-space)*200
+				var greed := plan(s,a.id,"greed")   ## 2026-11-20 Claude (arcade-mind): her plan scales the three costs
+				var nerve := plan(s,a.id,"nerve")
+				cost=int(round(maxi(0,a.body.size()+2-space)*200*(1.5-greed)))
 				for other in s.snakes:
-					if other.alive and other.id!=a.id and absi(pos.x-other.body[0][0])+absi(pos.y-other.body[0][1])==1: cost+=120
-				if s.food!=null: cost+=absi(pos.x-s.food[0])+absi(pos.y-s.food[1])
+					if other.alive and other.id!=a.id and absi(pos.x-other.body[0][0])+absi(pos.y-other.body[0][1])==1: cost+=int(round(120*(1.5-nerve)))
+				if s.food!=null: cost+=int(round((absi(pos.x-s.food[0])+absi(pos.y-s.food[1]))*(0.5+greed)))
 			# Insert after equal costs to preserve the original direction order.
 			var j := costs.size()
 			while j and costs[j-1][1]>cost: j-=1
@@ -104,7 +115,7 @@ static func mines(s: Dictionary) -> Dictionary:
 			choice=cell(s,k)
 	return choice
 
-static func placement(s: Dictionary,piece: Array,x: int,y: int) -> float:
+static func placement(s: Dictionary,piece: Array,x: int,y: int,risk: float = 0.5) -> float:
 	var grid: Array=s.board.duplicate(true)
 	for dy in piece.size():
 		for dx in piece[dy].size():
@@ -123,7 +134,7 @@ static func placement(s: Dictionary,piece: Array,x: int,y: int) -> float:
 		sum+=height
 		if c: bump+=absi(height-last)
 		last=height
-	return -.51*sum+.76*lines-.36*holes*3-.18*bump
+	return -.51*sum+.76*lines*(0.6+0.8*risk)-.36*holes*3*(1.4-0.8*risk)-.18*bump ## 2026-11-20 Claude (arcade-mind): risk .5 = the old weights
 
 static func blocks(s: Dictionary) -> Dictionary:
 	if s.plan==null or s.plan.id!=s.pieceNo:
@@ -135,7 +146,7 @@ static func blocks(s: Dictionary) -> Dictionary:
 				var y := int(s.y)
 				if not Board.fits(s,piece,x,y): continue
 				while Board.fits(s,piece,x,y+1): y+=1
-				var v := placement(s,piece,x,y)+(Board.random_value(s)-.5)*(1-skill(s,s.players[0]))*14
+				var v := placement(s,piece,x,y,plan(s,s.players[0],"risk"))+(Board.random_value(s)-.5)*(1-skill(s,s.players[0]))*14
 				if v>best:
 					best=v
 					s.plan.x=x

@@ -17,7 +17,7 @@ const HELD_AFTER := 20.0
 
 
 ## Answers { slot, error }. slot is null when the object has no seats.
-static func claim(owner: String, object: String, seconds: float) -> Dictionary:
+static func claim(owner: String, object: String, seconds: float, preferred := "") -> Dictionary:
 	if not object in HAS_SEATS:
 		return {"slot": null, "error": ""}
 	var table := Residents.seats()
@@ -31,7 +31,11 @@ static func claim(owner: String, object: String, seconds: float) -> Dictionary:
 		elif float(table[k].get("until", 0)) > now and table[k].get("owner") == owner and str(k).begins_with(object + ":"):
 			owned_slot = str(k).trim_prefix(object + ":")
 	var chosen = null
-	for s in ([owned_slot] if owned_slot != null else SLOTS.get(object, ["only"])):
+	var slots: Array = SLOTS.get(object, ["only"]).duplicate()
+	if preferred in slots:
+		slots.erase(preferred)
+		slots.push_front(preferred)
+	for s in ([owned_slot] if owned_slot != null else slots):
 		if not kept.has(object + ":" + s):
 			chosen = s
 			break

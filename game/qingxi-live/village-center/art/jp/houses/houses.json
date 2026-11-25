@@ -1,0 +1,77 @@
+{
+ "arcade": {
+  "door_x": 36,
+  "width": 72,
+  "height": 58
+ },
+ "seed_shop": {
+  "door_x": 103,
+  "width": 206,
+  "height": 103
+ },
+ "livestock_shop": {
+  "door_x": 98,
+  "width": 196,
+  "height": 103
+ },
+ "general_store": {
+  "door_x": 83,
+  "width": 151,
+  "height": 92
+ },
+ "community_hall": {
+  "door_x": 113,
+  "width": 226,
+  "height": 117
+ },
+ "bathhouse": {
+  "door_x": 83,
+  "width": 200,
+  "height": 144
+ },
+ "tuantuan_home": {
+  "door_x": 137,
+  "width": 228,
+  "height": 99
+ },
+ "house_a": {
+  "door_x": 68,
+  "width": 180,
+  "height": 99
+ },
+ "house_b": {
+  "door_x": 72,
+  "width": 204,
+  "height": 99
+ },
+ "house_c": {
+  "door_x": 130,
+  "width": 201,
+  "height": 99
+ },
+ "house_d": {
+  "door_x": 67,
+  "width": 188,
+  "height": 99
+ },
+ "house_e": {
+  "door_x": 128,
+  "width": 199,
+  "height": 99
+ },
+ "shrine": {
+  "door_x": 98,
+  "width": 196,
+  "height": 102
+ },
+ "fire_tower": {
+  "door_x": 31,
+  "width": 62,
+  "height": 205
+ },
+ "watermill": {
+  "door_x": 86,
+  "width": 172,
+  "height": 91
+ }
+}

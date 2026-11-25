@@ -1,0 +1,1511 @@
+{
+  "qianxia-shop--produce": {
+    "id": "qianxia-shop--produce",
+    "name": "果蔬摊",
+    "scene": "qianxia-shop",
+    "scene_name": "小卖部",
+    "layer": "solid",
+    "footprint": {
+      "w": 3,
+      "h": 1
+    },
+    "layers": [
+      {
+        "file": "qianxia-shop.produce.png",
+        "x": 10.375,
+        "y": -21.125,
+        "w": 75,
+        "h": 53,
+        "depth": 32,
+        "part": "main"
+      }
+    ],
+    "source": {
+      "module": "produce",
+      "foot": [
+        53.125,
+        332.99067164179104,
+        75,
+        20.134328358208958
+      ],
+      "collision": {
+        "x": 0,
+        "y": 32.85074626865672,
+        "w": 75,
+        "h": 20.134328358208958
+      },
+      "status": "grid-converted; original facing only; placement requires validation"
+    },
+    "facings": {
+      "S": {
+        "file": "qianxia-shop--produce-S.png",
+        "footprint": {
+          "w": 3,
+          "h": 1
+        },
+        "art": {
+          "x": -1,
+          "y": -21,
+          "w": 98,
+          "h": 53
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 1,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      },
+      "E": {
+        "file": "qianxia-shop--produce-E.png",
+        "footprint": {
+          "w": 1,
+          "h": 3
+        },
+        "art": {
+          "x": -1,
+          "y": -21,
+          "w": 34,
+          "h": 117
+        },
+        "depth": 96,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 96
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 1,
+            "face": "W"
+          }
+        ],
+        "seat": null
+      },
+      "N": {
+        "file": "qianxia-shop--produce-N.png",
+        "footprint": {
+          "w": 3,
+          "h": 1
+        },
+        "art": {
+          "x": -1,
+          "y": -21,
+          "w": 98,
+          "h": 53
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": -1,
+            "face": "S"
+          }
+        ],
+        "seat": null
+      },
+      "W": {
+        "file": "qianxia-shop--produce-W.png",
+        "footprint": {
+          "w": 1,
+          "h": 3
+        },
+        "art": {
+          "x": -1,
+          "y": -21,
+          "w": 34,
+          "h": 117
+        },
+        "depth": 96,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 96
+        },
+        "use": [
+          {
+            "dx": -1,
+            "dy": 1,
+            "face": "E"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
+  },
+  "qianxia-shop--magazines": {
+    "id": "qianxia-shop--magazines",
+    "name": "杂志架",
+    "scene": "qianxia-shop",
+    "scene_name": "小卖部",
+    "layer": "solid",
+    "footprint": {
+      "w": 2,
+      "h": 1
+    },
+    "layers": [
+      {
+        "file": "qianxia-shop.magazines.png",
+        "x": 12.125,
+        "y": -6.125,
+        "w": 40.5,
+        "h": 38,
+        "depth": 32,
+        "part": "main"
+      }
+    ],
+    "source": {
+      "module": "magazines",
+      "foot": [
+        226.5625,
+        338.65785714285715,
+        40.625,
+        14.467142857142857
+      ],
+      "collision": {
+        "x": 0,
+        "y": 23.604285714285712,
+        "w": 40.625,
+        "h": 14.467142857142857
+      },
+      "status": "grid-converted; original facing only; placement requires validation"
+    },
+    "facings": {
+      "S": {
+        "file": "qianxia-shop--magazines-S.png",
+        "footprint": {
+          "w": 2,
+          "h": 1
+        },
+        "art": {
+          "x": -1,
+          "y": -6,
+          "w": 66,
+          "h": 38
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 1,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      },
+      "E": {
+        "file": "qianxia-shop--magazines-E.png",
+        "footprint": {
+          "w": 1,
+          "h": 2
+        },
+        "art": {
+          "x": -1,
+          "y": -6,
+          "w": 34,
+          "h": 70
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 1,
+            "face": "W"
+          }
+        ],
+        "seat": null
+      },
+      "N": {
+        "file": "qianxia-shop--magazines-N.png",
+        "footprint": {
+          "w": 2,
+          "h": 1
+        },
+        "art": {
+          "x": -1,
+          "y": -6,
+          "w": 66,
+          "h": 38
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": -1,
+            "face": "S"
+          }
+        ],
+        "seat": null
+      },
+      "W": {
+        "file": "qianxia-shop--magazines-W.png",
+        "footprint": {
+          "w": 1,
+          "h": 2
+        },
+        "art": {
+          "x": -1,
+          "y": -6,
+          "w": 34,
+          "h": 70
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": -1,
+            "dy": 1,
+            "face": "E"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
+  },
+  "qianxia-shop--counter-extension": {
+    "id": "qianxia-shop--counter-extension",
+    "name": "延伸柜台",
+    "scene": "qianxia-shop",
+    "scene_name": "小卖部",
+    "layer": "solid",
+    "footprint": {
+      "w": 3,
+      "h": 1
+    },
+    "layers": [
+      {
+        "file": "qianxia-shop.counter-extension.png",
+        "x": 7.375,
+        "y": -20.125000000000057,
+        "w": 81.5,
+        "h": 52,
+        "depth": 31.999999999999943,
+        "part": "main"
+      }
+    ],
+    "source": {
+      "module": "counter-extension",
+      "foot": [
+        450,
+        333.38395140664966,
+        81.25,
+        19.741048593350385
+      ],
+      "collision": {
+        "x": 0,
+        "y": 32.20907928388747,
+        "w": 81.25,
+        "h": 19.741048593350385
+      },
+      "status": "grid-converted; original facing only; placement requires validation"
+    },
+    "facings": {
+      "S": {
+        "file": "qianxia-shop--counter-extension-S.png",
+        "footprint": {
+          "w": 3,
+          "h": 1
+        },
+        "art": {
+          "x": -1,
+          "y": -20,
+          "w": 98,
+          "h": 52
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 1,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      },
+      "E": {
+        "file": "qianxia-shop--counter-extension-E.png",
+        "footprint": {
+          "w": 1,
+          "h": 3
+        },
+        "art": {
+          "x": -1,
+          "y": -20,
+          "w": 34,
+          "h": 116
+        },
+        "depth": 96,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 96
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 1,
+            "face": "W"
+          }
+        ],
+        "seat": null
+      },
+      "N": {
+        "file": "qianxia-shop--counter-extension-N.png",
+        "footprint": {
+          "w": 3,
+          "h": 1
+        },
+        "art": {
+          "x": -1,
+          "y": -20,
+          "w": 98,
+          "h": 52
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": -1,
+            "face": "S"
+          }
+        ],
+        "seat": null
+      },
+      "W": {
+        "file": "qianxia-shop--counter-extension-W.png",
+        "footprint": {
+          "w": 1,
+          "h": 3
+        },
+        "art": {
+          "x": -1,
+          "y": -20,
+          "w": 34,
+          "h": 116
+        },
+        "depth": 96,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 96
+        },
+        "use": [
+          {
+            "dx": -1,
+            "dy": 1,
+            "face": "E"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
+  },
+  "qianxia-shop--baskets": {
+    "id": "qianxia-shop--baskets",
+    "name": "购物篮",
+    "scene": "qianxia-shop",
+    "scene_name": "小卖部",
+    "layer": "solid",
+    "footprint": {
+      "w": 1,
+      "h": 1
+    },
+    "layers": [
+      {
+        "file": "qianxia-shop.baskets.png",
+        "x": 1.875,
+        "y": -1.25,
+        "w": 27.5,
+        "h": 33,
+        "depth": 32,
+        "part": "main"
+      }
+    ],
+    "source": {
+      "module": "baskets",
+      "foot": [
+        414.375,
+        368.78125,
+        27.5,
+        12.46875
+      ],
+      "collision": {
+        "x": 0,
+        "y": 20.34375,
+        "w": 27.5,
+        "h": 12.46875
+      },
+      "status": "grid-converted; original facing only; placement requires validation"
+    },
+    "facings": {
+      "S": {
+        "file": "qianxia-shop--baskets-S.png",
+        "footprint": {
+          "w": 1,
+          "h": 1
+        },
+        "art": {
+          "x": -1,
+          "y": -1,
+          "w": 34,
+          "h": 33
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 0,
+            "dy": 1,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      },
+      "E": {
+        "file": "qianxia-shop--baskets-E.png",
+        "footprint": {
+          "w": 1,
+          "h": 1
+        },
+        "art": {
+          "x": -1,
+          "y": -1,
+          "w": 34,
+          "h": 33
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 0,
+            "face": "W"
+          }
+        ],
+        "seat": null
+      },
+      "N": {
+        "file": "qianxia-shop--baskets-N.png",
+        "footprint": {
+          "w": 1,
+          "h": 1
+        },
+        "art": {
+          "x": -1,
+          "y": -1,
+          "w": 34,
+          "h": 33
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 0,
+            "dy": -1,
+            "face": "S"
+          }
+        ],
+        "seat": null
+      },
+      "W": {
+        "file": "qianxia-shop--baskets-W.png",
+        "footprint": {
+          "w": 1,
+          "h": 1
+        },
+        "art": {
+          "x": -1,
+          "y": -1,
+          "w": 34,
+          "h": 33
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": -1,
+            "dy": 0,
+            "face": "E"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
+  },
+  "xiaojingyu-home--xj-bookshelf": {
+    "id": "xiaojingyu-home--xj-bookshelf",
+    "name": "书架",
+    "scene": "xiaojingyu-home",
+    "scene_name": "小鲸鱼家",
+    "layer": "solid",
+    "footprint": {
+      "w": 3,
+      "h": 2
+    },
+    "layers": [
+      {
+        "file": "../seaside/xj-bookshelf.png",
+        "x": 4.5,
+        "y": -10,
+        "w": 87,
+        "h": 78,
+        "depth": 62,
+        "part": "main"
+      }
+    ],
+    "source": {
+      "module": "xj-bookshelf",
+      "foot": [
+        466,
+        85,
+        83,
+        37
+      ],
+      "collision": {
+        "x": 2,
+        "y": 37,
+        "w": 83,
+        "h": 37
+      },
+      "status": "grid-converted; original facing only; placement requires validation"
+    },
+    "facings": {
+      "S": {
+        "file": "xiaojingyu-home--xj-bookshelf-S.png",
+        "footprint": {
+          "w": 3,
+          "h": 2
+        },
+        "art": {
+          "x": -1,
+          "y": -12.5,
+          "w": 98,
+          "h": 76.5
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 2,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      },
+      "E": {
+        "file": "xiaojingyu-home--xj-bookshelf-E.png",
+        "footprint": {
+          "w": 2,
+          "h": 3
+        },
+        "art": {
+          "x": -1,
+          "y": -12.5,
+          "w": 66,
+          "h": 108.5
+        },
+        "depth": 96,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 96
+        },
+        "use": [
+          {
+            "dx": 2,
+            "dy": 1,
+            "face": "W"
+          }
+        ],
+        "seat": null
+      },
+      "N": {
+        "file": "xiaojingyu-home--xj-bookshelf-N.png",
+        "footprint": {
+          "w": 3,
+          "h": 2
+        },
+        "art": {
+          "x": -1,
+          "y": -12.5,
+          "w": 98,
+          "h": 76.5
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": -1,
+            "face": "S"
+          }
+        ],
+        "seat": null
+      },
+      "W": {
+        "file": "xiaojingyu-home--xj-bookshelf-W.png",
+        "footprint": {
+          "w": 2,
+          "h": 3
+        },
+        "art": {
+          "x": -1,
+          "y": -12.5,
+          "w": 66,
+          "h": 108.5
+        },
+        "depth": 96,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 96
+        },
+        "use": [
+          {
+            "dx": -1,
+            "dy": 1,
+            "face": "E"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "facingsReview": {
+      "status": "pilot-awaiting-owner",
+      "source": "FURNITURE-VIEWS.md",
+      "allSidesDrawn": true,
+      "originalLayersPreserved": true
+    },
+    "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
+  },
+  "xiaojingyu-home--xj-writing_desk": {
+    "id": "xiaojingyu-home--xj-writing_desk",
+    "name": "写字桌",
+    "scene": "xiaojingyu-home",
+    "scene_name": "小鲸鱼家",
+    "layer": "solid",
+    "footprint": {
+      "w": 3,
+      "h": 2
+    },
+    "layers": [
+      {
+        "file": "../seaside/xj-writing_desk.png",
+        "x": 4,
+        "y": -14,
+        "w": 88,
+        "h": 58,
+        "depth": 30,
+        "part": "main"
+      }
+    ],
+    "source": {
+      "module": "xj-writing_desk",
+      "foot": [
+        582,
+        178,
+        84,
+        28
+      ],
+      "collision": {
+        "x": 2,
+        "y": 18,
+        "w": 84,
+        "h": 28
+      },
+      "status": "grid-converted; original facing only; placement requires validation"
+    },
+    "facings": {
+      "S": {
+        "file": "xiaojingyu-home--xj-writing_desk-S.png",
+        "footprint": {
+          "w": 3,
+          "h": 2
+        },
+        "art": {
+          "x": -1,
+          "y": 6,
+          "w": 98,
+          "h": 58
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 2,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      },
+      "E": {
+        "file": "xiaojingyu-home--xj-writing_desk-E.png",
+        "footprint": {
+          "w": 2,
+          "h": 3
+        },
+        "art": {
+          "x": -1,
+          "y": 6,
+          "w": 66,
+          "h": 90
+        },
+        "depth": 96,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 96
+        },
+        "use": [
+          {
+            "dx": 2,
+            "dy": 1,
+            "face": "W"
+          }
+        ],
+        "seat": null
+      },
+      "N": {
+        "file": "xiaojingyu-home--xj-writing_desk-N.png",
+        "footprint": {
+          "w": 3,
+          "h": 2
+        },
+        "art": {
+          "x": -1,
+          "y": 6,
+          "w": 98,
+          "h": 58
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": -1,
+            "face": "S"
+          }
+        ],
+        "seat": null
+      },
+      "W": {
+        "file": "xiaojingyu-home--xj-writing_desk-W.png",
+        "footprint": {
+          "w": 2,
+          "h": 3
+        },
+        "art": {
+          "x": -1,
+          "y": 6,
+          "w": 66,
+          "h": 90
+        },
+        "depth": 96,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 96
+        },
+        "use": [
+          {
+            "dx": -1,
+            "dy": 1,
+            "face": "E"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "facingsReview": {
+      "status": "pilot-awaiting-owner",
+      "source": "FURNITURE-VIEWS.md",
+      "allSidesDrawn": true,
+      "originalLayersPreserved": true
+    },
+    "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
+  },
+  "xiaojingyu-home--xj-desk-chair": {
+    "id": "xiaojingyu-home--xj-desk-chair",
+    "name": "木椅",
+    "scene": "xiaojingyu-home",
+    "scene_name": "小鲸鱼家",
+    "layer": "solid",
+    "footprint": {
+      "w": 1,
+      "h": 1
+    },
+    "layers": [
+      {
+        "file": "../seaside/xj-desk-chair.png",
+        "x": 1,
+        "y": -1,
+        "w": 32,
+        "h": 43,
+        "depth": 29,
+        "part": "main"
+      }
+    ],
+    "source": {
+      "module": "xj-desk-chair",
+      "foot": [
+        610,
+        155,
+        24,
+        19
+      ],
+      "collision": {
+        "x": 3,
+        "y": 14,
+        "w": 24,
+        "h": 19
+      },
+      "status": "grid-converted; original facing only; placement requires validation"
+    },
+    "facings": {
+      "S": {
+        "file": "xiaojingyu-home--xj-desk-chair-S.png",
+        "footprint": {
+          "w": 1,
+          "h": 1
+        },
+        "art": {
+          "x": -1,
+          "y": -11,
+          "w": 34,
+          "h": 43
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 0,
+            "dy": 1,
+            "face": "N"
+          }
+        ],
+        "seat": {
+          "x": 16,
+          "y": 20.8,
+          "face": "S"
+        },
+        "seats": [
+          {
+            "x": 16,
+            "y": 20.8,
+            "face": "S"
+          }
+        ]
+      },
+      "E": {
+        "file": "xiaojingyu-home--xj-desk-chair-E.png",
+        "footprint": {
+          "w": 1,
+          "h": 1
+        },
+        "art": {
+          "x": -1,
+          "y": -11,
+          "w": 34,
+          "h": 43
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 0,
+            "face": "W"
+          }
+        ],
+        "seat": {
+          "x": 20.8,
+          "y": 16,
+          "face": "E"
+        },
+        "seats": [
+          {
+            "x": 20.8,
+            "y": 16,
+            "face": "E"
+          }
+        ]
+      },
+      "N": {
+        "file": "xiaojingyu-home--xj-desk-chair-N.png",
+        "footprint": {
+          "w": 1,
+          "h": 1
+        },
+        "art": {
+          "x": -1,
+          "y": -11,
+          "w": 34,
+          "h": 43
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 0,
+            "dy": -1,
+            "face": "S"
+          }
+        ],
+        "seat": {
+          "x": 16,
+          "y": 11.2,
+          "face": "N"
+        },
+        "seats": [
+          {
+            "x": 16,
+            "y": 11.2,
+            "face": "N"
+          }
+        ]
+      },
+      "W": {
+        "file": "xiaojingyu-home--xj-desk-chair-W.png",
+        "footprint": {
+          "w": 1,
+          "h": 1
+        },
+        "art": {
+          "x": -1,
+          "y": -11,
+          "w": 34,
+          "h": 43
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": -1,
+            "dy": 0,
+            "face": "E"
+          }
+        ],
+        "seat": {
+          "x": 11.2,
+          "y": 16,
+          "face": "W"
+        },
+        "seats": [
+          {
+            "x": 11.2,
+            "y": 16,
+            "face": "W"
+          }
+        ]
+      }
+    },
+    "facingsReview": {
+      "status": "pilot-awaiting-owner",
+      "source": "FURNITURE-VIEWS.md",
+      "allSidesDrawn": true,
+      "originalLayersPreserved": true
+    },
+    "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
+  },
+  "xiaojingyu-home--xj-sofa": {
+    "id": "xiaojingyu-home--xj-sofa",
+    "name": "沙发",
+    "scene": "xiaojingyu-home",
+    "scene_name": "小鲸鱼家",
+    "layer": "solid",
+    "footprint": {
+      "w": 3,
+      "h": 2
+    },
+    "layers": [
+      {
+        "file": "../seaside/xj-sofa.png",
+        "x": -3,
+        "y": -43,
+        "w": 102,
+        "h": 81,
+        "depth": 28,
+        "part": "main"
+      }
+    ],
+    "source": {
+      "module": "xj-sofa",
+      "foot": [
+        737,
+        431,
+        94,
+        31
+      ],
+      "collision": {
+        "x": 4,
+        "y": 44,
+        "w": 94,
+        "h": 31
+      },
+      "status": "grid-converted; original facing only; placement requires validation"
+    },
+    "facings": {
+      "S": {
+        "file": "xiaojingyu-home--xj-sofa-S.png",
+        "footprint": {
+          "w": 3,
+          "h": 2
+        },
+        "art": {
+          "x": -1,
+          "y": -14,
+          "w": 98,
+          "h": 78
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 2,
+            "face": "N"
+          }
+        ],
+        "seat": {
+          "x": 32,
+          "y": 42.88,
+          "face": "S"
+        },
+        "seats": [
+          {
+            "x": 32,
+            "y": 42.88,
+            "face": "S"
+          },
+          {
+            "x": 64,
+            "y": 42.88,
+            "face": "S"
+          }
+        ]
+      },
+      "E": {
+        "file": "xiaojingyu-home--xj-sofa-E.png",
+        "footprint": {
+          "w": 2,
+          "h": 3
+        },
+        "art": {
+          "x": -1,
+          "y": -14,
+          "w": 66,
+          "h": 110
+        },
+        "depth": 96,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 96
+        },
+        "use": [
+          {
+            "dx": 2,
+            "dy": 1,
+            "face": "W"
+          }
+        ],
+        "seat": {
+          "x": 42.88,
+          "y": 64,
+          "face": "E"
+        },
+        "seats": [
+          {
+            "x": 42.88,
+            "y": 64,
+            "face": "E"
+          },
+          {
+            "x": 42.88,
+            "y": 32,
+            "face": "E"
+          }
+        ]
+      },
+      "N": {
+        "file": "xiaojingyu-home--xj-sofa-N.png",
+        "footprint": {
+          "w": 3,
+          "h": 2
+        },
+        "art": {
+          "x": -1,
+          "y": -14,
+          "w": 98,
+          "h": 78
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": -1,
+            "face": "S"
+          }
+        ],
+        "seat": {
+          "x": 64,
+          "y": 21.119999999999997,
+          "face": "N"
+        },
+        "seats": [
+          {
+            "x": 64,
+            "y": 21.119999999999997,
+            "face": "N"
+          },
+          {
+            "x": 32,
+            "y": 21.119999999999997,
+            "face": "N"
+          }
+        ]
+      },
+      "W": {
+        "file": "xiaojingyu-home--xj-sofa-W.png",
+        "footprint": {
+          "w": 2,
+          "h": 3
+        },
+        "art": {
+          "x": -1,
+          "y": -14,
+          "w": 66,
+          "h": 110
+        },
+        "depth": 96,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 96
+        },
+        "use": [
+          {
+            "dx": -1,
+            "dy": 1,
+            "face": "E"
+          }
+        ],
+        "seat": {
+          "x": 21.119999999999997,
+          "y": 32,
+          "face": "W"
+        },
+        "seats": [
+          {
+            "x": 21.119999999999997,
+            "y": 32,
+            "face": "W"
+          },
+          {
+            "x": 21.119999999999997,
+            "y": 64,
+            "face": "W"
+          }
+        ]
+      }
+    },
+    "facingsReview": {
+      "status": "pilot-awaiting-owner",
+      "source": "FURNITURE-VIEWS.md",
+      "allSidesDrawn": true,
+      "originalLayersPreserved": true
+    },
+    "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
+  },
+  "xiaojingyu-home--xj-accessory_table": {
+    "id": "xiaojingyu-home--xj-accessory_table",
+    "name": "手机收纳桌",
+    "scene": "xiaojingyu-home",
+    "scene_name": "小鲸鱼家",
+    "layer": "solid",
+    "footprint": {
+      "w": 2,
+      "h": 1
+    },
+    "layers": [
+      {
+        "file": "../seaside/xj-accessory_table.png",
+        "x": 3,
+        "y": -13,
+        "w": 58,
+        "h": 48,
+        "depth": 17,
+        "part": "main"
+      }
+    ],
+    "source": {
+      "module": "xj-accessory_table",
+      "foot": [
+        616,
+        401,
+        54,
+        20
+      ],
+      "collision": {
+        "x": 2,
+        "y": 25,
+        "w": 54,
+        "h": 20
+      },
+      "status": "grid-converted; original facing only; placement requires validation"
+    },
+    "facings": {
+      "S": {
+        "file": "xiaojingyu-home--xj-accessory_table-S.png",
+        "footprint": {
+          "w": 2,
+          "h": 1
+        },
+        "art": {
+          "x": -1,
+          "y": -16,
+          "w": 66,
+          "h": 48
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 1,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      },
+      "E": {
+        "file": "xiaojingyu-home--xj-accessory_table-E.png",
+        "footprint": {
+          "w": 1,
+          "h": 2
+        },
+        "art": {
+          "x": -1,
+          "y": -16,
+          "w": 34,
+          "h": 80
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 1,
+            "face": "W"
+          }
+        ],
+        "seat": null
+      },
+      "N": {
+        "file": "xiaojingyu-home--xj-accessory_table-N.png",
+        "footprint": {
+          "w": 2,
+          "h": 1
+        },
+        "art": {
+          "x": -1,
+          "y": -16,
+          "w": 66,
+          "h": 48
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": -1,
+            "face": "S"
+          }
+        ],
+        "seat": null
+      },
+      "W": {
+        "file": "xiaojingyu-home--xj-accessory_table-W.png",
+        "footprint": {
+          "w": 1,
+          "h": 2
+        },
+        "art": {
+          "x": -1,
+          "y": -16,
+          "w": 34,
+          "h": 80
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": -1,
+            "dy": 1,
+            "face": "E"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "facingsApproved": "2026-11-11 full geometry + visual art audit; interaction restrictions retained"
+  }
+}

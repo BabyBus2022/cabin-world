@@ -1,0 +1,223 @@
+{
+  "produce": {
+    "seed": "veg",
+    "carrot": "carrot",
+    "wheat": "wheat",
+    "tomato_seed": "tomato",
+    "eggplant_seed": "eggplant",
+    "strawberry_seed": "strawberry",
+    "watermelon_seed": "watermelon"
+  },
+  "names": {
+    "seed": "白菜种子",
+    "veg": "白菜",
+    "carrot": "胡萝卜",
+    "wheat": "小麦",
+    "tomato": "番茄",
+    "eggplant": "茄子",
+    "strawberry": "草莓",
+    "watermelon": "西瓜",
+    "milk": "牛奶",
+    "beef": "牛肉",
+    "mutton": "羊肉",
+    "pork": "猪肉",
+    "egg": "鸡蛋",
+    "poultry": "鸡肉",
+    "fish": "鲜鱼"
+  },
+  "recipes": {
+    "garden-eggplant-pork": {
+      "name": "肉片烧茄子",
+      "group": "肉菜",
+      "items": {
+        "eggplant": 1,
+        "pork": 1
+      },
+      "energy": 35
+    },
+    "garden-tomato-beef": {
+      "name": "番茄牛肉",
+      "group": "肉菜",
+      "items": {
+        "tomato": 1,
+        "beef": 1
+      },
+      "energy": 35
+    },
+    "garden-carrot-chicken": {
+      "name": "胡萝卜炒鸡丁",
+      "group": "肉菜",
+      "items": {
+        "carrot": 1,
+        "poultry": 1
+      },
+      "energy": 35
+    },
+    "garden-cabbage-lamb": {
+      "name": "白菜炒羊肉",
+      "group": "肉菜",
+      "items": {
+        "veg": 1,
+        "mutton": 1
+      },
+      "energy": 35
+    },
+    "garden-tomato-eggs": {
+      "name": "番茄炒蛋",
+      "group": "肉菜",
+      "items": {
+        "tomato": 1,
+        "egg": 1
+      },
+      "energy": 35
+    },
+    "garden-sauteed-cabbage": {
+      "name": "清炒白菜",
+      "group": "蔬菜",
+      "items": {
+        "veg": 2
+      },
+      "energy": 22
+    },
+    "garden-braised-eggplant": {
+      "name": "红烧茄子",
+      "group": "蔬菜",
+      "items": {
+        "eggplant": 2
+      },
+      "energy": 22
+    },
+    "garden-tomato-eggplant": {
+      "name": "番茄烧茄子",
+      "group": "蔬菜",
+      "items": {
+        "tomato": 1,
+        "eggplant": 1
+      },
+      "energy": 22
+    },
+    "garden-carrot-cabbage": {
+      "name": "胡萝卜炒白菜",
+      "group": "蔬菜",
+      "items": {
+        "carrot": 1,
+        "veg": 1
+      },
+      "energy": 22
+    },
+    "garden-garden-trio": {
+      "name": "田园炒三鲜",
+      "group": "蔬菜",
+      "items": {
+        "tomato": 1,
+        "carrot": 1,
+        "veg": 1
+      },
+      "energy": 22
+    },
+    "garden-egg-drop-soup": {
+      "name": "番茄蛋花汤",
+      "group": "汤",
+      "items": {
+        "tomato": 1,
+        "egg": 1
+      },
+      "energy": 28
+    },
+    "garden-pork-cabbage-soup": {
+      "name": "白菜肉片汤",
+      "group": "汤",
+      "items": {
+        "veg": 1,
+        "pork": 1
+      },
+      "energy": 28
+    },
+    "garden-lamb-carrot-soup": {
+      "name": "羊肉胡萝卜汤",
+      "group": "汤",
+      "items": {
+        "mutton": 1,
+        "carrot": 1
+      },
+      "energy": 28
+    },
+    "garden-tomato-fish-soup": {
+      "name": "番茄鲜鱼汤",
+      "group": "汤",
+      "items": {
+        "tomato": 1,
+        "fish": 1
+      },
+      "energy": 28
+    },
+    "garden-milk-veg-soup": {
+      "name": "奶香蔬菜汤",
+      "group": "汤",
+      "items": {
+        "milk": 1,
+        "carrot": 1,
+        "veg": 1
+      },
+      "energy": 28
+    },
+    "garden-wheat-rolls": {
+      "name": "麦香花卷",
+      "group": "主食",
+      "items": {
+        "wheat": 2
+      },
+      "energy": 40
+    },
+    "garden-egg-noodles": {
+      "name": "番茄鸡蛋面",
+      "group": "主食",
+      "items": {
+        "wheat": 1,
+        "tomato": 1,
+        "egg": 1
+      },
+      "energy": 40
+    },
+    "garden-pork-dumplings": {
+      "name": "白菜猪肉锅贴",
+      "group": "主食",
+      "items": {
+        "wheat": 1,
+        "veg": 1,
+        "pork": 1
+      },
+      "energy": 40
+    },
+    "garden-beef-noodles": {
+      "name": "胡萝卜牛肉面",
+      "group": "主食",
+      "items": {
+        "wheat": 1,
+        "carrot": 1,
+        "beef": 1
+      },
+      "energy": 40
+    },
+    "garden-cabbage-pancake": {
+      "name": "白菜鸡蛋饼",
+      "group": "主食",
+      "items": {
+        "wheat": 1,
+        "veg": 1,
+        "egg": 1
+      },
+      "energy": 40
+    }
+  },
+  "groups": [
+    "肉菜",
+    "蔬菜",
+    "汤",
+    "主食"
+  ],
+  "fruitEnergy": {
+    "watermelon": 18,
+    "strawberry": 12
+  }
+}

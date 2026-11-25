@@ -9,6 +9,9 @@ const WAVE := Color("2b3a64")
 var rooms := {}
 var characters: Array[Character] = []
 var follow := 0
+var _walk_follow := -1
+var _follow_clock := 0.0
+var _follow_door := ""
 var view_scene := "qianxia-home"
 
 var _hud: Hud
@@ -20,14 +23,23 @@ var _view: Control
 var _dock: Dock
 var _arcade: ArcadePanel
 var _arcade_show := false
+var _music: Node ## 2026-11-21 Claude: scene music (core/cabin_music.gd, assets/music-rules.json)
 var observing := false
 var _stage: Node2D
 var _room_camera:Node
+var _observer:Node   ## 2026-11-21 Claude (observer-view): 观察者模式的镜头（玩家模式下完全不做事）
+var _observer_return_scene := ""   ## 2026-11-21 Claude (observer2): 观察者去清溪村之前看的那个房间
+var _observer_leaving := false     ## 正在收村子（淡出），期间不重复触发
+var _observer_pending := ""        ## 收村子期间又来了一个"去某处"，收完再去那里
 var _restaurant:Node
 var _home_editor:Control
 var _home_editor_notice:AcceptDialog
 var _map_editor:Control ## separate map editor, opened from Settings (see ui/map_editor.gd)
 var _map_notice:AcceptDialog
+const Player = preload("res://entities/player_character.gd")
+var local_player: Player
+var player_controls
+var qingxi_host ## 2026-11-19 Claude: 清溪村 as a map (core/qingxi_host.gd); null when 清溪村 is not in the pack
 
 var _test_seconds := -1.0
 var _trace_file: FileAccess
@@ -39,7 +51,24 @@ var _test_clock := 0.0
 var _next_log := 0.0
 
 
+# Public installation choices are read once, before mounting rooms.
+var selected_shaders: Array = []
+func release_on(id:String)->bool:
+	return Features.on(id)
+
+func read_release_options()->void:
+	Features.load_flags()
+	var base="res://qingxi-live/village-center/"
+	for row in [["water12","flat-build/pond_glints"],["water12","village_river"],["wind12","garden_crop"],["wind12","rice"],["flame12","village_embers"],["flame12","lantern_glass"],["window12","../cottage_glass"],["window12","../seedshop-study/window_glass"]]:
+		if not release_on(row[0]):
+			var shader=load(base+row[1]+".gdshader")
+			if shader:
+				shader.code=shader.code.replace("TIME","0.0")
+				if row[1]=="rice":shader.code=shader.code.replace("age*","0.0*")
+				selected_shaders.append(shader)
 func _ready() -> void:
+	read_release_options()
+	install_default_whale()
 	if "--home-editor" in OS.get_cmdline_user_args():
 		get_tree().call_deferred("change_scene_to_file", "res://ui/home_editor.tscn")
 		return
@@ -79,15 +108,31 @@ func _ready() -> void:
 	_room_camera=load("res://entities/room_camera.gd").new()
 	add_child(_room_camera)
 	_room_camera.setup(self)
+	_observer=load("res://entities/observer_view.gd").new()
+	add_child(_observer)
+	_observer.setup(self)
+	if release_on("map12"):
+		var minimap=preload("res://ui/observer_room_map.gd").new()
+		minimap.name="ObserverRoomMap"
+		minimap.setup(self)
+		add_child(minimap)
 	_dock = Dock.new()
 	add_child(_dock)
 	_arcade = ArcadePanel.new()
 	add_child(_arcade)
+	## 2026-11-21 Claude: scene music for Cabin World. Its rules live in assets/music-rules.json;
+	## it polls view_scene and the 清溪村 host, so it needs no hook in _show_room.
+	if release_on("music12"):
+		_music = load("res://core/cabin_music.gd").new()
+		add_child(_music)
+		_music.setup(self)
 	for id in WorldData.available_order():
 		var room := Room.new()
 		room.setup(id)
 		_stage.add_child(room)
 		rooms[id] = room
+	## 2026-11-20 Claude (qingxi-residents): 清溪村 as a place residents reach by bus (no room picture). Before they wake, so one who was there wakes there.
+	if release_on("village12") and ResourceLoader.exists("res://qingxi-live/village-center/main.tscn"): load("res://core/qingxi_host.gd").register_place(self)
 	for person in Residents.people():
 		_make_character(person["key"], person["name"], person["art"])
 	for c in characters:
@@ -106,7 +151,8 @@ func _ready() -> void:
 	_settings.furniture_requested.connect(_open_home_editor)
 	if _settings.has_signal("map_requested"):_settings.connect("map_requested",_open_map_editor)
 	_settings.refresh_requested.connect(func():SharedFeed.poll();_dock.refresh())
-	_settings.observe_requested.connect(func():observing=not observing;_layout())
+	_settings.player_mode_requested.connect(set_player_mode)
+	_settings.player_mode_active = not observing
 	SharedFeed.presence_changed.connect(_on_presence)
 	Actions.phase_started.connect(_on_action_phase)
 	Actions.action_ended.connect(_on_action_ended)
@@ -114,14 +160,95 @@ func _ready() -> void:
 	VadsLink.connection_changed.connect(func(on: bool):
 		if on:
 			for c in characters:
-				c.report_position())
+				if c != local_player:c.report_position()
+			if is_instance_valid(local_player):local_player.publish_player())
 	SharedFeed.poll()
 	resized.connect(_layout)
 	_show_room(view_scene)
+	local_player = Player.new()
+	local_player.setup(Residents.PLAYER, "你", "tuantuan-player")
+	load("res://ui/player_skin_settings.gd").mount(self,_settings)
+	local_player.room_changed.connect(_on_room_changed)
+	rooms[view_scene].add_child(local_player)
+	player_controls = load("res://ui/player_controls_public.gd").new()
+	add_child(player_controls)
+	player_controls.setup(self, local_player)
+	var game_modal:=CanvasLayer.new();game_modal.name="ArcadeOverlay";game_modal.layer=18
+	add_child(game_modal)
+	player_controls.arcade.reparent(game_modal,false)
+	var mode := ConfigFile.new()
+	mode.load(player_mode_file())
+	set_player_mode(bool(mode.get_value("player", "enabled", true)), false)
+	## 2026-11-19 Claude: 清溪村, reached by bus from the park, shown inside the world frame.
+	if release_on("village12") and ResourceLoader.exists("res://qingxi-live/village-center/main.tscn"):
+		qingxi_host = load("res://core/qingxi_host.gd").new()
+		add_child(qingxi_host)
+		qingxi_host.setup(self)
 	_layout()
 	_warm_room_art.call_deferred()
 	if "--open-layout" in OS.get_cmdline_user_args():
 		follow=-1;_show_room(HomeGrid.requested_scene());_open_home_editor()
+
+func player_mode_file() -> String:
+	return Economy.save_path.get_base_dir().path_join("player-mode.cfg")
+
+func set_player_mode(active: bool, persist := true) -> void:
+	if active and not release_on("body12"):
+		active=false
+		persist=false
+	if not is_instance_valid(local_player):
+		return
+	if persist:
+		var config := ConfigFile.new()
+		config.set_value("player","enabled",active)
+		if config.save(player_mode_file()+".tmp") != OK or DirAccess.rename_absolute(player_mode_file()+".tmp",player_mode_file()) != OK:
+			player_controls.tell("模式设置保存失败")
+			return
+	_walk_follow = -1
+	var resuming := active and observing
+	var watched_room := view_scene
+	var in_village:bool = qingxi_host != null and qingxi_host.active
+	if resuming and in_village:
+		qingxi_host.resume_observed_position()
+	if resuming and not in_village and WorldData.scenes.has(watched_room):
+		# Disabling the player keeps their feet but clears placed. Restore placement
+		# before enabling them, so the first-time park spawn cannot replace the view.
+		if local_player.scene_id == watched_room:
+			local_player.placed = true
+		else:
+			local_player.want_scene = watched_room
+			local_player.want_zone = ""
+			local_player._place_first()
+	follow = -1
+	observing = not active
+	_settings.player_mode_active = active
+	if active and not characters.has(local_player):
+		characters.append(local_player)
+	elif not active:
+		characters.erase(local_player)
+	for c in characters:
+		c.neighbours = characters
+	_hud.characters = characters
+	player_controls.set_player_mode(active)
+	## 2026-11-21 Claude (observer-view): 观察者的镜头跟着开关一起同步；清溪村那边决定是留下看还是回公园。
+	if is_instance_valid(_observer): _observer.sync()
+	if qingxi_host != null: qingxi_host.on_mode_changed(active)
+	if active:
+		Economy._answer({"actor":Residents.PLAYER,"op":"top_up","id":"player-start-"+str(Time.get_ticks_usec())})
+		# 2026-11-21（业主）：从观察者切回玩家模式要停在刚才看的那个房间，不要把人拽回自己原来的房间。
+		if qingxi_host != null and qingxi_host.active:
+			_layout()
+			return
+		var want := view_scene
+		if is_instance_valid(local_player) and want != "" and want != local_player.scene_id and WorldData.scenes.has(want):
+			local_player.want_scene = want
+			local_player.want_zone = ""
+			local_player._place_first()
+		_show_room(local_player.scene_id)
+	_layout()
+
+func _exit_tree() -> void:
+	if is_instance_valid(local_player):local_player.remember_if_moved()
 
 
 func _open_home_editor() -> void:
@@ -199,6 +326,7 @@ func _home_editor_message(text:String) -> void:
 	_home_editor_notice.dialog_text=text;_home_editor_notice.popup_centered()
 
 func _unhandled_key_input(event:InputEvent) -> void:
+	if qingxi_busy(): return ## 2026-11-19 Claude: keys belong to 清溪村 (its F6 is a test key there)
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode==KEY_F6:
 		if not WorldData.scenes.has("xiaojingyu-home"):return
 		_open_home_editor();get_viewport().set_input_as_handled()
@@ -336,7 +464,7 @@ func _on_action_phase(actor: String, phase: String, text: String, pose: int) -> 
 
 func _on_walk_ordered(frame: Dictionary) -> void:
 	for c in characters:
-		if c.key == str(frame.get("actor", "")):
+		if c != local_player and c.key == str(frame.get("actor", "")):
 			c.walk_order(frame)
 
 
@@ -354,12 +482,14 @@ func _on_room_changed(c: Character) -> void:
 	else:
 		room.add_child(c)
 	c.position = c.feet
-	if follow >= 0 and characters[follow] == c:
+	if c == local_player and qingxi_busy(): return
+	if (c == local_player and not observing and follow < 0) or (follow >= 0 and characters[follow] == c):
 		_show_room(c.scene_id)
 
 
 ## Poking: clicking a character in the room shows her mood. Same hit area as the old panel.
 func _on_room_clicked(at: Vector2) -> void:
+	if qingxi_busy(): return ## 2026-11-19 Claude: the frame shows 清溪村 (or the bus is moving)
 	var p := (at-_stage.position) / _stage.scale.x
 	var best: Character = null
 	var best_d := 30.0
@@ -371,8 +501,12 @@ func _on_room_clicked(at: Vector2) -> void:
 			best_d = d
 			best = c
 	if best != null:
+		if player_controls and player_controls.allows_input() and best != local_player and Economy.Social.near(local_player.key, best.key):
+			player_controls.open_peer(best.key)
+			return
 		best.poke()
 		return
+	# 2026-11-20 业主：玩家模式取消左键点地行走，移动只用 WASD/方向键。点 NPC、点家具、点地块等真实交互保留。
 	var object := ""
 	for row in WorldData.objects:
 		if WorldData.scene_of_space(str(row.get("space","")))!=view_scene:continue
@@ -382,35 +516,184 @@ func _on_room_clicked(at: Vector2) -> void:
 	if object!="":_dock.show_object(view_scene,object)
 
 
+## 2026-11-19 Claude: while in 清溪村, Cabin World tabs and cards first take the bus back to the park.
+func qingxi_busy() -> bool:
+	return qingxi_host != null and qingxi_host.busy()
+
 func _on_scene_picked(id: String) -> void:
+	_cancel_walk_follow()
+	if qingxi_busy():
+		## 2026-11-21 Claude (observer2): 观察者正在清溪村里看时，点小屋世界的标签 = 真的去那个房间
+		## （不是被顺手扔回公园）；点清溪村自己的地方（qx:...）仍然交给 qingxi_host 在村里换地方。
+		## _spectating() 只在 spectator 时成立，玩家模式永远不会进这一支。
+		if _spectating() and not id.begins_with("qx:"):
+			follow = -1
+			_show_room(id)
+			return
+		qingxi_host.pick(id);return ## a 清溪村 place, the bus home, or a Cabin World tab (bus first)
+	if is_instance_valid(local_player) and local_player.player_enabled:
+		follow = -1
+		_show_room(local_player.scene_id)
+		player_controls.travel(id)
+		return
 	follow = -1
 	_show_room(id)
 
 
 func _on_character_picked(index: int) -> void:
+	_cancel_walk_follow()
 	follow = -1
-	if characters[index].placed:
+	# 2026-11-21（业主）：人在清溪村时点人物卡片，绝不该把人扔回公园。
+	# 以前这里 qingxi_busy() 且非观察者就 request_leave() —— 玩家模式下点她一下 = 坐公交回公园。
+	# 现在：人在村里只更新面板，不切房间、不坐车。
+	if qingxi_busy():
+		_hud.follow = follow
+		_hud.queue_redraw()
+		return
+	if index >= 0 and index < characters.size() and characters[index].placed:
 		_show_room(characters[index].scene_id)
 	_hud.follow = follow
 	_hud.queue_redraw()
 
 
 func _on_follow_picked(index: int) -> void:
+	if not observing:
+		var old:=_walk_follow
+		_cancel_walk_follow()
+		if index!=old and index>=0 and index<characters.size() and characters[index]!=local_player:
+			_walk_follow=index
+			player_controls.stop_activity()
+			if not qingxi_busy():_show_room(local_player.scene_id)
+			_player_follow_tick()
+		_hud.follow=_walk_follow
+		_hud.queue_redraw()
+		return
 	follow = -1 if follow == index else index
-	if follow >= 0 and characters[follow].placed:
+
+	if follow >= 0 and follow < characters.size() and characters[follow].placed:
 		_show_room(characters[follow].scene_id)
 	_hud.follow = follow
 	_hud.queue_redraw()
 
 
+func _cancel_walk_follow() -> void:
+	if _walk_follow>=0 and is_instance_valid(local_player):
+		local_player.stop_navigation()
+	_walk_follow=-1
+	_follow_door=""
+
+func _player_follow_tick() -> void:
+	if _walk_follow<0 or _walk_follow>=characters.size() or observing:return
+	var c:=characters[_walk_follow]
+	if not is_instance_valid(c) or not c.placed or qingxi_host.transit:return
+	if local_player.direction_input!=Vector2.ZERO:
+		_cancel_walk_follow()
+		_hud.follow=-1
+		_hud.queue_redraw()
+		return
+	if qingxi_host.active:
+		if c.scene_id!=qingxi_host.PLACE:qingxi_host.owner_bus_home()
+		return
+	var village:bool=c.scene_id==qingxi_host.PLACE
+	var dest:String=qingxi_host.PARK if village else c.scene_id
+	if local_player.scene_id!=dest:
+		if local_player.want_scene!=dest and _follow_door!=dest:
+			_follow_door=dest
+			player_controls.travel(dest)
+		return
+	_follow_door=""
+	var at:Vector2=qingxi_host.CURB if village else c.feet
+	if local_player.feet.distance_to(at)<(24 if village else 29):
+		if village:qingxi_host.board()
+		return
+	var nav:=WorldData.nav(dest)
+	var heading:Vector2=at.direction_to(local_player.feet)
+	for i in 8:
+		var goal:=at if village else at+heading.rotated(i*TAU/8)*19
+		if not nav.walkable(goal):continue
+		if local_player._walk_point.is_finite() and local_player._walk_point.distance_to(goal)<14:return
+		if not nav.route(local_player.feet,goal).is_empty() and local_player.click_walk(goal):return
+
+## 观察者的镜头可以自由跟随住户。
+func _spectating() -> bool:
+	return qingxi_host != null and qingxi_host.spectator
+
+
+## 2026-11-21 Claude (observer2): 观察者自己走去清溪村。**跟任何居民在哪完全无关** ——
+## 两个都在家、两个都在清溪村，这条路都通。用的还是原来那套真村子（spectator，没有身体）。
+func observer_enter_village() -> bool:
+	if not observing or qingxi_host == null:
+		return false
+	if qingxi_host.active or qingxi_host.transit:
+		return false
+	if not WorldData.scenes.has(qingxi_host.PLACE):
+		return false
+	_observer_return_scene = view_scene
+	if view_scene=="qianxia-park":
+		qingxi_host.observer_bus_from_park()
+		return true
+	_show_room(qingxi_host.PLACE)
+	return bool(qingxi_host.active)
+
+
+## 观察者回小屋世界：回到进清溪村之前看的那个房间（不是一律扔回公园）。
+func observer_leave_village() -> void:
+	if qingxi_host == null or not qingxi_host.active:
+		return
+	var back := _observer_return_scene
+	if back == "" or back == qingxi_host.PLACE or not WorldData.scenes.has(back):
+		back = local_player.scene_id if is_instance_valid(local_player) and WorldData.scenes.has(local_player.scene_id) else "qianxia-park"
+	follow = -1   ## 业主自己按"回小屋世界" = 不跟了
+	if is_instance_valid(_hud):
+		_hud.follow = -1
+		_hud.queue_redraw()
+	await _observer_leave_to(back)
+
+
+## 收起清溪村（异步淡出）之后再去 id。keep_follow=true 用于"跟着她换世界"：
+## 她离开村子时 follow 不能被 spectator_leave 顺手清掉。
+func _observer_leave_to(id: String) -> void:
+	if _observer_leaving:
+		_observer_pending = id
+		return
+	_observer_leaving = true
+	while qingxi_host.transit and qingxi_host.active:await get_tree().process_frame
+	if qingxi_host.spectator and qingxi_host.active:
+		qingxi_host.spectator_leave()   ## 它自己跑完会 _show_room(PARK)；下面等它真的收完
+	var started := Time.get_ticks_msec()
+	while qingxi_host.active and Time.get_ticks_msec() - started < 5000:
+		await get_tree().process_frame
+	_observer_leaving = false
+	if is_instance_valid(_hud):
+		_hud.follow = follow
+		_hud.queue_redraw()
+	var want := _observer_pending if _observer_pending != "" else id
+	_observer_pending = ""
+	if not observing and is_instance_valid(local_player) and WorldData.scenes.has(local_player.scene_id):
+		want = local_player.scene_id   ## 切回玩家模式：回玩家自己的房间
+	_show_room(want)
+
+
 func _show_room(id: String) -> void:
+	if qingxi_host != null:
+		if qingxi_host.spectator and qingxi_host.active and id != qingxi_host.PLACE:
+			## 2026-11-21 Claude (observer2): 收村子是异步的（0.25s 淡出），收完再进目标房间。
+			## 这样"跟着她走"不会在半路把房间切两次，也不会因为 spectator_leave 而丢掉 follow。
+			_observer_leave_to(id)
+			return
+		qingxi_host.watch_place(id) ## 2026-11-20 Claude (qingxi-residents): the 清溪村 card (observer), hidden for other rooms
+		## 2026-11-21 Claude (observer-view): 观察者跟随到清溪村时，真的把村子打开给他看；
+		## 玩家模式这条返回 false，行为与改动前一样（只有那张卡片）。
+		if id == qingxi_host.PLACE and qingxi_host.watch_in_person():
+			return
+	if WorldData.scenes.get(id, {}).get("noRoom", false): return ## 2026-11-20 Claude (qingxi-residents): 清溪村 has no room picture
 	view_scene = id
 	for k in rooms:
 		rooms[k].visible = k == id
 	rooms[id].build()
 	if _hud:
 		_hud.view_scene = id
-		_hud.follow = follow
+		_hud.follow = follow if observing else _walk_follow
 		_hud.queue_redraw()
 	if is_inside_tree():
 		_layout()
@@ -429,54 +712,33 @@ func _layout() -> void:
 	var top := _hud.tabs_bottom + 4.0
 	var low := H - _hud.grass_height - 6.0
 	var room: Room = rooms[view_scene]
-	var wide := true # fixed logical canvas; resizing never rearranges the interface
-	var cards: Array[Rect2] = []
-	var k := 1.0
-	var sw := 0.0
-	var sh := 0.0
-	var sx := margin + frame
-	var sy := top + frame
-	var dock_rect := Rect2()
-	if wide:
-		var side := 0.0 if observing else W * 0.20
-		var right := W - side - margin * 2.0
-		k = minf((right - margin - 2.0 * frame) / room.width, (low - top - 2.0 * frame) / room.height)
-		sw = room.width * k
-		sh = room.height * k
-		sx = floorf(margin + (right - margin - sw) / 2.0)
-		sy = floorf(top + (low - top - sh) / 2.0)
-		var cx := W - side - margin
-		cards = [Rect2(cx, top, side, 124.0), Rect2(cx, top + 130.0, side, 124.0)]
-		dock_rect = Rect2(cx, top + 260.0, side, low - top - 260.0)
-	else:
-		var cards_h := 116.0
-		var room_limit := maxf(180.0, (low - top) * (0.58 if H >= 620.0 else 0.5))
-		k = minf((W - margin * 2.0 - 2.0 * frame) / room.width, (room_limit - 2.0 * frame) / room.height)
-		sw = room.width * k
-		sh = room.height * k
-		sx = floorf((W - sw) / 2.0)
-		var y := top + sh + 2.0 * frame + 6.0
-		var cw := (W - margin * 3.0) / 2.0
-		cards = [Rect2(margin, y, cw, cards_h), Rect2(margin * 2.0 + cw, y, cw, cards_h)]
-		dock_rect = Rect2(margin, y + cards_h + 6.0, W - margin * 2.0, low - y - cards_h - 6.0)
+	var side := W * 0.20
+	var right := W - side - margin * 2.0
+	var k := minf((right - margin - 2.0 * frame) / room.width, (low - top - 2.0 * frame) / room.height)
+	var sw := room.width * k
+	var sh := room.height * k
+	var sx := floorf(margin + (right - margin - sw) / 2.0)
+	var sy := floorf(top + (low - top - sh) / 2.0)
+	var cx := W - side - margin
+	_hud.layout_cards(Rect2(cx, top, side, 254.0))
+	var dock_rect := Rect2(cx, top + 260.0, side, low - top - 260.0)
 	_view.position = Vector2(sx, sy)
 	_view.size = Vector2(sw, sh)
 	_stage.scale = Vector2(k, k)
 	_room_camera.configure(view_scene,Vector2(room.width,room.height),k,WorldData.scenes[view_scene])
+	if is_instance_valid(_observer): _observer.sync()   ## 2026-11-21 Claude (observer-view): 只在观察者模式里接管 stage.position
 	_hud.size = size
-	if observing:cards.clear()
-	_hud.card_rects = cards
 	_hud.frame_rect = Rect2(sx, sy, sw, sh)
 	_hud.queue_redraw()
 	_arcade_show = ArcadePanel.available(view_scene)
-	_arcade.visible = _arcade_show and not observing
+	_arcade.visible = _arcade_show
 	if _arcade_show:
 		var half := floorf((dock_rect.size.y - 6.0) / 2.0)
 		_arcade.position = dock_rect.position
 		_arcade.size = Vector2(dock_rect.size.x, half)
 		dock_rect.position.y += half + 6.0
 		dock_rect.size.y -= half + 6.0
-	_dock.visible = dock_rect.size.y >= 120.0 and not observing
+	_dock.visible = dock_rect.size.y >= 120.0
 	if _dock.visible:
 		_dock.position = dock_rect.position
 		_dock.size = dock_rect.size
@@ -484,6 +746,7 @@ func _layout() -> void:
 	_landscape.queue_redraw()
 	_petals.emission_rect_extents = Vector2(W / 2.0, 2.0)
 	_petals.position = Vector2(W / 2.0, -4.0)
+	if qingxi_host != null: qingxi_host.layout() ## 2026-11-19 Claude: keep 清溪村 inside the frame
 
 
 ## Rooms are built the first time they are shown, and their baked art used to load on the main thread then
@@ -534,6 +797,11 @@ func _discover_keepsakes()->void:
 			_keepsake_sent[note.id]=true
 
 func _process(delta: float) -> void:
+	if _walk_follow>=0:
+		_follow_clock-=delta
+		if _follow_clock<=0:
+			_follow_clock=.3
+			_player_follow_tick()
 	_keepsake_poll+=delta
 	if _keepsake_poll>=1:
 		_keepsake_poll=0
@@ -573,3 +841,41 @@ func _finish_test() -> void:
 		await RenderingServer.frame_post_draw
 		get_viewport().get_texture().get_image().save_png(_shot)
 	get_tree().quit()
+
+func install_default_whale() -> void:
+	if not Features.on("character-motion"):return
+	var library=preload("res://core/appearance_packs.gd")
+	var directory:String=library.directory()
+	var active:=directory.path_join("active.json")
+	var selections:Dictionary={}
+	if FileAccess.file_exists(active):
+		var saved=JSON.parse_string(FileAccess.get_file_as_string(active))
+		if not saved is Dictionary or saved.has("xiaojingyu"):return
+		selections=saved
+	var id:="d975af110b464bdaa867d3ffa59655a8"
+	var source:="res://starter-whale/"
+	var manifest:=library.read_json(source+"appearance.json")
+	if not manifest.has("actions"):return
+	var dest:=directory.path_join("packs").path_join(id)
+	var files:Dictionary={"appearance.json":true}
+	for action in manifest.actions.values():
+		for frame in action.frames:
+			if not library.safe_frame(frame):return
+			files[frame]=true
+	for relative:String in files:
+		var path:=dest.path_join(relative)
+		if FileAccess.file_exists(path):continue
+		if DirAccess.make_dir_recursive_absolute(path.get_base_dir())!=OK:return
+		var bytes:=FileAccess.get_file_as_bytes(source+relative)
+		if bytes.is_empty():return
+		var target:=FileAccess.open(path+".tmp",FileAccess.WRITE)
+		if target==null:return
+		target.store_buffer(bytes)
+		target.close()
+		if DirAccess.rename_absolute(path+".tmp",path)!=OK:return
+	var selected:=FileAccess.open(active+".tmp",FileAccess.WRITE)
+	if selected!=null:
+		selections["xiaojingyu"]=id
+		selected.store_string(JSON.stringify(selections))
+		selected.close()
+		DirAccess.rename_absolute(active+".tmp",active)

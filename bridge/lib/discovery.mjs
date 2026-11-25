@@ -1,7 +1,7 @@
 import {CONTINUOUS_USES} from './activity-duration.mjs';
 // Keep furniture as data, not hundreds of model tool schemas. Deterministic pages
 // preserve the entire accessible catalog; no popularity/AI ranking hides entries.
-export function discover(resident, custom = [], args = {}) {
+export function discover(resident, custom = [], args = {}, offers = []) {
   const offset = integer(args.offset, 0, 0, Number.MAX_SAFE_INTEGER);
   const limit = integer(args.limit, 20, 1, 50);
   const query = String(args.query || '').trim().toLocaleLowerCase();
@@ -29,10 +29,10 @@ export function discover(resident, custom = [], args = {}) {
       uses: (o.uses || []).map(u => ({id: u.id, label: u.label,
         ...(CONTINUOUS_USES.has(u.id)?{durationSeconds:[0,3600],zeroMeansHold:true,canFinishEarly:true}:{}),
         ...(u.mode ? {mode: u.mode} : {}),
-        ...(u.shelf ? {buys: resident.catalog.products.filter(p => p.shelf === u.shelf).map(p => ({id: p.id, name: p.name}))} : {}),
+        ...(u.shelf ? {buys: offers.filter(p => p.shelf === u.shelf).map(p => ({id: p.id, name: p.name, price:p.price}))} : {}),
       })),
     })),
-    hint: '使用返回的 id 调用 cabin_use；未找到时换关键词或清空 query 翻页。装饰无动作；下棋用 play 或 play_gomoku，电玩城电脑对手 mode=npc，住户开桌 duo、加入 join。',
+    hint: '使用返回的 id 调用 cabin_use；未找到时换关键词或清空 query 翻页。装饰无动作；可用棋种见棋桌的 uses，电玩城电脑对手 mode=npc，住户开桌 duo、加入 join。',
   };
 }
 

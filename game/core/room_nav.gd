@@ -13,6 +13,24 @@ var walk_regions:Array[PackedVector2Array]=[]
 var grid := AStarGrid2D.new()
 var _edge_graph: AStar2D
 
+## 2026-11-18 arcade freeze fix. Speed only: every answer is the same as before.
+## The arcade's walk area is hundreds of small polygons. Testing a point against
+## all of them on every 3 px line sample made a single crowd detour take minutes
+## and froze the game while two residents blocked each other.
+## _region_rects / _region_buckets: each polygon's bounding box, filed under every
+## REGION_BUCKET-sized square it touches. A point or segment can only touch a
+## polygon whose box it touches, so testing only those polygons is exact.
+## Shared (not copied) with crowd copies of the same room.
+const REGION_BUCKET := 32.0
+var _region_rects:Array[Rect2]=[]
+var _region_buckets:Dictionary={}
+## Crowd copies (made from a room `base`): the room grid's solid cells and edge graph
+## are reused; only cells and edges near the added people are recalculated.
+var _base:RoomNav
+var _added_circles:Array=[]
+var _solid_cells:Array[Vector2i]=[]
+var _solid_listed:=false
+
 
 ## `base` (optional): reuse an existing grid of the same room and only add scene.dynamicCircles (people) on top.
 ## Rebuilding a room grid tests every cell against every obstacle and polygon (~10-400 ms); copying is ~1 ms.
@@ -29,6 +47,7 @@ func _init(scene: Dictionary, base: RoomNav = null) -> void:
 		var polygon:=PackedVector2Array()
 		for p in points:polygon.append(Vector2(p[0],p[1]))
 		walk_regions.append(polygon)
+	_index_regions()
 	for o in scene["obstacles"]:
 		blocks.append(Rect2(o["x"], o["y"], o["w"], o["h"]).grow(clearance))
 	grid.region = Rect2i(0, 0, ceili(walk.size.x / step) + 1, ceili(walk.size.y / step) + 1)
@@ -45,14 +64,14 @@ func _init(scene: Dictionary, base: RoomNav = null) -> void:
 func _copy_from(base: RoomNav, circles: Array) -> void:
 	step = base.step; walk = base.walk; clearance = base.clearance
 	blocks = base.blocks; walk_regions = base.walk_regions
+	_region_rects = base._region_rects; _region_buckets = base._region_buckets
+	_base = base; _added_circles = circles
 	dynamic_circles = base.dynamic_circles.duplicate()
 	dynamic_circles.append_array(circles)
 	grid.region = base.grid.region; grid.cell_size = base.grid.cell_size; grid.offset = base.grid.offset
 	grid.diagonal_mode = base.grid.diagonal_mode
 	grid.update()
-	for y in grid.region.size.y:
-		for x in grid.region.size.x:
-			if base.grid.is_point_solid(Vector2i(x, y)): grid.set_point_solid(Vector2i(x, y))
+	for cell in base._solid_list():grid.set_point_solid(cell)
 	# Only the cells under the added circles need testing.
 	for circle in circles:
 		var r := float(circle.radius); var c: Vector2 = circle.center
@@ -64,10 +83,53 @@ func _copy_from(base: RoomNav, circles: Array) -> void:
 					grid.set_point_solid(Vector2i(x, y))
 
 
+## Solid cells of this grid, listed once (crowd copies start from them).
+func _solid_list()->Array[Vector2i]:
+	if not _solid_listed:
+		_solid_listed=true
+		for y in grid.region.size.y:
+			for x in grid.region.size.x:
+				if grid.is_point_solid(Vector2i(x, y)):_solid_cells.append(Vector2i(x, y))
+	return _solid_cells
+
+
+func _index_regions()->void:
+	for i in walk_regions.size():
+		var box:=Rect2(walk_regions[i][0],Vector2.ZERO) if not walk_regions[i].is_empty() else Rect2()
+		for p in walk_regions[i]:box=box.expand(p)
+		_region_rects.append(box)
+		if walk_regions[i].is_empty():continue
+		for by in range(floori(box.position.y/REGION_BUCKET),floori(box.end.y/REGION_BUCKET)+1):
+			for bx in range(floori(box.position.x/REGION_BUCKET),floori(box.end.x/REGION_BUCKET)+1):
+				var key:=Vector2i(bx,by)
+				if not _region_buckets.has(key):_region_buckets[key]=PackedInt32Array()
+				_region_buckets[key].append(i)
+
+
+## Same answer as testing every walk region.
+func _in_regions(p: Vector2) -> bool:
+	for i in _region_buckets.get(Vector2i(floori(p.x/REGION_BUCKET),floori(p.y/REGION_BUCKET)),PackedInt32Array()):
+		if Geometry2D.is_point_in_polygon(p,walk_regions[i]):return true
+	return false
+
+
+## Regions whose bounding box touches the segment's box, in their original order.
+## A region outside that box cannot cross the segment.
+func _regions_near(a: Vector2, b: Vector2) -> PackedInt32Array:
+	var box:=Rect2(a,Vector2.ZERO).expand(b)
+	var seen:={}
+	for by in range(floori(box.position.y/REGION_BUCKET),floori(box.end.y/REGION_BUCKET)+1):
+		for bx in range(floori(box.position.x/REGION_BUCKET),floori(box.end.x/REGION_BUCKET)+1):
+			for i in _region_buckets.get(Vector2i(bx,by),PackedInt32Array()):
+				if not seen.has(i) and _region_rects[i].grow(0.001).intersects(box.grow(0.001),true):seen[i]=true
+	var out:=PackedInt32Array(seen.keys());out.sort()
+	return out
+
+
 func walkable(p: Vector2) -> bool:
 	if p.x < walk.position.x or p.y < walk.position.y or p.x > walk.end.x or p.y > walk.end.y:
 		return false
-	if not walk_regions.is_empty() and not walk_regions.any(func(region):return Geometry2D.is_point_in_polygon(p,region)):
+	if not walk_regions.is_empty() and not _in_regions(p):
 		return false
 	for b in blocks:
 		if p.x > b.position.x and p.x < b.end.x and p.y > b.position.y and p.y < b.end.y:
@@ -95,14 +157,15 @@ func clear_line(a: Vector2, b: Vector2) -> bool:
 	# Split at polygon edges and verify every interval in the UNION of regions.
 	if not walk_regions.is_empty() and direction.length_squared()>0.000001:
 		var cuts:Array[float]=[0.0,1.0]
-		for region in walk_regions:
+		for r in _regions_near(a,b):
+			var region:PackedVector2Array=walk_regions[r]
 			for i in region.size():
 				var crossing=Geometry2D.segment_intersects_segment(a,b,region[i],region[(i+1)%region.size()])
 				if crossing is Vector2:cuts.append(clampf((crossing-a).dot(direction)/direction.length_squared(),0,1))
 		cuts.sort()
 		for i in range(1,cuts.size()):
 			var point:=a.lerp(b,(cuts[i-1]+cuts[i])/2)
-			if not walk_regions.any(func(region):return Geometry2D.is_point_in_polygon(point,region)):return false
+			if not _in_regions(point):return false
 	var n := ceili(a.distance_to(b) / 3.0)
 	for i in range(1, n + 1):
 		if not walkable(a.lerp(b, float(i) / n)):
@@ -181,6 +244,7 @@ func route(start: Vector2, end: Vector2) -> Array[Vector2]:
 ## ordinary rectangular rooms retain the fast grid path.
 func _edge_path(from:Vector2i,to:Vector2i)->Array[Vector2]:
 	var width:=grid.region.size.x
+	if _edge_graph==null and _base!=null:_copy_edges()
 	if _edge_graph==null:
 		_edge_graph=AStar2D.new()
 		for y in grid.region.size.y:
@@ -201,3 +265,40 @@ func _edge_path(from:Vector2i,to:Vector2i)->Array[Vector2]:
 	var out:Array[Vector2]=[]
 	for p in _edge_graph.get_point_path(1+from.x+from.y*width,1+to.x+to.y*width):out.append(p)
 	return out
+
+
+## Crowd copy: the same graph `_edge_path` would build, without re-testing every
+## edge. Cells and the corner rule come from this copy's grid. An edge away from
+## the added people has the same clear_line answer as in the room grid, so the
+## room's (cached) answer is reused; edges near a person are tested here.
+func _copy_edges()->void:
+	if _base._edge_graph==null:_base._edge_path(Vector2i.ZERO,Vector2i.ZERO)
+	var room:AStar2D=_base._edge_graph
+	var width:=grid.region.size.x
+	_edge_graph=AStar2D.new()
+	for y in grid.region.size.y:
+		for x in width:
+			var cell:=Vector2i(x,y)
+			if not grid.is_point_solid(cell):_edge_graph.add_point(1+x+y*width,walk.position+Vector2(cell)*step)
+	for y in grid.region.size.y:
+		for x in width:
+			var id:=1+x+y*width
+			if not _edge_graph.has_point(id):continue
+			for offset in [Vector2i(1,0),Vector2i(0,1),Vector2i(1,1),Vector2i(-1,1)]:
+				var other:Vector2i=Vector2i(x,y)+offset
+				if not grid.region.has_point(other):continue
+				var next_id:int=1+other.x+other.y*width
+				if not _edge_graph.has_point(next_id):continue
+				if offset.x!=0 and offset.y!=0 and (grid.is_point_solid(Vector2i(other.x,y)) or grid.is_point_solid(Vector2i(x,other.y))):continue
+				var a:=_edge_graph.get_point_position(id);var b:=_edge_graph.get_point_position(next_id)
+				var open:bool
+				if _near_added(a,b):open=clear_line(a,b)
+				else:open=room.has_point(id) and room.has_point(next_id) and room.are_points_connected(id,next_id)
+				if open:_edge_graph.connect_points(id,next_id)
+
+
+func _near_added(a:Vector2,b:Vector2)->bool:
+	for circle in _added_circles:
+		var c:Vector2=circle.center
+		if Geometry2D.get_closest_point_to_segment(c,a,b).distance_to(c)<float(circle.radius)+1.0:return true
+	return false

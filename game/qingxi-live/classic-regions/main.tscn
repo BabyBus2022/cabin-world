@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://qingxi-live/classic-regions/rural.gd" id="1_uoyw3"]
+
+[node name="ClassicConnectedVillage" type="Node2D" unique_id=691137142]
+script = ExtResource("1_uoyw3")

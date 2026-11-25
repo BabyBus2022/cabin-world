@@ -27,13 +27,11 @@ func _process(delta: float) -> void:
 func _draw() -> void:
 	var active: Character
 	for resident in get_tree().get_nodes_in_group("world_residents"):
-		# All instances share the same running animation clock, even in rooms off screen.
-		clock = resident._time
 		if resident.scene_id!=scene or resident.is_walking() or resident._effect_active()=="": continue
 		if module.get("kind")=="world-curtain":
 			if resident.effect.get("kind")=="shower" and resident.effect.get("slot")==module.slot: active=resident
 		elif resident.effect.get("module")==module.id: active=resident
-	var t := clock if active!=null else 0.0
+	var t:float = active._time if active!=null else 0.0
 	var m := module
 	var data := WorldPresentation.facts()
 	draw_set_transform(Vector2(0,-position.y))
@@ -46,10 +44,15 @@ func _draw() -> void:
 	if m.id in ["rider","carousel"]:
 		var row := 1 if m.id=="rider" else 0
 		var b: Dictionary = data.bounds[row]
-		var r: Array = data.mechanism.cellRects[row*4+int(t*4)%4]
+		var r: Array = data.mechanism.cellRects[row*4+(0 if m.id=="rider" else int(t*4)%4)]
 		var sx: float = m.w/b.w
 		var sy: float = m.h/b.h
-		draw_texture_rect_region(texture(data.mechanism.file),Rect2(m.x-b.x*sx,m.y-b.y*sy,r[2]*sx,r[3]*sy),Rect2(r[0],r[1],r[2],r[3]))
+		var origin:=Vector2(m.x-b.x*sx,m.y-b.y*sy)
+		if m.id=="rider":
+			var pivot:=WorldPresentation.rider_pivot(m)
+			draw_set_transform(pivot-position,WorldPresentation.rider_angle(t))
+			origin-=pivot
+		draw_texture_rect_region(texture(data.mechanism.file),Rect2(origin,Vector2(r[2]*sx,r[3]*sy)),Rect2(r[0],r[1],r[2],r[3]))
 		return
 	draw_texture_rect(texture(data.modules[m.art].file),Rect2(m.x,m.y,m.w,m.h),false)
 	if m.id=="seesaw":

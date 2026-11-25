@@ -1,0 +1,167 @@
+{
+ "cottage": {
+  "door_x": 149,
+  "width": 232,
+  "height": 125
+ },
+ "tool_shed": {
+  "door_x": 41,
+  "width": 82,
+  "height": 58
+ },
+ "greenhouse": {
+  "door_x": 57,
+  "width": 114,
+  "height": 74
+ },
+ "barn": {
+  "door_x": 99,
+  "width": 198,
+  "height": 122
+ },
+ "silo": {
+  "door_x": 26,
+  "width": 50,
+  "height": 135
+ },
+ "windmill": {
+  "door_x": 54,
+  "width": 109,
+  "height": 146
+ },
+ "fry_shop": {
+  "door_x": 63,
+  "width": 126,
+  "height": 88
+ },
+ "sheep_shed": {
+  "door_x": 62,
+  "width": 124,
+  "height": 74
+ },
+ "pig_sty": {
+  "door_x": 52,
+  "width": 104,
+  "height": 74
+ },
+ "well": {
+  "door_x": 27,
+  "width": 54,
+  "height": 68
+ },
+ "scarecrow": {
+  "door_x": 14,
+  "width": 28,
+  "height": 60
+ },
+ "compost": {
+  "door_x": 19,
+  "width": 38,
+  "height": 24
+ },
+ "barrel": {
+  "door_x": 10,
+  "width": 20,
+  "height": 26
+ },
+ "shipping_bin": {
+  "door_x": 25,
+  "width": 46,
+  "height": 27
+ },
+ "mailbox": {
+  "door_x": 11,
+  "width": 20,
+  "height": 36
+ },
+ "beehive": {
+  "door_x": 18,
+  "width": 34,
+  "height": 30
+ },
+ "wheelbarrow": {
+  "door_x": 21,
+  "width": 42,
+  "height": 21
+ },
+ "haybale": {
+  "door_x": 16,
+  "width": 32,
+  "height": 16
+ },
+ "haystack": {
+  "door_x": 24,
+  "width": 48,
+  "height": 48
+ },
+ "laundry": {
+  "door_x": 32,
+  "width": 63,
+  "height": 42
+ },
+ "bench": {
+  "door_x": 23,
+  "width": 46,
+  "height": 22
+ },
+ "lantern": {
+  "door_x": 10,
+  "width": 19,
+  "height": 60
+ },
+ "signpost": {
+  "door_x": 24,
+  "width": 42,
+  "height": 42
+ },
+ "crate": {
+  "door_x": 12,
+  "width": 24,
+  "height": 30
+ },
+ "watering_can": {
+  "door_x": 11,
+  "width": 24,
+  "height": 18
+ },
+ "milk_cans": {
+  "door_x": 18,
+  "width": 33,
+  "height": 23
+ },
+ "pump": {
+  "door_x": 21,
+  "width": 38,
+  "height": 36
+ },
+ "cart": {
+  "door_x": 32,
+  "width": 62,
+  "height": 30
+ },
+ "boat": {
+  "door_x": 31,
+  "width": 62,
+  "height": 16
+ },
+ "rod_rack": {
+  "door_x": 21,
+  "width": 42,
+  "height": 47
+ },
+ "drying_rack": {
+  "door_x": 22,
+  "width": 43,
+  "height": 34
+ },
+ "fence_h": {
+  "door_x": 17,
+  "width": 34,
+  "height": 27
+ },
+ "fence_v": {
+  "door_x": 5,
+  "width": 6,
+  "height": 56
+ }
+}

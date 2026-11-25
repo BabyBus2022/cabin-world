@@ -1,14 +1,24 @@
-; Cabin World: a game built on Godot 4. See README.md in the parent folder.
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
 config_version=5
 
 [application]
+
 config/name="Cabin World Public"
-config/icon="res://assets/branding/cabin-world.png"
-config/windows_native_icon="res://assets/branding/cabin-world.ico"
+config/version="1.2.0"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.7")
+config/icon="res://assets/branding/cabin-world.png"
+config/windows_native_icon="res://assets/branding/cabin-world.ico"
 
 [autoload]
+
 WorldData="*res://core/world_data.gd"
 SharedFeed="*res://core/shared_feed.gd"
 VadsLink="*res://core/vads_link.gd"
@@ -17,18 +27,22 @@ Economy="*res://core/economy.gd"
 Life="*res://core/life.gd"
 
 [display]
+
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep"
-window/size/resizable=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/cabin_export/plugin.cfg")
 
 [physics]
+
 common/physics_ticks_per_second=30
 
 [rendering]
+
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-textures/canvas_textures/default_texture_filter=1

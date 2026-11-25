@@ -1,0 +1,17 @@
+{
+  "default": "tuantuan",
+  "builtins": [
+    {
+      "id": "tuantuan",
+      "name": "团团",
+      "appearance": "tuantuan-player",
+      "root": "res://assets/world/vads-player/"
+    },
+    {
+      "id": "xiaojingyu",
+      "name": "小鲸鱼",
+      "appearance": "whale-player",
+      "root": "res://qingxi-live/assets/studio-whale/"
+    }
+  ]
+}

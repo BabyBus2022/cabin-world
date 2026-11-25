@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "comment": "小屋世界场景音乐。改曲目/音量/淡入淡出只改这个文件；代码不硬编码任何曲名或 dB。",
+  "base": "res://qingxi-live/village-center/audio/music/",
+  "defaultDb": -14.0,
+  "fade": {
+    "scene": 1.4,
+    "timeOfDay": 3.0,
+    "mute": 0.8,
+    "board": 1.2
+  },
+  "scenes": {
+    "qianxia-park": {
+      "day": {
+        "track": "village_day",
+        "db": -19.0,
+        "pitch": 1.0,
+        "fade": 1.6,
+        "note": "户外枢纽；全库最长的田园白天曲，清溪村自己没在正式场景用"
+      },
+      "night": {
+        "track": "village_night",
+        "db": -21.0,
+        "pitch": 1.0,
+        "fade": 3.0,
+        "note": "和清溪村同一个夜；昼夜切换慢淡"
+      }
+    },
+    "xiaojingyu-home": {
+      "default": {
+        "track": "pond",
+        "db": -15.0,
+        "pitch": 1.0,
+        "fade": 1.6,
+        "note": "鱼缸/海边/水草，水主题"
+      }
+    },
+    "qianxia-shop": {
+      "default": {
+        "track": "shop",
+        "db": -14.0,
+        "pitch": 1.0,
+        "fade": 1.4,
+        "note": "和清溪村店铺同一首"
+      }
+    },
+    "world-onsen": {
+      "default": {
+        "track": "pond",
+        "db": -19.0,
+        "pitch": 1.0,
+        "fade": 1.6,
+        "note": "同为水，比小鲸鱼家低 4 dB；用音量区分，不变调"
+      }
+    },
+    "world-restaurant": {
+      "default": {
+        "track": "shop",
+        "db": -16.0,
+        "pitch": 1.0,
+        "fade": 1.4,
+        "note": "小店/食堂轻 loop，比小卖部低 2 dB"
+      }
+    },
+    "world-arcade": {
+      "default": {
+        "track": "plaza-festival",
+        "db": -15.5,
+        "pitch": 1.0,
+        "fade": 1.4,
+        "note": "按曲目响度与公园、清溪村对齐"
+      }
+    }
+  }
+}

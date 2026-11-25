@@ -60,7 +60,7 @@ static func departed(actor: String, scene: String) -> void:
 			Economy.social_request(actor, {"id":"departure", "action":"leave", "ticket":row.id})
 
 static func entry_allowed(actor: String, scene: String) -> bool:
-	if not VadsLink.social_enabled: return true
+	if actor=="owner" or not VadsLink.social_enabled: return true
 	for person in Residents.people():
 		if person.key == actor or person.home.scene != scene: continue
 		for row in Economy.social.values():

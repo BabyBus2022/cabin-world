@@ -1,0 +1,33 @@
+{
+  "out": "res://qingxi-live/assets/parametric-village",
+  "defaults": {
+    "pitch": 42,
+    "size": 512,
+    "aa": false,
+    "param": {
+      "floors": 2,
+      "width": 10,
+      "depth": 8.25,
+      "porch": true,
+      "balcony": true,
+      "pitch": 24
+    }
+  },
+  "jobs": [
+    {
+      "name": "seed-default",
+      "style": "machiya",
+      "type": "general_store"
+    },
+    {
+      "name": "home-default",
+      "style": "forest",
+      "type": "house"
+    },
+    {
+      "name": "barn-default",
+      "style": "forest",
+      "type": "animal_shed"
+    }
+  ]
+}

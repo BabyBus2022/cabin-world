@@ -13,8 +13,7 @@ extends RefCounted
 
 ## links: the doors, in the order they are tried. owner: only she may enter without a pass.
 static var SPACES := {
-	"home": {"links": ["park"], "owner": "Final01"},
-	"park": {"links": ["home", "shop", "xjhome", "arcade", "restaurant"], "owner": ""},
+	"park": {"links": ["shop", "xjhome", "arcade", "restaurant"], "owner": ""},
 	"xjhome": {"links": ["park", "restaurant"], "owner": "xiaojingyu"},
 	"shop": {"links": ["park", "onsen"], "owner": ""},
 	"arcade": {"links": ["park"], "owner": ""},
@@ -42,7 +41,7 @@ static func can_enter(space: String, owner: String) -> bool:
 	if not SPACES.has(space) or not WorldData.scenes.has(WorldData.scene_of_space(space)):
 		return false
 	var who: String = SPACES[space]["owner"]
-	return who == "" or who == owner or has_pass(owner, space)
+	return who == "" or who == owner or owner == "owner" or has_pass(owner, space)
 
 
 ## Spaces to walk through, start and end included. Empty when there is no way.

@@ -1,0 +1,3991 @@
+{
+  "name": "团团",
+  "idle": {
+    "file": "idle.png",
+    "anchor": [
+      160,
+      296
+    ],
+    "unitPixels": 100
+  },
+  "actions": {
+    "idle-west": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110
+      ],
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle-west/motion.png"
+    },
+    "idle-east": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110
+      ],
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle-east/motion.png"
+    },
+    "idle-north": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110
+      ],
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle-north/motion.png"
+    },
+    "walk-0": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "strip": "walk-0/motion.png",
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4
+    },
+    "walk-1": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "strip": "walk-1/motion.png",
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4
+    },
+    "walk-2": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "strip": "walk-2/motion.png",
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4
+    },
+    "walk-3": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "strip": "walk-3/motion.png",
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4
+    },
+    "actions-0": {
+      "durationsMs": [
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "actions-0/motion.png"
+    },
+    "actions-1": {
+      "durationsMs": [
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "actions-1/motion.png"
+    },
+    "actions-2": {
+      "durationsMs": [
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "actions-2/motion.png"
+    },
+    "actions-3": {
+      "durationsMs": [
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "actions-3/motion.png"
+    },
+    "yukata-0": {
+      "durationsMs": [
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "strip": "yukata-0/motion.png",
+      "columns": 4
+    },
+    "yukata-1": {
+      "durationsMs": [
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "strip": "yukata-1/motion.png",
+      "columns": 4
+    },
+    "yukata-2": {
+      "durationsMs": [
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55,
+        55
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "strip": "yukata-2/motion.png",
+      "columns": 4
+    },
+    "yukata-3": {
+      "durationsMs": [
+        62,
+        62,
+        62,
+        62,
+        62,
+        62,
+        62,
+        62,
+        62,
+        62,
+        62,
+        62,
+        62,
+        62,
+        62,
+        62
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "strip": "yukata-3/motion.png",
+      "columns": 4
+    },
+    "yukata-4": {
+      "durationsMs": [
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "yukata-4/motion.png"
+    },
+    "yukata-5": {
+      "durationsMs": [
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "yukata-5/motion.png"
+    },
+    "gift-0": {
+      "durationsMs": [
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "gift-0/motion.png"
+    },
+    "gift-1": {
+      "durationsMs": [
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "gift-1/motion.png"
+    },
+    "gift-2": {
+      "durationsMs": [
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "gift-2/motion.png"
+    },
+    "gift-3": {
+      "durationsMs": [
+        124,
+        124,
+        124,
+        124,
+        124,
+        124,
+        124,
+        124,
+        124,
+        124,
+        124,
+        124,
+        124,
+        124,
+        124,
+        124
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "gift-3/motion.png"
+    },
+    "chat-0": {
+      "durationsMs": [
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "chat-0/motion.png"
+    },
+    "chat-1": {
+      "durationsMs": [
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "chat-1/motion.png"
+    },
+    "high_five-0": {
+      "durationsMs": [
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "high_five-0/motion.png"
+    },
+    "high_five-1": {
+      "durationsMs": [
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "high_five-1/motion.png"
+    },
+    "idle_look-0": {
+      "durationsMs": [
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle_look-0/motion.png"
+    },
+    "idle_look-1": {
+      "durationsMs": [
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle_look-1/motion.png"
+    },
+    "idle_look-2": {
+      "durationsMs": [
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle_look-2/motion.png"
+    },
+    "idle_look-3": {
+      "durationsMs": [
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle_look-3/motion.png"
+    },
+    "idle_phone-0": {
+      "durationsMs": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle_phone-0/motion.png"
+    },
+    "idle_phone-1": {
+      "durationsMs": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle_phone-1/motion.png"
+    },
+    "idle_phone-2": {
+      "durationsMs": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle_phone-2/motion.png"
+    },
+    "idle_phone-3": {
+      "durationsMs": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle_phone-3/motion.png"
+    },
+    "idle_stretch-0": {
+      "durationsMs": [
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle_stretch-0/motion.png"
+    },
+    "idle_stretch-1": {
+      "durationsMs": [
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle_stretch-1/motion.png"
+    },
+    "idle_stretch-2": {
+      "durationsMs": [
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle_stretch-2/motion.png"
+    },
+    "idle_stretch-3": {
+      "durationsMs": [
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95,
+        95
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle_stretch-3/motion.png"
+    },
+    "idle_yawn-0": {
+      "durationsMs": [
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle_yawn-0/motion.png"
+    },
+    "idle_yawn-1": {
+      "durationsMs": [
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle_yawn-1/motion.png"
+    },
+    "idle_yawn-2": {
+      "durationsMs": [
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle_yawn-2/motion.png"
+    },
+    "idle_yawn-3": {
+      "durationsMs": [
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112,
+        112
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "idle_yawn-3/motion.png"
+    },
+    "mood_happy-0": {
+      "durationsMs": [
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "mood_happy-0/motion.png"
+    },
+    "mood_happy-1": {
+      "durationsMs": [
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "mood_happy-1/motion.png"
+    },
+    "mood_happy-2": {
+      "durationsMs": [
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "mood_happy-2/motion.png"
+    },
+    "mood_happy-3": {
+      "durationsMs": [
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78,
+        78
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "mood_happy-3/motion.png"
+    },
+    "mood_sad-0": {
+      "durationsMs": [
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "mood_sad-0/motion.png"
+    },
+    "mood_sad-1": {
+      "durationsMs": [
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "mood_sad-1/motion.png"
+    },
+    "mood_sad-2": {
+      "durationsMs": [
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "mood_sad-2/motion.png"
+    },
+    "mood_sad-3": {
+      "durationsMs": [
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138,
+        138
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "mood_sad-3/motion.png"
+    },
+    "mood_tired-0": {
+      "durationsMs": [
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "mood_tired-0/motion.png"
+    },
+    "mood_tired-1": {
+      "durationsMs": [
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "mood_tired-1/motion.png"
+    },
+    "mood_tired-2": {
+      "durationsMs": [
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "mood_tired-2/motion.png"
+    },
+    "mood_tired-3": {
+      "durationsMs": [
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145,
+        145
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "mood_tired-3/motion.png"
+    },
+    "pick_up-0": {
+      "durationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "pick_up-0/motion.png"
+    },
+    "pick_up-1": {
+      "durationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "pick_up-1/motion.png"
+    },
+    "pick_up-2": {
+      "durationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "pick_up-2/motion.png"
+    },
+    "pick_up-3": {
+      "durationsMs": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "pick_up-3/motion.png"
+    },
+    "sit_chat-0": {
+      "durationsMs": [
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "sit_chat-0/motion.png"
+    },
+    "sit_chat-1": {
+      "durationsMs": [
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "sit_chat-1/motion.png"
+    },
+    "sit_down-0": {
+      "durationsMs": [
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "sit_down-0/motion.png"
+    },
+    "sit_down-1": {
+      "durationsMs": [
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "sit_down-1/motion.png"
+    },
+    "sit_down-2": {
+      "durationsMs": [
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "sit_down-2/motion.png"
+    },
+    "sit_down-3": {
+      "durationsMs": [
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "sit_down-3/motion.png"
+    },
+    "stand_up-0": {
+      "durationsMs": [
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "stand_up-0/motion.png"
+    },
+    "stand_up-1": {
+      "durationsMs": [
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "stand_up-1/motion.png"
+    },
+    "stand_up-2": {
+      "durationsMs": [
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "stand_up-2/motion.png"
+    },
+    "stand_up-3": {
+      "durationsMs": [
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73,
+        73
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "stand_up-3/motion.png"
+    },
+    "thinking-0": {
+      "durationsMs": [
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "thinking-0/motion.png"
+    },
+    "thinking-1": {
+      "durationsMs": [
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "thinking-1/motion.png"
+    },
+    "thinking-2": {
+      "durationsMs": [
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "thinking-2/motion.png"
+    },
+    "thinking-3": {
+      "durationsMs": [
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130,
+        130
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "thinking-3/motion.png"
+    },
+    "walk8-0": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "strip": "walk8-0/motion.png",
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4
+    },
+    "walk8-1": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "strip": "walk8-1/motion.png",
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4
+    },
+    "walk8-2": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "strip": "walk8-2/motion.png",
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4
+    },
+    "walk8-3": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "strip": "walk8-3/motion.png",
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4
+    },
+    "walk8-4": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "strip": "walk8-4/motion.png",
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4
+    },
+    "walk8-5": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "strip": "walk8-5/motion.png",
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4
+    },
+    "walk8-6": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "strip": "walk8-6/motion.png",
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4
+    },
+    "walk8-7": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
+      "strip": "walk8-7/motion.png",
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4
+    },
+    "walk_tired-0": {
+      "durationsMs": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "walk_tired-0/motion.png"
+    },
+    "walk_tired-1": {
+      "durationsMs": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "walk_tired-1/motion.png"
+    },
+    "walk_tired-2": {
+      "durationsMs": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "walk_tired-2/motion.png"
+    },
+    "walk_tired-3": {
+      "durationsMs": [
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "walk_tired-3/motion.png"
+    },
+    "sit-south": {
+      "durationsMs": [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "sit-south/motion.png"
+    },
+    "sit-north": {
+      "durationsMs": [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "sit-north/motion.png"
+    },
+    "sit-west": {
+      "durationsMs": [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "sit-west/motion.png"
+    },
+    "sit-east": {
+      "durationsMs": [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "sit-east/motion.png"
+    },
+    "meal-order-south": {
+      "durationsMs": [
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-order-south/motion.png"
+    },
+    "meal-order-north": {
+      "durationsMs": [
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-order-north/motion.png"
+    },
+    "meal-order-west": {
+      "durationsMs": [
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-order-west/motion.png"
+    },
+    "meal-order-east": {
+      "durationsMs": [
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118,
+        118
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-order-east/motion.png"
+    },
+    "meal-cook-south": {
+      "durationsMs": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-cook-south/motion.png"
+    },
+    "meal-cook-north": {
+      "durationsMs": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-cook-north/motion.png"
+    },
+    "meal-cook-west": {
+      "durationsMs": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-cook-west/motion.png"
+    },
+    "meal-cook-east": {
+      "durationsMs": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-cook-east/motion.png"
+    },
+    "meal-eat-south": {
+      "durationsMs": [
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-eat-south/motion.png"
+    },
+    "meal-eat-north": {
+      "durationsMs": [
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-eat-north/motion.png"
+    },
+    "meal-eat-west": {
+      "durationsMs": [
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-eat-west/motion.png"
+    },
+    "meal-eat-east": {
+      "durationsMs": [
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115,
+        115
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-eat-east/motion.png"
+    },
+    "meal-carry-south": {
+      "durationsMs": [
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-carry-south/motion.png"
+    },
+    "meal-carry-north": {
+      "durationsMs": [
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-carry-north/motion.png"
+    },
+    "meal-carry-west": {
+      "durationsMs": [
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-carry-west/motion.png"
+    },
+    "meal-carry-east": {
+      "durationsMs": [
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59,
+        59
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-carry-east/motion.png"
+    },
+    "meal-place-south": {
+      "durationsMs": [
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-place-south/motion.png"
+    },
+    "meal-place-north": {
+      "durationsMs": [
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-place-north/motion.png"
+    },
+    "meal-place-west": {
+      "durationsMs": [
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-place-west/motion.png"
+    },
+    "meal-place-east": {
+      "durationsMs": [
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89,
+        89
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "meal-place-east/motion.png"
+    },
+    "seaside-0": {
+      "durationsMs": [
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "seaside-0/motion.png"
+    },
+    "seaside-1": {
+      "durationsMs": [
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "seaside-1/motion.png"
+    },
+    "computer-legacy-1": {
+      "durationsMs": [
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "computer-legacy-1/motion.png"
+    },
+    "computer-legacy-2": {
+      "durationsMs": [
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "computer-legacy-2/motion.png"
+    },
+    "computer-typing": {
+      "durationsMs": [
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "computer-typing/motion.png"
+    },
+    "computer-blink": {
+      "durationsMs": [
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "computer-blink/motion.png"
+    },
+    "computer-typing-hands": {
+      "durationsMs": [
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67,
+        67
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "computer-typing-hands/motion.png"
+    },
+    "computer-blink-hands": {
+      "durationsMs": [
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68,
+        68
+      ],
+      "loop": false,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "computer-blink-hands/motion.png"
+    },
+    "sleeping": {
+      "durationsMs": [
+        127,
+        127,
+        127,
+        127,
+        127,
+        127,
+        127,
+        127,
+        127,
+        127,
+        127,
+        127,
+        127,
+        127,
+        127,
+        127
+      ],
+      "loop": true,
+      "count": 16,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4,
+      "strip": "sleeping/motion.png"
+    },
+    "park-swing": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        164,
+        163,
+        164,
+        163,
+        164,
+        164,
+        163,
+        164,
+        164,
+        163,
+        164,
+        164,
+        163,
+        164,
+        163,
+        164
+      ],
+      "strip": "park-swing/motion.png",
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4
+    },
+    "park-bench": {
+      "count": 16,
+      "loop": false,
+      "durationsMs": [
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88,
+        88
+      ],
+      "strip": "park-bench/motion.png",
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4
+    },
+    "park-rider": {
+      "count": 16,
+      "loop": true,
+      "durationsMs": [
+        112,
+        112,
+        113,
+        112,
+        112,
+        112,
+        112,
+        113,
+        112,
+        112,
+        112,
+        112,
+        112,
+        113,
+        112,
+        112
+      ],
+      "strip": "park-rider/motion.png",
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "columns": 4
+    },
+    "run-0": {
+      "loop": true,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "count": 16,
+      "columns": 4,
+      "strip": "run-0/motion.png",
+      "durationsMs": [
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38
+      ]
+    },
+    "run-1": {
+      "loop": true,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "count": 16,
+      "columns": 4,
+      "strip": "run-1/motion.png",
+      "durationsMs": [
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38
+      ]
+    },
+    "run-2": {
+      "loop": true,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "count": 16,
+      "columns": 4,
+      "strip": "run-2/motion.png",
+      "durationsMs": [
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38
+      ]
+    },
+    "run-3": {
+      "loop": true,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "count": 16,
+      "columns": 4,
+      "strip": "run-3/motion.png",
+      "durationsMs": [
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38
+      ]
+    },
+    "run-4": {
+      "loop": true,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "count": 16,
+      "columns": 4,
+      "strip": "run-4/motion.png",
+      "durationsMs": [
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38
+      ]
+    },
+    "run-5": {
+      "loop": true,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "count": 16,
+      "columns": 4,
+      "strip": "run-5/motion.png",
+      "durationsMs": [
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38
+      ]
+    },
+    "run-6": {
+      "loop": true,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "count": 16,
+      "columns": 4,
+      "strip": "run-6/motion.png",
+      "durationsMs": [
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38
+      ]
+    },
+    "run-7": {
+      "loop": true,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "count": 16,
+      "columns": 4,
+      "strip": "run-7/motion.png",
+      "durationsMs": [
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38,
+        38
+      ]
+    },
+    "idle": {
+      "loop": true,
+      "sizeCalibration": {
+        "anchor": [
+          160,
+          296
+        ],
+        "unitPixels": 100
+      },
+      "count": 16,
+      "columns": 4,
+      "strip": "idle/motion.png",
+      "durationsMs": [
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110,
+        110
+      ]
+    }
+  },
+  "chessSeatAnchors": {
+    "east": [
+      154,
+      269
+    ],
+    "west": [
+      166,
+      269
+    ]
+  }
+}

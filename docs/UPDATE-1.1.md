@@ -18,7 +18,7 @@
 
 现有 features.json 不会因升级被默认值重置；未回答保持当前选择。首次没有配置时可选内容先关闭，等用户逐项决定。新安装也会说明这些独立选项。
 
-选择入口是安装 AI 的 cabin_update_plan / cabin_update_apply，或 update.cmd。离线可用 node bridge/update-cli.mjs --plan 查看机器可读清单，--list 查看说明，--set 模块id=on/off 保存，--undo 撤销上一次选择。游戏内的 1.1 模块入口已移除。
+选择入口是安装 AI 的 cabin_update_plan / cabin_update_apply，或安装助手调用的 update.cmd --ai-upgrade。离线可用 node bridge/update-cli.mjs --plan 查看机器可读清单，--list 查看说明，--set 模块id=on/off 保存，--undo 撤销上一次选择。游戏内的 1.1 模块入口已移除。
 
 请完全关闭游戏后重启使配置生效。数据备份位于 backups/before-1.1-时间/，选择备份为 data/features.json.bak，变更回执在 data/update-receipts/。实际位置以原配置为准。不要用新包的空数据或示例配置覆盖原存档。
 

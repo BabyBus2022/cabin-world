@@ -8,15 +8,27 @@
       "price": 2,
       "method": "steam",
       "sheet": "res://assets/ui/items/restaurant-white-rice.png",
-      "region": [300, 340, 650, 610],
+      "region": [
+        300,
+        340,
+        650,
+        610
+      ],
       "cook_seconds": 8,
       "order_seconds": 3,
       "eat_seconds": 8,
       "energyKcal": 230,
       "portion": "一碗",
       "nutritionSource": "游戏平衡设定，不是真实营养测量",
-      "ingredients": ["大米", "清水"],
-      "process": ["淘米", "加水蒸熟", "盛饭"],
+      "ingredients": [
+        "大米",
+        "清水"
+      ],
+      "process": [
+        "淘米",
+        "加水蒸熟",
+        "盛饭"
+      ],
       "sensory": "热乎乎的白米饭，米粒软糯，清淡米香",
       "satiety": 28
     },
@@ -303,6 +315,609 @@
       ],
       "sensory": "芝士拉丝，香肠咸香，饼边脆",
       "satiety": 52
+    },
+    {
+      "id": "garden-eggplant-pork",
+      "name": "肉片烧茄子",
+      "category": "肉菜",
+      "price": 18,
+      "method": "stir",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-eggplant-pork.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 18,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 380,
+      "portion": "一份",
+      "ingredients": [
+        "茄子",
+        "猪肉"
+      ],
+      "process": [
+        "备料切片",
+        "热锅翻炒",
+        "装盘"
+      ],
+      "sensory": "肉片烧茄子，刚刚出锅。",
+      "satiety": 44
+    },
+    {
+      "id": "garden-tomato-beef",
+      "name": "番茄牛肉",
+      "category": "肉菜",
+      "price": 18,
+      "method": "stir",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-tomato-beef.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 18,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 380,
+      "portion": "一份",
+      "ingredients": [
+        "番茄",
+        "牛肉"
+      ],
+      "process": [
+        "备料切片",
+        "热锅翻炒",
+        "装盘"
+      ],
+      "sensory": "番茄牛肉，刚刚出锅。",
+      "satiety": 44
+    },
+    {
+      "id": "garden-carrot-chicken",
+      "name": "胡萝卜炒鸡丁",
+      "category": "肉菜",
+      "price": 18,
+      "method": "stir",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-carrot-chicken.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 18,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 380,
+      "portion": "一份",
+      "ingredients": [
+        "胡萝卜",
+        "鸡肉"
+      ],
+      "process": [
+        "备料切片",
+        "热锅翻炒",
+        "装盘"
+      ],
+      "sensory": "胡萝卜炒鸡丁，刚刚出锅。",
+      "satiety": 44
+    },
+    {
+      "id": "garden-cabbage-lamb",
+      "name": "白菜炒羊肉",
+      "category": "肉菜",
+      "price": 18,
+      "method": "stir",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-cabbage-lamb.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 18,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 380,
+      "portion": "一份",
+      "ingredients": [
+        "白菜",
+        "羊肉"
+      ],
+      "process": [
+        "备料切片",
+        "热锅翻炒",
+        "装盘"
+      ],
+      "sensory": "白菜炒羊肉，刚刚出锅。",
+      "satiety": 44
+    },
+    {
+      "id": "garden-tomato-eggs",
+      "name": "番茄炒蛋",
+      "category": "肉菜",
+      "price": 18,
+      "method": "stir",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-tomato-eggs.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 18,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 380,
+      "portion": "一份",
+      "ingredients": [
+        "番茄",
+        "鸡蛋"
+      ],
+      "process": [
+        "备料切片",
+        "热锅翻炒",
+        "装盘"
+      ],
+      "sensory": "番茄炒蛋，刚刚出锅。",
+      "satiety": 44
+    },
+    {
+      "id": "garden-sauteed-cabbage",
+      "name": "清炒白菜",
+      "category": "蔬菜",
+      "price": 8,
+      "method": "stir",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-sauteed-cabbage.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 12,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 160,
+      "portion": "一份",
+      "ingredients": [
+        "白菜"
+      ],
+      "process": [
+        "洗菜切段",
+        "起锅翻炒",
+        "出锅"
+      ],
+      "sensory": "清炒白菜，刚刚出锅。",
+      "satiety": 28
+    },
+    {
+      "id": "garden-braised-eggplant",
+      "name": "红烧茄子",
+      "category": "蔬菜",
+      "price": 8,
+      "method": "stir",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-braised-eggplant.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 12,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 160,
+      "portion": "一份",
+      "ingredients": [
+        "茄子"
+      ],
+      "process": [
+        "洗菜切段",
+        "起锅翻炒",
+        "出锅"
+      ],
+      "sensory": "红烧茄子，刚刚出锅。",
+      "satiety": 28
+    },
+    {
+      "id": "garden-tomato-eggplant",
+      "name": "番茄烧茄子",
+      "category": "蔬菜",
+      "price": 8,
+      "method": "stir",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-tomato-eggplant.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 12,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 160,
+      "portion": "一份",
+      "ingredients": [
+        "番茄",
+        "茄子"
+      ],
+      "process": [
+        "洗菜切段",
+        "起锅翻炒",
+        "出锅"
+      ],
+      "sensory": "番茄烧茄子，刚刚出锅。",
+      "satiety": 28
+    },
+    {
+      "id": "garden-carrot-cabbage",
+      "name": "胡萝卜炒白菜",
+      "category": "蔬菜",
+      "price": 8,
+      "method": "stir",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-carrot-cabbage.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 12,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 160,
+      "portion": "一份",
+      "ingredients": [
+        "胡萝卜",
+        "白菜"
+      ],
+      "process": [
+        "洗菜切段",
+        "起锅翻炒",
+        "出锅"
+      ],
+      "sensory": "胡萝卜炒白菜，刚刚出锅。",
+      "satiety": 28
+    },
+    {
+      "id": "garden-garden-trio",
+      "name": "田园炒三鲜",
+      "category": "蔬菜",
+      "price": 8,
+      "method": "stir",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-garden-trio.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 12,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 160,
+      "portion": "一份",
+      "ingredients": [
+        "番茄",
+        "胡萝卜",
+        "白菜"
+      ],
+      "process": [
+        "洗菜切段",
+        "起锅翻炒",
+        "出锅"
+      ],
+      "sensory": "田园炒三鲜，刚刚出锅。",
+      "satiety": 28
+    },
+    {
+      "id": "garden-egg-drop-soup",
+      "name": "番茄蛋花汤",
+      "category": "汤",
+      "price": 12,
+      "method": "soup",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-egg-drop-soup.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 22,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 230,
+      "portion": "一份",
+      "ingredients": [
+        "番茄",
+        "鸡蛋"
+      ],
+      "process": [
+        "备料",
+        "入锅煮汤",
+        "盛碗"
+      ],
+      "sensory": "番茄蛋花汤，刚刚出锅。",
+      "satiety": 34
+    },
+    {
+      "id": "garden-pork-cabbage-soup",
+      "name": "白菜肉片汤",
+      "category": "汤",
+      "price": 12,
+      "method": "soup",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-pork-cabbage-soup.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 22,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 230,
+      "portion": "一份",
+      "ingredients": [
+        "白菜",
+        "猪肉"
+      ],
+      "process": [
+        "备料",
+        "入锅煮汤",
+        "盛碗"
+      ],
+      "sensory": "白菜肉片汤，刚刚出锅。",
+      "satiety": 34
+    },
+    {
+      "id": "garden-lamb-carrot-soup",
+      "name": "羊肉胡萝卜汤",
+      "category": "汤",
+      "price": 12,
+      "method": "soup",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-lamb-carrot-soup.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 22,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 230,
+      "portion": "一份",
+      "ingredients": [
+        "羊肉",
+        "胡萝卜"
+      ],
+      "process": [
+        "备料",
+        "入锅煮汤",
+        "盛碗"
+      ],
+      "sensory": "羊肉胡萝卜汤，刚刚出锅。",
+      "satiety": 34
+    },
+    {
+      "id": "garden-tomato-fish-soup",
+      "name": "番茄鲜鱼汤",
+      "category": "汤",
+      "price": 12,
+      "method": "soup",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-tomato-fish-soup.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 22,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 230,
+      "portion": "一份",
+      "ingredients": [
+        "番茄",
+        "鲜鱼"
+      ],
+      "process": [
+        "备料",
+        "入锅煮汤",
+        "盛碗"
+      ],
+      "sensory": "番茄鲜鱼汤，刚刚出锅。",
+      "satiety": 34
+    },
+    {
+      "id": "garden-milk-veg-soup",
+      "name": "奶香蔬菜汤",
+      "category": "汤",
+      "price": 12,
+      "method": "soup",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-milk-veg-soup.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 22,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 230,
+      "portion": "一份",
+      "ingredients": [
+        "牛奶",
+        "胡萝卜",
+        "白菜"
+      ],
+      "process": [
+        "备料",
+        "入锅煮汤",
+        "盛碗"
+      ],
+      "sensory": "奶香蔬菜汤，刚刚出锅。",
+      "satiety": 34
+    },
+    {
+      "id": "garden-wheat-rolls",
+      "name": "麦香花卷",
+      "category": "主食",
+      "price": 14,
+      "method": "steam",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-wheat-rolls.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 20,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 420,
+      "portion": "一份",
+      "ingredients": [
+        "小麦"
+      ],
+      "process": [
+        "和面备料",
+        "成形烹熟",
+        "装盘"
+      ],
+      "sensory": "麦香花卷，刚刚出锅。",
+      "satiety": 50
+    },
+    {
+      "id": "garden-egg-noodles",
+      "name": "番茄鸡蛋面",
+      "category": "主食",
+      "price": 14,
+      "method": "steam",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-egg-noodles.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 20,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 420,
+      "portion": "一份",
+      "ingredients": [
+        "小麦",
+        "番茄",
+        "鸡蛋"
+      ],
+      "process": [
+        "和面备料",
+        "成形烹熟",
+        "装盘"
+      ],
+      "sensory": "番茄鸡蛋面，刚刚出锅。",
+      "satiety": 50
+    },
+    {
+      "id": "garden-pork-dumplings",
+      "name": "白菜猪肉锅贴",
+      "category": "主食",
+      "price": 14,
+      "method": "steam",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-pork-dumplings.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 20,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 420,
+      "portion": "一份",
+      "ingredients": [
+        "小麦",
+        "白菜",
+        "猪肉"
+      ],
+      "process": [
+        "和面备料",
+        "成形烹熟",
+        "装盘"
+      ],
+      "sensory": "白菜猪肉锅贴，刚刚出锅。",
+      "satiety": 50
+    },
+    {
+      "id": "garden-beef-noodles",
+      "name": "胡萝卜牛肉面",
+      "category": "主食",
+      "price": 14,
+      "method": "steam",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-beef-noodles.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 20,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 420,
+      "portion": "一份",
+      "ingredients": [
+        "小麦",
+        "胡萝卜",
+        "牛肉"
+      ],
+      "process": [
+        "和面备料",
+        "成形烹熟",
+        "装盘"
+      ],
+      "sensory": "胡萝卜牛肉面，刚刚出锅。",
+      "satiety": 50
+    },
+    {
+      "id": "garden-cabbage-pancake",
+      "name": "白菜鸡蛋饼",
+      "category": "主食",
+      "price": 14,
+      "method": "steam",
+      "sheet": "res://qingxi-live/village-center/harvest/garden-cabbage-pancake.res",
+      "region": [
+        0,
+        0,
+        80,
+        80
+      ],
+      "cook_seconds": 20,
+      "order_seconds": 4,
+      "eat_seconds": 12,
+      "energyKcal": 420,
+      "portion": "一份",
+      "ingredients": [
+        "小麦",
+        "白菜",
+        "鸡蛋"
+      ],
+      "process": [
+        "和面备料",
+        "成形烹熟",
+        "装盘"
+      ],
+      "sensory": "白菜鸡蛋饼，刚刚出锅。",
+      "satiety": 50
     }
   ],
   "tableware": [

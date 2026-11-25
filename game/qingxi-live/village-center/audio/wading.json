@@ -1,0 +1,11 @@
+{
+  "samples": [
+    "wade_0",
+    "wade_1",
+    "wade_2",
+    "wade_3"
+  ],
+  "stride_pixels": 19.0,
+  "gain_db": -4.0,
+  "pitch_spread": 0.065
+}

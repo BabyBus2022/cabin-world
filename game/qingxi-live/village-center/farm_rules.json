@@ -1,0 +1,633 @@
+{
+  "item_aliases": {
+    "种子": "seed",
+    "菜种": "seed"
+  },
+  "item_names": {
+    "seed": "白菜种子",
+    "hay": "干草",
+    "pig_feed": "猪饲料",
+    "fish_feed": "鱼饲料",
+    "wheat": "小麦",
+    "carrot": "胡萝卜",
+    "fry": "鱼苗",
+    "veg": "白菜",
+    "milk": "牛奶",
+    "wool": "羊毛",
+    "fish": "鲜鱼",
+    "meal": "家常菜",
+    "cat_food": "猫粮",
+    "dog_food": "狗粮",
+    "tomato": "番茄",
+    "eggplant": "茄子",
+    "strawberry": "草莓",
+    "watermelon": "西瓜",
+    "tomato_seed": "番茄种子",
+    "eggplant_seed": "茄子种子",
+    "strawberry_seed": "草莓种子",
+    "watermelon_seed": "西瓜种子",
+    "garden-eggplant-pork": "肉片烧茄子",
+    "garden-tomato-beef": "番茄牛肉",
+    "garden-carrot-chicken": "胡萝卜炒鸡丁",
+    "garden-cabbage-lamb": "白菜炒羊肉",
+    "garden-tomato-eggs": "番茄炒蛋",
+    "garden-sauteed-cabbage": "清炒白菜",
+    "garden-braised-eggplant": "红烧茄子",
+    "garden-tomato-eggplant": "番茄烧茄子",
+    "garden-carrot-cabbage": "胡萝卜炒白菜",
+    "garden-garden-trio": "田园炒三鲜",
+    "garden-egg-drop-soup": "番茄蛋花汤",
+    "garden-pork-cabbage-soup": "白菜肉片汤",
+    "garden-lamb-carrot-soup": "羊肉胡萝卜汤",
+    "garden-tomato-fish-soup": "番茄鲜鱼汤",
+    "garden-milk-veg-soup": "奶香蔬菜汤",
+    "garden-wheat-rolls": "麦香花卷",
+    "garden-egg-noodles": "番茄鸡蛋面",
+    "garden-pork-dumplings": "白菜猪肉锅贴",
+    "garden-beef-noodles": "胡萝卜牛肉面",
+    "garden-cabbage-pancake": "白菜鸡蛋饼"
+  },
+  "version": 1,
+  "date": "2026-11-20",
+  "note": "清溪村农活规则（数据文件，不是代码）。业主的要求：所有阈值/规则都放这里，居民和我都能查得到——house_look 的 farm.rules 会原样带出去，farm_rules.gd 只读这里。改数值不用改代码。",
+  "maps": {
+    "meadow": {
+      "title": "自家农场（开荒地）",
+      "layout": "res://qingxi-live/village-center/art/regions/meadow/layout.json",
+      "pen_key": "meadow_pen",
+      "ground_key": "meadow_ground",
+      "props_key": "props_ranch",
+      "starts_empty": true
+    },
+    "ranch": {
+      "title": "村中心牧场",
+      "layout": "res://qingxi-live/village-center/art/regions/ranch/layout.json",
+      "pen_key": "ranch_v3",
+      "ground_key": "",
+      "props_key": "props_ranch",
+      "starts_empty": false
+    }
+  },
+  "cell": 64,
+  "water": {
+    "reach_cells": 3,
+    "plot_reach_cells": 3,
+    "pen_reach_cells": 3,
+    "channel_tiles": [
+      "channel"
+    ],
+    "prop_names": [
+      "well",
+      "pump"
+    ],
+    "source_names": {
+      "channel": "水渠/水塘",
+      "pond": "水塘",
+      "well": "水井",
+      "pump": "手压水泵",
+      "trough": "水槽"
+    }
+  },
+  "plot": {
+    "seed_item": "seed",
+    "seed_name": "菜种、麦粒或胡萝卜",
+    "need_tilled": true,
+    "till_seconds": 25,
+    "plant_seconds": 12,
+    "water_seconds": 12,
+    "harvest_seconds": 12,
+    "can_seconds": 8,
+    "crop_seconds_fallback": 5400
+  },
+  "wither": {
+    "note": "作物成熟之后不收会一档档枯掉。四档、两个时间点、产出比例全在这里；代码只读这里，没有写死的阈值。农场是三个人共用的，她不收就是真的枯，不是数字难看。",
+    "clock": "ripe_seconds = 作物成熟之后累计的真实秒数（只增不减；旧存档没有这个字段就按 0 算）。由 rural_state.advance_farm(dt) 推进，所以她不在的时候挂着也会枯。",
+    "start_after_ripe_seconds": 86400,
+    "full_after_ripe_seconds": 172800,
+    "tiers": [
+      {
+        "id": "fresh",
+        "until": 86400,
+        "name": "刚好成熟",
+        "look": "熟了",
+        "yield_pct": 100,
+        "note": "成熟后 24 小时内收，跟原来一样：白菜 ×2、种子 ×1。"
+      },
+      {
+        "id": "warn",
+        "until": 129600,
+        "name": "快要枯萎",
+        "look": "快枯了",
+        "yield_pct": 100,
+        "note": "24–36 小时：还能照常收满（白菜 ×2、种子 ×1），但已经该收了。"
+      },
+      {
+        "id": "wilting",
+        "until": 172800,
+        "name": "正在枯萎",
+        "look": "在枯萎",
+        "yield_pct": 50,
+        "note": "36–48 小时：收下来只剩一半（白菜 ×1、没有种子）。"
+      },
+      {
+        "id": "withered",
+        "until": null,
+        "name": "已经枯了",
+        "look": "枯了",
+        "yield_pct": 0,
+        "note": "48 小时以后：收不到东西，只能把枯苗铲掉重种（harvest 会铲掉，不会卡死）。"
+      }
+    ],
+    "clear_note": "对已枯的地用 harvest = 铲掉枯苗、地块回到空地，可以立刻重新 till/plant。不额外收费、不额外扣时间。"
+  },
+  "livestock": {
+    "min_pen_cells": 4,
+    "feeder_bag_prefix": "feeder_",
+    "feed_unit_seconds": 86400,
+    "min_feed_units": 1,
+    "kinds": {
+      "cow": "牛",
+      "sheep": "羊",
+      "pig": "猪",
+      "chicken": "鸡"
+    },
+    "feeder_name": {
+      "cow": "牧场食槽",
+      "sheep": "牧场食槽",
+      "pig": "牧场食槽",
+      "chicken": "牧场食槽"
+    },
+    "feed_item": {
+      "cow": "hay",
+      "sheep": "hay",
+      "pig": "pig_feed",
+      "chicken": "wheat"
+    },
+    "feed_name": {
+      "cow": "干草",
+      "sheep": "干草",
+      "pig": "猪饲料",
+      "chicken": "小麦"
+    }
+  },
+  "fence": {
+    "max_edges": 96,
+    "note": "只在开荒农场/村中心牧场没围栏时用；任一存档里已有闭合围合（有牧场食槽）就直接算数，不逼她再圈。"
+  },
+  "needs": {
+    "note": "每只动物自己的两个值。它们本来就存在于游戏的动物记录里（a.food / a.drink，0-100），会随时间衰减、低到临界会掉血甚至死、低到 20 就不长不产。这里只是把这两个值变成她看得见、够得着的东西：阈值、衰减速度、后果都写在这里，读数里原样带给她。",
+    "satiety_field": "food",
+    "thirst_field": "drink",
+    "names": {
+      "satiety": "饱食度",
+      "thirst": "饥渴度（0=很渴，100=不渴）",
+      "hungry": "饥饿",
+      "thirsty": "缺水"
+    },
+    "hungry_below": 48,
+    "thirsty_below": 48,
+    "critical_below": 10,
+    "healthy_at_least": 50,
+    "already_full_at": 90,
+    "feed_raise_to": 90,
+    "decay": {
+      "rate": 120,
+      "satiety_seconds_per_point": 864,
+      "thirst_seconds_per_point": 720,
+      "real_seconds_per_satiety_point": 7.2,
+      "real_seconds_per_thirst_point": 6,
+      "why": "牧场里 1 秒真实时间 = 120 秒牧场时间（pasture_herd.RATE）；牧场时间里饱食度每 864 秒掉 1 点、饥渴度每 720 秒掉 1 点。折算成真实时间：饱食度约 7.2 秒掉 1 点、饥渴度约 6 秒掉 1 点。"
+    },
+    "consequence": {
+      "stop_growing_and_producing_below": 20,
+      "stop_when_hp_below_pct": 25,
+      "cannot_pair_unless_both_at_least": 50,
+      "cannot_pair_unless_hp_pct_at_least": 70,
+      "hp_loss_per_day_at_critical": {
+        "hunger": 54,
+        "thirst": 82
+      },
+      "death_when_hp_zero": true,
+      "why": "饱食度或饥渴度低于 20（或血量低于上限 25%）就不长不产；低于 10 开始掉血（饿 54/天、渴 82/天），血掉光动物会死；配对要求两个值都 ≥50 且血量 ≥70%。这不是新规则，是牧场本来就在跑的规则，这里把它翻成人话。"
+    },
+    "actions": {
+      "feed": "feed 添料时，饿着的动物会当场吃（跟没人看着时牧场自己的进食逻辑一样），回执写清每只从多少抬到多少。",
+      "give_water": "give_water 加水槽时，渴着的动物会当场喝，回执写清每只从多少抬到多少。",
+      "no_auto": "系统不会自动喂：她不做，动物就继续掉，最后真的减产/掉血/死。"
+    }
+  },
+  "phrases": {
+    "note": "待办/后果的人话模板。{...} 里的数字由代码从本文件的阈值算出来填进去，所以文案和数值永远一致；这里不许出现本文件算不出来的数字。",
+    "thirsty": "渴了：不加水它会一直掉血（按每天 {hp_per_day} 点算，约每小时 {hp_per_hour} 点）",
+    "hungry": "饿了：不添料它会一直掉血（按每天 {hp_per_day} 点算，约每小时 {hp_per_hour} 点）",
+    "critical": "危急：血已经很低，再不管会掉光、会死",
+    "wither_warn": "快枯了：再过 {hours_to_wither} 小时就枯掉、白种一场",
+    "wither_soon": "在枯萎：再过 {hours_to_full} 小时就全枯，现在收只有一半",
+    "withered": "已经枯了：收不到东西，只能铲掉重种",
+    "no_todo": "农场现在没什么急着做的",
+    "loss_prefix": "【要紧】",
+    "todo_prefix": "农场："
+  },
+  "tutorial": {
+    "first_time": "你还没开垦过地、也还没有一个合格的圈。想种地：buy 种子 → till 开垦 → dig 水渠 → plant → water；想养牲畜：buy_young 买幼崽后 release 到农场散养。细节用 qx_farm_board 的 use=guide 查，不用每轮都看。 圈养可以直接用 build_pen。",
+    "note": "给机器人看的农场教程（业主 2026-11-21）。{...} 的数字由代码从本文件算出来填进去，所以教程里的数字和阈值永远一致；测试断言这个对应。长度上只在她按需查 guide 时整篇返回，look 里只给一句摘要。",
+    "fence": "【围栏怎么围】① 先 survey 一块范围（item 写 左下:右上 格子，例如 14:11:20:17）：state 会列出这块范围里不能围的东西（田格/食槽/水渠/道具）和有没有跑到农场边界外。② 想清楚要养几只、以后会不会加，**一次围够**，至少 {min_pen_cells} 格，别围个最小圈再反复扩。③ fence 写 左下:右上，四条边都要接上、不能有缺口；**只在中间拉一道墙不算圈**（这就是外圈+中间一道为什么不合格）。④ 围完再 survey（不写范围就逐个圈自检）：state 会说这个圈算不算数、漏在哪几格、还差几格。先用 fence 圈闭合围栏，确认圈内有水源（缺水用 dig），用 gate 在边上装可通行的木门，最后把该种食槽摆进圈。build_pen 可连续完成，item 写 牛:14:11:19:16 这样的范围或已有圈的种类。缺食槽时去村中心牧铃畜牧铺 qx_livestock_counter，use=buy，item 写牧场食槽，回原地重复 build_pen。",
+    "keep": "【散养】在牧铃畜牧铺 buy_young 买幼崽，回农场 qx_pasture 用 release 放养牛、羊、猪或鸡。去青芽种子店买干草、猪饲料或小麦，按动物读数 feed、give_water、collect。想圈养再用 build_pen。",
+    "farm": "【种植大概做什么】① buy 种子 ② till 开垦一块地（只认真的开垦过的地）③ dig 在田边挖水渠，or 用水井——地边 {plot_reach_cells} 格内要有水源 ④ plant 种下 ⑤ water 浇水（水壶空了先 fill_water）⑥ harvest 收。成熟后 {wither_warn_hours} 小时开始枯，{wither_half_hours} 小时只剩一半，{wither_full_hours} 小时全枯；全枯了 harvest 铲掉重种，不是死局。",
+    "expand": "【围小了怎么扩】① 先 fence 把**新边界**补上，让新圈先成形 ② survey 自检新圈合格、旧围栏还在 ③ 再 unfence 拆掉多余的老边。**不要先拆后建**：先拆会出现开口，牲畜虽然没有「逃跑消失」这个机制，但那个圈就不再算数（可以继续散养，survey 会报告围栏缺口）。新范围里如果有田格/食槽/水渠/道具，survey 会列出来，绕开或算进范围。",
+    "demolish": "【挡住建筑怎么办】① 先 survey 范围看挡的是什么（survey 会列田格/食槽/水渠/道具；树和建筑只在场景里画、存档查不到，要自己看一眼空地）。② 能不能拆看 farm.demolish 清单：**你现在没有任何拆建筑的工具**。③ 所以遇到建筑：绕开，或者在 QQ 里问主人怎么办；主人说「可以拆」也先照实说你手里没有拆的工具——做不到就说做不到，别答应。"
+  },
+  "demolish": {
+    "note": "哪些能拆、哪些不能（可见清单，她和我都查得到）。2026-11-21 核实：居民侧没有任何拆除建筑/家具的动作；玩家自己的 build 模式里能收回自己摆的围栏/食槽/道具、能 remove_meadow_building 牧场屋和小屋，但那些都不在她手里的工具里。",
+    "resident_can_demolish": [],
+    "resident_can_remove": [
+      "fence 边（用 unfence 拆自己围的围栏边）",
+      "食槽（build 模式 take_feeder；她没有这个动作）",
+      "道具（build 模式 pick_prop；她没有这个动作）"
+    ],
+    "player_only": [
+      {
+        "id": "meadow_barn",
+        "name": "开荒农场的牧场屋",
+        "tool": "region.remove_meadow_building（玩家 build 模式，居民不可用）"
+      },
+      {
+        "id": "meadow_house",
+        "name": "开荒农场的小屋",
+        "tool": "region.remove_meadow_building（玩家 build 模式，居民不可用）"
+      }
+    ],
+    "cannot_demolish": [
+      "村中心的公共建筑与房屋",
+      "篝火/广场/站牌等公共设施",
+      "树/桥/水渠地形",
+      "别人的作物"
+    ],
+    "answer": "她只能拆自己围的围栏边（unfence）；建筑拆不了，只能绕开或问主人，问到了也照实说没这个工具。"
+  },
+  "actions": [
+    {
+      "id": "guide",
+      "name": "查农场教程（围栏怎么围/养殖/种植/扩圈/哪些拆不了）",
+      "object": "qx_farm_board",
+      "use": "guide",
+      "arg": "fence|keep|farm|expand|demolish，可空",
+      "needs": [],
+      "seconds": 12,
+      "what": "只在你要细节时查：围栏怎么围才闭合、养殖/种植顺序、围小了怎么扩、建筑能不能拆。"
+    },
+    {
+      "id": "unfence",
+      "name": "拆掉自己围的围栏边",
+      "object": "qx_pasture",
+      "use": "unfence",
+      "arg": "左下:右上",
+      "needs": [],
+      "seconds": 10,
+      "what": "扩圈时第二步：先把新边界建好，再拆多余的老边（先拆会开口）。"
+    },
+    {
+      "id": "survey",
+      "name": "先看看农场缺什么",
+      "object": "qx_farm_board",
+      "use": "survey",
+      "arg": "",
+      "needs": [],
+      "seconds": 8,
+      "what": "把这块地能不能种、牲畜缺什么一次说清，还会告诉你下一步做什么。"
+    },
+    {
+      "id": "buy_seed",
+      "name": "去买种子",
+      "object": "qx_seed_counter",
+      "use": "buy",
+      "arg": "白菜种子×5",
+      "needs": [
+        "coins"
+      ],
+      "seconds": 6,
+      "what": "在青芽种子店买，东西进三个人共用的农场背包，钱花你自己的零花钱。"
+    },
+    {
+      "id": "till",
+      "name": "开垦一块荒地",
+      "object": "qx_fields",
+      "use": "till",
+      "arg": "格子，例如 14:11",
+      "needs": [],
+      "seconds": 25,
+      "what": "在自家农场选一格空地开成田。格子编号 = 世界坐标/64 向下取整，看 farm.plots 或 survey 里的空地提示。"
+    },
+    {
+      "id": "dig",
+      "name": "挖一格水渠",
+      "object": "qx_fields",
+      "use": "dig",
+      "arg": "格子，例如 14:12",
+      "needs": [],
+      "seconds": 20,
+      "what": "把一格地挖成水渠。田旁边 3 格内有水渠或水井才能种；连成 3x3 还能养鱼。"
+    },
+    {
+      "id": "fill_water",
+      "name": "在水井打满水壶",
+      "object": "qx_fields",
+      "use": "fill_water",
+      "arg": "",
+      "needs": [],
+      "seconds": 8,
+      "what": "水壶一次装 3 份水，浇地要点这个，不能白浇。"
+    },
+    {
+      "id": "plant",
+      "name": "把种子种进这块地",
+      "object": "qx_fields",
+      "use": "plant",
+      "arg": "地号，例如 1-6",
+      "needs": [
+        "tilled",
+        "water",
+        "seed"
+      ],
+      "seconds": 12,
+      "what": "开垦过、旁边有水、背包里有白菜种子，才能种。"
+    },
+    {
+      "id": "water",
+      "name": "给这块地浇水",
+      "object": "qx_fields",
+      "use": "water",
+      "arg": "地号",
+      "needs": [
+        "tilled",
+        "can"
+      ],
+      "seconds": 12,
+      "what": "花一份水壶里的水；水壶空了就先去水井打水。"
+    },
+    {
+      "id": "harvest",
+      "name": "收白菜",
+      "object": "qx_fields",
+      "use": "harvest",
+      "arg": "地号",
+      "needs": [
+        "ripe"
+      ],
+      "seconds": 12,
+      "what": "熟了的白菜收下来，得 2 棵白菜和 1 粒种子。"
+    },
+    {
+      "id": "buy_feeder",
+      "name": "去买食槽",
+      "object": "qx_livestock_counter",
+      "use": "buy",
+      "arg": "牧场食槽",
+      "needs": [
+        "coins"
+      ],
+      "seconds": 6,
+      "what": "牧铃畜牧铺卖牧场食槽，买进背包再到牧场摆放来。"
+    },
+    {
+      "id": "fence",
+      "name": "圈一块围栏",
+      "object": "qx_pasture",
+      "use": "fence",
+      "arg": "左下:右上 格子，例如 14:11:20:17",
+      "needs": [],
+      "seconds": 20,
+      "what": "把一块矩形地用围栏圈起来。已经有闭合围栏就不用再圈。"
+    },
+    {
+      "id": "place_feeder",
+      "name": "把四种牲畜共用的食槽摆到牧场空地",
+      "object": "qx_pasture",
+      "use": "place_feeder",
+      "arg": "种类:格子，例如 cow:17:14",
+      "needs": [
+        "feeder_in_bag"
+      ],
+      "seconds": 10,
+      "what": "食槽要摆在围栏里面，那一类的动物才算有圈。"
+    },
+    {
+      "id": "add_water",
+      "name": "给圈里的水槽加水",
+      "object": "qx_pasture",
+      "use": "give_water",
+      "arg": "种类，例如 牛",
+      "needs": [
+        "feeder_placed"
+      ],
+      "seconds": 8,
+      "what": "把那一类的水槽加满。开荒农场靠水渠就够喝时也可以不加水槽。"
+    },
+    {
+      "id": "feed",
+      "name": "给食槽添料",
+      "object": "qx_pasture",
+      "use": "feed",
+      "arg": "种类，例如 牛",
+      "needs": [
+        "feed_in_bag"
+      ],
+      "seconds": 10,
+      "what": "按种类给牧场牲畜喂干草、猪饲料或小麦，散养也可以喂。"
+    },
+    {
+      "id": "buy_young",
+      "name": "去买幼崽",
+      "object": "qx_livestock_counter",
+      "use": "buy_young",
+      "arg": "牛/羊/猪/鸡",
+      "needs": [
+        "coins"
+      ],
+      "seconds": 6,
+      "what": "幼崽买好后进农场背包，在牧场用 release 放养。"
+    },
+    {
+      "id": "release",
+      "name": "放养幼崽",
+      "object": "qx_pasture",
+      "use": "release",
+      "arg": "牛/羊/猪/鸡",
+      "needs": [
+        "young_in_bag"
+      ],
+      "seconds": 8,
+      "what": "在农场放养背包里的幼崽；围栏可按需要另建。"
+    },
+    {
+      "id": "collect",
+      "name": "收牛奶羊毛鸡蛋",
+      "object": "qx_pasture",
+      "use": "collect",
+      "arg": "动物编号",
+      "needs": [],
+      "seconds": 10,
+      "what": "成年而且有产物的动物才能收；编号在 farm.animals 里。"
+    },
+    {
+      "id": "treat",
+      "name": "给动物喂点心",
+      "object": "qx_pasture",
+      "use": "treat",
+      "arg": "动物编号",
+      "needs": [],
+      "seconds": 8,
+      "what": "牛/羊吃小麦、猪吃胡萝卜；幼崽吃了长得快。"
+    },
+    {
+      "id": "pair",
+      "name": "给两只动物配对",
+      "object": "qx_pasture",
+      "use": "pair",
+      "arg": "编号,编号",
+      "needs": [],
+      "seconds": 8,
+      "what": "同种、一公一母、都成年才能配；编号是纯数字，例如 3,5。"
+    },
+    {
+      "id": "sell_animal",
+      "name": "卖掉一只动物",
+      "object": "qx_pasture",
+      "use": "sell_animal",
+      "arg": "动物编号",
+      "needs": [],
+      "seconds": 8,
+      "what": "怀着小崽的不能卖。"
+    },
+    {
+      "id": "pond",
+      "name": "照看鱼塘",
+      "object": "qx_pasture",
+      "use": "pond",
+      "arg": "",
+      "needs": [],
+      "seconds": 10,
+      "what": "空塘放苗，有鱼则投喂。追加鱼苗用 stock_fry，收成鱼用 harvest_fish，抛竿用 fish。"
+    },
+    {
+      "id": "cook",
+      "name": "在小屋做家常菜",
+      "object": "qx_cottage",
+      "use": "cook",
+      "arg": "",
+      "needs": [],
+      "seconds": 15,
+      "what": "2 棵白菜做 1 份家常菜。"
+    },
+    {
+      "id": "sell_crops",
+      "name": "在种子店卖农产品",
+      "object": "qx_seed_counter",
+      "use": "sell",
+      "arg": "品种，例如 白菜",
+      "needs": [],
+      "seconds": 6,
+      "what": "卖出去的钱进你自己的零花钱。"
+    },
+    {
+      "id": "sell_livestock",
+      "name": "在畜牧铺卖农产品",
+      "object": "qx_livestock_counter",
+      "use": "sell",
+      "arg": "品种",
+      "needs": [],
+      "seconds": 6,
+      "what": "卖出去的钱进你自己的零花钱。"
+    },
+    {
+      "id": "take",
+      "name": "从小屋里取东西",
+      "object": "qx_cottage",
+      "use": "take",
+      "arg": "",
+      "needs": [],
+      "seconds": 6,
+      "what": "把存在小屋里的东西整套拿回农场背包。"
+    },
+    {
+      "id": "mill",
+      "name": "在小屋里磨饲料",
+      "object": "qx_cottage",
+      "use": "mill",
+      "arg": "pig_feed / fish_feed",
+      "needs": [],
+      "seconds": 10,
+      "what": "猪饲料要白菜和小麦，鱼饲料要两份小麦。"
+    },
+    {
+      "id": "store",
+      "name": "把背包里的东西存进小屋",
+      "object": "qx_cottage",
+      "use": "store",
+      "arg": "",
+      "needs": [],
+      "seconds": 6,
+      "what": "这是把农场背包整个存进去；只想存一部分就先别用。"
+    },
+    {
+      "id": "build_pen",
+      "name": "完成圈栏、水源、木门、食槽",
+      "object": "qx_pasture",
+      "use": "build_pen",
+      "arg": "种类:左:上:右:下，或已有圈的种类",
+      "needs": [],
+      "seconds": 8,
+      "what": "先用 fence 圈闭合围栏，确认圈内有水源（缺水用 dig），用 gate 在边上装可通行的木门，最后把该种食槽摆进圈。build_pen 可连续完成，item 写 牛:14:11:19:16 这样的范围或已有圈的种类。缺食槽时去村中心牧铃畜牧铺 qx_livestock_counter，use=buy，item 写牧场食槽，回原地重复 build_pen。"
+    },
+    {
+      "id": "gate",
+      "name": "在已闭合有水的圈上装木门",
+      "object": "qx_pasture",
+      "use": "gate",
+      "arg": "圈内格子，如17:14",
+      "needs": [],
+      "seconds": 8,
+      "what": "在已闭合有水的圈上装木门"
+    },
+    {
+      "id": "fish",
+      "name": "在鱼塘抛竿、等鱼讯、收竿",
+      "object": "qx_pasture",
+      "use": "fish",
+      "arg": "塘名，可空",
+      "needs": [],
+      "seconds": 8,
+      "what": "在鱼塘抛竿、等鱼讯、收竿"
+    },
+    {
+      "id": "stock_fry",
+      "name": "给鱼塘追加混合鱼苗",
+      "object": "qx_pasture",
+      "use": "stock_fry",
+      "arg": "塘名，可空",
+      "needs": [],
+      "seconds": 8,
+      "what": "给鱼塘追加混合鱼苗"
+    },
+    {
+      "id": "cook_fish",
+      "name": "用一条鱼做鲜鱼料理",
+      "object": "qx_cottage",
+      "use": "cook_fish",
+      "arg": "留空或指定背包鱼名",
+      "needs": [],
+      "seconds": 8,
+      "what": "用一条鱼做鲜鱼料理"
+    },
+    {
+      "id": "harvest_fish",
+      "use": "harvest_fish",
+      "name": "收获养成的鱼",
+      "arg": "塘名，可空",
+      "needs": [],
+      "object": "qx_pasture",
+      "seconds": 10,
+      "what": "成鱼进入农场背包，未长成的继续在塘里生长。"
+    }
+  ]
+}

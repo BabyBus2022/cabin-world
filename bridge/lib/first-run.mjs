@@ -15,12 +15,34 @@ const LAYOUTS = ['home', 'park', 'shop', 'arcade', 'restaurant'].map(s => s + '-
 
 export function firstRun({ dataDir, installDir, descriptions, now = () => new Date() }) {
   const features = path.join(dataDir, 'features.json');
-  if (fs.existsSync(features)) return { skipped: 'features.json exists' };
+  if (fs.existsSync(features)) {
+    const previous = JSON.parse(fs.readFileSync(features, 'utf8'));
+    const receipts = path.join(dataDir, 'update-receipts');
+    const initial = path.join(receipts, 'first-run.json');
+    if (previous.release12 && previous.firstRun === 'fresh' && fs.existsSync(initial)
+        && fs.readdirSync(receipts).every(name => name === 'first-run.json')) {
+      const receipt = JSON.parse(fs.readFileSync(initial, 'utf8'));
+      const original = m => m.generation === 12 || (!m.ask && Boolean(m.default));
+      if (receipt.upgrade === false && previous.savedAt === receipt.at
+          && descriptions.modules.every(m => previous.modules?.[m.id] === original(m) && receipt.modules?.[m.id] === original(m))
+          && descriptions.modules.some(m => !original(m))) {
+        const modules = {...previous.modules};
+        for (const m of descriptions.modules) modules[m.id] = true;
+        const timestamp = now().toISOString();
+        const revised = {...previous, modules, savedAt:timestamp};
+        fs.writeFileSync(features+'.tmp', JSON.stringify(revised,null,2)+'\n');
+        fs.renameSync(features+'.tmp',features);
+        fs.writeFileSync(path.join(receipts,timestamp.replace(/[:.]/g,'-')+'.json'), JSON.stringify({at:timestamp,before:previous.modules,after:modules,changed:descriptions.modules.filter(m=>!original(m)).map(m=>m.id),reason:'fresh-defaults-repair'},null,2));
+        return { repairedFreshDefaults:true };
+      }
+    }
+    return { skipped: 'features.json exists' };
+  }
   const hasFiles = d => fs.existsSync(d) && fs.readdirSync(d).length > 0;
   const upgrade = hasFiles(path.join(dataDir, 'saves')) || fs.existsSync(path.join(dataDir, 'bridge.json')) || hasFiles(path.join(dataDir, 'world'));
   const at = now().toISOString(), out = { upgrade, at };
   const parent = path.dirname(path.resolve(installDir)), layoutsDir = path.join(dataDir, 'layouts');
-  const oldLayouts = LAYOUTS.flatMap(f => [f, f + '.bak']).map(f => path.join(parent, f)).filter(f => fs.existsSync(f));
+  const oldLayouts = !upgrade ? [] : LAYOUTS.flatMap(f => [f, f + '.bak']).map(f => path.join(parent, f)).filter(f => fs.existsSync(f));
   if (upgrade) {
     const backup = path.join(installDir, 'backups', 'before-1.1-' + at.replace(/[:.]/g, '-'));
     fs.mkdirSync(backup, { recursive: true });
@@ -34,9 +56,9 @@ export function firstRun({ dataDir, installDir, descriptions, now = () => new Da
     const dest = path.join(layoutsDir, path.basename(f));
     if (!fs.existsSync(dest)) { fs.mkdirSync(layoutsDir, { recursive: true }); fs.copyFileSync(f, dest); out.layoutsCopied.push(path.basename(f)); }
   }
-  const modules = Object.fromEntries(descriptions.modules.map(m => [m.id, m.ask ? false : Boolean(m.default)]));
+  const modules = Object.fromEntries(descriptions.modules.map(m => [m.id, !upgrade || (m.generation!==12 && !m.ask && Boolean(m.default))]));
   fs.mkdirSync(dataDir, { recursive: true });
-  fs.writeFileSync(features + '.tmp', JSON.stringify({ version: 1, modules, savedAt: at, firstRun: upgrade ? 'upgrade-from-1.0' : 'fresh' }, null, 2) + '\n');
+  fs.writeFileSync(features + '.tmp', JSON.stringify({ version: 1, release12:true, modules, savedAt: at, firstRun: upgrade ? 'upgrade-from-1.0' : 'fresh' }, null, 2) + '\n');
   fs.renameSync(features + '.tmp', features);
   out.modules = modules;
   fs.mkdirSync(path.join(dataDir, 'update-receipts'), { recursive: true });

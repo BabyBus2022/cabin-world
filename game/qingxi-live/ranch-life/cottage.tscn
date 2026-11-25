@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://qingxi-live/ranch-life/cottage.gd" id="1_h27ub"]
+
+[node name="ConnectedCountryCottage" type="Node3D" unique_id=1841573946]
+script = ExtResource("1_h27ub")

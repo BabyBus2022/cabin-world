@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://qingxi-live/village-center/center.gd" id="1_0wh8j"]
+
+[node name="VillageCenter" type="Node2D" unique_id=1810204745]
+script = ExtResource("1_0wh8j")

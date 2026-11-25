@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://qingxi-live/village-center/livestock_shop.gd" id="1_s4wkw"]
+
+[node name="ConnectedLivestockShop" type="Node2D" unique_id=1996265602]
+script = ExtResource("1_s4wkw")

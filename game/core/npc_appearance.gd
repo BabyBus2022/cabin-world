@@ -1,7 +1,7 @@
 extends RefCounted
 ## Cosmetic preference only. Role IDs, game opponents and receipts stay stable.
-const IDS := ["mochi", "naiwa"]
-const LABELS := ["团团 · 米白小团子", "Naiwa · 经典皮肤"]
+const IDS := ["mochi", "nailong"]
+const LABELS := ["团团 · 米白小团子", "奶龙 · 经典皮肤"]
 static var selected := ""
 static var catalog: Dictionary = {}
 static func data() -> Dictionary:
@@ -17,7 +17,7 @@ static func current() -> String:
 		selected=value if value in IDS else "mochi"
 	return selected
 static func label() -> String:
-	return "Naiwa" if current()=="naiwa" else "团团"
+	return "奶龙" if current()=="nailong" else "团团"
 static func skin() -> Dictionary:
 	return data().skins[current()]
 static func choose(value:String, tree:SceneTree) -> Error:

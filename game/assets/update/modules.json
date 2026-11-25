@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "release": "1.1.0",
-  "note": "Independent installation choices. Every 1.1 module is optional; the installing AI explains update/keep for each item and applies only the user’s choices. Core bug fixes are always included. Existing choices are preserved. No in-game 1.1 module panel.",
+  "release": "1.2.0",
+  "note": "可多选。共享运行时和问题修复随完整程序交付。",
   "modules": [
     {
       "id": "add-bots",
@@ -178,12 +178,152 @@
       "touches": "只改每天补钱的规则",
       "upgradeDefault": false,
       "offSummary": "保留原零花钱规则"
+    },
+    {
+      "id": "village12",
+      "name": "清溪村与自家农场（整组）",
+      "summary": "公交进村、村内住宅和商铺、农场建造、种植烹饪、牧场、鱼塘、宠物和共用箱一并启用。",
+      "changes": [
+        "村路、住宅、商铺和公交；农场空地、桥梁与家具",
+        "种植与烹饪、牲畜、宠物、池塘养鱼和垂钓、共用物资箱",
+        "住户照料农田、牧场补粮；村内窗光、篝火、动态水面与庄稼风动"
+      ],
+      "generation": 12,
+      "default": true,
+      "ask": true,
+      "looksDifferent": "开放清溪村、农场及对应的光影和水面。",
+      "touches": "保留已保存的布置、进度与角色",
+      "offSummary": "关闭村庄入口及配套农场工作；再次打开可继续使用原有村庄存档。",
+      "includes": [
+        "farmwork12",
+        "window12",
+        "flame12",
+        "water12",
+        "wind12",
+        "pasture12",
+        "sharedChest12"
+      ]
+    },
+    {
+      "id": "body12",
+      "name": "可操作的玩家角色",
+      "summary": "启用玩家身体、移动、按 E 互动与跨场景跟随；关闭后使用观察者视角。",
+      "changes": [
+        "启用玩家身体、移动、按 E 互动与跨场景跟随；关闭后使用观察者视角。"
+      ],
+      "generation": 12,
+      "default": true,
+      "ask": true,
+      "looksDifferent": "启用玩家身体、移动、按 E 互动与跨场景跟随；关闭后使用观察者视角。",
+      "touches": "保留已保存的布置、进度与角色",
+      "offSummary": "关闭该模块，已存进度保留"
+    },
+    {
+      "id": "map12",
+      "name": "观察者室内小地图",
+      "summary": "在小屋世界的观察者界面显示室内小地图。",
+      "changes": [
+        "在小屋世界的观察者界面显示室内小地图。"
+      ],
+      "generation": 12,
+      "default": true,
+      "ask": true,
+      "looksDifferent": "在小屋世界的观察者界面显示室内小地图。",
+      "touches": "保留已保存的布置、进度与角色",
+      "offSummary": "关闭该模块，已存进度保留"
+    },
+    {
+      "id": "music12",
+      "name": "小屋场景音乐",
+      "summary": "随所在场所播放场景音乐。",
+      "changes": [
+        "随所在场所播放场景音乐。"
+      ],
+      "generation": 12,
+      "default": true,
+      "ask": true,
+      "looksDifferent": "随所在场所播放场景音乐。",
+      "touches": "保留已保存的布置、进度与角色",
+      "offSummary": "关闭该模块，已存进度保留"
+    },
+    {
+      "id": "agenda12",
+      "name": "住户候补计划",
+      "summary": "给住户安排连续的游戏步骤。等当前活动结束，逐步到场并核对游戏回执。",
+      "changes": [
+        "给住户安排连续的游戏步骤。等当前活动结束，逐步到场并核对游戏回执。"
+      ],
+      "generation": 12,
+      "default": true,
+      "ask": true,
+      "looksDifferent": "给住户安排连续的游戏步骤。等当前活动结束，逐步到场并核对游戏回执。",
+      "touches": "保留已保存的布置、进度与角色",
+      "offSummary": "关闭该模块，已存进度保留"
+    },
+    {
+      "id": "needs12",
+      "name": "住户主动饮食",
+      "summary": "水分或饱食度偏低时，根据游戏给出的方案饮食、购物或就地解渴。",
+      "changes": [
+        "水分或饱食度偏低时，根据游戏给出的方案饮食、购物或就地解渴。"
+      ],
+      "generation": 12,
+      "default": true,
+      "ask": true,
+      "looksDifferent": "水分或饱食度偏低时，根据游戏给出的方案饮食、购物或就地解渴。",
+      "touches": "保留已保存的布置、进度与角色",
+      "offSummary": "关闭该模块，已存进度保留"
+    },
+    {
+      "id": "invites12",
+      "name": "住户邀玩家玩游戏",
+      "summary": "空闲住户可在游戏内发起邀约，玩家答应后入座，观察者也可参与。",
+      "changes": [
+        "空闲住户可在游戏内发起邀约，玩家答应后入座，观察者也可参与。"
+      ],
+      "generation": 12,
+      "default": true,
+      "ask": true,
+      "looksDifferent": "空闲住户可在游戏内发起邀约，玩家答应后入座，观察者也可参与。",
+      "touches": "保留已保存的布置、进度与角色",
+      "offSummary": "关闭该模块，已存进度保留"
+    },
+    {
+      "id": "residentBudget12",
+      "name": "住户收支规划",
+      "summary": "给决策模型提供可编辑的生活预算和农场经营建议。",
+      "changes": [
+        "给决策模型提供可编辑的生活预算和农场经营建议。"
+      ],
+      "generation": 12,
+      "default": true,
+      "ask": true,
+      "looksDifferent": "给决策模型提供可编辑的生活预算和农场经营建议。",
+      "touches": "保留存档与物资",
+      "offSummary": "停用这一项"
+    },
+    {
+      "id": "groupContext12",
+      "name": "群聊接话判断",
+      "summary": "提供群聊对象判断工具和接话指引，供接入方在回复前调用。",
+      "changes": [
+        "提供群聊对象判断工具和接话指引，供接入方在回复前调用。"
+      ],
+      "generation": 12,
+      "default": true,
+      "ask": true,
+      "looksDifferent": "提供群聊对象判断工具和接话指引，供接入方在回复前调用。",
+      "touches": "保留存档与物资",
+      "offSummary": "停用这一项"
     }
   ],
   "installationPolicy": {
     "askEach": true,
     "unanswered": "keep-current-or-classic",
     "coreFixes": "always",
-    "selectionSurface": "installing-ai-or-update.cmd"
+    "selectionSurface": "after-save-import",
+    "fresh": "install-full",
+    "firstQuestion": "你有以前的小屋世界存档，想接着玩吗？",
+    "existingSave": "request-old-game-path-then-select"
   }
 }

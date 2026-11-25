@@ -26,7 +26,7 @@ func _ready():
  for c in service.host.characters:actor.add_item(c.display_name)
  col.add_child(actor)
  category=OptionButton.new()
- for name in ["中餐","日料","美式快餐"]:category.add_item(name)
+ for name in ["中餐","日料","美式快餐","肉菜","蔬菜","汤","主食"]:category.add_item(name)
  category.item_selected.connect(func(_i):populate());col.add_child(category)
  var scroll=ScrollContainer.new();scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL;col.add_child(scroll)
  list=VBoxContainer.new();list.size_flags_horizontal=Control.SIZE_EXPAND_FILL;scroll.add_child(list)

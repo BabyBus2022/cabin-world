@@ -1,11 +1,12 @@
 class_name ArcadePanel
 extends PanelContainer
+## The dock card for live arcade matches.
+## 2026-11-20 Claude (arcade-mind): redesigned (owner: "ugly, bloated, rigid"). No dropdown any more: up to two live
+## matches show by themselves as cards — game and players on one line, a status chip, the board, and what the
+## residents are thinking or saying right now (their own AI plays; see src/core/sim/arcade-mind.mjs in VADS).
+## Click a card to watch it big (ui/player_arcade.gd watch()). "战绩" opens rules and recent results.
+## Static helpers kept for other files: _face, available, live_choices, recent, name_of, RULES, NAMES.
 const NAMES := {"snake":"贪吃蛇", "blocks":"俄罗斯方块", "mines":"扫雷", "xiangqi":"象棋","gomoku":"五子棋"}
-var _select: OptionButton
-var _who: Label
-var _state: Label
-var _detail: Label
-var _board: ArcadeBoardView
 var _cards: Array = []
 var _columns: HBoxContainer
 var selected := ""
@@ -23,56 +24,67 @@ func _ready() -> void:
 	style.bg_color = Hud.PAPER
 	style.border_color = Hud.WOOD_D
 	style.set_border_width_all(3)
+	style.set_corner_radius_all(6)
 	style.set_content_margin_all(8)
 	add_theme_stylebox_override("panel",style)
-	var box := VBoxContainer.new()
-	box.add_theme_constant_override("separation",4)
-	add_child(box)
 	var font_of := SystemFont.new()
-	font_of.font_names = PackedStringArray(["Microsoft YaHei","SimHei"])
+	font_of.font_names = PackedStringArray(["Microsoft YaHei UI","Microsoft YaHei","SimHei"])
 	add_theme_font_override("font",font_of)
 	add_theme_font_size_override("font_size",13)
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation",6)
+	add_child(box)
+	var head := HBoxContainer.new()
+	box.add_child(head)
 	var title := Label.new()
-	title.text = "星光电玩城 · 实时对局"
-	title.add_theme_font_size_override("font_size",14)
-	title.add_theme_color_override("font_color",Hud.WOOD)
-	box.add_child(title)
-	_select = OptionButton.new()
-	_select.add_item("自动：同时显示正在玩的机台")
-	for name_of in NAMES.values(): _select.add_item(name_of)
-	_select.item_selected.connect(func(index): selected = "" if index==0 else NAMES.keys()[index-1]; refresh())
-	_style_button(_select)
-	_style_popup(_select.get_popup())
-	box.add_child(_select)
+	title.text = "电玩城 · 正在进行"
+	title.add_theme_font_size_override("font_size",15)
+	title.add_theme_color_override("font_color",Hud.WOOD_D)
+	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	head.add_child(title)
+	var more := Button.new()
+	more.text = "战绩"
+	more.focus_mode = Control.FOCUS_NONE
+	more.pressed.connect(_show_history)
+	_style_button(more)
+	head.add_child(more)
 	_columns = HBoxContainer.new()
 	_columns.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_columns.add_theme_constant_override("separation", 8)
 	box.add_child(_columns)
 	for i in 2:
-		var card := VBoxContainer.new()
+		var card := PanelContainer.new()
 		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		card.add_theme_constant_override("separation", 4)
+		card.add_theme_stylebox_override("panel", _face(Hud.PAPER_H))
+		card.mouse_filter = Control.MOUSE_FILTER_STOP
+		card.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+		card.tooltip_text = "点一下观战"
+		card.gui_input.connect(_card_clicked.bind(i))
 		_columns.add_child(card)
-		var who := Label.new()
-		var state := Label.new()
-		for label_of in [who,state]:
-			label_of.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-			label_of.add_theme_color_override("font_color",Hud.INK)
-			card.add_child(label_of)
+		var column := VBoxContainer.new()
+		column.add_theme_constant_override("separation", 3)
+		column.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		card.add_child(column)
+		var top := HBoxContainer.new()
+		top.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		column.add_child(top)
+		var who := _label("", 13, Hud.INK)
+		who.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		who.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		top.add_child(who)
+		var state := _chip("", Hud.PAPER_D)
+		top.add_child(state)
 		var board := ArcadeBoardView.new()
 		board.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		board.custom_minimum_size = Vector2(0,80)
-		card.add_child(board)
-		var detail := Label.new()
-		detail.add_theme_color_override("font_color",Hud.INK2)
+		column.add_child(board)
+		var detail := _label("", 12, Hud.INK2)
 		detail.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-		card.add_child(detail)
-		_cards.append({"card":card,"who":who,"state":state,"board":board,"detail":detail})
-	var more := Button.new()
-	more.text = "玩法与战绩"
-	more.pressed.connect(_show_history)
-	_style_button(more)
-	box.add_child(more)
+		column.add_child(detail)
+		var mind := _label("", 12, Hud.WOOD)
+		mind.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		column.add_child(mind)
+		_cards.append({"card":card,"who":who,"state":state,"board":board,"detail":detail,"mind":mind,"key":""})
 	refresh()
 
 static func _face(bg: Color) -> StyleBoxFlat:
@@ -104,6 +116,7 @@ var _history_popup: PopupPanel
 static func _label(text: String, size: int, color: Color) -> Label:
 	var l := Label.new(); l.text = text
 	l.add_theme_font_size_override("font_size", size); l.add_theme_color_override("font_color", color)
+	l.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return l
 
 static func _chip(text: String, fill: Color) -> PanelContainer:
@@ -112,9 +125,10 @@ static func _chip(text: String, fill: Color) -> PanelContainer:
 	face.content_margin_left = 6; face.content_margin_right = 6; face.content_margin_top = 1; face.content_margin_bottom = 1
 	chip.add_theme_stylebox_override("panel", face)
 	chip.add_child(_label(text, 12, Hud.INK))
+	chip.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return chip
 
-## Rules and recent results in the game's own paper-and-wood style (it used to be a plain system dialog).
+## Rules and recent results in the game's own paper-and-wood style.
 func _show_history() -> void:
 	if is_instance_valid(_history_popup): _history_popup.queue_free()
 	var popup := PopupPanel.new(); _history_popup = popup
@@ -186,33 +200,44 @@ func refresh() -> void:
 	for i in _cards.size():
 		var card: Dictionary = _cards[i]
 		card.card.visible = i<rows.size()
-		if not card.card.visible:continue
-		_who=card.who;_state=card.state;_board=card.board;_detail=card.detail
-		_refresh_card(rows[i] if i<rows.size() else {})
+		if card.card.visible: _refresh_card(card, rows[i])
 
-func _refresh_card(chosen: Dictionary) -> void:
+func _card_clicked(event: InputEvent, index: int) -> void:
+	if not (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT): return
+	var key := str(_cards[index].key)
+	var host = get_parent()
+	if key != "" and host != null and "player_controls" in host and host.player_controls != null:
+		host.player_controls.arcade.watch(key)
+
+func _refresh_card(card: Dictionary, chosen: Dictionary) -> void:
 	var game = chosen.get("game")
-	_board.board = game if game is Dictionary else {}
-	_board.queue_redraw()
-	if chosen.is_empty():
-		_who.text = "这台机子暂时没有对局"
-		_state.text = ""
-		_detail.text = ""
-		return
+	card.key = str(chosen.get("cabinetKey",""))
+	card.board.board = game if game is Dictionary else {}
+	card.board.queue_redraw()
 	var players: Array = chosen.get("players",[]).map(func(p): return str(p.get("name",name_of(str(p.get("id",""))))))
 	if chosen.get("passerby"): players.append(name_of("computer"))
-	_who.text = ("方块2号机" if chosen.get("cabinetKey")=="blocks@second" else "方块1号机" if chosen.kind=="blocks" else NAMES.get(chosen.kind,chosen.kind)) + " · " + " × ".join(PackedStringArray(players))
-	_who.tooltip_text = _who.text
+	var game_name: String = "方块2号机" if chosen.get("cabinetKey")=="blocks@second" else NAMES.get(chosen.kind,chosen.kind)
+	card.who.text = game_name + "  " + " vs ".join(PackedStringArray(players))
+	card.who.tooltip_text = card.who.text
 	var status: String = chosen.get("status","")
-	_state.text = {"playing":"进行中","waiting":"等待入座","draw":"平局","lost":"这局输了","interrupted":"已中断，不算输赢","won":"赢了"}.get(status,status)
-	if status=="won" and game is Dictionary: _state.text = name_of(str(game.get("winner",""))) + "赢了"
-	if status!="playing" and str(chosen.get("reason",""))!="": _state.text += " · " + chosen.reason
-	_state.tooltip_text = _state.text
-	_detail.text = ""
-	if not game is Dictionary: return
-	match game.kind:
-		"mines": _detail.text = "翻开 %d/%d · 旗 %d/%d" % [game.open.size(),int(game.w*game.h-game.total),game.flags.size(),int(game.total)]
-		"blocks": _detail.text = "消行 %d/%d · %d 分" % [game.lines,game.target,game.score]
-		"snake": _detail.text = " · ".join(PackedStringArray(game.snakes.map(func(s): return name_of(s.id)+" "+str(s.score)+" 个")))
-		"xiangqi": _detail.text = "第 %d 手 · %s%s" % [game.moves,"红方" if game.turn else "黑方","走棋" if status=="playing" else " · 已结束"]
-		"gomoku": _detail.text = "第 %d 手 · %s%s" % [game.moves,"白方" if game.turn else "黑方","落子" if status=="playing" else " · 已结束"]
+	var state: String = {"playing":"进行中","waiting":"等入座","draw":"平局","lost":"输了","interrupted":"中断","won":"赢了"}.get(status,status)
+	if status=="won" and game is Dictionary: state = name_of(str(game.get("winner",""))) + "赢"
+	(card.state.get_child(0) as Label).text = state
+	card.detail.text = ""
+	if game is Dictionary:
+		match game.kind:
+			"mines": card.detail.text = "翻开 %d/%d · 旗 %d/%d" % [game.open.size(),int(game.w*game.h-game.total),game.flags.size(),int(game.total)]
+			"blocks": card.detail.text = "消行 %d/%d · %d 分" % [game.lines,game.target,game.score]
+			"snake": card.detail.text = " · ".join(PackedStringArray(game.snakes.map(func(s): return name_of(s.id)+" "+str(s.score)+" 个")))
+			"xiangqi": card.detail.text = "第 %d 手 · 轮到%s" % [game.moves,"红方" if game.turn else "黑方"]
+			"gomoku": card.detail.text = "第 %d 手 · 轮到%s" % [game.moves,"白棋" if game.turn else "黑棋"]
+	## What they are thinking or saying right now (their own AI).
+	var mind_line := ""
+	for id in chosen.get("minds", {}):
+		var m: Dictionary = chosen.minds[id]
+		if m.get("thinking", false): mind_line = "%s 在想…" % name_of(str(id))
+	if mind_line == "":
+		for r in chosen.get("feed", []):
+			if r.get("kind") in ["say", "thought"]: mind_line = ("%s：%s" if r.kind == "say" else "（%s 想）%s") % [r.get("name",""), r.get("text","")]
+	card.mind.text = mind_line
+	card.mind.tooltip_text = mind_line

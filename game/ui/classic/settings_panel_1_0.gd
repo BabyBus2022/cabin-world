@@ -25,7 +25,8 @@ var _audio_description: Label
 var _audio_notice: Label
 var _sheet: PanelContainer
 signal refresh_requested()
-signal observe_requested()
+signal player_mode_requested(active: bool)
+var player_mode_active := true
 signal furniture_requested()
 signal map_requested() ## separate map editor (ui/map_editor.gd); does not touch the furniture editor
 var _resident_options := {}
@@ -96,13 +97,26 @@ func _ready() -> void:
 		_fullscreen.set_pressed_no_signal(false)
 		_apply_display())
 	_fullscreen.toggled.connect(func(_on): _apply_display())
+	var appearance_button:=Button.new()
+	appearance_button.text="角色外观与动作包"
+	body.add_child(appearance_button)
+	appearance_button.pressed.connect(func():
+		var panel=preload("res://ui/appearance_panel.gd").new()
+		add_child(panel);panel.popup_centered())
 	_build_npc_settings(body)
 	body.add_child(HSeparator.new())
 	_label("世界",body).add_theme_font_size_override("font_size",20)
 	var controls := HBoxContainer.new()
 	body.add_child(controls)
 	_button("刷新近况",func():refresh_requested.emit(),controls)
-	_button("专注观察 / 恢复面板",func():observe_requested.emit();close(),controls)
+	var mode := OptionButton.new()
+	mode.alignment = HORIZONTAL_ALIGNMENT_CENTER
+	mode.add_item("玩家模式")
+	mode.add_item("观测者模式")
+	mode.item_selected.connect(func(index:int):player_mode_requested.emit(index == 0);close())
+	visibility_changed.connect(func():if visible: mode.select(0 if player_mode_active else 1))
+	controls.add_child(mode)
+	WorldSettings.balance_mode_arrow(mode)
 	_button("布置当前场景家具 · F6",func():close();furniture_requested.emit(),body)
 	if Features.on("map-editor"):_button("地图编辑",func():close();map_requested.emit(),body)
 	if Features.on("add-bots"):_button("新增住户 / 分配房间",func():add_child(load("res://ui/resident_manager.gd").new()),body)

@@ -139,7 +139,7 @@ static func snake(s: Dictionary, action: Dictionary) -> void:
 	if alive.is_empty():
 		finish(s, "draw" if s.duo else "lost", null, "两条蛇同时撞了" if s.duo else "撞到了")
 	elif s.duo and alive.size()==1:
-		finish(s,"won",alive[0].id,"对方先撞了")
+		finish(s,"won",alive[0].id,"黄蛇先撞了" if s.snakes[0].alive else "绿蛇先撞了")
 	else:
 		var top := alive.filter(func(a): return a.score >= s.target)
 		if top.size()==1:
@@ -189,7 +189,7 @@ static func mines(s: Dictionary, a: Dictionary) -> void:
 		if s.flags.has(k): s.flags.erase(k)
 		else: s.flags.append(k)
 		return
-	if s.flags.has(k) or s.open.has(k):
+	if a.get("flag") or s.flags.has(k):
 		return
 	if not s.armed:
 		var candidates := []
@@ -199,14 +199,19 @@ static func mines(s: Dictionary, a: Dictionary) -> void:
 		while s.mines.size()<s.total:
 			s.mines.append(candidates.pop_at(random_index(s,candidates.size())))
 		s.armed = true
-	if s.mines.has(k):
-		s.boom = k
-		finish(s,"lost",null,"翻到了雷")
-		return
 	var queue := [k]
+	if s.open.has(k):
+		var near:=neighbours(s,k)
+		var count:=near.filter(func(n): return s.mines.has(n)).size()
+		if count==0 or near.filter(func(n):return s.flags.has(n)).size()!=count:return
+		queue=near.duplicate()
 	while not queue.is_empty():
 		var v: int = queue.pop_back()
 		if s.open.has(v) or s.flags.has(v): continue
+		if s.mines.has(v):
+			s.boom=v; s.score=s.open.size()
+			finish(s,"lost",null,"翻到了雷")
+			return
 		s.open.append(v)
 		var near := neighbours(s,v)
 		if not near.any(func(n): return s.mines.has(n)):

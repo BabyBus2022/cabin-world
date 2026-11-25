@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://qingxi-live/classic-outdoor/art_corner.gd" id="1_3vbo8"]
+
+[node name="ArtCorner" type="Node3D" unique_id=1456981200]
+script = ExtResource("1_3vbo8")

@@ -16,7 +16,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const args = process.argv.slice(2), opt = n => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : null; };
 const dataDir = path.resolve(opt('--data') || path.join(HERE, '..', 'data'));
 const toolsFile = path.join(HERE, 'openai-tools.json');
-const SERVER = { name: 'cabin-world', version: '1.1.0' };
+const SERVER = { name: 'cabin-world', version: '1.2.0' };
 const log = (...a) => process.stderr.write('[cabin-world-mcp] ' + a.join(' ') + '\n');
 
 // MCP tool list from the same file the HTTP bridge hands to function-calling models.
@@ -50,7 +50,7 @@ const fail = (id, code, message) => send({ jsonrpc: '2.0', id, error: { code, me
 async function handle(msg) {
   const { id, method, params } = msg;
   if (method === 'initialize') return reply(id, { protocolVersion: params?.protocolVersion || '2025-06-18', capabilities: { tools: { listChanged: false } }, serverInfo: SERVER,
-    instructions: '小屋世界：给 AI 一个能生活的像素小世界。安装或升级 1.1 时，先 cabin_update_plan，逐项讲清更新与保留原版的差别，让用户分别选择；不可把同意升级当成同意全部换外观。只提交明确选择给 cabin_update_apply，未选保持当前状态。平时先 cabin_status / cabin_look 了解环境，用 cabin_go / cabin_use 真实行动，running 不等于完成，用 cabin_task 查回执。详细说明见 docs/AI-MANUAL.md 和 INSTALL-AI.md。' });
+    instructions: '小屋世界：给 AI 一个能生活的像素小世界。开始安装时主动先问是否有旧存档。选无则安装完整版；选有则请玩家给旧游戏目录，导入成功后取新版 cabin_update_plan，在当前会话展示多选列表，清溪村整组选一次，沿用原 1.1 设置；不可把同意升级当成同意全部换外观。只提交明确选择给 cabin_update_apply，未选保持当前状态。平时先 cabin_status / cabin_look 了解环境，用 cabin_go / cabin_use 真实行动，running 不等于完成，用 cabin_task 查回执。群聊可先用 cabin_group_turn 判断接话对象，行动规划读取 cabin_game_context。详细说明见 docs/AI-MANUAL.md 和 INSTALL-AI.md。' });
   if (method === 'ping') return reply(id, {});
   if (method === 'tools/list') { try { return reply(id, { tools: tools() }); } catch (e) { return fail(id, -32603, '读不到工具列表：' + e.message); } }
   if (method === 'tools/call') {

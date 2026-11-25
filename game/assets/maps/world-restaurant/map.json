@@ -568,7 +568,7 @@
     },
     {
      "id": "order",
-     "name": "Naiwa点餐台",
+     "name": "奶龙点餐台",
      "icon": "res://assets/restaurant/furniture.png",
      "iconRegion": [
       328.0,
@@ -2872,7 +2872,7 @@
       "y": 528.0
      }
     },
-    "description": "纯室内木色餐厅：左后厨、右侧Naiwa点餐取餐，前厅餐桌；公园北侧岔路进入。",
+    "description": "纯室内木色餐厅：左后厨、右侧奶龙点餐取餐，前厅餐桌；公园北侧岔路进入。",
     "actionFacings": {
      "cook_a": "north",
      "cook_b": "north",

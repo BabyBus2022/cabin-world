@@ -1,0 +1,242 @@
+[
+  {
+    "id": "01",
+    "name": "药斗种子柜",
+    "footprint": [
+      4,
+      1
+    ],
+    "prompt": "a tall apothecary seed cabinet with twenty small square drawers, brass label pulls, a few corked glass seed jars on its top, indigo drawer faces",
+    "reference": "seedrack"
+  },
+  {
+    "id": "02",
+    "name": "挂袋种子架",
+    "footprint": [
+      3,
+      1
+    ],
+    "prompt": "an open narrow wooden pegboard seed-packet rack, hanging cream envelopes with vegetable pictograms, two shallow tray shelves, simple rectangular frame",
+    "reference": "seedrack"
+  },
+  {
+    "id": "03",
+    "name": "玻璃罐柜",
+    "footprint": [
+      4,
+      1
+    ],
+    "prompt": "a seed cabinet with two glazed wooden doors, shelves of corked glass jars containing beans and grains, low solid blue drawers",
+    "reference": "seedrack"
+  },
+  {
+    "id": "04",
+    "name": "阶梯种子架",
+    "footprint": [
+      4,
+      2
+    ],
+    "prompt": "a low three-tier stepped retail display of cream seed envelopes, open low sides, indigo wooden risers, small botanical motif",
+    "reference": "seedrack"
+  },
+  {
+    "id": "05",
+    "name": "弧角长柜台",
+    "footprint": [
+      8,
+      2
+    ],
+    "prompt": "a single wide seed shop sales counter with rounded front corners, continuous empty wood countertop, restrained blue panels and brass trim",
+    "reference": "counter"
+  },
+  {
+    "id": "06",
+    "name": "乡村直柜台",
+    "footprint": [
+      6,
+      2
+    ],
+    "prompt": "a rustic long simple wooden seed shop sales counter with woven rattan lower doors, sturdy square feet, clear countertop, indigo corner trim",
+    "reference": "counter"
+  },
+  {
+    "id": "07",
+    "name": "玻璃样品柜台",
+    "footprint": [
+      6,
+      2
+    ],
+    "prompt": "a long shop counter with glass display front containing small seed sample dishes, thick walnut top frame, blue solid base, brass feet",
+    "reference": "counter"
+  },
+  {
+    "id": "08",
+    "name": "抽屉收银柜",
+    "footprint": [
+      4,
+      2
+    ],
+    "prompt": "a compact seed shop counter with asymmetrical large drawers and a recessed bag shelf, broad clear tabletop, tiny ledger at one end",
+    "reference": "counter"
+  },
+  {
+    "id": "09",
+    "name": "泥盆育苗台",
+    "footprint": [
+      6,
+      2
+    ],
+    "prompt": "a potting workbench with terracotta pots, one shallow tray of green seedlings, a watering can, lower shelf with soil sacks, simple blue drawers",
+    "reference": "potting"
+  },
+  {
+    "id": "10",
+    "name": "双层育苗架",
+    "footprint": [
+      4,
+      2
+    ],
+    "prompt": "a two-tier open nursery plant shelf with small green seedlings in trays, sturdy wooden rails, small watering can on bottom shelf, indigo corner brackets",
+    "reference": "potting"
+  },
+  {
+    "id": "11",
+    "name": "水槽育苗台",
+    "footprint": [
+      5,
+      2
+    ],
+    "prompt": "a gardener potting workbench with a small deep stone basin on the left, broad wooden work surface, pots underneath, a brass faucet and two blue drawers",
+    "reference": "potting"
+  },
+  {
+    "id": "12",
+    "name": "窄窗育苗架",
+    "footprint": [
+      3,
+      1
+    ],
+    "prompt": "a slender tall wooden greenhouse plant stand, three open staggered shelves of simple small terracotta seedling pots, light framework, blue lower tray",
+    "reference": "potting"
+  },
+  {
+    "id": "13",
+    "name": "分种操作柜",
+    "footprint": [
+      4,
+      2
+    ],
+    "prompt": "a seed-sorting work cabinet with a shallow compartment tray of different seeds, cream envelopes, small brass balance, four blue drawers",
+    "reference": "packing"
+  },
+  {
+    "id": "14",
+    "name": "纸袋打包台",
+    "footprint": [
+      5,
+      2
+    ],
+    "prompt": "a packing table with wall-like low peg back holding string and scissors, stack of paper bags, broad clear work surface, lower paper roll holder",
+    "reference": "packing"
+  },
+  {
+    "id": "15",
+    "name": "滚轮工具车",
+    "footprint": [
+      2,
+      2
+    ],
+    "prompt": "a compact wooden garden tool trolley with four little casters, two blue drawers, small trowels and twine in open top compartments",
+    "reference": "packing"
+  },
+  {
+    "id": "16",
+    "name": "香草晾晒柜",
+    "footprint": [
+      4,
+      2
+    ],
+    "prompt": "a seed shop herb drying cabinet with a raised wooden rail holding small tied herb bunches, lower workbench and wicker storage baskets",
+    "reference": "packing"
+  },
+  {
+    "id": "17",
+    "name": "麻袋种粮台",
+    "footprint": [
+      4,
+      2
+    ],
+    "prompt": "a low timber retail platform with three tied linen grain sacks, one open sack of beans with small wooden scoop, dark blue edge strip",
+    "reference": "seedrack"
+  },
+  {
+    "id": "18",
+    "name": "翻盖种子箱",
+    "footprint": [
+      3,
+      2
+    ],
+    "prompt": "a low wooden seed storage chest with raised hinged lid, divided compartments of seeds and labeled cream envelopes, brass hinges and indigo base",
+    "reference": "packing"
+  },
+  {
+    "id": "19",
+    "name": "园艺工具架",
+    "footprint": [
+      3,
+      1
+    ],
+    "prompt": "a freestanding wooden garden tool rack holding short hand rakes and trowels, hooks and narrow upper shelf, two tiny blue drawers at bottom",
+    "reference": "potting"
+  },
+  {
+    "id": "20",
+    "name": "空盆陈列架",
+    "footprint": [
+      3,
+      1
+    ],
+    "prompt": "an open wooden retail shelf with stacked terracotta pots of several sizes, bags of soil on bottom, simple thick timber posts and blue shelf edges",
+    "reference": "potting"
+  },
+  {
+    "id": "21",
+    "name": "花种展示车",
+    "footprint": [
+      4,
+      2
+    ],
+    "prompt": "a charming low wooden seed shop display cart on two small wheels, seed packets and a modest herb planter, indigo side panels, no canopy",
+    "reference": "seedrack"
+  },
+  {
+    "id": "22",
+    "name": "种子目录站",
+    "footprint": [
+      3,
+      2
+    ],
+    "prompt": "a compact standing seed catalogue lectern with a slanted open illustrated book, narrow drawers beneath and a paper leaflet pocket on its side, walnut and blue",
+    "reference": "packing"
+  },
+  {
+    "id": "23",
+    "name": "订单格子柜",
+    "footprint": [
+      3,
+      1
+    ],
+    "prompt": "a small wooden pigeonhole cabinet for packaged garden orders, cream paper bundles tied with twine, square cubbies, two blue drawers at base",
+    "reference": "seedrack"
+  },
+  {
+    "id": "24",
+    "name": "栽培小岛台",
+    "footprint": [
+      5,
+      3
+    ],
+    "prompt": "a low island planting demonstration bench with a recessed rectangular soil tray and tiny neat seedlings, small tools in a side tray, sturdy blue cabinet base",
+    "reference": "potting"
+  }
+]

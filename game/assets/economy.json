@@ -323,7 +323,7 @@
     "start": 30,
     "daily": 50,
     "cap": 300,
-    "bagSlots": 12
+    "bagSlots": 24
   },
   "rewardCap": 150,
   "dailySales": [

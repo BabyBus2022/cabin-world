@@ -13,6 +13,12 @@ static func point(value: Dictionary) -> Vector2:
 static func phase(time: float) -> float:
 	return sin(time*2.4)*.19
 
+static func rider_angle(time:float) -> float:
+	return sin(time*3.5)*.075
+
+static func rider_pivot(m:Dictionary) -> Vector2:
+	return point(m)+Vector2(m.w*.45,m.h*.87)
+
 static func mechanism_seat(m: Dictionary, kind: String, time: float, slot := "left") -> Vector2:
 	var base := point(m)
 	match kind:
@@ -22,7 +28,10 @@ static func mechanism_seat(m: Dictionary, kind: String, time: float, slot := "le
 		"seesaw":
 			var a := phase(time)*.7
 			return base+Vector2(m.w/2,m.h-14*.625)+Vector2((65 if slot=="right" else -65)*.625,-12*.625).rotated(a)
-		"rider": return base+Vector2(m.w*.48,m.h*.38+sin(time*4)*2)
+		"rider":
+			var pivot:=rider_pivot(m)
+			var saddle:=base+Vector2(m.w*.61,m.h*.31)
+			return pivot+(saddle-pivot).rotated(rider_angle(time))
 		"carousel": return base+Vector2(m.w/2+cos(time*1.2)*m.w*.22,m.h*.48+sin(time*1.2)*m.h*.1)
 	return base+Vector2(m.w/2,m.h*.7)
 
