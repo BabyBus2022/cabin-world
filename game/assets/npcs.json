@@ -10,7 +10,7 @@
         318.0
       ],
       "id": "shop-cashier",
-      "name": "Naiwa",
+      "name": "奶龙",
       "radius": 66.0,
       "role": "cashier",
       "scene": "qianxia-shop",
@@ -22,7 +22,7 @@
           "pay"
         ]
       },
-      "skin": "naiwa",
+      "skin": "nailong",
       "station_anchor": [
         40.75,
         16.8251278772378
@@ -34,9 +34,9 @@
         465.0,
         363.44
       ],
-      "id": "naiwa-chess",
+      "id": "nailong-chess",
       "match_key": "xiangqi",
-      "name": "Naiwa",
+      "name": "奶龙",
       "opponent_id": "computer",
       "play_pose": "chess",
       "role": "arcade",
@@ -59,16 +59,16 @@
           "flip": true
         }
       ],
-      "skin": "naiwa"
+      "skin": "nailong"
     },
     {
       "feet": [
         418.0,
         278.0
       ],
-      "id": "naiwa-snake",
+      "id": "nailong-snake",
       "match_key": "snake",
-      "name": "Naiwa",
+      "name": "奶龙",
       "opponent_id": "computer",
       "play_pose": "arcade",
       "role": "arcade",
@@ -91,7 +91,7 @@
           "flip": false
         }
       ],
-      "skin": "naiwa"
+      "skin": "nailong"
     },
     {
       "counter": [
@@ -103,7 +103,7 @@
         144.0
       ],
       "id": "restaurant-cashier",
-      "name": "Naiwa",
+      "name": "奶龙",
       "radius": 100.0,
       "role": "cashier",
       "scene": "world-restaurant",
@@ -114,7 +114,7 @@
           "restaurant_order"
         ]
       },
-      "skin": "naiwa",
+      "skin": "nailong",
       "station_anchor": [
         80.0,
         28.0
@@ -359,7 +359,7 @@
       "scale": 0.18,
       "texture": "res://assets/npcs/mochi-v1.png"
     },
-    "naiwa": {
+    "nailong": {
       "animations": {
         "arcade": {
           "fps": 4.0,
@@ -986,7 +986,7 @@
             443.0
           ],
           "scale": 0.15406162464986,
-          "texture": "res://assets/npcs/naiwa-games-v1.png"
+          "texture": "res://assets/npcs/nailong-games-v1.png"
         },
         {
           "anchor": [
@@ -1006,7 +1006,7 @@
             443.0
           ],
           "scale": 0.15406162464986,
-          "texture": "res://assets/npcs/naiwa-games-v1.png"
+          "texture": "res://assets/npcs/nailong-games-v1.png"
         },
         {
           "anchor": [
@@ -1026,7 +1026,7 @@
             443.0
           ],
           "scale": 0.15406162464986,
-          "texture": "res://assets/npcs/naiwa-games-v1.png"
+          "texture": "res://assets/npcs/nailong-games-v1.png"
         },
         {
           "anchor": [
@@ -1046,7 +1046,7 @@
             443.0
           ],
           "scale": 0.15406162464986,
-          "texture": "res://assets/npcs/naiwa-games-v1.png"
+          "texture": "res://assets/npcs/nailong-games-v1.png"
         },
         {
           "anchor": [
@@ -1066,7 +1066,7 @@
             444.0
           ],
           "scale": 0.15406162464986,
-          "texture": "res://assets/npcs/naiwa-games-v1.png"
+          "texture": "res://assets/npcs/nailong-games-v1.png"
         },
         {
           "anchor": [
@@ -1086,7 +1086,7 @@
             444.0
           ],
           "scale": 0.15406162464986,
-          "texture": "res://assets/npcs/naiwa-games-v1.png"
+          "texture": "res://assets/npcs/nailong-games-v1.png"
         },
         {
           "anchor": [
@@ -1106,7 +1106,7 @@
             444.0
           ],
           "scale": 0.15406162464986,
-          "texture": "res://assets/npcs/naiwa-games-v1.png"
+          "texture": "res://assets/npcs/nailong-games-v1.png"
         },
         {
           "anchor": [
@@ -1126,7 +1126,7 @@
             444.0
           ],
           "scale": 0.15406162464986,
-          "texture": "res://assets/npcs/naiwa-games-v1.png"
+          "texture": "res://assets/npcs/nailong-games-v1.png"
         }
       ],
       "scale": 0.27,

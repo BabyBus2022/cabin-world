@@ -3,11 +3,19 @@ extends RefCounted
 ## Reuse the original inventory art; no emoji/font dependency.
 const FOODS := ["草莓软糖", "海苔薯片", "奶油面包", "巧克力棒", "小鱼饼干", "冰镇橘子汽水", "草莓牛奶", "乌龙茶", "矿泉水", "柠檬茶", "香草冰淇淋", "西瓜冰棍"]
 const HOT := ["hot_milk", "hot_coffee", "hot_latte", "hot_cocoa", "ginger_tea", "hot_honey_lemon", "hot_green_tea", "hot_corn_milk"]
+const FARM_NAMES := {"seed":"白菜种子","hay":"干草","pig_feed":"猪饲料","fish_feed":"鱼饲料","wheat":"小麦","carrot":"胡萝卜","fry":"鱼苗","veg":"白菜","milk":"牛奶","wool":"羊毛","fish":"鲜鱼","meal":"家常菜","feeder_cow":"牛草槽","feeder_sheep":"羊草架","feeder_chicken":"鸡食盘","feeder_pig":"猪食槽"}
 static var cache := {}
 
 static func texture(id: String, name_of := "", space := "") -> Texture2D:
 	var key := id + ":" + space
 	if cache.has(key): return cache[key]
+	if FARM_NAMES.has(id):
+		var file := "res://assets/ui/farm-items/"+id+".png"
+		if FileAccess.file_exists(file):
+			var image := Image.new()
+			if image.load_png_from_buffer(FileAccess.get_file_as_bytes(file))==OK:
+				cache[key] = ImageTexture.create_from_image(image)
+				return cache[key]
 	var own:="res://assets/ui/items/"+id+".png"
 	if ResourceLoader.exists(own):cache[key]=load(own);return cache[key]
 	var tex: Texture2D

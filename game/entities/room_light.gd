@@ -12,8 +12,8 @@ extends RefCounted
 ## Lamps and prop glows use the original screen blend through ScreenLight.
 
 const SHOPS := ["qianxia-shop", "world-arcade", "world-onsen"]
-const HOMES := ["qianxia-home", "xiaojingyu-home"]
-const QIANXIA_HOME := "qianxia-home"
+static func is_home(scene_id:String)->bool:
+	return Residents.people().any(func(person):return person.get("home",{}).get("scene","")==scene_id)
 const XJ_HOME := "xiaojingyu-home"
 
 ## For tests: draw this moment rather than now.
@@ -31,7 +31,9 @@ static func hash_of(n: float) -> float:
 
 static func lamp_settings(scene_id: String) -> Dictionary:
 	var presence: Dictionary = SharedFeed.presence_now
-	var q = presence.get("Final01")
+	var q = null
+	for person in Residents.people():
+		if person.get("home",{}).get("scene","")==scene_id:q=presence.get(person.key);break
 	var view = q.get("view") if q is Dictionary else null
 	var raw = view.get("lighting") if view is Dictionary else null
 	var out: Dictionary = raw.duplicate() if raw is Dictionary else {}
@@ -83,7 +85,7 @@ static func _windows(scene_id: String) -> Array:
 
 ## On the floor, under furniture.
 static func draw_floor(c: CanvasItem, scene_id: String, light: Dictionary, size: Vector2) -> void:
-	if not scene_id in HOMES or float(light["beamAlpha"]) <= 0.0:
+	if not is_home(scene_id) or float(light["beamAlpha"]) <= 0.0:
 		return
 	var alpha: float = light["beamAlpha"]
 	var beam := _rgba(light["beam"], alpha)
@@ -255,7 +257,7 @@ static func draw_tint(c: CanvasItem, scene_id: String, light: Dictionary, size: 
 ## Dust in the sunbeams at Qianxia's, and fireflies by the plants at night.
 static func draw_air(c: CanvasItem, scene_id: String, light: Dictionary, time: float) -> void:
 	var beam_alpha: float = light["beamAlpha"]
-	if scene_id == QIANXIA_HOME and beam_alpha > 0.0:
+	if is_home(scene_id) and scene_id != XJ_HOME and beam_alpha > 0.0:
 		var windows := _windows(scene_id)
 		if not windows.is_empty():
 			var win: Dictionary = windows[0]

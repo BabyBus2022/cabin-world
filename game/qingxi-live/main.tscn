@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://qingxi-live/rural.gd" id="1_mg85w"]
+
+[node name="RuralPlaytest" type="Node2D" unique_id=121893518]
+script = ExtResource("1_mg85w")

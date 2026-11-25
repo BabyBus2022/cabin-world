@@ -21,9 +21,10 @@ extends RefCounted
 ##   pocket-money-50      the 1.0 allowance: +20 a day, savings up to 80
 ##   add-bots             the 机器人与房间 entry in Settings is hidden (bots added earlier stay)
 ##   settings-ui          the 1.0 Settings layout
-const MODULES := ["arcade-renovated","furniture-rotation","gomoku","furniture-workshop","map-editor","character-motion",
+const MODULES := ["village12","body12","map12","music12","agenda12","needs12","invites12","residentBudget12","groupContext12","arcade-renovated","furniture-rotation","gomoku","furniture-workshop","map-editor","character-motion",
 	"seasons","seaside-path","pocket-money-50","add-bots","settings-ui"]
 ## Which module owns a data file whose 1.0 copy is in res://assets/classic/ (path relative to res://assets/).
+const VILLAGE_MEMBERS := ["farmwork12", "window12", "flame12", "water12", "wind12", "pasture12", "sharedChest12"]
 const CLASSIC_FILES := {
 	"arcade-grid.json":"arcade-renovated", "baked/world-arcade.layers.json":"arcade-renovated",
 	"restaurant-grid.json":"furniture-rotation", "shop-grid.json":"furniture-rotation", "home-grid.json":"furniture-rotation",
@@ -49,14 +50,31 @@ static func load_flags(force := false) -> void:
 	var text := FileAccess.get_file_as_string(ini) if FileAccess.file_exists(ini) else ""
 	dir = InstallPaths.resolve_data(OS.get_cmdline_user_args(), OS.get_environment("CABINWORLD_DATA"), exe_dir, text)
 	path = dir.path_join("features.json")
-	if not FileAccess.file_exists(path): return
+	if not FileAccess.file_exists(path):
+		if not FileAccess.file_exists(dir.path_join("bridge.json")) and not populated(dir.path_join("world")) and not populated(dir.path_join("saves")):
+			var defaults:Dictionary={}
+			for id in MODULES:defaults[id]=true
+			DirAccess.make_dir_recursive_absolute(dir)
+			var first:=FileAccess.open(path+".new",FileAccess.WRITE)
+			if first!=null:
+				first.store_string(JSON.stringify({"version":1,"release12":true,"modules":defaults,"firstRun":"standalone-fresh"}))
+				first.close()
+				DirAccess.rename_absolute(path+".new",path)
+		else:
+			for m in descriptions():
+				if m.get("generation",0)==12: _flags[m.id]=false
+		return
 	var data = JSON.parse_string(FileAccess.get_file_as_string(path))
 	if data is Dictionary and data.get("modules") is Dictionary:
 		for id in data.modules:
 			if id in MODULES and data.modules[id] is bool: _flags[id] = data.modules[id]
+		if not data.get("release12", false):
+			for m in descriptions():
+				if m.get("generation",0)==12 and not _flags.has(m.id): _flags[m.id]=false
 
 static func on(id: String) -> bool:
 	load_flags()
+	if id in VILLAGE_MEMBERS: id="village12"
 	return bool(_flags.get(id, true))
 
 ## res:// path of a data file, taking the 1.0 copy when its module is off. relative = path under res://assets/.
@@ -93,7 +111,15 @@ static func save(choice: Dictionary) -> String:
 	var tmp := path + ".tmp"
 	var f := FileAccess.open(tmp, FileAccess.WRITE)
 	if f == null: return "写不进 " + tmp
-	f.store_string(JSON.stringify({"version": 1, "modules": modules, "savedAt": Time.get_datetime_string_from_system(true)}, "  ") + "\n"); f.close()
+	var document:Dictionary={}
+	if FileAccess.file_exists(path):
+		var previous=JSON.parse_string(FileAccess.get_file_as_string(path))
+		if previous is Dictionary:document=previous
+	var merged:Dictionary=document.get("modules",{}).duplicate()
+	merged.merge(modules,true)
+	document.merge({"version":1,"modules":merged,"savedAt":Time.get_datetime_string_from_system(true)},true)
+	f.store_string(JSON.stringify(document,"  ")+"\n")
+	f.close()
 	if DirAccess.rename_absolute(tmp, path) != OK: return "保存失败：" + path
 	return ""
 
@@ -108,3 +134,7 @@ static func status() -> Dictionary:
 	var out := {}
 	for id in MODULES: out[id] = on(id)
 	return {"file": path, "modules": out}
+
+static func populated(folder:String)->bool:
+	var directory:=DirAccess.open(folder)
+	return directory!=null and (not directory.get_files().is_empty() or not directory.get_directories().is_empty())

@@ -21,7 +21,8 @@
         "shop",
         "xjhome",
         "arcade",
-        "restaurant"
+        "restaurant",
+        "qingxi"
       ],
       "zones": [
         {
@@ -103,6 +104,10 @@
           "id": "arcade_bridge",
           "name": "通往电玩城的桥头",
           "position": ""
+        },
+        {
+          "id": "qx_curb",
+          "name": "清溪村公交站"
         }
       ]
     },
@@ -559,6 +564,39 @@
           "id": "seat-d2_use",
           "name": "D桌二号座位",
           "position": ""
+        }
+      ]
+    },
+    {
+      "id": "qingxi",
+      "scene": "qingxi-village",
+      "name": "清溪村",
+      "fullName": "清溪村",
+      "outdoor": true,
+      "owner": null,
+      "links": [
+        "park"
+      ],
+      "zones": [
+        {
+          "id": "qx_busstop",
+          "name": "公交站"
+        },
+        {
+          "id": "qx_plaza",
+          "name": "村中心"
+        },
+        {
+          "id": "qx_farm",
+          "name": "自家农场"
+        },
+        {
+          "id": "qx_seedshop",
+          "name": "青芽种子店"
+        },
+        {
+          "id": "qx_livestockshop",
+          "name": "牧铃畜牧铺"
         }
       ]
     }
@@ -1934,6 +1972,536 @@
         }
       ],
       "bridge": "supported"
+    },
+    {
+      "id": "qx_plaza",
+      "name": "村中心广场与小河",
+      "space": "qingxi",
+      "zone": "qx_plaza",
+      "description": "村子中间的石板广场和篝火堆。白天团团们在附近走来走去，晚上会聚过来围着篝火跳舞。",
+      "uses": [
+        {
+          "id": "look",
+          "farmAction": "look",
+          "label": "查看农场实况"
+        },
+        {
+          "id": "river_fish",
+          "farmAction": "river_fish",
+          "label": "走到清溪村小河边垂钓，带回活鱼"
+        },
+        {
+          "id": "talk_worker",
+          "farmAction": "talk_worker",
+          "label": "到稻田与团团交谈"
+        },
+        {
+          "id": "plaza_lamp",
+          "farmAction": "plaza_lamp",
+          "label": "切换村广场纸灯笼，item 写 0–3"
+        },
+        {
+          "id": "plaza_bench",
+          "farmAction": "plaza_bench",
+          "label": "坐在村广场的长凳休息"
+        },
+        {
+          "id": "festival_dance",
+          "farmAction": "festival_dance",
+          "label": "晚间到篝火旁参加庆典跳舞"
+        },
+        {
+          "id": "tea_break",
+          "farmAction": "tea_break",
+          "label": "在小铃杂货买茶点恢复精力"
+        },
+        {
+          "id": "foot_bath",
+          "farmAction": "foot_bath",
+          "label": "在暖汤屋泡脚恢复精力"
+        },
+        {
+          "id": "village_mill",
+          "farmAction": "village_mill",
+          "label": "在水车磨坊磨饲料"
+        },
+        {
+          "id": "village_well",
+          "farmAction": "village_well",
+          "label": "到村井打水"
+        },
+        {
+          "id": "visit_home",
+          "farmAction": "visit_home",
+          "label": "拜访村民的小屋，item 留空查看可拜访名单，或填屋名"
+        },
+        {
+          "id": "leave_home",
+          "farmAction": "leave_room",
+          "label": "离开村民家回广场"
+        }
+      ],
+      "bridge": "supported"
+    },
+    {
+      "id": "qx_fields",
+      "name": "农场的田",
+      "space": "qingxi",
+      "zone": "qx_farm",
+      "description": "主人和住户共用的田。流程跟我的世界一样：买种子 -> till 开垦一块地 -> plant 种下去；water_plot 给单株浇水，也可以先到井边 fill_water，再用 water 给附近九格补水，熟了 harvest 收（一块得 2 棵白菜和 1 粒种子）。till/dig 的 item 写格子编号（例如 14:11，看 state 里的“格子”范围）；plant/water/harvest 的 item 写地号（例如 \"1-6\" 或 \"3,7\"），不写就是全部。",
+      "uses": [
+        {
+          "id": "look",
+          "farmAction": "look",
+          "label": "查看农场实况"
+        },
+        {
+          "id": "water_plot",
+          "farmAction": "water_plot",
+          "label": "走到指定地号，像按 E 一样给单株浇水，无需水壶。地号从 1 开始，支持 1-6 范围；格坐标用 横:纵，如 14:11。"
+        },
+        {
+          "id": "sell",
+          "farmAction": "sell",
+          "label": "在出货箱卖农产品，品名默认 1 件；可填 白菜×2 或 白菜×全部"
+        },
+        {
+          "id": "edit_catalog",
+          "farmAction": "edit_catalog",
+          "label": "查看自家农场或屋内可用设施，item 写地图名 ranch、barn、room_private 等"
+        },
+        {
+          "id": "build_at",
+          "farmAction": "build_at",
+          "label": "布置设施：地图|工具|世界像素横:纵|方向，例如 ranch|path|992:736，一格64像素"
+        },
+        {
+          "id": "remove_at",
+          "farmAction": "remove_at",
+          "label": "收回指定位置设施，格式同 build_at"
+        },
+        {
+          "id": "till",
+          "farmAction": "till",
+          "label": "在农场开垦一块地"
+        },
+        {
+          "id": "dig",
+          "farmAction": "dig",
+          "label": "挖一格水渠"
+        },
+        {
+          "id": "fill_water",
+          "farmAction": "fill_water",
+          "label": "在农场井或水泵装满水壶；没有井时会去村井打水，再返回农场。"
+        },
+        {
+          "id": "plant",
+          "farmAction": "plant",
+          "label": "在田里播种。地号从 1 开始，支持 1-6 范围；格坐标用 横:纵，如 14:11。"
+        },
+        {
+          "id": "water",
+          "farmAction": "water",
+          "label": "给田里浇水。地号从 1 开始，支持 1-6 范围；格坐标用 横:纵，如 14:11。"
+        },
+        {
+          "id": "harvest",
+          "farmAction": "harvest",
+          "label": "收白菜。地号从 1 开始，支持 1-6 范围；格坐标用 横:纵，如 14:11。"
+        }
+      ],
+      "bridge": "supported"
+    },
+    {
+      "id": "qx_pasture",
+      "name": "农场的牧场和鱼塘",
+      "space": "qingxi",
+      "zone": "qx_farm",
+      "description": "三个人共用的牛、羊、猪、鸡和鱼塘。公园和村中小河的鱼可以带回来，在塘边 restock 放养。可以直接散养：在牧铃畜牧铺 buy_young 买幼崽，回农场 qx_pasture 用 release 放养，再按需 feed、give_water、collect。想圈养时才建围栏、木门和食槽。build_pen 可连续完成，item 写 牛:14:11:19:16 这样的范围或已有圈的种类。缺食槽时去村中心牧铃畜牧铺 qx_livestock_counter，use=buy，item 写牧场食槽（四种共用，20 币），回原地重复 build_pen。 平时 feed 添料、collect 收牛奶羊毛鸡蛋、treat 喂点心、pair 配对、sell_animal 卖掉一只、pond 照看鱼塘。到牧场用 watch_pond 走到水边，像玩家按 E 一样查看脚边鱼塘的数量和按钮。塘名可留空。stock_fry 放入混合鱼苗，feed_fish 投喂鱼饲料，fish 抛竿，harvest_fish 收获成鱼。卖鱼用 sell，保留做菜用 cook_fish。**每只动物自己有两个值：饱食度（0-100，越高越饱）和饥渴度（0-100，越高越不渴），会随时间往下掉；feed/give_water 会让饿着/渴着的那几只当场吃/喝，回执会写清每只从多少抬到多少。掉到 20 以下它们就不长不产，掉到 10 以下开始掉血，血掉光会死。**item 写动物编号或种类（牛/羊/猪/鸡，点名一只写 \"牛:3\"）；编号在 state 里看。",
+      "uses": [
+        {
+          "id": "look",
+          "farmAction": "look",
+          "label": "查看农场实况"
+        },
+        {
+          "id": "restock",
+          "farmAction": "restock",
+          "label": "将背包里的鱼放入自家鱼塘，item 可填鱼种、鱼获编号或留空"
+        },
+        {
+          "id": "walk_to",
+          "farmAction": "walk_to",
+          "label": "在农场走到横:纵像素处，可拿着点心引牲畜"
+        },
+        {
+          "id": "hold_food",
+          "farmAction": "hold_food",
+          "label": "拿出小麦或胡萝卜引牲畜，或填收起"
+        },
+        {
+          "id": "farm_bench",
+          "farmAction": "farm_bench",
+          "label": "坐在农场长凳"
+        },
+        {
+          "id": "stand_up",
+          "farmAction": "stand_up",
+          "label": "从农场长凳起身"
+        },
+        {
+          "id": "swim",
+          "farmAction": "swim",
+          "label": "游进可游泳的农场池塘"
+        },
+        {
+          "id": "pair_free",
+          "farmAction": "pair_free",
+          "label": "恢复指定牲畜自由配对"
+        },
+        {
+          "id": "pair_pause",
+          "farmAction": "pair_pause",
+          "label": "暂停指定牲畜的配对"
+        },
+        {
+          "id": "process_stock",
+          "farmAction": "process_stock",
+          "label": "将指定牲畜送去加工"
+        },
+        {
+          "id": "take_honey",
+          "farmAction": "take_honey",
+          "label": "走到蜂箱取蜜"
+        },
+        {
+          "id": "dry_fish",
+          "farmAction": "dry_fish",
+          "label": "走到晾晒架挂鱼或取鱼干"
+        },
+        {
+          "id": "watch_pond",
+          "farmAction": "watch_pond",
+          "label": "走到塘边按 E 查看鱼塘菜单"
+        },
+        {
+          "id": "feed_fish",
+          "farmAction": "feed_fish",
+          "label": "投喂鱼饲料"
+        },
+        {
+          "id": "harvest_fish",
+          "farmAction": "harvest_fish",
+          "label": "捕捞养成的鱼"
+        },
+        {
+          "id": "build_pen",
+          "farmAction": "build_pen",
+          "label": "完整搭好某种牲畜的圈、水源、木门和食槽"
+        },
+        {
+          "id": "gate",
+          "farmAction": "gate",
+          "label": "安装可进出的木门"
+        },
+        {
+          "id": "fish",
+          "farmAction": "fish",
+          "label": "塘边抛竿，等浮漂下沉再收竿"
+        },
+        {
+          "id": "stock_fry",
+          "farmAction": "stock_fry",
+          "label": "放入混合鱼苗"
+        },
+        {
+          "id": "fence",
+          "farmAction": "fence",
+          "label": "圈一块围栏（四条边都要接上、围成闭合的圈；先 survey 看范围）"
+        },
+        {
+          "id": "unfence",
+          "farmAction": "unfence",
+          "label": "拆掉自己围的围栏边（扩圈时先建新边再拆旧边）"
+        },
+        {
+          "id": "place_feeder",
+          "farmAction": "place_feeder",
+          "label": "把四种牲畜共用的食槽摆到牧场空地"
+        },
+        {
+          "id": "feed",
+          "farmAction": "feed",
+          "label": "给动物添饲料"
+        },
+        {
+          "id": "give_water",
+          "farmAction": "give_water",
+          "label": "给圈里加水"
+        },
+        {
+          "id": "collect",
+          "farmAction": "collect",
+          "label": "收牛奶、羊毛和鸡蛋"
+        },
+        {
+          "id": "treat",
+          "farmAction": "treat",
+          "label": "给动物喂点心"
+        },
+        {
+          "id": "release",
+          "farmAction": "release",
+          "label": "在农场放养幼崽"
+        },
+        {
+          "id": "pair",
+          "farmAction": "pair",
+          "label": "给动物配对"
+        },
+        {
+          "id": "sell_animal",
+          "farmAction": "sell_animal",
+          "label": "卖掉一只动物"
+        },
+        {
+          "id": "pond",
+          "farmAction": "pond",
+          "label": "照看鱼塘"
+        }
+      ],
+      "bridge": "supported"
+    },
+    {
+      "id": "qx_cottage",
+      "name": "农场小屋",
+      "space": "qingxi",
+      "zone": "qx_farm",
+      "description": "农场边的私人小屋可以过夜，主人和住户各睡一张床，二层可扩建多人宿舍。sleep 入睡，wake 起床。也可以用 2 棵白菜做家常菜、把农场背包里的东西存进小屋或取出来、磨饲料（猪饲料要白菜和小麦，鱼饲料要两份小麦）。",
+      "uses": [
+        {
+          "id": "look",
+          "farmAction": "look",
+          "label": "查看农场实况"
+        },
+        {
+          "id": "eat_meal",
+          "farmAction": "eat_meal",
+          "label": "吃一份农场背包的家常菜"
+        },
+        {
+          "id": "rest",
+          "farmAction": "rest",
+          "label": "在屋里休息恢复精力"
+        },
+        {
+          "id": "enter_room",
+          "farmAction": "enter_room",
+          "label": "进入房间：room_private、room_private_up、room_private_dorm 或 barn、barn_up"
+        },
+        {
+          "id": "leave_room",
+          "farmAction": "leave_room",
+          "label": "走出房间"
+        },
+        {
+          "id": "expand_dorm",
+          "farmAction": "expand_dorm",
+          "label": "在私人小屋扩建多人宿舍"
+        },
+        {
+          "id": "eat_harvest",
+          "farmAction": "eat_harvest",
+          "label": "食用农场背包的蜂蜜或鱼干"
+        },
+        {
+          "id": "cook_fish",
+          "farmAction": "cook_fish",
+          "label": "用背包里钓的鱼做一道鱼肉料理"
+        },
+        {
+          "id": "cook",
+          "farmAction": "cook",
+          "label": "在小屋里做家常菜"
+        },
+        {
+          "id": "store",
+          "farmAction": "store",
+          "label": "把背包里的东西存进小屋"
+        },
+        {
+          "id": "take",
+          "farmAction": "take",
+          "label": "从小屋里取东西"
+        },
+        {
+          "id": "mill",
+          "farmAction": "mill",
+          "label": "在小屋里磨饲料"
+        }
+      ],
+      "bridge": "supported"
+    },
+    {
+      "id": "qx_seed_counter",
+      "name": "青芽种子店柜台",
+      "space": "qingxi",
+      "zone": "qx_seedshop",
+      "description": "卖白菜种子、干草、猪饲料、鱼饲料、小麦、胡萝卜、鱼苗，也收农产品。买东西花你自己的零花钱，东西进农场背包（三个人共用）；卖东西的钱进你自己的零花钱。item 写商品和数量，比如 \"白菜种子×5\"。",
+      "uses": [
+        {
+          "id": "look",
+          "farmAction": "look",
+          "label": "查看农场实况"
+        },
+        {
+          "id": "water_seedlings",
+          "farmAction": "water_seedlings",
+          "label": "去育苗间给窗边的幼苗浇水"
+        },
+        {
+          "id": "buy",
+          "farmAction": "buy",
+          "label": "在种子店买东西"
+        },
+        {
+          "id": "sell",
+          "farmAction": "sell",
+          "label": "在种子店卖农产品"
+        }
+      ],
+      "bridge": "supported"
+    },
+    {
+      "id": "qx_livestock_counter",
+      "name": "牧铃畜牧铺柜台",
+      "space": "qingxi",
+      "zone": "qx_livestockshop",
+      "description": "卖猫粮和狗粮（每份 3 币）、幼崽（牛、羊、猪、鸡）、鱼苗、鱼饲料和食槽（牧场食槽（四种共用，20 币）），也收农产品。花你自己的零花钱：幼崽先进农场背包，再到牧场 release 散养；食槽也先进背包，再到牧场 place_feeder 摆到空草地上。item 写种类或名字，比如 \"羊\" 或 \"牧场食槽\"。",
+      "uses": [
+        {
+          "id": "look",
+          "farmAction": "look",
+          "label": "查看农场实况"
+        },
+        {
+          "id": "buy_young",
+          "farmAction": "buy_young",
+          "label": "在畜牧铺买幼崽"
+        },
+        {
+          "id": "buy",
+          "farmAction": "buy",
+          "label": "在畜牧铺买宠物口粮、饲料、鱼苗或食槽"
+        },
+        {
+          "id": "sell",
+          "farmAction": "sell",
+          "label": "在畜牧铺卖农产品"
+        }
+      ],
+      "bridge": "supported"
+    },
+    {
+      "id": "qx_farm_board",
+      "name": "农场农活看板",
+      "space": "qingxi",
+      "zone": "qx_farm",
+      "description": "农场边的小黑板：写着现在田和圈都缺什么、下一步能做什么、所有规则阈值（水源几格、围栏最少几格、一份料多少小时）。state 里的文字是从真实存档算出来的，不是你猜的。",
+      "uses": [
+        {
+          "id": "look",
+          "farmAction": "look",
+          "label": "查看农场实况"
+        },
+        {
+          "id": "survey",
+          "farmAction": "survey",
+          "label": "看看农场现在缺什么、下一步做什么（可以带一块候选范围：item 写 左下:右上 格子，会列出那块范围里不能围的东西）"
+        },
+        {
+          "id": "guide",
+          "farmAction": "guide",
+          "label": "查农场教程：围栏怎么围、养殖怎么做、种植怎么做、围小了怎么扩、哪些东西拆不了（arg 可选 fence/keep/farm/expand/demolish）；也可传 prices、breeds、growth、actions、rules 查询。"
+        }
+      ],
+      "bridge": "supported"
+    },
+    {
+      "id": "qx_pets",
+      "name": "农场的宠物角（猫和狗）",
+      "space": "qingxi",
+      "zone": "qx_farm",
+      "description": "三个人共用的猫和狗。领养：adopt_pet，item 写 猫 或 狗，想挑品种就写 猫:橘猫 / 狗:金毛（猫：橘猫、狸花、白猫；狗：金毛、柴犬、柯基，价格各不同，看 state 里的价目）——不写品种就是这种的默认品种，**没有数量上限**。取名：name_pet，item 写 编号:名字（例如 7:咪咪）——**只有领养人能改名，也只有领养人能用 follow_pet 让它跟随、用 stay_pet 叫它留在农场**，1-12 个字，可以重名，留空 = 清除名字。喂：feed_pet（猫吃猫粮/鱼干/鲜鱼，狗吃狗粮/家常菜/猪肉，牧铃畜牧铺每份口粮 3 币，从共用的农场背包里拿）。陪玩：play_pet。遛：walk_pet（只有狗需要，10 小时不遛会着急）。**品种不一样**：橘猫喂食加的亲密翻倍、狸花更爱叼东西回来、白猫更黏人、金毛个头最大且亲密掉得慢、柴犬跑得最快、柯基矮腿短。**领养的是幼崽，3 天长大**：幼崽体型 0.65 倍、亲密涨得快、回馈少一点，长大了就是成体。**喂食是手动做的事，系统不会替你喂**；但谁饿了会写进 state 的【要紧】和最前面那句待办里（数字都是真的）。宠物不会饿死，饿和冷落只会让它亲密下降、带回来的东西变少变差。系统不会自动领养、不会自动取名、不会自动照顾。",
+      "uses": [
+        {
+          "id": "look",
+          "farmAction": "look",
+          "label": "查看农场实况"
+        },
+        {
+          "id": "follow_pet",
+          "farmAction": "follow_pet",
+          "label": "叫自己的宠物跟随"
+        },
+        {
+          "id": "stay_pet",
+          "farmAction": "stay_pet",
+          "label": "叫自己的宠物留在农场"
+        },
+        {
+          "id": "adopt_pet",
+          "farmAction": "adopt_pet",
+          "label": "在宠物角领养小猫小狗"
+        },
+        {
+          "id": "name_pet",
+          "farmAction": "name_pet",
+          "label": "给宠物取个名字"
+        },
+        {
+          "id": "feed_pet",
+          "farmAction": "feed_pet",
+          "label": "喂宠物"
+        },
+        {
+          "id": "play_pet",
+          "farmAction": "play_pet",
+          "label": "陪宠物玩"
+        },
+        {
+          "id": "walk_pet",
+          "farmAction": "walk_pet",
+          "label": "带狗出去走走"
+        }
+      ],
+      "bridge": "supported"
+    },
+    {
+      "id": "qx_shared_chest",
+      "bridge": "supported",
+      "name": "共用物资箱",
+      "space": "qingxi",
+      "zone": "qx_farm",
+      "description": "查看所有已放置共用箱的位置与库存，走到箱旁存取。物品名或编号×正整数。",
+      "uses": [
+        {
+          "id": "look",
+          "farmAction": "look",
+          "label": "查看箱子位置与库存"
+        },
+        {
+          "id": "chest_store",
+          "farmAction": "chest_store",
+          "label": "存入物品"
+        },
+        {
+          "id": "chest_take",
+          "farmAction": "chest_take",
+          "label": "取出物品"
+        }
+      ]
     }
   ],
   "products": [
@@ -1948,7 +2516,8 @@
         "object": "snack_shelf",
         "use": "buy",
         "zone": "snacks"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "chips",
@@ -1961,7 +2530,8 @@
         "object": "snack_shelf",
         "use": "buy",
         "zone": "snacks"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "bread",
@@ -1974,7 +2544,8 @@
         "object": "snack_shelf",
         "use": "buy",
         "zone": "snacks"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "choco",
@@ -1987,7 +2558,8 @@
         "object": "snack_shelf",
         "use": "buy",
         "zone": "snacks"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "fishcookie",
@@ -2000,7 +2572,8 @@
         "object": "snack_shelf",
         "use": "buy",
         "zone": "snacks"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "soda",
@@ -2014,7 +2587,8 @@
         "object": "drink_fridge",
         "use": "buy",
         "zone": "drinks"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "milk",
@@ -2028,7 +2602,8 @@
         "object": "drink_fridge",
         "use": "buy",
         "zone": "drinks"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "oolong",
@@ -2042,7 +2617,8 @@
         "object": "drink_fridge",
         "use": "buy",
         "zone": "drinks"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "water",
@@ -2056,7 +2632,8 @@
         "object": "drink_fridge",
         "use": "buy",
         "zone": "drinks"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "lemontea",
@@ -2070,7 +2647,8 @@
         "object": "drink_fridge",
         "use": "buy",
         "zone": "drinks"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "hot_milk",
@@ -2084,7 +2662,8 @@
         "object": "hot_cabinet",
         "use": "buy",
         "zone": "hot_cabinet"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "hot_coffee",
@@ -2098,7 +2677,8 @@
         "object": "hot_cabinet",
         "use": "buy",
         "zone": "hot_cabinet"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "hot_latte",
@@ -2112,7 +2692,8 @@
         "object": "hot_cabinet",
         "use": "buy",
         "zone": "hot_cabinet"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "hot_cocoa",
@@ -2126,7 +2707,8 @@
         "object": "hot_cabinet",
         "use": "buy",
         "zone": "hot_cabinet"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "ginger_tea",
@@ -2140,7 +2722,8 @@
         "object": "hot_cabinet",
         "use": "buy",
         "zone": "hot_cabinet"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "hot_honey_lemon",
@@ -2154,7 +2737,8 @@
         "object": "hot_cabinet",
         "use": "buy",
         "zone": "hot_cabinet"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "hot_green_tea",
@@ -2168,7 +2752,8 @@
         "object": "hot_cabinet",
         "use": "buy",
         "zone": "hot_cabinet"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "hot_corn_milk",
@@ -2182,7 +2767,8 @@
         "object": "hot_cabinet",
         "use": "buy",
         "zone": "hot_cabinet"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "vanilla",
@@ -2196,7 +2782,8 @@
         "object": "freezer",
         "use": "buy",
         "zone": "icecream"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "melonbar",
@@ -2210,7 +2797,8 @@
         "object": "freezer",
         "use": "buy",
         "zone": "icecream"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "umbrella",
@@ -2224,7 +2812,8 @@
         "object": "daily_shelf",
         "use": "buy",
         "zone": "daily"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "tissue",
@@ -2237,7 +2826,8 @@
         "object": "daily_shelf",
         "use": "buy",
         "zone": "daily"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "sunscreen",
@@ -2251,7 +2841,8 @@
         "object": "daily_shelf",
         "use": "buy",
         "zone": "daily"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "notebook",
@@ -2265,7 +2856,8 @@
         "object": "daily_shelf",
         "use": "buy",
         "zone": "daily"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "scrunchie",
@@ -2279,7 +2871,8 @@
         "object": "daily_shelf",
         "use": "buy",
         "zone": "daily"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "bandaid",
@@ -2292,7 +2885,8 @@
         "object": "daily_shelf",
         "use": "buy",
         "zone": "daily"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "zongzi",
@@ -2305,7 +2899,8 @@
         "object": "snack_shelf",
         "use": "buy",
         "zone": "snacks"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "mooncake",
@@ -2318,7 +2913,8 @@
         "object": "snack_shelf",
         "use": "buy",
         "zone": "snacks"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "tangyuan",
@@ -2331,7 +2927,8 @@
         "object": "snack_shelf",
         "use": "buy",
         "zone": "snacks"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "iced_plum",
@@ -2345,7 +2942,8 @@
         "object": "drink_fridge",
         "use": "buy",
         "zone": "drinks"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "roast_chestnut",
@@ -2358,7 +2956,8 @@
         "object": "snack_shelf",
         "use": "buy",
         "zone": "snacks"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "hot_pot_snack",
@@ -2371,7 +2970,8 @@
         "object": "snack_shelf",
         "use": "buy",
         "zone": "snacks"
-      }
+      },
+      "priceType": "base"
     },
     {
       "id": "qingtuan",
@@ -2384,7 +2984,8 @@
         "object": "snack_shelf",
         "use": "buy",
         "zone": "snacks"
-      }
+      },
+      "priceType": "base"
     }
   ],
   "version": "1.1"

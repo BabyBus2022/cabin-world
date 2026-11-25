@@ -1,0 +1,20 @@
+{
+  "planned": 72,
+  "finished": 3,
+  "designs": [
+    {
+      "id": "01",
+      "name": "药斗种子柜",
+      "footprint": [
+        4,
+        1
+      ],
+      "views": [
+        "front",
+        "side",
+        "back"
+      ],
+      "status": "unreviewed"
+    }
+  ]
+}

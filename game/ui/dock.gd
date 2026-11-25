@@ -4,12 +4,12 @@ extends PanelContainer
 ##
 ## INTERFACE: panel messages. Full reference: ../docs/INTERFACES.md section 9.
 ##   panel.get   game -> host  id (required), panel (required: "usage", "activity", "album", "photo" or "memory"),
-##                             who (required for album, photo, memory: "Final01" or "xiaojingyu"), photo (required for photo: the id from album)
+##                             who (required for album, photo, memory: resident key), photo (required for photo: the id from album)
 ##   panel.data  host -> game  id, panel, who, photo, ok, data, error
 ##   panel.do    game -> host  id (required), action (required: "album.snap", "memory.anchor" or "memory.topics"), who (required),
 ##                             anchor and approve (memory.anchor), enabled (memory.topics)
 ##   panel.did   host -> game  id, action, who, ok, data, error
-## usage data: products, residents: { Final01, xiaojingyu }, each with usage, foods, bag, life, log, hunger, satiety, likes.
+## usage data: products, residents: { resident keys }, each with usage, foods, bag, life, log, hunger, satiety, likes.
 ## activity data: residents: { actor: rows of { id, at, action, category, name, detail, status } }, normalized by one host journal.
 ## album data: photos: rows of { id, atMs, summary, source }, pending: rows of { id, status, progress, summary }, enabled.
 ## photo data: jpeg, a base64 JPEG.
@@ -40,15 +40,15 @@ var _clock := 0.0
 var _next_usage := 0.0
 var _next_activity := 0.0
 var _seq := 0
-var _log_who := "xiaojingyu"
-var _prop_tab := "home"
+var _log_who := str(Residents.people().front().key) if not Residents.people().is_empty() else ""
+var _prop_tab := "xjhome"
 const PAGED_PROPS := ["home","xjhome","park","shop","onsen","arcade"]
-var _diary_who := "xiaojingyu"
+var _diary_who := str(Residents.people().front().key) if not Residents.people().is_empty() else ""
 var _diary_day := {}
 var _signature := ""
 var _next_detail := 0.0
 var _details := {}
-var _who := "xiaojingyu"
+var _who := str(Residents.people().front().key) if not Residents.people().is_empty() else ""
 var _note := ""
 var _photos := {}
 var _photo_slots := {}
@@ -325,8 +325,8 @@ func rebuild() -> void:
 		var id: String = pair[0]
 		_button(pair[1], tab == id, func(): _change(func(): tab = id; _next_activity = 0.0), _top)
 	if tab not in ["bag", "props"] and not VadsLink.connected and usage.is_empty():
-		if collection_view: _collection.present(tab,[],1,"","机器人软件没有连上，暂时看不到这些记录。")
-		else: _list.add_child(_label("机器人软件没有连上，暂时看不到这些记录。", 13, Hud.INK2))
+		if collection_view: _collection.present(tab,[],1,"","VADS 没有连上，暂时看不到这些记录。")
+		else: _list.add_child(_label("VADS 没有连上，暂时看不到这些记录。", 13, Hud.INK2))
 		return
 	match tab:
 		"bag":
@@ -373,9 +373,18 @@ func _show_bag() -> void:
 	var bag := Economy.inventory(_who)
 	var rows := []
 	for item in bag.items:
-		var category := "可赠送" if item.giftable else "自用"
-		rows.append(_entry(item,str(item.get("taste","")),"× %d · %s" % [item.count,category],category))
-	_collection.present("bag:"+_who,rows,2,"%s的小背包 · %d/%d 件 · 零花钱 %d" % [_who_name(),bag.used,bag.capacity,bag.coins],"包里还没有东西，购买或收到礼物后会显示在这里。",false)
+		var group=str(item.group)
+		var meta="%s · ×%d" % [group,item.count]
+		if item.giftable:meta+=" · 可赠送"
+		var row=_entry(item,"",meta,group)
+		row["tip"]=str(item.get("taste",""))
+		rows.append(row)
+	_collection.present("bag:"+_who,rows,2,"%s的小背包 · %d/%d 格 · 零花钱 %d" % [_who_name(),bag.used,bag.capacity,bag.coins],"包里还没有东西，购买或收到礼物后会显示在这里。",true,{"min_height":68,"unit":"种","card":_bag_card})
+
+func _bag_card(row:Dictionary)->Control:
+	var card=_collection._card(row)
+	card.tooltip_text=str(row.tip)
+	return card
 
 
 func _show_objects(space: String) -> void:

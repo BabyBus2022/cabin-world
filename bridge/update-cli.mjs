@@ -27,13 +27,13 @@ if (sets.length) {
 }
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 const plan = updater.plan(), want = Object.fromEntries(plan.modules.map(m => [m.id, m.state === 'on']));
-console.log('小屋世界 1.1 安装选项\n每一项独立选择；未选择的保留当前状态。首次未选择则保留原版功能。改完重新启动游戏生效。\n');
+console.log('小屋世界 1.2 安装选项\n每一项独立选择；未选择的保留当前状态。新安装默认启用全部功能。改完重新启动游戏生效。\n');
 for (;;) {
   console.log(show({ modules: plan.modules.map(m => ({ ...m, state: want[m.id] ? 'on' : 'off' })) }));
-  const a = (await rl.question('\n输入编号切换开关；s 保存；u 撤销上一次更改；q 不保存退出：')).trim().toLowerCase();
+  const a = (await rl.question('\n输入一个或多个编号切换开关（用空格或逗号分隔）；s 保存；u 撤销上一次更改；q 不保存退出：')).trim().toLowerCase();
   if (a === 'q') break;
   if (a === 'u') { console.log(JSON.stringify(updater.undo(), null, 2)); break; }
   if (a === 's') { const r = updater.apply(want, 'update.cmd'); console.log(r.changed?.length ? '已保存：' + r.changed.map(c => c.id + '=' + c.state).join('，') + '\n' + r.restart : '没有变化。'); break; }
-  const i = Number(a) - 1; if (plan.modules[i]) want[plan.modules[i].id] = !want[plan.modules[i].id]; else console.log('没有这个编号。');
+  const ids=[...new Set(a.split(/[\s,，]+/).map(x=>Number(x)-1))]; if(ids.every(i=>plan.modules[i]))for(const i of ids)want[plan.modules[i].id]=!want[plan.modules[i].id];else console.log('没有这个编号。');
 }
 rl.close();

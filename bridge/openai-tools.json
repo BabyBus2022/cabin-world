@@ -438,7 +438,7 @@
       "type": "function",
       "function": {
         "name": "cabin_update_plan",
-        "description": "安装或升级小屋世界 1.1 时首先调用。逐项列出可选内容、更新/保留原版的区别、外观变化与存档影响。让用户分别选择，不能将同意升级理解为同意所有外观变化。只读，不修改任何文件。",
+        "description": "安装时主动先问是否有旧存档。选无直接安装完整版，选有则索取旧游戏目录并导入，再调用本工具。一起展示 1.2 新增选项，可多选；清溪村及农场作为一项。列出可选内容、更新/保留原版的区别、外观变化与存档影响。让用户分别选择，不能将同意升级理解为同意所有外观变化。只读，不修改任何文件。",
         "parameters": {
           "type": "object",
           "properties": {},
@@ -599,6 +599,160 @@
             "confirm"
           ],
           "additionalProperties": false
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "cabin_plan",
+        "description": "管理游戏中的候补安排，revise 替换受阻计划的剩余步骤。每步用 tool 与 args 调用游戏工具，收到回执后前进。",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "actor": {
+              "type": "string"
+            },
+            "action": {
+              "type": "string",
+              "enum": [
+                "list",
+                "add",
+                "revise",
+                "cancel"
+              ]
+            },
+            "title": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "steps": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "tool": {
+                    "type": "string"
+                  },
+                  "args": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "tool",
+                  "args"
+                ]
+              }
+            }
+          },
+          "required": []
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "cabin_invite_player",
+        "description": "用自己这次想说的话，邀请玩家一起打游戏。游戏弹窗交给玩家确认。",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "actor": {
+              "type": "string"
+            },
+            "game": {
+              "type": "string",
+              "enum": [
+                "xiangqi",
+                "gomoku",
+                "snake"
+              ]
+            },
+            "words": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "game",
+            "words"
+          ]
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "cabin_game_context",
+        "description": "返回可复用的规则前缀与单独的住户实时状态。接入模型时把 stable 放前面，live 放在末尾。可用 claim 对照农场操作回执。",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "actor": {
+              "type": "string"
+            },
+            "claim": {
+              "type": "string"
+            }
+          },
+          "required": []
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "cabin_group_turn",
+        "description": "群聊回复前判断这一轮说给谁。引用或 @ 的帐号、近期本群消息由宿主提供。",
+        "parameters": {
+          "type": "object",
+          "required": [
+            "self",
+            "text",
+            "sender"
+          ],
+          "properties": {
+            "self": {
+              "type": "string"
+            },
+            "sender": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            },
+            "quotedSender": {
+              "type": "string"
+            },
+            "mentions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "explicitName": {
+              "type": "boolean"
+            },
+            "recent": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "sender": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "string"
+                  },
+                  "at": {
+                    "type": "number",
+                    "description": "Unix 毫秒"
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

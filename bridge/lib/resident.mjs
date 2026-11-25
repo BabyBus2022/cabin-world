@@ -8,6 +8,7 @@
 //   world {presence}                           告诉游戏卡片上显示什么（正在做什么、特效、零花钱、心情）
 // Every result returned here is the game's committed answer. Nothing is invented by the bridge.
 // 规则：动作被拒绝、替换、超时或断线都不算完成；只有 action.finished 之后才把经历交给机器人记忆。
+import {useQingxi} from './qingxi-use.mjs';
 import { EventEmitter } from 'node:events';
 import { randomUUID } from 'node:crypto';
 import {activityDuration,CONTINUOUS_USES} from './activity-duration.mjs';
@@ -36,6 +37,7 @@ export class Resident extends EventEmitter {
     this.task = null; this.tasks = new Map(); this.seq = 0; this.log = [];
     this.objects = new Map(catalog.objects.map(o => [o.id, o]));
     this.products = new Map(catalog.products.map(p => [p.id, p]));
+    this.inventoryProducts = new Map(this.products);
     this.spaces = new Map(catalog.spaces.map(s => [s.id, s]));
     this.onFrame = f => {
       if (f.type === 'walk.position' && f.actor === key) { this.pos = { scene: f.scene, zone: f.zone || null, x: f.x ?? null, y: f.y ?? null }; this.emit('event', { type: 'position', ...this.pos }); }
@@ -49,13 +51,17 @@ export class Resident extends EventEmitter {
     const opened=await this.scope.request('body.open', { seed: {}, patch: {} }, { replyType: 'body.saved' });
     this.items={...this.items,...Object.fromEntries(['phone','headphones'].filter(k=>opened.result.state?.[k]).map(k=>[k,opened.result.state[k]]))};
     this.outfit=opened.result.state?.outfit||'';
-    await this.eco('sync', { rev: 0 });   // rev 0：游戏已有存档时以游戏为准，不覆盖
+    await this.eco('sync', { rev: 0, includeCatalog: true });
     await this.eco('top_up');            // 每天的零花钱，由游戏按北京日期发放，同一天不会重复
     this.publish();
   }
 
   async eco(op, fields = {}) {
     const { result } = await this.scope.request('economy.do', { op, ...fields }, { replyType: 'economy.result', timeoutMs: 15000 });
+    if (Array.isArray(result.catalog)) {
+      this.inventoryProducts = new Map(this.products);
+      for (const item of result.catalog) this.inventoryProducts.set(item.id, item);
+    }
     if (result.state && Object.keys(result.state).length) this.state = result.state;
     if (result.view) this.view = result.view;
     return result;
@@ -99,7 +105,7 @@ export class Resident extends EventEmitter {
       const onFrame = f => {
         if (f.type !== 'walk.arrived' || f.id !== id) return; done();
         if (f.failed || f.replaced || f.denied || f.ok === false) return reject(Error(f.error || '走路被新的指令替换了，没有走到'));
-        this.pos = { scene: f.scene || scene, zone: zone || null, x: f.x ?? null, y: f.y ?? null }; this.publish(); resolve(this.pos);
+        this.pos = { scene: f.scene || scene, zone: f.zone || zone || null, x: f.x ?? null, y: f.y ?? null }; this.publish(); resolve({...this.pos,zoneName:this.spaceOfScene(this.pos.scene)?.zones.find(z=>z.id===this.pos.zone)?.name||null});
       };
       const onLost = () => { done(); reject(Error('游戏断开了，没有走到')); };
       const cancel = reason => { try { host.send({ type: 'walk.cancel', id, actor: this.key }); } catch { /* 已断开 */ } done(); reject(Error(reason || '走路被叫停了')); };
@@ -114,6 +120,7 @@ export class Resident extends EventEmitter {
   runAction(kind, label, phases, {finishable=false}={}) {
     const id = `${kind}-${randomUUID()}`, host = this.host;
     return new Promise((resolve, reject) => {
+      let finalPhaseSaved=false;
       let index = -1, committed = false, over = false, result, watchdog;
       const total = phases.reduce((n, p) => n + (p.ms || 0), 0) + 240000;
       const end = (fn, v) => { if (over) return; over = true; clearTimeout(watchdog); host.off('frame', onFrame); host.off('disconnected', onLost); this.current = null; fn(v); };
@@ -121,7 +128,10 @@ export class Resident extends EventEmitter {
       const onFrame = f => {
         if (f.id !== id) return;
         if (f.type === 'action.cancelled') return end(reject, Error(f.error || '动作被中断'));
-        if (f.type === 'action.finished') return end(resolve, result);
+        if (f.type === 'action.finished') {
+          if(!finalPhaseSaved)return end(reject,Error('动作已停止，尚未收到最后一步的保存确认'));
+          return end(resolve,result);
+        }
         if (f.type !== 'action.phase' || f.index !== index + 1) return;
         index = f.index; const ph = phases[index];
         clearTimeout(watchdog);
@@ -129,6 +139,7 @@ export class Resident extends EventEmitter {
         if(ph.commit)committed=true; // an in-flight durable commit must not be reported as cancelled
         Promise.resolve(ph.run ? ph.run() : undefined).then(v => {
           if (over) return; if (v !== undefined) result = v; if (ph.commit) committed = true;
+          if(index===phases.length-1)finalPhaseSaved=true;
           host.send({ type: 'action.done', id, index, ok: true });
         }, error => { if (over) return; try { host.send({ type: 'action.done', id, index, ok: false }); } catch { /* 已断开 */ } end(reject, error); });
       };
@@ -156,7 +167,10 @@ export class Resident extends EventEmitter {
   stop(reason = '被叫停了', action='stop') {
     if(!['stop','finish'].includes(action))throw Error('action 为 stop（取消）或 finish（结束休闲活动并记录实际体验）');
     if (!this.task) return { ok: true, stopped: false, note: '现在没有在做事' };
-    if(action==='finish')return {ok:!!this.current?.finish?.(),taskId:this.task.id,note:'仅正在进行的休闲活动可提前收尾；最终结果请查询任务回执'};
+    if(action==='finish'){
+      const ok=!!this.current?.finish?.();
+      return {ok,taskId:this.task.id,...(ok?{note:'已请求收尾，结果见任务回执。'}:{error:'只有进行中的休闲活动可以提前结束。'})};
+    }
     const walking = this.walking;
     let stopped = this.current ? this.current.interrupt(reason) : false;
     if (walking && (stopped || !this.current)) { walking.cancel(reason); stopped = true; }
@@ -170,7 +184,7 @@ export class Resident extends EventEmitter {
     const space = this.findSpace(where); if (!space) throw Error('没有这个地方。可以去：' + [...this.spaces.values()].map(s => `${s.id}（${s.fullName}）`).join('、'));
     if (space.owner && space.owner !== 'resident:' + this.key && !this.visits?.has(space.id)) throw Error(space.fullName + '是别人的家，需要主人邀请');
     if (zone && !space.zones.some(z => z.id === zone)) throw Error(`${space.fullName}里没有 ${zone}。可以去：` + space.zones.map(z => `${z.id}（${z.name}）`).join('、'));
-    return this.startTask('walk', '走去' + space.fullName, async () => { const pos = await this.walkTo(space.scene, zone || undefined); return { ok: true, happened: ['到了' + space.fullName], position: pos }; });
+    return this.startTask('walk', '走去' + space.fullName, async () => { const pos = await this.walkTo(space.scene, zone || (space.id==='park'?'meadow':undefined)); return { ok: true, happened: ['到了' + space.fullName], position: pos }; });
   }
 
   use(objectId, use, { item = '', feeling = '', text = '', mode = 'solo', durationSeconds } = {}) {
@@ -179,6 +193,7 @@ export class Resident extends EventEmitter {
     if (!object) throw Error('没有这个东西。用 look 或 catalog 查看可以用的东西。');
     if (object.id === 'bag') return this.eat(item, { feeling, as: use });
     let spec = object.uses.find(u => u.id === use);
+    if(spec?.farmAction)return this.startTask('farm',spec.label,()=>useQingxi(this,object,spec,String(item||'')));
     if (!spec) throw Error(`${object.name}可以：` + object.uses.map(u => `${u.id}（${u.label}）`).join('、') || `${object.name}没有可做的事`);
     spec=activityDuration(spec,use,durationSeconds);
     const space=this.spaces.get(object.space);
@@ -219,8 +234,9 @@ export class Resident extends EventEmitter {
       const reason=String(feeling).trim();
       if(!reason||reason.length>300)throw Error('请用1–300字写出自己的感受，不套模板');
       const preference={dish,choice:action,reason,at:this.now()};
+      await this.eco('meal_rating',{product:dish,choice:action,reason,who:this.who});
       this.emit('event',{type:'food_preference',preference});
-      return {ok:true,preference,happened:[reason],note:'已确认食后评价并生成事件；长期记忆由机器人软件自行保存，参考桥不提供记忆模块'};
+      return {ok:true,preference,happened:[reason],note:'口味评价已保存。'};
     });
     if(!['menu','status','cancel','order','cook','eat','sit'].includes(action))throw Error('餐厅可用：menu、order、cook、eat、sit、status、cancel');
     const request=()=>this.scope.request('restaurant.do',{action,dish},{replyType:'restaurant.result',timeoutMs:195000,accept:f=>f.ok===false||f.finished===true||['menu','status','cancel'].includes(action)}).then(r=>r.result);
@@ -271,7 +287,8 @@ export class Resident extends EventEmitter {
       { id: 'finish', commit: true, run: async () => {
         const patch=object.id==='xj_phone'?{phone:spec.id==='take'?'hand':'dock'}:object.id==='xj_headphones'?{headphones:spec.id==='wear'?'worn':'dock'}:object.id==='onsen_locker'?{outfit:spec.id==='change'?'yukata':''}:null;
         if(patch){
-          await this.scope.request('body.patch',{patch},{replyType:'body.saved'});
+          const saved=await this.scope.request('body.patch',{patch},{replyType:'body.saved'});
+          if(!saved.result.ok || !Object.entries(patch).every(([k,v])=>saved.result.state?.[k]===v))throw Error('换装或随身物品的保存结果与请求不一致');
           for(const key of ['phone','headphones'])if(patch[key])this.items[key]=patch[key];
           if(Object.hasOwn(patch,'outfit'))this.outfit=patch.outfit;
           this.publish();
@@ -288,34 +305,38 @@ export class Resident extends EventEmitter {
     ],{finishable:CONTINUOUS_USES.has(spec.id)});}finally{holding=false;clearInterval(renew);await renewal;}
   }
 
-  buy(productId, { feeling = '', objectId = '' } = {}) {
-    const p = this.products.get(productId);
-    if (!p) throw Error('小卖部有：' + [...this.products.values()].map(x => `${x.id}（${x.name} ${x.price}元）`).join('、'));
+  async offers() {
+    const result=await this.eco('shop_offers');
+    return [...this.products.values()].filter(p=>Object.hasOwn(result.prices,p.id)).map(p=>({...p,basePrice:p.price,price:result.prices[p.id]}));
+  }
+  async buy(productId, { feeling = '', objectId = '', drinkHere=false } = {}) {
+    const offers=await this.offers();
+    const p=offers.find(item=>item.id===productId);
+    if (!p) throw Error('今天在售：' + offers.map(x => `${x.id}（${x.name} ${x.price}元）`).join('、'));
     const at = this.objects.get(objectId) && this.objects.get(objectId).uses.some(u => u.shelf === p.shelf) ? { object: objectId, use: 'buy', zone: this.objects.get(objectId).zone } : p.buyAt;
     const object = this.objects.get(at.object), spec = object.uses.find(u => u.id === at.use), shop = this.spaces.get(object.space);
-    const coins = this.state?.wallet?.coins ?? 0, used = Object.values(this.state?.bag || {}).reduce((a, b) => a + b, 0);
-    if (p.price > coins) throw Error(`零花钱只剩 ${coins} 元（${p.name}要 ${p.price} 元；价格以游戏当天为准）`);
-    if (used >= (this.catalog.wallet?.bagSlots || 12)) throw Error('包已装满');
+    // The game checks stack capacity and charges the current price when payment commits.
     const ctx = {};
     return this.startTask('buy', '去买' + p.name, async () => { await this.eco('top_up'); return this.runAction('buy', '去买' + p.name, [
       { id: 'walk_shelf', label: `走去挑${p.name}`, run: async () => { ctx.slot = await this.claimSeat(object.id, spec.seconds); this.effect = null; await this.walkTo(shop.scene, at.zone); } },
       { id: 'pick', label: `挑选${p.name}`, ms: PICK_MS, run: () => { ctx.history = structuredClone(this.state?.uses || {}); this.setEffect({ slot: ctx.slot, kind: spec.effect, module: spec.module, zone: at.zone, use: spec.id, label: `挑选${p.name}`, seconds: spec.seconds, item: { id: p.id, shelf: p.shelf } }); } },
       { id: 'walk_counter', label: '走去收银台', run: () => this.walkTo(shop.scene, 'counter') },
       { id: 'pay_wait', label: '在收银台排队', ms: PAY_MS },
-      { id: 'pay', commit: true, run: async () => { const r = await this.eco('buy', { product: p.id }); ctx.paid = r.price ?? p.price; this.setEffect({ kind: 'coins', module: 'counter', zone: 'counter', use: 'pay', label: `付了${ctx.paid}元`, seconds: 5, item: { id: p.id, shelf: p.shelf } }); } },
+      { id: 'pay', commit: true, run: async () => { const r = await this.eco('buy', { product:p.id, drinkHere:drinkHere && p.kind==='drink',recordEating:true,who:this.who }); ctx.paid = r.price ?? p.price; this.setEffect({ kind: 'coins', module: 'counter', zone: 'counter', use: 'pay', label: `付了${ctx.paid}元`, seconds: 5, item: { id: p.id, shelf: p.shelf } }); } },
       { id: 'settle', label: '买好了', run: async () => {
         await this.eco('use_record', { objectId: object.id, use: spec.id, label: spec.label, at: this.now() });
         const r = await this.eco('experience', { who: this.who, args: { now: this.now(), objectId: object.id, use: spec.id, label: spec.label, history: ctx.history || {}, weather: {}, companions: [], outcome: null } });
-        const notes = await this.lifeEvent({ type: 'use', objectId: object.id, use: spec.id, outcome: null, label: spec.label, space: object.space, ...(feeling ? { thought: String(feeling).slice(0, 200) } : {}) });
+        const notes = await this.lifeEvent({ type: 'use', objectId: object.id, use: spec.id, outcome: null, label: '买了'+p.name, space: object.space, ...(feeling ? { thought: String(feeling).slice(0, 200) } : {}) });
         this.releaseSeat();
-        return { ok: true, label: `买了${p.name}`, product: p.id, price: ctx.paid, happened: [r.state?.feeling?.last, `花了${ctx.paid}元`, ...notes].filter(Boolean), ...this.summary() };
+        return { ok: true, label: `买了${p.name}`, product: p.id, price: ctx.paid, happened: [`买到了${p.name}`, `花了${ctx.paid}元`, ...notes].filter(Boolean), ...this.summary() };
       } },
     ]); });
   }
 
   eat(productId, { feeling = '', as = '' } = {}) {
-    const p = this.products.get(productId);
-    if (!p || !(this.state?.bag?.[p.id] > 0)) throw Error('包里没有这个。包里有：' + (this.bagList().map(b => `${b.id}（${b.name}×${b.count}）`).join('、') || '什么都没有'));
+    if (!(this.state?.bag?.[productId] > 0)) throw Error('包里没有这个。包里有：' + (this.bagList().map(b => `${b.id}（${b.name}×${b.count}）`).join('、') || '什么都没有'));
+    const p = this.inventoryProducts.get(productId);
+    if (!p || !['eat', 'drink', 'use'].includes(p.kind)) throw Error(`${p?.name || productId}在背包里，但没有可用的食用或使用动作。`);
     const use = p.kind; if (as && as !== use && ['eat', 'drink', 'use'].includes(as)) throw Error(`${p.name}要用 ${use}`);
     const label = (use === 'eat' ? '吃' : use === 'drink' ? '喝' : '用') + p.name, ctx = {};
     return this.startTask('eat', label, () => this.runAction('eat', label, [
@@ -323,14 +344,13 @@ export class Resident extends EventEmitter {
       { id: 'eating', ms: EAT_MS },
       { id: 'finish', label: '吃完了', commit: true, run: async () => {
         const weather = this.weatherNow(), history = structuredClone(this.state?.uses || {});
-        const r = await this.eco('consume', { product: p.id, kind: use === 'use' ? 'used' : 'eaten', weather, space: this.space || '' });
-        ctx.lines = r.lines || [p.taste];
+        const r = await this.eco('consume', { product: p.id, kind: use === 'use' ? 'used' : 'eaten', recordEating:true, who:this.who, thought:feeling, weather, space: this.space || '' });
+        ctx.lines = r.lines || [p.taste];ctx.foodNotes=r.foodNotes||[];
         const f = await this.eco('experience', { who: this.who, args: { now: this.now(), objectId: 'bag', use, taste: ctx.lines.join('，'), product: p, history, weather } });
         ctx.feeling = f.state?.feeling;
       } },
       { id: 'settle', label: '收好', run: async () => {
-        const liked = Number(ctx.feeling?.tastes?.[p.id]?.score || 0) > 0;
-        const notes = use === 'use' ? [] : await this.lifeEvent({ type: 'eat', product: { id: p.id, name: p.name }, liked, ...(feeling ? { thought: String(feeling).slice(0, 200) } : {}) });
+        const notes=ctx.foodNotes;
         return { ok: true, label, taste: ctx.lines.join('，'), happened: [ctx.feeling?.last, ...notes].filter(Boolean), ...this.summary() };
       } },
     ]));
@@ -352,7 +372,12 @@ export class Resident extends EventEmitter {
   releaseSeat() { try { this.host.send({ type: 'seat.release', owner: this.key }); } catch { /* 已断开 */ } }
 
   // ---- 读取 / reading ---------------------------------------------------------------------
-  bagList() { return Object.entries(this.state?.bag || {}).filter(([, n]) => n > 0).map(([id, n]) => ({ id, name: this.products.get(id)?.name || id, count: n, kind: this.products.get(id)?.kind })); }
+  bagList() {
+    return Object.entries(this.state?.bag || {}).filter(([, n]) => n > 0).map(([id, count]) => {
+      const item = this.inventoryProducts.get(id);
+      return { id, name: item?.name || id, count, kind: item?.kind };
+    });
+  }
   summary() { return { wallet: this.state?.wallet?.coins ?? null, bag: this.bagList() }; }
   status() {
     const f = this.view?.feeling || {}, life = this.view?.life || {}, space = this.spaceOfScene(this.pos.scene);
@@ -361,19 +386,20 @@ export class Resident extends EventEmitter {
       position: { space: space?.id || null, place: space?.fullName || null, zone: this.pos.zone, zoneName: space?.zones.find(z => z.id === this.pos.zone)?.name || null },
       wallet: this.state?.wallet?.coins ?? null, bag: this.bagList(), bagSlots: this.catalog.wallet?.bagSlots || 12,
       feeling: { joy: f.joy, energy: f.energy, calm: f.calm, satiety: f.satiety, hydration: f.hydration, warmth: f.warmth, last: f.last },
-      hunger: this.view?.hunger ?? null, mood: life.mood || null, wishes: (life.wishes || []).map(w => ({ id: w.id, text: w.text, done: w.done })),
+      thought: life.thought || null, hunger: this.view?.hunger ?? null, mood: life.mood || null, wishes: (life.wishes || []).map(w => ({ id: w.id, text: w.text, done: w.done })),
       environment: life.environment ? { note: life.environment.note, indoors: life.environment.indoors } : null,
       doing: this.task ? { id: this.task.id, label: this.task.label, since: this.task.startedAt } : null,
       processes: this.processes?.list() || [],
       outfit: this.outfit || null, items: this.items, lamps: this.lamps, weather: this.weatherNow(),
     };
   }
-  look() {
+  async look() {
     const space = this.spaceOfScene(this.pos.scene);
     if (!space) return { known: false, note: '还不知道在哪里（游戏未连接或尚未报告位置）' };
     const here = [...this.objects.values()].filter(o => o.space === space.id || o.space === 'any');
+    const available=here.some(o=>o.uses.some(u=>u.shelf))?await this.offers():[];
     return { space: space.id, place: space.fullName, zone: this.pos.zone, exits: space.links.map(id => ({ id, name: this.spaces.get(id)?.fullName })),
-      objects: here.map(o => ({ id: o.id, name: o.name, description: o.description, supported: o.bridge === 'supported', uses: o.uses.map(u => ({ id: u.id, label: u.label, ...(u.shelf ? { buys: this.catalog.products.filter(p => p.shelf === u.shelf).map(p => `${p.id}（${p.name}）`) } : {}) })) })) };
+      objects: here.map(o => ({ id: o.id, name: o.name, description: o.description, supported: o.bridge === 'supported', uses: o.uses.map(u => ({ id: u.id, label: u.label, ...(u.shelf ? { buys: available.filter(p => p.shelf === u.shelf).map(p => `${p.id}（${p.name}）`) } : {}) })) })) };
   }
 
   // ---- 游戏侧边栏的数据 / data for the in-game side panel (panel.get) ------------------------------

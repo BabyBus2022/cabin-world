@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://qingxi-live/village-center/flat-build/trial.gd" id="1_vnb4e"]
+
+[node name="FlatBuildingTrial" type="Node2D" unique_id=1601251129]
+script = ExtResource("1_vnb4e")

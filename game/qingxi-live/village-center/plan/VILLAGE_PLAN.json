@@ -1,0 +1,787 @@
+{
+ "schemaVersion": 1,
+ "author": "claude-code",
+ "date": "2026-11-17",
+ "status": "design proposal, not implemented",
+ "map": "village (村庄中心)",
+ "world_size": [
+  3200,
+  2240
+ ],
+ "units": "world px, origin top-left, north up. Same space as village-center/center.gd (world_bounds 3200x2240).",
+ "rules": [
+  "Every building faces south (toward the camera) and its door opens onto a path along its south edge.",
+  "Water does the wayfinding: walking upstream along the creek reaches the fish pond, and the canal runs west to the fields.",
+  "Keep three landmarks visible from the plaza: the fire-watch tower, the shrine torii and the big camphor tree.",
+  "The plaza is 400 px across, so it fits in one screen around the bonfire.",
+  "Keep 110 px clear around every exit."
+ ],
+ "water": {
+  "creek": {
+   "name": "清溪",
+   "width": 96,
+   "bank": 18,
+   "points": [
+    [
+     2760,
+     90
+    ],
+    [
+     2520,
+     430
+    ],
+    [
+     2180,
+     700
+    ],
+    [
+     1820,
+     930
+    ],
+    [
+     1640,
+     1180
+    ],
+    [
+     1680,
+     1500
+    ],
+    [
+     1900,
+     1820
+    ],
+    [
+     2010,
+     2240
+    ]
+   ]
+  },
+  "canal": {
+   "name": "田间水渠",
+   "width": 30,
+   "stone_edge": true,
+   "points": [
+    [
+     1660,
+     1250
+    ],
+    [
+     1300,
+     1295
+    ],
+    [
+     900,
+     1305
+    ],
+    [
+     500,
+     1270
+    ],
+    [
+     100,
+     1240
+    ]
+   ]
+  }
+ },
+ "roads": [
+  {
+   "id": "west_street",
+   "name": "西街",
+   "width": 64,
+   "points": [
+    [
+     90,
+     1020
+    ],
+    [
+     560,
+     1015
+    ],
+    [
+     980,
+     1000
+    ]
+   ]
+  },
+  {
+   "id": "east_road",
+   "name": "东路",
+   "width": 64,
+   "points": [
+    [
+     1380,
+     1000
+    ],
+    [
+     1690,
+     1000
+    ],
+    [
+     1850,
+     1000
+    ],
+    [
+     2400,
+     1060
+    ],
+    [
+     3110,
+     1080
+    ]
+   ]
+  },
+  {
+   "id": "shrine_lane",
+   "name": "参道",
+   "width": 44,
+   "points": [
+    [
+     1110,
+     830
+    ],
+    [
+     1000,
+     660
+    ],
+    [
+     780,
+     585
+    ],
+    [
+     770,
+     430
+    ]
+   ]
+  },
+  {
+   "id": "sakura_lane",
+   "name": "樱坂",
+   "width": 44,
+   "points": [
+    [
+     1000,
+     660
+    ],
+    [
+     1250,
+     620
+    ],
+    [
+     1520,
+     600
+    ],
+    [
+     1640,
+     700
+    ]
+   ]
+  },
+  {
+   "id": "hall_walk",
+   "name": "会所前",
+   "width": 44,
+   "points": [
+    [
+     1330,
+     880
+    ],
+    [
+     1420,
+     810
+    ]
+   ]
+  },
+  {
+   "id": "south_road",
+   "name": "南路",
+   "width": 52,
+   "points": [
+    [
+     1180,
+     1200
+    ],
+    [
+     1170,
+     1300
+    ],
+    [
+     1080,
+     1580
+    ],
+    [
+     980,
+     1910
+    ],
+    [
+     820,
+     2190
+    ]
+   ]
+  },
+  {
+   "id": "persimmon_lane",
+   "name": "柿子巷",
+   "width": 40,
+   "points": [
+    [
+     600,
+     1590
+    ],
+    [
+     1080,
+     1580
+    ],
+    [
+     1460,
+     1600
+    ],
+    [
+     1660,
+     1440
+    ],
+    [
+     1760,
+     1430
+    ],
+    [
+     2060,
+     1480
+    ]
+   ]
+  },
+  {
+   "id": "lower_lane",
+   "name": "下巷",
+   "width": 40,
+   "points": [
+    [
+     520,
+     1930
+    ],
+    [
+     980,
+     1910
+    ],
+    [
+     1330,
+     1935
+    ]
+   ]
+  },
+  {
+   "id": "pond_path",
+   "name": "溪边小径",
+   "width": 40,
+   "points": [
+    [
+     1850,
+     1000
+    ],
+    [
+     2120,
+     790
+    ],
+    [
+     2420,
+     540
+    ],
+    [
+     2700,
+     300
+    ],
+    [
+     2910,
+     140
+    ]
+   ]
+  },
+  {
+   "id": "mountain_trail",
+   "name": "后山小径(预留)",
+   "width": 32,
+   "reserved": true,
+   "points": [
+    [
+     770,
+     300
+    ],
+    [
+     760,
+     100
+    ]
+   ]
+  },
+  {
+   "id": "downstream_trail",
+   "name": "下游小径(预留)",
+   "width": 32,
+   "reserved": true,
+   "points": [
+    [
+     2060,
+     1480
+    ],
+    [
+     2150,
+     1880
+    ],
+    [
+     2080,
+     2200
+    ]
+   ]
+  }
+ ],
+ "bridges": [
+  {
+   "id": "stone_bridge",
+   "name": "石拱桥",
+   "pos": [
+    1770,
+    1000
+   ],
+   "size": [
+    190,
+    72
+   ],
+   "over": "creek",
+   "road": "east_road"
+  },
+  {
+   "id": "plank_bridge",
+   "name": "木板桥",
+   "pos": [
+    1705,
+    1435
+   ],
+   "size": [
+    150,
+    40
+   ],
+   "over": "creek",
+   "road": "persimmon_lane"
+  },
+  {
+   "id": "slab_bridge_s",
+   "name": "石板桥",
+   "pos": [
+    1172,
+    1300
+   ],
+   "size": [
+    80,
+    44
+   ],
+   "over": "canal",
+   "road": "south_road"
+  }
+ ],
+ "exits": [
+  {
+   "to": "meadow",
+   "name": "自家农场",
+   "pos": [
+    90,
+    1020
+   ],
+   "note": "via 西街, past the seed shop and the paddies"
+  },
+  {
+   "to": "ranch",
+   "name": "预留 待开发",
+   "reserved": true,
+   "pos": [
+    3110,
+    1080
+   ],
+   "note": "via 东路, past the livestock shop"
+  },
+  {
+   "to": "pond",
+   "name": "预留 待开发",
+   "reserved": true,
+   "pos": [
+    2910,
+    140
+   ],
+   "note": "upstream along the creek through the bamboo grove"
+  },
+  {
+   "to": "home",
+   "name": "预留 待开发",
+   "reserved": true,
+   "pos": [
+    820,
+    2190
+   ],
+   "note": "via 南路 through the residential quarter"
+  },
+  {
+   "to": "mountain",
+   "name": "预留 待开发",
+   "pos": [
+    760,
+    100
+   ],
+   "reserved": true,
+   "note": "behind the shrine, future map"
+  },
+  {
+   "to": "downstream",
+   "name": "预留 待开发",
+   "pos": [
+    2080,
+    2200
+   ],
+   "reserved": true,
+   "note": "future map"
+  }
+ ],
+ "plaza": {
+  "id": "bonfire_plaza",
+  "name": "篝火广场",
+  "center": [
+   1180,
+   1000
+  ],
+  "radius": 200,
+  "surface": "packed earth with a stone curb ring, not a paved slab",
+  "contents": [
+   "bonfire pit at centre (night gathering spot for villagers)",
+   "4 log-bench arcs at r=130",
+   "4 lantern posts at the diagonals, r=180, strung with paper lanterns",
+   "festival yagura (tower stage), seasonal only, can stand over the fire pit"
+  ]
+ },
+ "buildings": [
+  {
+   "n": 1,
+   "id": "seed_shop",
+   "name": "青芽种子店",
+   "kind": "shop",
+   "x": 620,
+   "door_y": 960,
+   "w": 380,
+   "h": 220,
+   "fn": "Buy seeds, sell crops. Interior map already exists (seedshop-study)."
+  },
+  {
+   "n": 2,
+   "id": "livestock_shop",
+   "name": "牧铃畜牧铺",
+   "kind": "shop",
+   "x": 2467,
+   "door_y": 1013,
+   "w": 360,
+   "h": 220,
+   "fn": "Buy animals, feed and tools. Set back along the east road so its door faces open road, not the bridge."
+  },
+  {
+   "n": 3,
+   "id": "general_store",
+   "name": "小铃杂货",
+   "kind": "shop",
+   "x": 330,
+   "door_y": 960,
+   "w": 240,
+   "h": 170,
+   "fn": "Corner sweet shop: snacks that restore stamina, everyday tools, gift items."
+  },
+  {
+   "n": 4,
+   "id": "community_hall",
+   "name": "村民会所",
+   "kind": "civic",
+   "x": 1420,
+   "door_y": 800,
+   "w": 300,
+   "h": 190,
+   "fn": "Quest/request board, village meetings and seasonal events. Natural home for AI villager conversations."
+  },
+  {
+   "n": 5,
+   "id": "fire_tower",
+   "name": "望火台",
+   "kind": "landmark",
+   "x": 1640,
+   "door_y": 720,
+   "w": 70,
+   "h": 230,
+   "fn": "Fire-watch tower (火の見櫓). Climb it to open the overview map, and it rings the evening bell."
+  },
+  {
+   "n": 6,
+   "id": "shrine",
+   "name": "稻荷小祠",
+   "kind": "landmark",
+   "x": 770,
+   "door_y": 330,
+   "w": 160,
+   "h": 120,
+   "fn": "Small shrine on a hill. Daily fortune slip (small daily buff), festival venue. Torii at the stair foot (770,560), stone lanterns on both sides."
+  },
+  {
+   "n": 7,
+   "id": "tuantuan_home",
+   "name": "团团的家",
+   "kind": "home",
+   "x": 1180,
+   "door_y": 590,
+   "w": 260,
+   "h": 180,
+   "fn": "Tuantuan's house, with a verandah and a laundry pole."
+  },
+  {
+   "n": 8,
+   "id": "house_a",
+   "name": "居民宅 · 樱坂",
+   "kind": "home",
+   "x": 1450,
+   "door_y": 545,
+   "w": 240,
+   "h": 170,
+   "fn": "Resident house."
+  },
+  {
+   "n": 9,
+   "id": "house_b",
+   "name": "居民宅 · 柿子巷西",
+   "kind": "home",
+   "x": 800,
+   "door_y": 1565,
+   "w": 260,
+   "h": 170,
+   "fn": "Resident house with a vegetable patch."
+  },
+  {
+   "n": 10,
+   "id": "house_c",
+   "name": "居民宅 · 柿子巷东",
+   "kind": "home",
+   "x": 1320,
+   "door_y": 1575,
+   "w": 250,
+   "h": 170,
+   "fn": "Resident house with a persimmon tree."
+  },
+  {
+   "n": 11,
+   "id": "house_d",
+   "name": "居民宅 · 下巷西",
+   "kind": "home",
+   "x": 640,
+   "door_y": 1915,
+   "w": 240,
+   "h": 160,
+   "fn": "Resident house."
+  },
+  {
+   "n": 12,
+   "id": "house_e",
+   "name": "居民宅 · 下巷东",
+   "kind": "home",
+   "x": 1240,
+   "door_y": 1920,
+   "w": 250,
+   "h": 160,
+   "fn": "Resident house."
+  },
+  {
+   "n": 13,
+   "id": "bathhouse",
+   "name": "暖汤屋",
+   "kind": "facility",
+   "x": 2080,
+   "door_y": 1475,
+   "w": 300,
+   "h": 190,
+   "fn": "Small bathhouse with an outdoor footbath. Restores stamina, and villagers chat here in the evening."
+  },
+  {
+   "n": 14,
+   "id": "watermill",
+   "name": "水车磨坊",
+   "kind": "facility",
+   "x": 1500,
+   "door_y": 1250,
+   "w": 160,
+   "h": 130,
+   "fn": "Waterwheel on the canal mouth. Grind grain into flour, and later rice into rice flour."
+  },
+  {
+   "n": 15,
+   "id": "bus_stop",
+   "name": "乡间车站",
+   "kind": "facility",
+   "x": 960,
+   "door_y": 1150,
+   "w": 120,
+   "h": 60,
+   "fn": "Bus shelter with a bench. Fast travel to the maps you've already visited."
+  }
+ ],
+ "small_features": [
+  {
+   "n": 16,
+   "name": "村邮筒",
+   "pos": [
+    1600,
+    830
+   ],
+   "fn": "Red postbox: letters from AI villagers arrive here."
+  },
+  {
+   "n": 17,
+   "name": "公告板",
+   "pos": [
+    1275,
+    795
+   ],
+   "fn": "Notices: weather, events, today's prices."
+  },
+  {
+   "n": 18,
+   "name": "大楠树",
+   "pos": [
+    960,
+    790
+   ],
+   "fn": "Huge camphor tree with a shimenawa rope; landmark and rest spot."
+  },
+  {
+   "n": 19,
+   "name": "共用井",
+   "pos": [
+    870,
+    1110
+   ],
+   "fn": "Shared well: fill your watering can."
+  },
+  {
+   "n": 20,
+   "name": "地藏",
+   "pos": [
+    1110,
+    1330
+   ],
+   "fn": "Roadside Jizo statues at the canal crossing (and one at 1880,1060). Leave an offering."
+  },
+  {
+   "n": 21,
+   "name": "洗衣石阶",
+   "pos": [
+    1650,
+    1130
+   ],
+   "fn": "Stone steps down to the creek; villagers wash vegetables here."
+  },
+  {
+   "n": 22,
+   "name": "钓鱼栈桥",
+   "pos": [
+    1745,
+    1680
+   ],
+   "fn": "Small jetty for creek fishing (smaller fish than the pond)."
+  },
+  {
+   "n": 23,
+   "name": "梯田小块",
+   "rect": [
+    160,
+    1330,
+    340,
+    190
+   ],
+   "fn": "A few rice paddy strips near the west exit, showing that the fields lie that way."
+  }
+ ],
+ "vegetation": {
+  "bamboo_grove": {
+   "rect": [
+    1900,
+    250,
+    400,
+    300
+   ]
+  },
+  "orchard": {
+   "name": "东侧果园",
+   "rect": [
+    2450,
+    600,
+    400,
+    250
+   ]
+  },
+  "flower_field": {
+   "name": "南坡花田",
+   "rect": [
+    1450,
+    1730,
+    310,
+    320
+   ]
+  },
+  "display_pen": {
+   "rect": [
+    2400,
+    860,
+    300,
+    160
+   ]
+  },
+  "sakura": [
+   [
+    1060,
+    700
+   ],
+   [
+    1300,
+    665
+   ],
+   [
+    1540,
+    650
+   ]
+  ],
+  "persimmon": [
+   [
+    980,
+    1480
+   ],
+   [
+    1470,
+    1510
+   ],
+   [
+    560,
+    1800
+   ],
+   [
+    1430,
+    1860
+   ]
+  ],
+  "cedar": [
+   [
+    610,
+    300
+   ],
+   [
+    930,
+    290
+   ],
+   [
+    590,
+    430
+   ],
+   [
+    950,
+    430
+   ]
+  ],
+  "forest_border": "trees 90 px deep along every edge, broken at exits"
+ }
+}

@@ -1,0 +1,1 @@
+{"directory":"data/saves/appearance","format":"cabin-appearance-v1","residents":[{"key":"xiaojingyu","name":"小鲸鱼"}],"player":{"default":"tuantuan","builtIn":["tuantuan","xiaojingyu"],"import":{"file":"PNG","modes":["single","walk-sheet"],"rows":["south","west","east","north"],"squareCells":true,"maxFramesPerRow":16,"frameMs":120},"guide":"玩家皮肤与宠物家具.md"}}

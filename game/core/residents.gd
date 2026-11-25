@@ -17,6 +17,13 @@ extends RefCounted
 ##   home        her poses at home; pieces: chair back, quilt, phone and headphones art
 
 const DATA_FILE := "res://assets/residents.json"
+const PLAYER := "owner"
+static var _player_profile := {
+	"key": PLAYER, "name": "你", "flavor": "owner", "art": "vads-player",
+	"human": true, "start": ["qianxia-park", "meadow"], "home": {"scene": ""},
+	"peer_name": "", "favorite_foods": [], "preferred_objects": [],
+	"care": {}, "wish_hints": {}, "own_wishes": []
+}
 
 static var _data := {}
 static var _people := {}
@@ -36,6 +43,8 @@ static func people() -> Array:
 
 ## Her row, by VADS key.
 static func person(key: String) -> Dictionary:
+	if key == PLAYER:
+		return _player_profile
 	for p in people():
 		if p["key"] == key:
 			return p
@@ -44,6 +53,8 @@ static func person(key: String) -> Dictionary:
 
 ## Her row, by the name the life rules use. Anyone else gets the "unknown" row.
 static func flavor(who: String) -> Dictionary:
+	if who == PLAYER:
+		return _player_profile
 	for p in people():
 		if p["flavor"] == who:
 			return p

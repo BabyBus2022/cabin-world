@@ -17,12 +17,12 @@ export class Arcade {
     if(!this.host.connected)return;
     const sessions={};
     for(const [key,s] of this.sessions) sessions[key]={key,cabinetKey:key,passerby:s.board?.players?.includes('computer')||s.board?.sides?.includes('computer')||false,matchId:s.id,kind:s.kind,name:NAMES[s.kind],status:s.status,game:s.board||null,players:s.members.map(m=>({id:m.r.key,name:m.r.name,seat:m.seat})),reason:s.reason||'',startedAt:s.startedAt||0,endedAt:s.endedAt||0};
-    this.host.send({type:'arcade.view',sessions,history:this.history,rules:{blocks:'消除30行获胜',snake:'双人或电脑对手',mines:'9×9，10颗雷',xiangqi:'按象棋合法走法轮流落子',gomoku:'15×15，黑先白后，五子连珠获胜，无禁手'}});
+    this.host.send({type:'arcade.view',sessions,invitation:this.invitation||null,history:this.history,rules:{blocks:'消除30行获胜',snake:'双人或电脑对手',mines:'9×9，10颗雷',xiangqi:'按象棋合法走法轮流落子',gomoku:'15×15，黑先白后，五子连珠获胜，无禁手'}});
   }
   watch(s) { if(this.host.connected)this.host.send({type:'arcade.watch',key:s.key,matchId:s.id,kind:s.kind,status:s.status,board:s.board||null,startedAt:s.startedAt||0}); this.view(); }
   interrupt(s,reason) {
     if(!s||!['waiting','playing'].includes(s.status))return false;
-    s.status='interrupted';s.reason=reason;s.endedAt=Date.now();clearTimeout(s.timer);
+    s.status='interrupted';s.reason=reason;s.endedAt=Date.now();clearTimeout(s.timer);clearTimeout(s.confirmTimer);
     for(const m of s.members) { m.r.effect=null; m.reject(Error(reason)); }
     this.watch(s);return true;
   }
@@ -62,7 +62,7 @@ export class Arcade {
       try {
         await r.walkTo(member.scene,zone);
         if(session.status!=='waiting')throw Error(session.reason||'本局已结束');
-        member.seated=true;
+        member.seated=true;member.arrivedAt=Date.now();
         r.setEffect({kind:/^(xiangqi|gomoku)@/.test(key)?'chess':'typing',module:object.id,zone,use:'play',label:'玩'+NAMES[kind],seconds:900});
         await this.pulse({key,matchId:session.id});
         return await ended;
@@ -72,37 +72,59 @@ export class Arcade {
   }
   async pulse(f) {
     const s=this.sessions.get(f.key);
-    if(!s||s.id!==f.matchId||s.busy||!['waiting','playing'].includes(s.status))return;
+    if(!s||s.id!==f.matchId||!['waiting','playing'].includes(s.status))return;
+    if(s.busy){if(s.status==='waiting')s.pendingSeatCheck=true;return;}
     s.busy=true;
     try {
       const members=[...s.members];
       if(!members.length||members.some(m=>!m.seated))return;
       for(const m of members) {
-        const valid=await this.rule('residentAt',{actor:m.r.key,scene:m.scene,zone:m.zone});
+        const valid=(m.r.key==="owner"&&s.guest?.remote)||await this.rule('residentAt',{actor:m.r.key,scene:m.scene,zone:m.zone});
         if(!['waiting','playing'].includes(s.status))return;
         // A join can happen while the game is answering. Validate the complete
         // new seating group on the next pulse, never a newcomer still walking.
         if(s.members.length!==members.length||s.members.some(m=>!m.seated))return;
-        if(!valid){this.interrupt(s,'住户离开座位，本局不算输赢');return;}
+        if(!valid){
+          if(s.status==='waiting'){
+            // Another arrival can displace an already acknowledged body.
+            // Reacquire its assigned seat before asking the game to open the board.
+            if(m.r.walkTo && Date.now()-(m.retriedAt||m.arrivedAt||s.createdAt)>=900){
+              m.retriedAt=Date.now();
+              m.seated=false;
+              try { await m.r.walkTo(m.scene,m.zone); }
+              finally { if(s.status==='waiting')m.seated=true; }
+              if(s.status!=='waiting')return;
+            }
+            if(!s.confirmTimer)s.confirmTimer=setTimeout(()=>{
+              s.confirmTimer=null;
+              void this.pulse({key:s.key,matchId:s.id}).catch(e=>this.interrupt(s,e.message));
+            },300);
+            return;
+          }
+          this.interrupt(s,s.status==='waiting'?'入座未得到游戏确认，本局尚未开始':'住户离开座位，本局不算输赢');return;
+        }
       }
       if(s.status==='waiting') {
         if(s.mode!=='solo'&&s.members.length<2)return;
         const a=await this.rule('arcadeLobby',{kind:s.kind,seed:Date.now()%2147483647,now:Date.now(),createdAt:s.createdAt,seatedAt:Date.now(),invited:false,invitedAt:0,atHome:/^(xiangqi|gomoku)@/.test(s.key),members:s.members.map(m=>({id:m.r.key,name:m.r.name,seat:m.seat,seated:true,valid:true,skill:.68}))});
         if(s.status!=='waiting')return;
         if(a.action!=='start')throw Error(a.reason||'无法开局');
-        s.board=a.board;s.status='playing';s.startedAt=Date.now();clearTimeout(s.timer);
+        s.board=a.board;s.status='playing';s.startedAt=Date.now();clearTimeout(s.timer);clearTimeout(s.confirmTimer);
         s.timer=setTimeout(()=>this.interrupt(s,'对局响应超时，未确认结果'),LIMIT[s.kind]+45000);s.timer.unref?.();this.watch(s);return;
       }
-      const board=await this.rule('arcadeAuto',{key:s.key,matchId:s.id,board:s.board,at:Date.now()});
+      if(s.guest && s.board.sides?.[s.board.turn]==='owner'&&!s.playerInput)return;
+      const input=s.playerInput;delete s.playerInput;
+      const board=await this.rule('arcadeAuto',{key:s.key,matchId:s.id,board:s.board,at:Date.now(),...(s.guest?{playerAction:input||{}}:{})});
       if(s.status!=='playing')return;
       s.board=board;
       if(board.status==='playing'){this.view();return;}
-      s.status='settling';clearTimeout(s.timer);
+      s.status='settling';clearTimeout(s.timer);clearTimeout(s.confirmTimer);
       const players=s.members.map(m=>({id:m.r.key,name:m.r.name,result:board.status==='draw'?'draw':board.winner===m.r.key?'won':'lost'}));
-      const record={matchId:s.id,kind:s.kind,at:Date.now(),players,reason:board.reason,score:board.score||0};
+      const record={remote:!!s.guest?.remote,matchId:s.id,kind:s.kind,at:Date.now(),players,reason:board.reason,score:board.score||0};
       const saved=await this.host.request('arcade.records',{history:[record]},{replyType:'arcade.history'});this.history=saved.history;
       for(const m of s.members) {
         const result=players.find(p=>p.id===m.r.key).result;
+        if(m.r.key==='owner'){m.resolve({result});continue;}
         const notes=await m.r.lifeEvent({type:'arcade',matchId:s.id,kind:s.kind,name:NAMES[s.kind],result,score:board.score||0});
         m.resolve({ok:true,matchId:s.id,result,reason:board.reason,happened:notes,...m.r.summary()});
       }
@@ -110,6 +132,12 @@ export class Arcade {
     } catch(e) {
       if(s.status==='settling'){s.status='interrupted';s.reason='结算未全部确认，请查看游戏账本，勿重复计分';for(const m of s.members)m.reject(Error(s.reason));this.watch(s);}
       else this.interrupt(s,e.message);
-    } finally {s.busy=false;}
+    } finally {
+      s.busy=false;
+      if(s.pendingSeatCheck && s.status==='waiting'){
+        s.pendingSeatCheck=false;
+        queueMicrotask(()=>void this.pulse({key:s.key,matchId:s.id}).catch(e=>this.interrupt(s,e.message)));
+      }
+    }
   }
 }

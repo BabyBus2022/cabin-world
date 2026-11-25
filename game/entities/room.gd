@@ -129,7 +129,7 @@ func build() -> void:
 
 ## The view through the glass sits right over the window itself, behind everything in front of it.
 func _add_window_view(layer: Dictionary, depth: float) -> void:
-	if not scene_id in RoomLight.HOMES:
+	if not RoomLight.is_home(scene_id):
 		return
 	var id := str(layer.get("id",str(layer["file"]).trim_prefix(scene_id + ".").trim_suffix(".png")))
 	var m = WorldData.scenes[scene_id]["modules"].get(id)

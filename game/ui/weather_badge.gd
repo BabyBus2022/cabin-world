@@ -39,9 +39,9 @@ func _draw() -> void:
 	var live := VadsLink.connected
 	draw_circle(Vector2(size.x-17,15),4,Hud.GREEN if live else Hud.AMBER)
 	draw_string(font,Vector2(size.x-33,35),"在线" if live else "离线",HORIZONTAL_ALIGNMENT_LEFT,-1,10,Hud.INK2)
-	tooltip_text = city+" · " + date + " " + clock_text + ("\n已连接 " + VadsLink.host_name if live else "\n机器人软件未连接，显示上次收到的数据")
-	if fresh: tooltip_text += "\n%s · %.1f°C · 风速 %.1f km/h\n天气来源：%s" % [condition,float(local.get("temperature",0)),float(local.get("wind",0)),str(local.get("source","机器人软件"))]
-	else: tooltip_text += "\n城市天气暂未获取或已过期（由机器人软件提供）"
+	tooltip_text = city+" · " + date + " " + clock_text + ("\n已连接 VADS" if live else "\nVADS 未连接，显示上次收到的数据")
+	if fresh: tooltip_text += "\n%s · %.1f°C · 风速 %.1f km/h\n天气来源：%s" % [condition,float(local.get("temperature",0)),float(local.get("wind",0)),str(local.get("source","VADS"))]
+	else: tooltip_text += "\n城市天气暂未获取或已过期，VADS 会自动重试"
 	if fresh:
 		var updated := Time.get_datetime_dict_from_unix_time(int(float(local.get("at",0))/1000)+8*3600)
 		tooltip_text += "\n最近天气：%02d:%02d" % [updated.hour,updated.minute]

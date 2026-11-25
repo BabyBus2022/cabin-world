@@ -5,6 +5,9 @@ static func run(owner:Node)->void:
 	if DisplayServer.get_name()=="headless":return
 	var id:="qianxia-park"
 	if not WorldData.scenes.has(id):return
+	if owner.view_scene==id and owner.rooms[id].is_visible_in_tree():
+		await RenderingServer.frame_post_draw
+		return
 	var view:=SubViewport.new()
 	view.size=Vector2i(WorldData.scenes[id].width,WorldData.scenes[id].height)
 	view.transparent_bg=true;view.render_target_update_mode=SubViewport.UPDATE_ALWAYS

@@ -3,6 +3,8 @@ chcp 65001 >nul
 setlocal
 cd /d "%~dp0"
 title Cabin World bridge
+powershell.exe -NoProfile -STA -ExecutionPolicy Bypass -File "%~dp0tools\install.ps1"
+if errorlevel 1 exit /b %errorlevel%
 set "NODE=node"
 if exist "%~dp0runtime\node.exe" set "NODE=%~dp0runtime\node.exe"
 "%NODE%" -e "process.exit(Number(process.versions.node.split('.')[0])>=18?0:1)" >nul 2>nul

@@ -10,6 +10,7 @@ extends Node
 ##   Receives: welcome (residents: true when the game owns the bodies), world (presence), clock (now), weather (reading), pong, quit, action.start, action.done, action.interrupt, action.skip, economy.do, walk.go, panel.data, panel.did, seat.claim, seat.release, entry.route, entry.pass, entry.revoke, body.sync, body.do, body.get.
 signal connection_changed(connected: bool)
 signal walk_ordered(frame: Dictionary)
+signal foreground_reply(frame: Dictionary)
 signal restaurant_requested(frame: Dictionary)
 signal panel_arrived(frame: Dictionary)
 ## True once VADS has agreed the game owns where everyone is.
@@ -79,6 +80,9 @@ func leave_together() -> void:
 
 func _process(delta: float) -> void:
 	if OS.get_cmdline_user_args().has("--body-lab") or OS.get_cmdline_user_args().has("--home-editor"): return
+	var now_usec:=Time.get_ticks_usec()
+	if _frame_at_usec>0:note_slow("whole frame (gap between frames)",_frame_at_usec)
+	_frame_at_usec=now_usec
 	_collect_boards()
 	if connected and owns_bodies: _hall.advance(delta)
 	_clock += delta
@@ -166,17 +170,37 @@ func _read() -> void:
 		_buffer = _buffer.slice(at + 1)
 		var frame = JSON.parse_string(line)
 		if frame is Dictionary:
+			var started:=Time.get_ticks_usec()
 			_handle(frame)
+			note_slow("link "+str(frame.get("type",""))+" "+str(frame.get("actor",""))+" "+str(frame.get("rule",""))+" "+str(frame.get("zone","")),started)
 			if _peer == null:
 				return
+
+
+## 2026-11-18 diagnostics only (no behaviour): anything that holds the main thread for
+## SLOW_MS or more is appended to user://slow-frames.log (capped at 1 MB), so the
+## next freeze names its cause instead of being guessed at.
+const SLOW_MS := 150.0
+var _frame_at_usec:int=0
+func note_slow(label:String,started_usec:int)->void:
+	var ms:float=(Time.get_ticks_usec()-started_usec)/1000.0
+	if ms<SLOW_MS:return
+	var path:="user://slow-frames.log"
+	var f:=FileAccess.open(path,FileAccess.READ_WRITE) if FileAccess.file_exists(path) else FileAccess.open(path,FileAccess.WRITE)
+	if f==null or f.get_length()>1024*1024:return
+	f.seek_end()
+	f.store_line("%s %.0f ms %s" % [Time.get_datetime_string_from_system(),ms,label])
+	f.close()
 
 
 func _handle(frame: Dictionary) -> void:
 	# Deleted identities retain recovery saves, but stale hosts may not act on them.
 	var removed_actor:String=str(frame.get("actor",frame.get("owner","")))
-	if removed_actor!="" and load("res://core/resident_registry.gd").removed(removed_actor) and frame.get("type")!="resident.do":
-		var responses:={"economy.do":"economy.result","personal.do":"personal.result","body.open":"body.saved","body.patch":"body.saved","body.get":"body.state","body.do":"body.state","body.sync":"body.state","seat.claim":"seat.result","walk.go":"walk.arrived","restaurant.do":"restaurant.result","restaurant.get":"restaurant.result","entry.route":"entry.result","entry.pass":"entry.result","action.start":"action.cancelled"}
-		if responses.has(frame.get("type")):send({"type":responses[frame.type],"id":frame.get("id",""),"actor":removed_actor,"ok":false,"error":"住户已删除"})
+	var local_only: bool = removed_actor == Residents.PLAYER and frame.get("type") not in ["entry.route", "entry.pass", "entry.revoke"]
+	var removed: bool = removed_actor!="" and load("res://core/resident_registry.gd").removed(removed_actor) and frame.get("type")!="resident.do"
+	if local_only or removed:
+		var responses:={"economy.do":"economy.result","personal.do":"personal.result","body.open":"body.saved","body.patch":"body.saved","body.get":"body.state","body.do":"body.state","body.sync":"body.state","seat.claim":"seat.result","walk.go":"walk.arrived","restaurant.do":"restaurant.result","restaurant.get":"restaurant.result","entry.route":"entry.result","entry.pass":"entry.result","action.start":"action.cancelled","resident.do":"resident.result"}
+		if responses.has(frame.get("type")):send({"type":responses[frame.type],"id":frame.get("id",""),"actor":removed_actor,"ok":false,"error":"由玩家操作" if local_only else "住户已删除"})
 		return
 	match frame.get("type"):
 		"welcome":
@@ -248,7 +272,9 @@ func _handle(frame: Dictionary) -> void:
 				send(reply)
 		"arcade.view":
 			if owns_bodies and frame.get("sessions") is Dictionary:
-				arcade_view = {"sessions":Board.restore_numbers(frame.sessions),"history":frame.get("history",[]),"rules":frame.get("rules",{})}
+				arcade_view = {"sessions":Board.restore_numbers(frame.sessions),"history":frame.get("history",[]),"rules":frame.get("rules",{}),"residents":frame.get("residents",[]),"invitation":frame.get("invitation"),"settings":frame.get("settings",{})} ## 2026-11-20 Claude (arcade-mind): + residents (who can be invited)
+		"entry.playerVisitResult", "arcade.playerResult", "arcade.playerFinished", "arcade.inviteReply", "arcade.ownerInvite", "arcade.ownerInviteAnswerResult", "arcade.playerReadyResult": ## 2026-11-20 Claude (arcade-mind): + invites both ways
+			foreground_reply.emit(frame)
 		"arcade.watch":
 			if owns_bodies: _hall.watch(frame)
 		"arcade.records":
@@ -340,9 +366,11 @@ func _answer_rule(frame: Dictionary) -> void:
 						send({"type":"rules.answer","id":frame.id,"ok":true,"value":session.board})
 						return
 					if session.board.ticks==board.ticks: board=session.board.duplicate(true)
-				var task := WorkerThreadPool.add_task(_auto_board.bind(board))
+				## 2026-11-20 Claude (arcade-mind): mindAction = the move the resident chose with her own AI; style = her plan
+				## for the real-time games; limit = the match time limit (longer when a resident's AI is thinking).
+				var task := WorkerThreadPool.add_task(_auto_board.bind(board, frame.args.get("playerAction", null), frame.args.get("mindAction", null), frame.args.get("style", null)))
 				_board_jobs[task]={"id":frame.id,"peer":peer,"board":board,"key":frame.args.get("key",""),
-					"matchId":frame.args.get("matchId",""),"at":frame.args.get("at",0)}
+					"matchId":frame.args.get("matchId",""),"at":frame.args.get("at",0),"limit":frame.args.get("limit",0)}
 				return
 		"arcadeLobby":
 			value = Board.lobby(frame.args)
@@ -353,9 +381,33 @@ func _answer_rule(frame: Dictionary) -> void:
 	if peer == _peer and connected:
 		send({"type":"rules.answer", "id":frame.id, "ok":value != null, "value":value})
 
-static func _auto_board(board: Dictionary) -> void:
+static func _auto_board(board: Dictionary, player_action: Variant, mind_action: Variant = null, style: Variant = null) -> void:
 	Board.restore_numbers(board)
-	Board.advance(board,Strategy.suggest(board))
+	## 2026-11-20 Claude (arcade-mind): a resident's own move. It is applied only when it is really her turn (or her
+	## solo board), through the same rules as every other move; an illegal choice leaves the board unchanged.
+	if mind_action is Dictionary and mind_action.get("move") is Dictionary:
+		var who := str(mind_action.get("id", ""))
+		var mover: String = str(board.sides[int(board.turn)]) if board.get("sides", []).size() == 2 else str(board.get("players", [""])[0])
+		if who == mover:
+			var move: Dictionary = Board.restore_numbers(mind_action.move.duplicate(true))
+			if board.kind in ["xiangqi", "gomoku"]: move["player"] = who
+			Board.advance(board, move)
+			return
+	if style is Dictionary and not style.is_empty():
+		board["style"] = Board.restore_numbers(style.duplicate(true))   ## read by Strategy.snake / Strategy.blocks
+	if player_action is Dictionary:
+		if board.kind == "snake":
+			var directions := Strategy.snake(board)
+			directions.erase(Residents.PLAYER)
+			directions.merge(player_action, true)
+			Board.advance(board, directions)
+			board.erase("style")
+			return
+		if board.get("sides", []).size() == 2 and board.sides[board.turn] == Residents.PLAYER:
+			Board.advance(board, player_action)
+			return
+	Board.advance(board, Strategy.suggest(board))
+	board.erase("style") ## 2026-11-20 Claude (arcade-mind): the plan is per request, not part of the board
 
 func _collect_boards() -> void:
 	for task in _board_jobs.keys():
@@ -366,7 +418,8 @@ func _collect_boards() -> void:
 		if connected and _peer==job.peer:
 			var session := _hall.match_for(job)
 			if not session.is_empty():
-				if job.board.status=="playing" and job.at-session.startedAt>Hall.LIMIT[job.board.kind]:
+				var limit: float = maxf(float(Hall.LIMIT[job.board.kind]), float(job.get("limit", 0))) ## 2026-11-20 Claude (arcade-mind): VADS may allow longer
+				if job.board.status=="playing" and job.at-session.startedAt>limit:
 					job.board.status="draw"
 					job.board.reason="时间到了"
 				session.board=job.board

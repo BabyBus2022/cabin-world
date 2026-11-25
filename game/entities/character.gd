@@ -90,6 +90,9 @@ var _restored := false
 var _unplaced_for := 0.0
 var _order_lock := 0.0
 
+const ExternalAppearance=preload("res://core/appearance_packs.gd")
+var _appearance_clocks:Dictionary={}
+var _appearance_forced:String=""
 var _sprite := Sprite2D.new()
 var _time := 0.0
 var _visual_head := Rect2(-17,-60,34,29)
@@ -108,6 +111,7 @@ var _actions_tex: Texture2D
 
 func setup(p_key: String, p_name: String, p_art: String) -> void:
 	key = p_key
+	ExternalAppearance.announce()
 	_language.initialize(key)
 	Economy.gift_changed.connect(func(record):
 		if key in [record.from, record.to]: gift_event(record))
@@ -198,7 +202,27 @@ func report_position() -> void:
 		VadsLink.send({"type": "walk.position", "actor": key, "scene": scene_id, "zone": actual_zone, "x": feet.x, "y": feet.y, "walking":is_walking(), "targetScene":want_scene, "targetZone":want_zone})
 
 
+var _portrait_checked := false
+var _portrait_texture: Texture2D
 func portrait_frame() -> Dictionary:
+	# Stable UI portrait is independent of walking frames and animation state.
+	if not _portrait_checked:
+		_portrait_checked = true
+		var path := "res://assets/portraits/" + art + ".png"
+		if FileAccess.file_exists(path):
+			var image := Image.new()
+			if image.load_png_from_buffer(FileAccess.get_file_as_bytes(path)) == OK:
+				var bounds := image.get_used_rect()
+				if bounds.size.x > 0 and bounds.size.y > 0:
+					# Square head-and-shoulders crop, fitted to the existing HUD contract.
+					var side := mini(image.get_width(),int(bounds.size.y * 0.76))
+					var left := clampi(int(bounds.get_center().x)-side/2,0,image.get_width()-side)
+					var top := clampi(bounds.position.y,0,image.get_height()-side)
+					image = image.get_region(Rect2i(left,top,side,side))
+					image.resize(185,185,Image.INTERPOLATE_NEAREST)
+					_portrait_texture = ImageTexture.create_from_image(image)
+	if _portrait_texture != null:
+		return {"texture":_portrait_texture,"rect":[0,0,185,185],"anchor":[92.5,278.0]}
 	return {"texture": _walk_tex, "rect": _walk["rects"][0], "anchor": _walk["anchors"][0]}
 
 
@@ -308,7 +332,9 @@ func apply_presence(p: Dictionary) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	var started:=Time.get_ticks_usec() # 2026-11-18 diagnostics only, see VadsLink.note_slow
 	tick(delta)
+	VadsLink.note_slow("character %s %s at %s to %s/%s walking=%s" % [key,scene_id,feet.round(),want_scene,want_zone,is_walking()],started)
 
 
 func tick(delta: float) -> void:
@@ -586,6 +612,15 @@ func _nearby() -> Array:
 	return neighbours.filter(func(c): return c != self and c.placed and c.scene_id == scene_id)
 
 
+## 2026-11-18 owner decision: residents do not block or detour around each other while walking.
+## Two residents meeting in a narrow place (arcade) froze the game in the crowd
+## planner. Service NPCs still block, door entry still steps beside someone, the
+## destination spot is still chosen beside a standing resident (without routing),
+## and gifts/chat poses still use `neighbours`.
+func _bumpable() -> Array:
+	return _nearby().filter(func(c): return not (resident_actor and c.resident_actor))
+
+
 var _spot_memo := ""
 var _spot_memo_value := Vector2.ZERO
 func _spot_for(spot: Vector2) -> Vector2:
@@ -611,7 +646,9 @@ func _spot_for(spot: Vector2) -> Vector2:
 	# reuse the answer while the spot, her rough position and everyone's rough positions are unchanged.
 	var memo := str(scene_id, spot.round(), feet.snapped(Vector2(8,8)), others.map(func(o): return o.snapped(Vector2(4,4))))
 	if memo == _spot_memo:return _spot_memo_value
-	var p = Crowd.standing(Crowd.navigation(WorldData.scenes[scene_id],others,feet), spot, others, feet)
+	# 2026-11-18: residents walk through each other, so a free spot beside the occupied one only needs to be
+	# walkable and clear; no crowd grid or route check (that planner froze the game).
+	var p = Crowd.standing(WorldData.nav(scene_id), spot, others)
 	_spot_memo = memo;_spot_memo_value = p if p != null else spot
 	return _spot_memo_value
 
@@ -645,7 +682,7 @@ func _move(delta: float) -> void:
 	var want: float = (s["run"] if state == State.RUN else s["speed"])*Motion.speed(mood_icon,mood_word)
 	delta = clampf(delta, 0.0, 0.05)
 	velocity = minf(want, velocity + want * delta * 4.0) if velocity < want else maxf(want, velocity - float(s["run"]) * delta * 3.0)
-	var nearby := _nearby()
+	var nearby := _bumpable()
 	var people := nearby.map(func(c): return c.feet)
 	# Door approaches, crowded queues and occupied destinations need the full
 	# route planner. Local steering is for two pedestrians in open travel.
@@ -981,7 +1018,21 @@ func _show_standing(shift: Vector2) -> void:
 	_front_piece(shift)
 
 
+func _appearance_sample(tex:Texture2D,region:Rect2)->Dictionary:
+	var aid:String=_appearance_forced if _appearance_forced!="" else ExternalAppearance.binding(tex,region,art)
+	_appearance_forced=""
+	# Standing uses the first external walk frame, never a walking loop.
+	var clock:Dictionary=_appearance_clocks.get(aid,{"start":_time,"last":_time})
+	if _time-float(clock.last)>0.2:clock.start=_time
+	clock.last=_time;_appearance_clocks[aid]=clock
+	return ExternalAppearance.sample(key,aid,0 if aid.begins_with("walk-") and not is_walking() else _time-float(clock.start))
+
 func _body_sprite(tex: Texture2D, region: Rect2, anchor: Vector2, k: float, shift: Vector2, breathe: float) -> void:
+	var sample:Dictionary=_appearance_sample(tex,region)
+	if not sample.is_empty():
+		var fitted:Dictionary=ExternalAppearance.body_fit(sample,tex,region,anchor,k,float(_walk.scale),stage.get("seat",false))
+		if not fitted.is_empty():
+			tex=fitted.texture;region=fitted.region;anchor=fitted.anchor;k=fitted.scale;breathe=0
 	_sprite.texture = tex
 	_sprite.region_rect = region
 	_sprite.scale = Vector2(k, absf(k))
@@ -998,6 +1049,19 @@ func _body_sprite(tex: Texture2D, region: Rect2, anchor: Vector2, k: float, shif
 
 
 func _place(s: Sprite2D, tex: Texture2D, region: Rect2, at: Rect2) -> void:
+	var sample:Dictionary=_appearance_sample(tex,region)
+	if not sample.is_empty():
+		var calibrated:Dictionary=ExternalAppearance.layer_fit(sample,tex,region,at,float(_walk.scale))
+		if not calibrated.is_empty():
+			s.texture=calibrated.texture;s.region_rect=calibrated.region;s.offset=-calibrated.anchor
+			s.scale=calibrated.scale;s.position=calibrated.position;s.visible=true
+			return
+		# Preserve the original bed/desk layer's visible bounds and aspect ratio.
+		var fitted:Dictionary=ExternalAppearance.fit(sample,tex,region,Vector2.ZERO,1.0)
+		if not fitted.is_empty():
+			s.texture=fitted.texture;s.region_rect=fitted.region;s.offset=-fitted.anchor
+			s.scale=at.size/region.size*float(fitted.scale);s.position=at.position;s.visible=true
+			return
 	s.offset = Vector2.ZERO
 	s.texture = tex
 	s.region_rect = region
@@ -1041,6 +1105,7 @@ func _transferring(item: String) -> bool:
 func _draw_transfer() -> void:
 	var transfer = _items().get("transfer")
 	if not transfer is Dictionary:return
+	if transfer.get("item")=="phone":return # Item state remains real; no detached status icon.
 	var module := {}
 	for m in WorldData.scenes.get(scene_id,{}).get("modules",{}).values():
 		if m.get("kind")=="prop" and m.get("art")==("phoneOff" if transfer.item=="phone" else "phonesDock"):module=m;break
@@ -1071,9 +1136,8 @@ func _accessories(shift: Vector2, head: Rect2, pose: String) -> void:
 		var w := head.size.x + 4.0
 		var art_of := _piece("phones_on_head")
 		_place(_phones, art_of[0], art_of[1], Rect2(shift + head.position + Vector2(head.size.x / 2.0 - w / 2.0, -2.0), Vector2(w, roundf(w * 0.875))))
-	if items.get("phone") == "hand" and not _transferring("phone") and not pose.begins_with("phone") and stage.get("front") != "quilt":
-		var art_of := _piece("phone_in_hand")
-		_place(_phone, art_of[0], art_of[1], Rect2(shift + Vector2(10, -25), Vector2(6, 10)))
+	# Phone use is represented by the body animation, never a floating prop badge.
+	_phone.visible=false
 
 
 func _show_pose() -> void:
@@ -1309,6 +1373,15 @@ func _show_motion_seated_chat(shift:Vector2)->bool:
 	return false
 
 func _show_motion_walk(shift:Vector2)->bool:
+	var aid:String="walk8-"+str(_language.direction8)
+	if ExternalAppearance.sample(key,aid,0).is_empty():aid="walk-"+str(row)
+	if not ExternalAppearance.sample(key,aid,0).is_empty():
+		_appearance_forced=aid
+		var rect:Array=_walk.rects[row*4+1]
+		var a:Array=_walk.anchors[row*4+1]
+		_body_sprite(_walk_tex,Rect2(rect[0],rect[1],rect[2],rect[3]),Vector2(a[0],a[1]),float(_walk.scale),shift,0)
+		_accessories(shift,Rect2(-17,-60,34,29),"")
+		return true
 	var kind:String=Motion.mood(mood_icon,mood_word)
 	if kind=="tired" and _motion_pose(Motion.sample(art,"walk_tired",row,_time,float(_walk.scale)),shift):return true
 	if _motion_pose(Motion.sample(art,"walk8",_language.direction8,_time,float(_walk.scale)),shift):return true

@@ -1,0 +1,759 @@
+[
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 103,
+    "path": "res://qingxi-live/village-center/art/jp/houses/seed_shop.png",
+    "size": [
+      206,
+      103
+    ],
+    "source": "shops"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 83,
+    "path": "res://qingxi-live/village-center/art/jp/houses/general_store.png",
+    "size": [
+      151,
+      92
+    ],
+    "source": "shops"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 98,
+    "path": "res://qingxi-live/village-center/art/jp/houses/livestock_shop.png",
+    "size": [
+      196,
+      103
+    ],
+    "source": "shops"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 113,
+    "path": "res://qingxi-live/village-center/art/jp/houses/community_hall.png",
+    "size": [
+      226,
+      117
+    ],
+    "source": "shops"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 137,
+    "path": "res://qingxi-live/village-center/art/jp/houses/tuantuan_home.png",
+    "size": [
+      228,
+      99
+    ],
+    "source": "homes"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 68,
+    "path": "res://qingxi-live/village-center/art/jp/houses/house_a.png",
+    "size": [
+      180,
+      99
+    ],
+    "source": "homes"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 72,
+    "path": "res://qingxi-live/village-center/art/jp/houses/house_b.png",
+    "size": [
+      204,
+      99
+    ],
+    "source": "homes"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 130,
+    "path": "res://qingxi-live/village-center/art/jp/houses/house_c.png",
+    "size": [
+      201,
+      99
+    ],
+    "source": "homes"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 67,
+    "path": "res://qingxi-live/village-center/art/jp/houses/house_d.png",
+    "size": [
+      188,
+      99
+    ],
+    "source": "homes"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 128,
+    "path": "res://qingxi-live/village-center/art/jp/houses/house_e.png",
+    "size": [
+      199,
+      99
+    ],
+    "source": "homes"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 149,
+    "path": "res://qingxi-live/village-center/art/regions/props/cottage.png",
+    "size": [
+      232,
+      125
+    ],
+    "source": "farm"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 57,
+    "path": "res://qingxi-live/village-center/art/regions/props/greenhouse.png",
+    "size": [
+      114,
+      74
+    ],
+    "source": "farm"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 41,
+    "path": "res://qingxi-live/village-center/art/regions/props/tool_shed.png",
+    "size": [
+      82,
+      58
+    ],
+    "source": "farm"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 99,
+    "path": "res://qingxi-live/village-center/art/regions/props/barn.png",
+    "size": [
+      198,
+      122
+    ],
+    "source": "farm"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 62,
+    "path": "res://qingxi-live/village-center/art/regions/props/sheep_shed.png",
+    "size": [
+      124,
+      74
+    ],
+    "source": "farm"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 52,
+    "path": "res://qingxi-live/village-center/art/regions/props/pig_sty.png",
+    "size": [
+      104,
+      74
+    ],
+    "source": "farm"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 98,
+    "path": "res://qingxi-live/village-center/art/jp/houses/shrine.png",
+    "size": [
+      196,
+      102
+    ],
+    "source": "landmark_buildings"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 31,
+    "path": "res://qingxi-live/village-center/art/jp/houses/fire_tower.png",
+    "size": [
+      62,
+      205
+    ],
+    "source": "landmark_buildings"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 86,
+    "path": "res://qingxi-live/village-center/art/jp/houses/watermill.png",
+    "size": [
+      172,
+      91
+    ],
+    "source": "landmark_buildings"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 83,
+    "path": "res://qingxi-live/village-center/art/jp/houses/bathhouse.png",
+    "size": [
+      200,
+      144
+    ],
+    "source": "landmark_buildings"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 63,
+    "path": "res://qingxi-live/village-center/art/regions/props/fry_shop.png",
+    "size": [
+      126,
+      88
+    ],
+    "source": "utility"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 26,
+    "path": "res://qingxi-live/village-center/art/regions/props/silo.png",
+    "size": [
+      50,
+      135
+    ],
+    "source": "utility"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 54,
+    "path": "res://qingxi-live/village-center/art/regions/props/windmill.png",
+    "size": [
+      109,
+      146
+    ],
+    "source": "utility"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 36,
+    "path": "res://qingxi-live/village-center/art/jp/houses/arcade.png",
+    "size": [
+      72,
+      58
+    ],
+    "source": "utility"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/jp/landmarks/torii.png",
+    "size": [
+      102,
+      78
+    ],
+    "source": "landmark_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/jp/landmarks/bus.png",
+    "size": [
+      91,
+      60
+    ],
+    "source": "landmark_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/jp/landmarks/bench.png",
+    "size": [
+      58,
+      14
+    ],
+    "source": "landmark_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/jp/landmarks/lamp.png",
+    "size": [
+      24,
+      56
+    ],
+    "source": "landmark_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/jp/landmarks/fire.png",
+    "size": [
+      54,
+      26
+    ],
+    "source": "landmark_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/jp/landmarks/board.png",
+    "size": [
+      61,
+      45
+    ],
+    "source": "landmark_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/jp/landmarks/mail.png",
+    "size": [
+      18,
+      38
+    ],
+    "source": "landmark_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/jp/landmarks/jizo.png",
+    "size": [
+      20,
+      28
+    ],
+    "source": "landmark_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/jp/landmarks/well.png",
+    "size": [
+      54,
+      68
+    ],
+    "source": "landmark_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 27,
+    "path": "res://qingxi-live/village-center/art/regions/props/well.png",
+    "size": [
+      54,
+      68
+    ],
+    "source": "landmark_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 23,
+    "path": "res://qingxi-live/village-center/art/regions/props/bench.png",
+    "size": [
+      46,
+      22
+    ],
+    "source": "landmark_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 10,
+    "path": "res://qingxi-live/village-center/art/regions/props/lantern.png",
+    "size": [
+      19,
+      60
+    ],
+    "source": "landmark_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": 11,
+    "path": "res://qingxi-live/village-center/art/regions/props/mailbox.png",
+    "size": [
+      20,
+      36
+    ],
+    "source": "landmark_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/garden-v3/sprites/stone_h.png",
+    "size": [
+      144,
+      72
+    ],
+    "source": "bridges"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/garden-v3/sprites/wood_h.png",
+    "size": [
+      144,
+      72
+    ],
+    "source": "bridges"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/garden-v3/sprites/stone_v.png",
+    "size": [
+      72,
+      128
+    ],
+    "source": "bridges"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/garden-v3/sprites/wood_v.png",
+    "size": [
+      72,
+      128
+    ],
+    "source": "bridges"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/shipping_bin.png",
+    "size": [
+      46,
+      27
+    ],
+    "source": "farm_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/beehive.png",
+    "size": [
+      34,
+      30
+    ],
+    "source": "farm_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/wheelbarrow.png",
+    "size": [
+      42,
+      21
+    ],
+    "source": "farm_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/haybale.png",
+    "size": [
+      32,
+      16
+    ],
+    "source": "farm_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/haystack.png",
+    "size": [
+      48,
+      48
+    ],
+    "source": "farm_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/barrel.png",
+    "size": [
+      20,
+      26
+    ],
+    "source": "farm_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/crate.png",
+    "size": [
+      24,
+      30
+    ],
+    "source": "farm_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/milk_cans.png",
+    "size": [
+      33,
+      23
+    ],
+    "source": "farm_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/pump.png",
+    "size": [
+      38,
+      36
+    ],
+    "source": "farm_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/cart.png",
+    "size": [
+      62,
+      30
+    ],
+    "source": "farm_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/boat.png",
+    "size": [
+      62,
+      16
+    ],
+    "source": "farm_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/laundry.png",
+    "size": [
+      63,
+      42
+    ],
+    "source": "farm_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/scarecrow.png",
+    "size": [
+      28,
+      60
+    ],
+    "source": "farm_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/compost.png",
+    "size": [
+      38,
+      24
+    ],
+    "source": "farm_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/watering_can.png",
+    "size": [
+      24,
+      18
+    ],
+    "source": "farm_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/fence_h.png",
+    "size": [
+      34,
+      27
+    ],
+    "source": "farm_props"
+  },
+  {
+    "foot_baseline": 92,
+    "frame_size": [
+      112,
+      96
+    ],
+    "frames": 16,
+    "path": "res://qingxi-live/village-center/art/garden-v3/animals/cow.png",
+    "rows": [
+      "south",
+      "west",
+      "north",
+      "east"
+    ],
+    "source": "cow"
+  },
+  {
+    "foot_baseline": 92,
+    "frame_size": [
+      112,
+      96
+    ],
+    "frames": 16,
+    "path": "res://qingxi-live/village-center/art/garden-v3/animals/sheep.png",
+    "rows": [
+      "south",
+      "west",
+      "north",
+      "east"
+    ],
+    "source": "sheep"
+  },
+  {
+    "foot_baseline": 92,
+    "frame_size": [
+      112,
+      96
+    ],
+    "frames": 16,
+    "path": "res://qingxi-live/village-center/art/garden-v3/animals/pig.png",
+    "rows": [
+      "south",
+      "west",
+      "north",
+      "east"
+    ],
+    "source": "pig"
+  },
+  {
+    "foot_baseline": 92,
+    "frame_size": [
+      112,
+      96
+    ],
+    "frames": 16,
+    "path": "res://qingxi-live/village-center/art/garden-v3/animals/sheep_shorn.png",
+    "rows": [
+      "south",
+      "west",
+      "north",
+      "east"
+    ],
+    "source": "sheep_shorn"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/rod_rack.png",
+    "size": [
+      42,
+      47
+    ],
+    "source": "finishing_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/drying_rack.png",
+    "size": [
+      43,
+      34
+    ],
+    "source": "finishing_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/signpost.png",
+    "size": [
+      42,
+      42
+    ],
+    "source": "finishing_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/regions/props/fence_v.png",
+    "size": [
+      6,
+      56
+    ],
+    "source": "finishing_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/garden-v3/sprites/trough_water.png",
+    "size": [
+      28,
+      12
+    ],
+    "source": "finishing_props"
+  },
+  {
+    "alpha": "binary",
+    "baseline": "bottom",
+    "door_x": -1,
+    "path": "res://qingxi-live/village-center/art/garden-v3/sprites/trough_feed.png",
+    "size": [
+      28,
+      12
+    ],
+    "source": "finishing_props"
+  }
+]

@@ -55,12 +55,23 @@ var view_scene := ""
 var follow := 0
 var characters: Array[Character] = []
 var frame_rect := Rect2()
-var card_rects: Array[Rect2] = []
+const CARD_HEIGHT := 124.0
+const CARD_STEP := 130.0
+var _card_view: ScrollContainer
+var _card_canvas: Control
+var _card_hits: Array = []
+var _card_mouse := Vector2(-1, -1)
+var _draw_on: CanvasItem
 var decor_area := Rect2()
 var tabs_bottom := 58.0
 var grass_height := 28.0
 
 var _hits: Array = []
+## 2026-11-19 Claude: while you are in 清溪村 the top bar lists 清溪村's places instead of Cabin World's
+## rooms (set by core/qingxi_host.gd): [{"id", "label", "icon"}]; place_on = where you are.
+var places: Array = []
+var place_on := ""
+var world_title := "小屋世界"
 var _mouse := Vector2(-1, -1)
 var _font: SystemFont
 var _bold: SystemFont
@@ -70,6 +81,7 @@ var _weather: WeatherBadge
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
+	_draw_on = self
 	_font = SystemFont.new()
 	_font.font_names = PackedStringArray(["Microsoft YaHei UI", "Microsoft YaHei", "SimHei"])
 	_bold = SystemFont.new()
@@ -80,10 +92,32 @@ func _ready() -> void:
 		if ResourceLoader.exists(file): _decor[k] = load(file)
 	_weather = WeatherBadge.new()
 	add_child(_weather)
+	_card_view = ScrollContainer.new()
+	_card_view.name = "ResidentCards"
+	_card_view.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_card_view.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+	_card_view.z_index = 2
+	add_child(_card_view)
+	_card_canvas = Control.new()
+	_card_canvas.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_card_canvas.mouse_filter = Control.MOUSE_FILTER_PASS
+	_card_canvas.draw.connect(_draw_cards)
+	_card_canvas.gui_input.connect(_card_input)
+	_card_canvas.mouse_exited.connect(func():
+		_card_mouse = Vector2(-1, -1)
+		_card_canvas.tooltip_text = ""
+		_card_canvas.queue_redraw())
+	_card_view.add_child(_card_canvas)
+	var scrollbar := _card_view.get_v_scroll_bar()
+	for state in ["scroll", "grabber", "grabber_highlight", "grabber_pressed"]:
+		var style := StyleBoxFlat.new()
+		style.bg_color = WOOD_D if state == "scroll" else WOOD_H if state == "grabber" else PAPER_D
+		style.set_content_margin_all(5)
+		scrollbar.add_theme_stylebox_override(state, style)
 	var refresh := Timer.new()
 	refresh.wait_time = 0.25
 	refresh.autostart = true
-	refresh.timeout.connect(queue_redraw)
+	refresh.timeout.connect(func():queue_redraw();_card_canvas.queue_redraw())
 	add_child(refresh)
 
 
@@ -122,7 +156,7 @@ func _notification(what: int) -> void:
 
 
 func _box(x: float, y: float, w: float, h: float, c: Color) -> void:
-	draw_rect(Rect2(x, y, w, h), c)
+	_draw_on.draw_rect(Rect2(x, y, w, h), c)
 
 
 func _notched(x: float, y: float, w: float, h: float, c: Color, n := U) -> void:
@@ -160,7 +194,34 @@ func _icon(def: Array, x: float, y: float) -> void:
 
 
 func _text(s: String, x: float, baseline: float, width: float, size: int, c: Color, font: Font = null, center := false) -> void:
-	draw_string(font if font else _font, Vector2(x, baseline), s, HORIZONTAL_ALIGNMENT_CENTER if center else HORIZONTAL_ALIGNMENT_LEFT, width, size, c)
+	_draw_on.draw_string(font if font else _font, Vector2(x, baseline), s, HORIZONTAL_ALIGNMENT_CENTER if center else HORIZONTAL_ALIGNMENT_LEFT, width, size, c)
+
+func layout_cards(area: Rect2) -> void:
+	_card_view.position = area.position
+	_card_view.size = area.size
+	_card_view.visible = area.has_area()
+	_card_canvas.custom_minimum_size.y = maxf(0.0, characters.size() * CARD_STEP - 6.0)
+	_card_canvas.queue_redraw()
+
+func _draw_cards() -> void:
+	_draw_on = _card_canvas
+	_card_hits.clear()
+	for index in characters.size():
+		_draw_card(index, 0.0, index * CARD_STEP, _card_canvas.size.x, CARD_HEIGHT)
+	_draw_on = self
+
+func _card_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		_card_mouse = event.position
+		_card_canvas.tooltip_text = ""
+		_card_canvas.queue_redraw()
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		for hit in _card_hits:
+			if hit[0].has_point(event.position):
+				if hit[2] == "@follow": follow_picked.emit(hit[1])
+				else: character_picked.emit(hit[1])
+				_card_canvas.accept_event()
+				return
 
 
 func _draw() -> void:
@@ -169,9 +230,6 @@ func _draw() -> void:
 	var H := size.y
 	_draw_beam_and_tabs(W)
 	_wood(frame_rect.position.x - 4 * U, frame_rect.position.y - 4 * U, frame_rect.size.x + 8 * U, frame_rect.size.y + 8 * U)
-	for i in card_rects.size():
-		var r := card_rects[i]
-		_draw_card(i, r.position.x, r.position.y, r.size.x, r.size.y)
 	if decor_area.size.y > 0.0:
 		_draw_decor(decor_area.position.x, decor_area.position.y, decor_area.size.x, decor_area.end.y)
 
@@ -185,9 +243,9 @@ func _draw_beam_and_tabs(W: float) -> void:
 		_box(i * 37 * U + 4 * U, 3 * U, 11 * U, U, WOOD_L)
 		i += 1
 	var x := 12.0
-	if W >= 1040.0:
+	if _show_title(W):
 		_paper(x, 11, 118, 40)
-		_text("小屋世界", x + 4, 37, 110, 15, INK, _bold, true)
+		_text(world_title, x + 4, 37, 110, 15, INK, _bold, true) ## 2026-11-19 Claude: 清溪村 while you are there
 		_box(x + 20, beam, U, 11 - beam, WOOD_D)
 		_box(x + 96, beam, U, 11 - beam, WOOD_D)
 		x += 132.0
@@ -198,39 +256,81 @@ func _draw_beam_and_tabs(W: float) -> void:
 		x = area.position.x
 		var w := area.size.x
 		var y := area.position.y + (3.0 if area.has_point(_mouse) else 1.0)
-		var on: bool = view_scene == id
+		var on: bool = view_scene == id if places.is_empty() else place_on == id ## 2026-11-19 Claude
 		_notched(x, y, w, 38, WOOD_D)
 		_notched(x + U, y + U, w - 2 * U, 38 - 2 * U, PAPER if on else WOOD)
 		_box(x + 2 * U, y + U, w - 4 * U, U, PAPER_H if on else WOOD_H)
 		_box(x + 2 * U, y + 38 - 2 * U, w - 4 * U, U, PAPER_D if on else WOOD_S)
-		if id == "@settings":
+		var show_icon:bool = entry.get("icon",true)
+		if not show_icon: pass
+		elif id == "@settings":
 			_icon([["..wwww..", ".ww..ww.", "ww.ww.ww", "w.w..w.w", "w.w..w.w", "ww.ww.ww", ".ww..ww.", "..wwww.."], {"w":"fdf3dd"}], x+6, y+11)
 		elif id == "@home-editor":
 			_icon([["ww....ww","ww....ww","wwwwwwww","wwwwwwww","..wwww..","..wwww..","..w..w..","..w..w.."],{"w":"fdf3dd"}],x+6,y+11)
-		else: _icon(ICONS.get(id,ICONS["qianxia-home"]), x + 3 * U, y + 11)
-		_text(name_of, x + 27, y + 25, w-27, 14, INK if on else CREAM)
+		else: _icon(ICONS.get(_place_icon(id),ICONS["qianxia-home"]), x + 3 * U, y + 11)
+		var inset := 27 if show_icon else 7
+		_text(name_of, x + inset, y + 25, w-inset, 14, INK if on else CREAM)
 		_hits.append([area, -1, id])
-		var present := occupants(id)
+		var present := occupants(id).slice(0, 3)
 		for j in present.size():
 			var index: int = present[j]
 			var portrait := Rect2(area.end.x-8-(present.size()-j)*24,y+7,24,24)
 			_draw_avatar(characters[index],portrait)
 		if area.has_point(_mouse):
-			tooltip_text = name_of + (" · " + "、".join(PackedStringArray(present.map(func(k): return characters[k].display_name))) if not present.is_empty() else "")
-	_weather.position = Vector2(W-422,8)
-	_weather.size = Vector2(410,46)
+			tooltip_text = str(entry.get("full",name_of)) + (" · " + "、".join(PackedStringArray(present.map(func(k): return characters[k].display_name))) if not present.is_empty() else "")
+	var badge := _badge_width(W)
+	_weather.position = Vector2(W-badge-12,8)
+	_weather.size = Vector2(badge,46)
+
+func _badge_width(width:float)->float:
+	return 320.0 if not places.is_empty() and width<1560 else 410.0
+
+func _show_title(width:float)->bool:
+	return width >= (1350.0 if not places.is_empty() else 1040.0)
+
+const SHORT_PLACES = {"qx:@home":"回小屋世界","qx:seedshop":"种子店","qx:livestockshop":"畜牧铺","qx:room_private":"自家小屋","qx:meadow":"农场"}
+
+func village_layout(width:float)->Array:
+	var start := 144.0 if _show_title(width) else 12.0
+	var limit := width-_badge_width(width)-20.0
+	var tabs := places.duplicate()
+	tabs.append({"id":"@settings","label":"设置"})
+	# First try full names, then abbreviations, then text-only buttons for narrow windows.
+	for style in 3:
+		var result := []
+		var x := start
+		var y := 10.0
+		var gap := 6.0 if style==0 else 3.0
+		for place in tabs:
+			var full := str(place.label)
+			var label := full if style==0 else str(SHORT_PLACES.get(place.id,full))
+			var pixels := ceilf(_font.get_string_size(label,HORIZONTAL_ALIGNMENT_LEFT,-1,14).x) if _font else label.length()*14.0
+			var w := pixels + (35.0 if style<2 else 12.0) + mini(3,occupants(place.id).size())*24.0
+			if x+w>limit and not result.is_empty():
+				if style<2:break
+				x=12.0
+				y+=46.0
+				limit=width-12.0
+			result.append({"id":place.id,"label":label,"full":full,"icon":style<2,"area":Rect2(x,y,w,42)})
+			x+=w+gap
+		if result.size()==tabs.size():
+			tabs_bottom=y+48
+			return result
+	return []
 
 ## Settings follows the supplied room list, including rooms added in the future.
 func navigation_layout(width: float, order: Array = []) -> Array:
+	if not places.is_empty():return village_layout(width)
 	var result := []
 	var x := 144.0 if width >= 1040 else 12.0
 	var y := 10.0
 	var limit := width-438.0
 	var ids := WorldData.available_order() if order.is_empty() else order.duplicate()
+	ids = ids.filter(func(i): return not WorldData.scenes.get(i, {}).get("noRoom", false)) ## 2026-11-20 Claude (qingxi-residents): no tab for 清溪村 (the bus takes you)
 	ids.append("@settings")
 	for id in ids:
 		var label := "布置家具 F6" if id=="@home-editor" else "设置" if id=="@settings" else str(TAB_NAMES.get(id,WorldData.scenes.get(id,{}).get("name",id)))
-		var w := 48.0+label.length()*14.0+(0.0 if str(id).begins_with("@") else maxf(2,characters.size())*24.0)
+		var w := 48.0+label.length()*14.0+(0.0 if str(id).begins_with("@") else clampi(characters.size(),2,3)*24.0)
 		if x+w>limit and x>12:
 			x = 12
 			y += 46
@@ -238,6 +338,12 @@ func navigation_layout(width: float, order: Array = []) -> Array:
 		x += w+8
 	tabs_bottom = y+48
 	return result
+
+## 2026-11-19 Claude: a 清溪村 place borrows one of the room icons.
+func _place_icon(id: String) -> String:
+	for p in places:
+		if p.id == id: return str(p.icon)
+	return id
 
 func occupants(id: String) -> Array:
 	var present := []
@@ -259,7 +365,7 @@ func _draw_card(index: int, x: float, y: float, w: float, h: float) -> void:
 		return
 	var c: Character = characters[index]
 	var area := Rect2(x, y, w, h)
-	_paper(x, y, w, h, area.has_point(_mouse))
+	_paper(x, y, w, h, area.has_point(_card_mouse))
 	var ps := h - 12 * U
 	var px := x + 6 * U
 	var py := y + 6 * U
@@ -272,7 +378,7 @@ func _draw_card(index: int, x: float, y: float, w: float, h: float) -> void:
 	# The head and shoulders of her standing frame.
 	var src := Rect2(float(r[0]) + float(an[0]) - 92.5, float(r[1]) + float(an[1]) - 278.0, 185.0, 185.0)
 	var tint := Color(1, 1, 1, 0.55) if c.sleeping else Color.WHITE
-	draw_texture_rect_region(f["texture"], Rect2(px, py, ps, ps), src, tint)
+	_draw_on.draw_texture_rect_region(f["texture"], Rect2(px, py, ps, ps), src, tint)
 	var tx := px + ps + 5 * U
 	var tw := x + w - tx - 5 * U
 	_text(c.display_name, tx, y + 5 * U + 18, tw, 17, INK, _bold)
@@ -284,8 +390,8 @@ func _draw_card(index: int, x: float, y: float, w: float, h: float) -> void:
 	_box(fx, fy, tag_w, 20, RED if following else PAPER_D)
 	_box(fx, fy + 18, tag_w, 2, Color("8f3a2a") if following else WOOD_L)
 	_text("跟随中" if following else "跟随", fx, fy + 15, tag_w, 13, CREAM if following else INK2, _bold, true)
-	_hits.append([Rect2(fx, fy, tag_w, 20), index, "@follow"])
-	_hits.append([area, index, ""])
+	_card_hits.append([Rect2(fx, fy, tag_w, 20), index, "@follow"])
+	_card_hits.append([area, index, ""])
 	var ly := y + 5 * U + 28
 	_icon(PIN, tx, ly + 3)
 	var where: String = "还没有数据"
@@ -315,12 +421,12 @@ func _draw_card(index: int, x: float, y: float, w: float, h: float) -> void:
 		var closeness := clampi(int(bond.get("closeness", 0)), 0, 100)
 		_icon([[".rr.rr.", "rrrrrrr", "rrrrrrr", ".rrrrr.", "..rrr..", "...r..."], {"r":"c45663"}], bx, by + 1)
 		_text(str(closeness), bx + 19, by + 13, 35, 12, INK2, _bold)
-		if Rect2(bx-3,by-3,60,22).has_point(_mouse):
-			tooltip_text = "与" + str(Residents.person(c.key).get("peer_name", "同伴")) + "的友谊 · %d/100" % closeness + "\n" + Life.bond_word(closeness)
+		if Rect2(bx-3,by-3,60,22).has_point(_card_mouse):
+			_card_canvas.tooltip_text = "与" + str(Residents.person(c.key).get("peer_name", "同伴")) + "的友谊 · %d/100" % closeness + "\n" + Life.bond_word(closeness)
 	_box(tx, ly + 22, tw, 2, PAPER_D)
 	var doing:String=preload("res://ui/resident_status.gd").status(c.action_label,c.sleeping,c.label,c.place,c.scene_id,c.want_zone,c.is_walking())
 	if c.is_thinking():doing+="\n"+("正在思考…" if SharedFeed.now_ms()-c.thinking_since<30000 else "思考较久 · 等待回复")
-	draw_multiline_string(_font, Vector2(tx, ly + 42), doing, HORIZONTAL_ALIGNMENT_LEFT, tw, 13, 2, INK2)
+	_draw_on.draw_multiline_string(_font, Vector2(tx, ly + 42), doing, HORIZONTAL_ALIGNMENT_LEFT, tw, 13, 2, INK2)
 
 
 func _stand(key: String, x: float, base: float, k := 1.5) -> void:

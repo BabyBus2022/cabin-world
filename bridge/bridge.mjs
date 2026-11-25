@@ -19,6 +19,11 @@ import { Arcade, ARCADE_NAMES } from './lib/arcade.mjs';
 import { CustomFurniture } from './lib/custom-furniture.mjs';
 import { virtualWeather } from './lib/weather.mjs';
 import { discover } from './lib/discovery.mjs';
+import {farmClaimProblem} from './lib/farm-truth.mjs';
+import { ResidentLife } from './lib/resident-life.mjs';
+import { PlayerGames } from './lib/player-games.mjs';
+import {groupTurn} from './lib/group-turn.mjs';
+import {farmSummary} from './lib/qingxi-use.mjs';
 import { Updater, readDescriptions, filterCatalog } from './lib/update.mjs';
 import { firstRun } from './lib/first-run.mjs';
 import { Processes } from './lib/processes.mjs';
@@ -62,7 +67,7 @@ export async function startBridge(cfg, { launch = cfg.launchGame, engineArgs = [
   const descriptions = readDescriptions(cfg.modules || path.join(HERE, 'update', 'modules.json'));
   // First 1.1 start: back up a 1.0 install, move its layouts inside, and keep the "ask" modules off (lib/first-run.mjs).
   const first = firstRun({ dataDir: cfg.dataDir, installDir: path.dirname(cfg.gameExe), descriptions });
-  if (!first.skipped) log(first.upgrade ? '检测到旧存档：已备份到 ' + first.backup + '；可选更新先保留原版，请安装 AI 用 cabin_update_plan 逐项介绍并按用户选择启用。' : '第一次启动 1.1：可选内容先保持关闭，请安装 AI 用 cabin_update_plan 逐项介绍，或使用 update.cmd 选择。');
+  if (!first.skipped) log(first.upgrade ? '检测到旧存档：已备份到 ' + first.backup + '；可选更新先保留原版，请安装 AI 用 cabin_update_plan 逐项介绍并按用户选择启用。' : '小屋世界 1.2 的新版功能已启用，现在可以直接游玩。');
   const updater = new Updater({ dataDir: cfg.dataDir, installDir:path.dirname(cfg.gameExe), descriptions });
   const catalog = filterCatalog(JSON.parse(fs.readFileSync(cfg.catalog, 'utf8')), updater.flags());
   await fsp.mkdir(path.join(cfg.dataDir, 'world'), { recursive: true });
@@ -78,6 +83,11 @@ export async function startBridge(cfg, { launch = cfg.launchGame, engineArgs = [
   const arcade=new Arcade(host);resident.arcade=arcade;
   const events = []; let eventSeq = 0;
   const pushEvent = e => { events.push({ seq: ++eventSeq, at: Date.now(), ...e }); if (events.length > 200) events.shift(); };
+  const policy=JSON.parse(fs.readFileSync(path.join(HERE,'resident-policy.json'),'utf8'));
+  const flags=updater.flags();
+  const invitations=new PlayerGames(host,arcade,residents,flags);
+  const life=new ResidentLife({folder:cfg.dataDir,flags,residents,ready:()=>ready,dispatch:(n,a)=>TOOLS[n](a),event:pushEvent});
+  let nextInvite=Date.now()+30*60000;
   const furniture=new CustomFurniture(host,pushEvent);
   resident.on('event',e=>pushEvent({...e,actor:resident.key}));
   const configured=new Map([[cfg.resident,{key:cfg.resident,name:cfg.displayName}],...(cfg.residents||[]).map(r=>[r.key,r])]);
@@ -125,7 +135,12 @@ export async function startBridge(cfg, { launch = cfg.launchGame, engineArgs = [
   const detachResident=key=>{configured.delete(key);residents.get(key)?.dispose();residents.delete(key);for(const r of residents.values()){r.spaces.delete('visit_'+key);r.visits?.delete('visit_'+key);r.objects.delete('home_chess_visit_'+key);}};
   host.on('frame', f => { if(f.type==='resident.changed'&&ready){if(f.removed)detachResident(f.actor);else void installResident({key:f.actor}).catch(e=>log(e.message));} if (f.type === 'quit') log('游戏窗口关闭了'); });
   await host.start();
-  const timer = setInterval(() => { sendWeather(); for(const r of residents.values())r.publish(); }, 15000); timer.unref();
+  const timer = setInterval(() => { sendWeather(); for(const r of residents.values())r.publish();
+    if(ready&&flags.invites12&&Date.now()>=nextInvite){
+      nextInvite=Date.now()+(35+Math.random()*35)*60000;
+      const r=[...residents.values()].find(x=>!x.task&&!x.view?.options?.paused&&x.space==='arcade');
+      if(r){try{invitations.offer(r,'xiangqi',r.name+'想在电玩城和你下一盘象棋。');}catch{/* table occupied */}}
+    } }, 15000); timer.unref();
 
   // ---- HTTP ----
   const token = randomBytes(24).toString('hex');
@@ -135,11 +150,15 @@ export async function startBridge(cfg, { launch = cfg.launchGame, engineArgs = [
   const need = () => { if (!host.connected) throw Object.assign(Error('游戏没有打开或还没连上。请先打开小屋世界。'), { status: 503 }); };
   const select=a=>{const key=a.actor||cfg.resident;const r=residents.get(key);if(!r)throw Error('没有接入这位住户：'+key);return r;};
   const TOOLS = {
+    cabin_group_turn:a=>groupTurn(a,policy,flags.groupContext12!==false),
     // 1.1 modules: work with the game closed; a change takes effect when the game restarts.
+    cabin_game_context:a=>{need();const r=select(a);return {ok:true,stable:{version:'1.2',budget:flags.residentBudget12?policy.budget:[],group:flags.groupContext12?policy.group:[],rules:['一次做一个身体动作。','使用 cabin_plan 安排空闲后的动作。','农场数量和完成情况以游戏回执为准。','用 cabin_catalog 按地点查询物品和动作。']},live:{resident:r.status(),farm:farmSummary(r._qingxiFarm),receipts:r._qingxiLog?.slice(-8)||[],claimIssue:a.claim?farmClaimProblem(r,String(a.claim)):''}};},
+    cabin_plan:a=>{need();return life.handle(select(a).key,a);},
+    cabin_invite_player:a=>{need();return invitations.offer(select(a),a.game,a.words);},
     cabin_update_plan: () => updater.plan(),
     cabin_update_apply: a => updater.apply(a.modules, a.reason),
     cabin_update_undo: () => updater.undo(),
-    cabin_catalog: async a=>{need();const r=select(a);return discover(r,await furniture.list(r),a);},
+    cabin_catalog: async a=>{need();const r=select(a);return discover(r,await furniture.list(r),a,await r.offers());},
     cabin_task: a=>{const t=select(a).tasks.get(a.taskId);if(!t)throw Error('没有这个任务，或任务不属于当前住户；重启后请查看状态与事件记录');return taskView(t);},
     cabin_furniture: async a=>{need();return {ok:true,objects:await furniture.list(select(a))};},
     cabin_residents: async a=>{need();return host.request('resident.do',{action:'list'},{replyType:'resident.result'});},
@@ -165,11 +184,15 @@ export async function startBridge(cfg, { launch = cfg.launchGame, engineArgs = [
       if(base)guest.objects.set(object,{...base,id:object,space:id,arcadeBoard:owner.homeBoard,arcadeSeats:owner.homeSeats});
       return {ok:true,guest:guest.key,place:id,chessObject:base?object:null,note:'已允许来访；客人仍需自行调用工具走来或入座'};
     },
-    cabin_status: a => ({ ok: true, actor:select(a).key, ...select(a).status() }),
-    cabin_look: async a => ({ ok: true, actor:select(a).key, ...select(a).look(),customFurniture:await furniture.list(select(a)) }),
+    cabin_status: async a => {
+      const r=select(a);
+      if(ready&&host.connected)await r.eco('life_view',{who:r.who,now:r.now(),weather:r.weatherNow(),space:r.space});
+      return {ok:true,actor:r.key,...r.status()};
+    },
+    cabin_look: async a => ({ ok: true, actor:select(a).key, ...await select(a).look(),customFurniture:await furniture.list(select(a)) }),
     cabin_go: a => { need(); return select(a).go(a.place, a.zone); },
     cabin_use: a => { need(); return String(a.object).startsWith('made/')?furniture.use(select(a),a.object,a.use):select(a).use(a.object, a.use, a); },
-    cabin_buy: a => { need(); return select(a).buy(a.product, { feeling: a.feeling }); },
+    cabin_buy: a => { need(); return select(a).buy(a.product, { feeling: a.feeling, drinkHere:a.drinkHere===true }); },
     cabin_eat: a => { need(); return select(a).eat(a.product, { feeling: a.feeling }); },
     cabin_stop: a => select(a).stop(a.reason||'自己决定或用户要求结束',a.action||'stop'),
     cabin_rename: async a=>{need();const r=select(a);const result=await r.rename(a.name);await installResident({key:r.key});return result;},
@@ -207,7 +230,7 @@ export async function startBridge(cfg, { launch = cfg.launchGame, engineArgs = [
       if (route === 'GET /v1/look') return send(200, await runTool('cabin_look',{actor:url.searchParams.get('actor')}));
       if (route === 'GET /v1/catalog') {
         if(['query','space','object','offset','limit'].some(k=>url.searchParams.has(k)))return send(200,await runTool('cabin_catalog',Object.fromEntries(url.searchParams)));
-        need();const r=select({actor:url.searchParams.get('actor')});return send(200,{...catalog,spaces:[...r.spaces.values()],objects:[...r.objects.values()],customFurniture:await furniture.list(r)});
+        need();const r=select({actor:url.searchParams.get('actor')});return send(200,{...catalog,products:await r.offers(),spaces:[...r.spaces.values()],objects:[...r.objects.values()],customFurniture:await furniture.list(r)});
       }
       if (route === 'GET /v1/tools') return send(200, JSON.parse(fs.readFileSync(path.join(HERE, 'openai-tools.json'), 'utf8')));
       if (route === 'GET /v1/events') { const after = Number(url.searchParams.get('after') || 0); return send(200, { ok: true, last: eventSeq, events: events.filter(e => e.seq > after) }); }
@@ -245,12 +268,15 @@ export async function startBridge(cfg, { launch = cfg.launchGame, engineArgs = [
       // 1.1: furniture layouts live in <data>/layouts (1.0 wrote them into the folder above the install; first-run copied them).
       const layoutArgs = userArgs.includes('--layout') ? [] : ['--layout', path.join(cfg.dataDir, 'layouts', 'home-grid-layout.json')];
       fs.mkdirSync(path.join(cfg.dataDir, 'layouts'), { recursive: true });
-      child = spawn(cfg.gameExe, [...engineArgs, '--', '--data', cfg.dataDir, ...layoutArgs, ...userArgs], { stdio: 'ignore', detached: !owned, windowsHide: owned });
+      const binary = path.join(path.dirname(cfg.gameExe),'CabinWorld.engine.exe');
+      const packaged = path.basename(cfg.gameExe).toLowerCase() === 'cabinworld.exe' && fs.existsSync(binary);
+      const engine = packaged ? binary : cfg.gameExe;
+      child = spawn(engine, [...engineArgs, '--', '--data', cfg.dataDir, ...layoutArgs, ...userArgs], { stdio: 'ignore', detached: !owned, windowsHide: owned });
       child.on('error', e => log('启动游戏失败：' + e.message)); if (!owned) child.unref();
       log('已打开游戏窗口');
     }
   }
-  const close = async () => { clearInterval(timer);for(const r of residents.values())r.processes?.close(); await new Promise(r => server.close(r)); await host.close(); try { const row = JSON.parse(await fsp.readFile(infoFile, 'utf8')); if (row.token === token) await fsp.unlink(infoFile); } catch { /* 已删除 */ } };
+  const close = async () => { life.close();clearInterval(timer);for(const r of residents.values())r.processes?.close(); await new Promise(r => server.close(r)); await host.close(); try { const row = JSON.parse(await fsp.readFile(infoFile, 'utf8')); if (row.token === token) await fsp.unlink(infoFile); } catch { /* 已删除 */ } };
   return { host, resident, residents, arcade, furniture, get ready(){return ready;}, server, url, token, close, child, runTool };
 }
 

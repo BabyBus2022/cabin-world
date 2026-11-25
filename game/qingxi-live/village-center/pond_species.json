@@ -1,0 +1,86 @@
+{
+  "crucian": {
+    "name": "银鲫",
+    "min": 15,
+    "max": 38,
+    "pixels": 21,
+    "weight": 20
+  },
+  "koi": {
+    "name": "锦鲤",
+    "min": 32,
+    "max": 88,
+    "pixels": 32,
+    "weight": 13
+  },
+  "bass": {
+    "name": "大口黑鲈",
+    "min": 30,
+    "max": 62,
+    "pixels": 28,
+    "weight": 16
+  },
+  "catfish": {
+    "name": "鲶鱼",
+    "min": 42,
+    "max": 105,
+    "pixels": 40,
+    "weight": 12
+  },
+  "trout": {
+    "name": "虹鳟",
+    "min": 32,
+    "max": 77,
+    "pixels": 31,
+    "weight": 12
+  },
+  "bluegill": {
+    "name": "蓝鳃太阳鱼",
+    "min": 12,
+    "max": 29,
+    "pixels": 18,
+    "weight": 14
+  },
+  "pike": {
+    "name": "白斑狗鱼",
+    "min": 55,
+    "max": 125,
+    "pixels": 44,
+    "weight": 7
+  },
+  "perch": {
+    "name": "黄鲈",
+    "min": 16,
+    "max": 42,
+    "pixels": 23,
+    "weight": 12
+  },
+  "arapaima": {
+    "name": "巨骨舌鱼",
+    "min": 135,
+    "max": 300,
+    "pixels": 83,
+    "weight": 2
+  },
+  "sturgeon": {
+    "name": "欧洲鳇",
+    "min": 165,
+    "max": 420,
+    "pixels": 100,
+    "weight": 1
+  },
+  "gar": {
+    "name": "大雀鳝",
+    "min": 105,
+    "max": 235,
+    "pixels": 72,
+    "weight": 2
+  },
+  "paddlefish": {
+    "name": "传奇白鲟",
+    "min": 155,
+    "max": 350,
+    "pixels": 91,
+    "weight": 1
+  }
+}

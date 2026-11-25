@@ -1,0 +1,107 @@
+{
+  "out": "res://qingxi-live/assets/parametric-village/clean",
+  "defaults": {
+    "style": "user_cabin_japan",
+    "pitch": 42,
+    "size": 512,
+    "aa": false,
+    "outline-silhouette": 1,
+    "param": {
+      "floors": 2,
+      "width": 10,
+      "depth": 8.25,
+      "porch": true,
+      "balcony": false,
+      "windows": 2,
+      "pitch": 24,
+      "eave": 0.8
+    }
+  },
+  "jobs": [
+    {
+      "name": "seed",
+      "type": "general_store",
+      "param": {
+        "floors": 2,
+        "width": 10,
+        "depth": 8.25,
+        "porch": true,
+        "balcony": false,
+        "windows": 1,
+        "pitch": 20,
+        "eave": 0.8
+      }
+    },
+    {
+      "name": "livestock",
+      "type": "farmhouse",
+      "param": {
+        "floors": 2,
+        "width": 10,
+        "depth": 8.25,
+        "porch": true,
+        "balcony": false,
+        "windows": 2,
+        "pitch": 28,
+        "eave": 0.8
+      }
+    },
+    {
+      "name": "home",
+      "type": "house",
+      "param": {
+        "floors": 2,
+        "width": 10,
+        "depth": 8.25,
+        "porch": true,
+        "balcony": true,
+        "windows": 2,
+        "pitch": 24,
+        "eave": 0.8
+      }
+    },
+    {
+      "name": "resident_a",
+      "type": "house",
+      "param": {
+        "floors": 2,
+        "width": 10,
+        "depth": 8.25,
+        "porch": true,
+        "balcony": false,
+        "windows": 1,
+        "pitch": 20,
+        "eave": 0.8
+      }
+    },
+    {
+      "name": "resident_b",
+      "type": "farmhouse",
+      "param": {
+        "floors": 2,
+        "width": 10,
+        "depth": 8.25,
+        "porch": true,
+        "balcony": false,
+        "windows": 2,
+        "pitch": 26,
+        "eave": 0.8
+      }
+    },
+    {
+      "name": "shed",
+      "type": "granary",
+      "param": {
+        "floors": 1,
+        "width": 3.5,
+        "depth": 3,
+        "porch": false,
+        "balcony": false,
+        "windows": 2,
+        "pitch": 20,
+        "eave": 0.8,
+        "height": 2.8
+      }
+    }
+  ]
+}

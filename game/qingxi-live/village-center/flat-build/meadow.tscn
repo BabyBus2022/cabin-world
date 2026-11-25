@@ -1,0 +1,7 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://qingxi-live/village-center/flat-build/trial.gd" id="1_weay1"]
+
+[node name="OpenMeadow" type="Node2D" unique_id=903350432]
+script = ExtResource("1_weay1")
+open_meadow = true

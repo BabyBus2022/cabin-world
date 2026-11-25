@@ -77,7 +77,7 @@ if (live && !failed) {
     });
     if (full) {
       await check('汤屋：先换浴衣，再泡汤', async () => { await until(() => !b.resident.task, 30000, '空闲'); const r = await run('cabin_use', { object: 'onsen_soak', use: 'soak' }); assert(b.resident.outfit === 'yukata', '没换浴衣'); return r.label; });
-      await check('开关吊灯', async () => { await run('cabin_use', { object: 'xj_lamp', use: 'on' }); return 'on'; });
+      await check('灯光服从主人的许可设置', async () => { try { await run('cabin_use',{object:'xj_lamp',use:'on'}); return '已获准开灯'; } catch(error) { if(!error.message.includes('主人没有允许改灯光'))throw error; return '游戏已拒绝未经许可的开灯请求'; } });
     }
     if (multi) {
       // 1.1: several bots in one world, without any owner-edition resident. Blocks the release if any of these fails.

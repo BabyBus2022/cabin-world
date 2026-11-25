@@ -1,0 +1,290 @@
+[
+  {
+    "id": "01",
+    "name": "药斗种子柜",
+    "source": "originals/01.png",
+    "split": [
+      824,
+      1335
+    ],
+    "transparent_ratio": 0.575,
+    "installed": true,
+    "note": "本次店内使用 · 3×1 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  },
+  {
+    "id": "02",
+    "name": "挂袋种子架",
+    "source": "originals/02.png",
+    "split": [
+      837,
+      1346
+    ],
+    "transparent_ratio": 0.569,
+    "installed": false,
+    "note": "设计参考；入库旋转需另做游戏俯视角、锚点和遮挡校准。"
+  },
+  {
+    "id": "03",
+    "name": "玻璃罐柜",
+    "source": "originals/03.png",
+    "split": [
+      896,
+      1279
+    ],
+    "transparent_ratio": 0.418,
+    "installed": true,
+    "note": "本次店内使用 · 4×1 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  },
+  {
+    "id": "04",
+    "name": "阶梯种子架",
+    "source": "originals/04.png",
+    "split": [
+      852,
+      1322
+    ],
+    "transparent_ratio": 0.485,
+    "installed": true,
+    "note": "本次店内使用 · 4×2 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  },
+  {
+    "id": "05",
+    "name": "弧角长柜台",
+    "source": "originals/05.png",
+    "split": [
+      923,
+      1251
+    ],
+    "transparent_ratio": 0.652,
+    "installed": true,
+    "note": "本次店内使用 · 8×2 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  },
+  {
+    "id": "06",
+    "name": "乡村直柜台",
+    "source": "originals/06.png",
+    "split": [
+      919,
+      1256
+    ],
+    "transparent_ratio": 0.653,
+    "installed": false,
+    "note": "设计参考；入库旋转需另做游戏俯视角、锚点和遮挡校准。"
+  },
+  {
+    "id": "07",
+    "name": "玻璃样品柜台",
+    "source": "originals/07.png",
+    "split": [
+      914,
+      1258
+    ],
+    "transparent_ratio": 0.52,
+    "installed": false,
+    "note": "设计参考；入库旋转需另做游戏俯视角、锚点和遮挡校准。"
+  },
+  {
+    "id": "08",
+    "name": "抽屉收银柜",
+    "source": "originals/08.png",
+    "split": [
+      888,
+      1284
+    ],
+    "transparent_ratio": 0.571,
+    "installed": false,
+    "note": "设计参考；入库旋转需另做游戏俯视角、锚点和遮挡校准。"
+  },
+  {
+    "id": "09",
+    "name": "泥盆育苗台",
+    "source": "originals/09.png",
+    "split": [
+      871,
+      1302
+    ],
+    "transparent_ratio": 0.483,
+    "installed": false,
+    "note": "设计参考；入库旋转需另做游戏俯视角、锚点和遮挡校准。"
+  },
+  {
+    "id": "10",
+    "name": "双层育苗架",
+    "source": "originals/10.png",
+    "split": [
+      849,
+      1316
+    ],
+    "transparent_ratio": 0.548,
+    "installed": true,
+    "note": "本次店内使用 · 3×1 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  },
+  {
+    "id": "11",
+    "name": "水槽育苗台",
+    "source": "originals/11.png",
+    "split": [
+      899,
+      1269
+    ],
+    "transparent_ratio": 0.439,
+    "installed": true,
+    "note": "本次店内使用 · 5×2 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  },
+  {
+    "id": "12",
+    "name": "窄窗育苗架",
+    "source": "originals/12.png",
+    "split": [
+      798,
+      1257
+    ],
+    "transparent_ratio": 0.537,
+    "installed": false,
+    "note": "透明背景未合格；保留设计图，不装入游戏。"
+  },
+  {
+    "id": "13",
+    "name": "分种操作柜",
+    "source": "originals/13.png",
+    "split": [
+      872,
+      1309
+    ],
+    "transparent_ratio": 0.427,
+    "installed": true,
+    "note": "本次店内使用 · 4×2 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  },
+  {
+    "id": "14",
+    "name": "纸袋打包台",
+    "source": "originals/14.png",
+    "split": [
+      874,
+      1300
+    ],
+    "transparent_ratio": 0.504,
+    "installed": true,
+    "note": "本次店内使用 · 4×2 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  },
+  {
+    "id": "15",
+    "name": "滚轮工具车",
+    "source": "originals/15.png",
+    "split": [
+      795,
+      1363
+    ],
+    "transparent_ratio": 0.526,
+    "installed": true,
+    "note": "本次店内使用 · 1×1 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  },
+  {
+    "id": "16",
+    "name": "香草晾晒柜",
+    "source": "originals/16.png",
+    "split": [
+      880,
+      1287
+    ],
+    "transparent_ratio": 0.43,
+    "installed": false,
+    "note": "设计参考；入库旋转需另做游戏俯视角、锚点和遮挡校准。"
+  },
+  {
+    "id": "17",
+    "name": "麻袋种粮台",
+    "source": "originals/17.png",
+    "split": [
+      865,
+      1303
+    ],
+    "transparent_ratio": 0.439,
+    "installed": true,
+    "note": "本次店内使用 · 3×1 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  },
+  {
+    "id": "18",
+    "name": "翻盖种子箱",
+    "source": "originals/18.png",
+    "split": [
+      826,
+      1332
+    ],
+    "transparent_ratio": 0.374,
+    "installed": true,
+    "note": "本次店内使用 · 3×2 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  },
+  {
+    "id": "19",
+    "name": "园艺工具架",
+    "source": "originals/19.png",
+    "split": [
+      830,
+      1324
+    ],
+    "transparent_ratio": 0.504,
+    "installed": true,
+    "note": "本次店内使用 · 2×1 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  },
+  {
+    "id": "20",
+    "name": "空盆陈列架",
+    "source": "originals/20.png",
+    "split": [
+      878,
+      1283
+    ],
+    "transparent_ratio": 0.4,
+    "installed": true,
+    "note": "本次店内使用 · 2×1 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  },
+  {
+    "id": "21",
+    "name": "花种展示车",
+    "source": "originals/21.png",
+    "split": [
+      836,
+      1340
+    ],
+    "transparent_ratio": 0.486,
+    "installed": true,
+    "note": "本次店内使用 · 3×1 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  },
+  {
+    "id": "22",
+    "name": "种子目录站",
+    "source": "originals/22.png",
+    "split": [
+      825,
+      1346
+    ],
+    "transparent_ratio": 0.509,
+    "installed": true,
+    "note": "本次店内使用 · 2×1 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  },
+  {
+    "id": "23",
+    "name": "订单格子柜",
+    "source": "originals/23-transparent.png",
+    "split": [
+      849,
+      1315
+    ],
+    "transparent_ratio": 0.375,
+    "installed": true,
+    "note": "本次店内使用 · 3×1 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  },
+  {
+    "id": "24",
+    "name": "栽培小岛台",
+    "source": "originals/24.png",
+    "split": [
+      862,
+      1314
+    ],
+    "transparent_ratio": 0.525,
+    "installed": true,
+    "note": "本次店内使用 · 5×2 格 · 已按 2× 源图统一尺寸。侧背面保留为设计参考。"
+  }
+]

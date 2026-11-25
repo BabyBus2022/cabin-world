@@ -5,7 +5,7 @@
 // Usage: node tools/export-game.mjs <Godot_v4.7.2-stable_win64_console.exe> [output exe]
 import fs from 'node:fs'; import path from 'node:path'; import { spawnSync } from 'node:child_process'; import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const godot = process.argv[2], out = path.resolve(process.argv[3] || path.join(root, 'build', 'CabinWorld.exe'));
+const godot = process.argv[2], out = path.resolve(process.argv[3] || path.join(root, 'build', 'CabinWorld.engine.exe'));
 if (!godot || !fs.existsSync(godot)) { console.error('用法: node tools/export-game.mjs <Godot 4.7.2 console exe> [输出路径]'); process.exit(2); }
 fs.mkdirSync(path.dirname(out), { recursive: true });
 const game = path.join(root, 'game');

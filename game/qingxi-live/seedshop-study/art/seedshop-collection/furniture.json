@@ -1,0 +1,784 @@
+{
+  "seedshop--design-01": {
+    "id": "seedshop--design-01",
+    "name": "药斗种子柜",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 3,
+      "h": 1
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/01-S.png",
+        "footprint": {
+          "w": 3,
+          "h": 1
+        },
+        "art": {
+          "x": 0,
+          "y": -111.0,
+          "w": 96.0,
+          "h": 143.0
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 1,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/01.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  },
+  "seedshop--design-03": {
+    "id": "seedshop--design-03",
+    "name": "玻璃罐柜",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 4,
+      "h": 1
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/03-S.png",
+        "footprint": {
+          "w": 4,
+          "h": 1
+        },
+        "art": {
+          "x": 0,
+          "y": -70.0,
+          "w": 128.0,
+          "h": 102.0
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 128,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 2,
+            "dy": 1,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/03.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  },
+  "seedshop--design-04": {
+    "id": "seedshop--design-04",
+    "name": "阶梯种子架",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 4,
+      "h": 2
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/04-S.png",
+        "footprint": {
+          "w": 4,
+          "h": 2
+        },
+        "art": {
+          "x": 0,
+          "y": -26.0,
+          "w": 128.0,
+          "h": 90.0
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 128,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": 2,
+            "dy": 2,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/04.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  },
+  "seedshop--design-05": {
+    "id": "seedshop--design-05",
+    "name": "弧角长柜台",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 8,
+      "h": 2
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/05-S.png",
+        "footprint": {
+          "w": 8,
+          "h": 2
+        },
+        "art": {
+          "x": 0,
+          "y": -29.0,
+          "w": 256.0,
+          "h": 93.0
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 256,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": 4,
+            "dy": 2,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/05.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  },
+  "seedshop--design-10": {
+    "id": "seedshop--design-10",
+    "name": "双层育苗架",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 3,
+      "h": 1
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/10-S.png",
+        "footprint": {
+          "w": 3,
+          "h": 1
+        },
+        "art": {
+          "x": 0,
+          "y": -52.0,
+          "w": 96.0,
+          "h": 84.0
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 1,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/10.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  },
+  "seedshop--design-11": {
+    "id": "seedshop--design-11",
+    "name": "水槽育苗台",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 5,
+      "h": 2
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/11-S.png",
+        "footprint": {
+          "w": 5,
+          "h": 2
+        },
+        "art": {
+          "x": 0,
+          "y": -62.0,
+          "w": 160.0,
+          "h": 126.0
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 160,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": 2,
+            "dy": 2,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/11.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  },
+  "seedshop--design-13": {
+    "id": "seedshop--design-13",
+    "name": "分种操作柜",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 4,
+      "h": 2
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/13-S.png",
+        "footprint": {
+          "w": 4,
+          "h": 2
+        },
+        "art": {
+          "x": 0,
+          "y": -33.0,
+          "w": 128.0,
+          "h": 97.0
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 128,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": 2,
+            "dy": 2,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/13.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  },
+  "seedshop--design-14": {
+    "id": "seedshop--design-14",
+    "name": "纸袋打包台",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 4,
+      "h": 2
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/14-S.png",
+        "footprint": {
+          "w": 4,
+          "h": 2
+        },
+        "art": {
+          "x": 0,
+          "y": -25.0,
+          "w": 128.0,
+          "h": 89.0
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 128,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": 2,
+            "dy": 2,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/14.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  },
+  "seedshop--design-15": {
+    "id": "seedshop--design-15",
+    "name": "滚轮工具车",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 1,
+      "h": 1
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/15-S.png",
+        "footprint": {
+          "w": 1,
+          "h": 1
+        },
+        "art": {
+          "x": 0,
+          "y": -8.0,
+          "w": 32.0,
+          "h": 40.0
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 0,
+            "dy": 1,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/15.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  },
+  "seedshop--design-17": {
+    "id": "seedshop--design-17",
+    "name": "麻袋种粮台",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 3,
+      "h": 1
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/17-S.png",
+        "footprint": {
+          "w": 3,
+          "h": 1
+        },
+        "art": {
+          "x": 0,
+          "y": -33.0,
+          "w": 96.0,
+          "h": 65.0
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 1,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/17.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  },
+  "seedshop--design-18": {
+    "id": "seedshop--design-18",
+    "name": "翻盖种子箱",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 3,
+      "h": 2
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/18-S.png",
+        "footprint": {
+          "w": 3,
+          "h": 2
+        },
+        "art": {
+          "x": 0,
+          "y": -16.0,
+          "w": 96.0,
+          "h": 80.0
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 2,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/18.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  },
+  "seedshop--design-19": {
+    "id": "seedshop--design-19",
+    "name": "园艺工具架",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 2,
+      "h": 1
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/19-S.png",
+        "footprint": {
+          "w": 2,
+          "h": 1
+        },
+        "art": {
+          "x": 0,
+          "y": -47.0,
+          "w": 64.0,
+          "h": 79.0
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 1,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/19.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  },
+  "seedshop--design-20": {
+    "id": "seedshop--design-20",
+    "name": "空盆陈列架",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 2,
+      "h": 1
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/20-S.png",
+        "footprint": {
+          "w": 2,
+          "h": 1
+        },
+        "art": {
+          "x": 0,
+          "y": -32.0,
+          "w": 64.0,
+          "h": 64.0
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 1,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/20.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  },
+  "seedshop--design-21": {
+    "id": "seedshop--design-21",
+    "name": "花种展示车",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 3,
+      "h": 1
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/21-S.png",
+        "footprint": {
+          "w": 3,
+          "h": 1
+        },
+        "art": {
+          "x": 0,
+          "y": -37.0,
+          "w": 96.0,
+          "h": 69.0
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 1,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/21.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  },
+  "seedshop--design-22": {
+    "id": "seedshop--design-22",
+    "name": "种子目录站",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 2,
+      "h": 1
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/22-S.png",
+        "footprint": {
+          "w": 2,
+          "h": 1
+        },
+        "art": {
+          "x": 0,
+          "y": -51.0,
+          "w": 64.0,
+          "h": 83.0
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 64,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 1,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/22.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  },
+  "seedshop--design-23": {
+    "id": "seedshop--design-23",
+    "name": "订单格子柜",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 3,
+      "h": 1
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/23-S.png",
+        "footprint": {
+          "w": 3,
+          "h": 1
+        },
+        "art": {
+          "x": 0,
+          "y": -55.0,
+          "w": 96.0,
+          "h": 87.0
+        },
+        "depth": 32,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 96,
+          "h": 32
+        },
+        "use": [
+          {
+            "dx": 1,
+            "dy": 1,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/23-transparent.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  },
+  "seedshop--design-24": {
+    "id": "seedshop--design-24",
+    "name": "栽培小岛台",
+    "scene": "seedshop-study",
+    "layer": "solid",
+    "footprint": {
+      "w": 5,
+      "h": 2
+    },
+    "availableFacings": [
+      "S"
+    ],
+    "facings": {
+      "S": {
+        "file": "../seedshop-collection/24-S.png",
+        "footprint": {
+          "w": 5,
+          "h": 2
+        },
+        "art": {
+          "x": 0,
+          "y": -40.0,
+          "w": 160.0,
+          "h": 104.0
+        },
+        "depth": 64,
+        "collision": {
+          "x": 0,
+          "y": 0,
+          "w": 160,
+          "h": 64
+        },
+        "use": [
+          {
+            "dx": 2,
+            "dy": 2,
+            "face": "N"
+          }
+        ],
+        "seat": null
+      }
+    },
+    "provenance": "originals/24.png",
+    "sourceGridPx": 64,
+    "worldGridPx": 32
+  }
+}

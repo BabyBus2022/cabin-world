@@ -1,0 +1,6917 @@
+{
+  "name": "小鲸鱼",
+  "sourceProject": "d7ae062d44c846b0",
+  "sizeStandard": {
+    "id": "1794745179035143500",
+    "image": "idle.png",
+    "sourceHeight": 294,
+    "targetHeight": 294,
+    "sourcePixels": 100,
+    "targetPixels": 100,
+    "segment": [
+      [
+        160,
+        60
+      ],
+      [
+        160,
+        160
+      ]
+    ],
+    "referenceAnchor": [
+      161.0,
+      305
+    ],
+    "canvas": [
+      640,
+      640
+    ],
+    "anchor": [
+      320,
+      592
+    ],
+    "label": "常驻待机 · 正面",
+    "mode": "measured"
+  },
+  "sourceProjectSha256": "3700562a8ce883ed85c1ca8b2261a9a9b949cd8fabcf72c8ca67897c58c19d58",
+  "actions": {
+    "walk-0": {
+      "name": "基础行走 · 正面",
+      "revision": 2,
+      "count": 16,
+      "durationsMs": [
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          165.75,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.0365,
+            "matches": 99,
+            "ratio": 0.9083,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "9fa48088f3b66d8439b8264e6fe6e6854916779fb0bf17de7504f01227f89837",
+        "623f9636e1bb80612a8804ae3577ede7c0459da55e1fee28e7a92bd4565f6942",
+        "2fad3a5b098b3d05011d11005435542422eaf9d7f75b9c8701f8385a9e16c48a",
+        "1657f0242e2bd93a435e3f03a3db0a051100c5a3e533b9dd174f40255b3f18dc",
+        "da43d5041ce3f8d5ad7f412ee3a281c396d921605e35a8ddce841fc1414eff02",
+        "412cd65c086325dadd50024e288a114bd8b87df86b23556334549530e8a3723e",
+        "38a8bcbe2afb4f17c3d85f09fbb33c09eb4dbff1dfe1259f47bd13837d47273e",
+        "f988914dd8d226971464e54d969cf18802a922a240ffc6fa20d8bc7a09df30ed",
+        "5b6f4d8d34d913bf565e10764d53eadde578fade7418ebf98e2d2cceaf344895",
+        "74a9fe6d2704256d203c6df682f3dd27f5c05c80ac9b3ef297b17302286096f1",
+        "f27cd980076c17df964926d8f9fc051cab9b327757d2eb2c7dbd6fd23090232b",
+        "ca0ffab66b973f6a13e246c1c052dd6e4dfad0f777c83f31082cf504181f97d3",
+        "b03956e93a55eccc2facad07b272ce68179d6973f220aa7dfc448f75ae746011",
+        "ca573cc410e6643385837aa553752c2d2da8a43c277f1a8bb948fb543283b091",
+        "a75c5bb6491b0b718114e83a0c1f63948ab9adea138efc99c6dcb6a6fdadf904",
+        "f21483795ab7748cf397003a7312cdfbb6b1d7ab339998c1aacfdfaf5a1b2381"
+      ]
+    },
+    "walk-1": {
+      "name": "基础行走 · 左侧",
+      "revision": 2,
+      "count": 4,
+      "durationsMs": [
+        160,
+        160,
+        160,
+        160
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          176.5,
+          297
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.0,
+            "matches": 245,
+            "ratio": 0.9919,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "7e7b9f4d19b7de27ab96d865f298d643d1fa47119afbe311841895faf18d24da",
+        "ce250e6949c05d159371d8b5a1eb6d6b49fc74b5e1c711bc7f415564c31388f2",
+        "65a8bfc54f84496f0b9a76da4cf01dcac8ee9233b64f47d1247006daa76da32e",
+        "ce250e6949c05d159371d8b5a1eb6d6b49fc74b5e1c711bc7f415564c31388f2"
+      ]
+    },
+    "idle_look-0": {
+      "name": "左右张望 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0438,
+        "sourceAnchor": [
+          165.5,
+          293
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.0438,
+            "matches": 26,
+            "ratio": 0.7027,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "4d61b89a48cc0eca5c1e58e8146ae9b3b06ae31e7f883ba6eeed0e79155bf04f",
+        "a8c58186cccfcef7ad811b97bfc72a8573b84b673ee3cfaddc3572d42d457132",
+        "6e483f0105bc5c5b90d316973938dbfa7e49021c7e7a1b3185571bff7c8c8b82",
+        "5061dac2032a2224495ab89ce3d8969a76fb05fd30d6cc15eb4ebd9f003943ee",
+        "e3954339a4bc5ac60a8d5bbff9a362f9d02745c647339513ea3aaf993e3546c4",
+        "628325b70e08246d30d52d196cb712c9177024f919bc791f8fb722538a98fd94",
+        "8e091384a9120cd56c1f61cfeb4cf05e3a9960422681a42ce3cb4c92a47606ca",
+        "83c8d0ed5b29c295931a0ae1fee0ca58687b9967af79ca65d5637f1606b35f4d",
+        "6a99b566033adf003e33079ae79644cad7f5d221e26432df5ec9cf6cba03cead"
+      ]
+    },
+    "idle_phone-0": {
+      "name": "玩手机 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0465,
+        "sourceAnchor": [
+          165.5,
+          293
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.0465,
+            "matches": 36,
+            "ratio": 0.6792,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "56af6c312ef5d0e6d75c9f0a4cf750ecefead049ae813c43c1252bfd304f5d9e",
+        "515878df8f3908f2d9992fc887fe2020499bc20931bb4a5642c337a9d27204dc",
+        "297db1c4c9d8b3f93f4d8bfe606ed20d0fa4a59876c27d043435dcc76270ffcd",
+        "a688fb54e18f5d1f9680f8d621ae1760d710494711768737b29353e9bf0cca93",
+        "696dfdcaf803c488be60c223b8bd2c5c847e289673150228642ca43a8931b1ff",
+        "f0c091bb485a86f69ee64c0c19f975a0418e8befa9d3132d29199bf195eda5ed",
+        "03380421212b581d3094d4b2f63017de2af8693a19421bda3eadeb806fffa975",
+        "2cf74e61dc4ad12304d986812e8338c5aaf2167864b00d5ea56b04132e798ea6",
+        "f66d7708b40cd1184b62051ec2c8d9c513a84a32bd48df6a135de1ca4520edd6"
+      ]
+    },
+    "idle_stretch-0": {
+      "name": "伸懒腰 · 正面",
+      "revision": 2,
+      "count": 6,
+      "durationsMs": [
+        110,
+        110,
+        110,
+        110,
+        110,
+        110
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          175.25,
+          298
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.0376,
+            "matches": 24,
+            "ratio": 0.5714,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "7ede8f6677bb82e237d969dc042647b1ce5215a2d98c1bdddc21bb464de9bafb",
+        "f338a7ca46d4d8ecf90fc2da8297a220fc8628f04a9b6d9ed395497a71b8167e",
+        "2495fb39380ac663568e81a81acd95963ba4099ceb82e9f26c44998ac6d504b2",
+        "d276b4339f22d3e6e320fce5589a85f46b17ffb11bdb1896648c51599d9c6968",
+        "76365ab4074af8553556f4aaf3d403bdd3b0512e1148fdc842639f360d09d051",
+        "47f58b87de50425c3e05f2f6fc1f373f935e0286a9b038bc8cc2a850f8fb21d5"
+      ]
+    },
+    "idle_yawn-0": {
+      "name": "打哈欠 · 正面",
+      "revision": 2,
+      "count": 6,
+      "durationsMs": [
+        130,
+        130,
+        130,
+        130,
+        130,
+        130
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0483,
+        "sourceAnchor": [
+          173.5,
+          298
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.0483,
+            "matches": 22,
+            "ratio": 0.55,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "107384ce0884d22a1d8f915f2acd87b3fc6e3cb20aff53e01338a076eb93c22c",
+        "9b641347d6c0b4fa92b87c2edbf5ca1b05a75520f69f0810340b7bcb9a77ced3",
+        "02a7e6324446ea815842c15374ab66aea26cb1375924825fbe9a89c7d6359f2b",
+        "22099bc17e024906a7a6dbcdff236286fcb7110a3bf4d9d1fe5ef3d0156c0ea1",
+        "9723ca1112f461f13b0f6e157c35ad99024f9c0d7e444bcda4b0ed75c47fda15",
+        "1b6fef14cd91a568c7c59cd9e5ab7b58da4f60c0699e44d6a1feaabd7b7b4295"
+      ]
+    },
+    "idle_look-1": {
+      "name": "左右张望 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          190.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.0112,
+            "matches": 15,
+            "ratio": 0.4286,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "b4365c91874d6c6795e7ad7a28db2c86413f7ae616469bee76ae0d0c81ed74db",
+        "b3a67844ec1b13807eb1f572748427facf0a2093e959b93ad5c7e71d75c994bd",
+        "86099818abcca64094ff91cad4ae499ff9b851329e07dce61471159737801c63",
+        "bbdfda10d45fad86d0e8a4cfe32148542b90d4d4a8fa9ae87fde41daadd69dce",
+        "f5991f5a14079dab8ea542c106cfcf20a6328b46ae6dc867cdaae1bf536b6c6c",
+        "c71ceb4bbf041e6b6fc23f25f24711508295b318ce09b0549b16ce7bee57d5e4",
+        "d4e8413572d0d73675b1bd4221155e81b07fd635f6c562c60a5063e75452acb1",
+        "167428e934e05e4cf5e9fc04c684889b58cc8334e71cf2473e7f09b89ddf6525",
+        "a32d7633c9e6ebc72bc3816a36e5f1f0bd414ba2d518758b6e3461f4c272baf4"
+      ]
+    },
+    "idle_phone-1": {
+      "name": "玩手机 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          186.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.0296,
+            "matches": 15,
+            "ratio": 0.4545,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "83775d194255b9f3b2767ac7fa435392e66eb569321d64ed45863a5b34e507f8",
+        "e4ffa9c189c9c852793b3d4d6681e500d9e6055c53a4dffc917eff177f316aba",
+        "27e387b3b3a26d4a71bfbfb091878036dbbf4c897a6d520450bc4cbcd1d2719f",
+        "4f8452673415b9321be94f0be956f73fa6e27e56ed103bca764f35c0961cf2e3",
+        "81a3ab686332eb2e3dcb2bc80c738db6dbdb41e72704e108b5a5dc2967ac9607",
+        "e50b4f8735235993512ecbf324071eb8ad46e94d430a09ad34d12d9f1ce62734",
+        "e1eb752d92e5e424caf332f87b2f81091ff25c707dc648506ce31e7e30f92259",
+        "f2e41e09d889dbf0d83ecbcca608aa2a52046764da3b7c482b692490700c78f3",
+        "3df3b7e8e65e13c8224d8154ff045d473e67395c806d073cf9ef4ab5cd7ad212"
+      ]
+    },
+    "idle_stretch-1": {
+      "name": "伸懒腰 · 左侧",
+      "revision": 2,
+      "count": 6,
+      "durationsMs": [
+        110,
+        110,
+        110,
+        110,
+        110,
+        110
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          189.0,
+          298
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.0002,
+            "matches": 24,
+            "ratio": 0.5714,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "02dbd479daa2e321ff5abf933fb7a15521fb5a00da909db30af413ace49f507d",
+        "f96ddd40cd83d1d59eac9055b7ddafd5833120b90df7b80053119b6fb1473176",
+        "458e74e0e432cbc3090596730ba6a160e958363b638c7643a0c2e7d0677f287c",
+        "8cacc25d3b703693a181d7b480546dade21110354f983bc3b5e90f5ff0d33b58",
+        "c3bd7a92a2c7172cb78888045f010901e2a2b7305571efa926d02afcce72e288",
+        "9b5bf6efde1a4ebedbe5c204461cbbf035729cb79aec1a84b1de31dc2cbdc2c1"
+      ]
+    },
+    "idle_yawn-1": {
+      "name": "打哈欠 · 左侧",
+      "revision": 2,
+      "count": 6,
+      "durationsMs": [
+        130,
+        130,
+        130,
+        130,
+        130,
+        130
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          192.0,
+          298
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 0.9851,
+            "matches": 17,
+            "ratio": 0.5667,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "b4c953ce73daf7af9823395f2d2a0a86ebdac6adcba7e4d6e5f10de71253f04f",
+        "37de1164fd88990a74873f72be0a2f2ff73d982753e2adf0db05a043f63917f6",
+        "e87d234d2ddd5f5f07150edb17fb19aa5e14b23010914a5777c5a7b2199f59b0",
+        "aca76a0eb74bfabdc4a67e67ece9d0f5b49011c132ff4bb858d5d5677af39c5f",
+        "5803d5f6c49ae4d337dc6a0feba2e7357cd4119dc98a8f9b5e2926821dd73f22",
+        "d4d6a46508f28470e2ba876f2543dc6a4afb000f5ebeb325a961a876c9b731ed"
+      ]
+    },
+    "idle_look-2": {
+      "name": "左右张望 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          124.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 0.9815,
+            "matches": 16,
+            "ratio": 0.4848,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "b786b9f91d7ef3eadd2243583504a6202732c4d57fe44dea29306c45c00d0c98",
+        "784e32fc8db5512c104ef6091b2f143e67f94be438dbc44c2e5295f267646fb4",
+        "368ce07a10efa58c1a43f701ae7aa099df3a12f7afb7028954a49432d9ad0552",
+        "f7ad01a463abe2d9a49f667c743613b2329087f366dcf315bf191d45a4e221b0",
+        "5ec6d9f7f163513ae19fd3ed445a831112e5da12eaa40c5be07493c28af460f6",
+        "2c389342f71a7b013c180c6ef25f4f5ba21d55a256cb55869d69c99bb911548c",
+        "be79df0c7bd0ae998821ccb8c7d8f660cbf837794f52adffdb4c4d8f55c30d57",
+        "ac300b32b26bcd40cd5f9dfba2927d054f71471b5681fa0c45d61a1b9e164149",
+        "8718d99c71de0afc15ee8ed6b11362a6ba7165307bb09f55a4d0bca6b2ce6d41"
+      ]
+    },
+    "idle_phone-2": {
+      "name": "玩手机 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0819,
+        "sourceAnchor": [
+          137.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 1.0819,
+            "matches": 19,
+            "ratio": 0.4872,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "92d6c1a747398f4c84ed86258d0156bf27930018f8975df1756536348e5ab8d8",
+        "6358f55062090881fec48f76d9a671c2d7fbdfbe4555012f26799f71f94dac22",
+        "c857dbbf7ad9afdd1107126084e29f3fcf1bff96a880ffb69f83facaa7f1ec6a",
+        "a8b3b266d772bd6c84cb27ea25ed1c7f19a31a9e6e76a9198f23757d05b241f0",
+        "2de3a5069dad1554984b9b9b19305bd33310f8bc4372cb628945aa7addef12ba",
+        "0682c4ed21575dddca8e13df00fbce0f05a41150ff9c1a0164bdb7501e963e54",
+        "639981e7bc3d6b04cf30b920c3502136fc2abf08acbd274e489af21d6bf0cfea",
+        "886373fc8c59bd7ead176941cf88ae582d386cac92427e3d3eda5ca27bb90600",
+        "2863ffcf6b139d2ad23ae9f4bff3d3833403138bc993be094430087f0986486c"
+      ]
+    },
+    "idle_stretch-2": {
+      "name": "伸懒腰 · 右侧",
+      "revision": 2,
+      "count": 6,
+      "durationsMs": [
+        110,
+        110,
+        110,
+        110,
+        110,
+        110
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0487,
+        "sourceAnchor": [
+          140.5,
+          298
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 1.0487,
+            "matches": 12,
+            "ratio": 0.4286,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "2aa1ee7001aa0166a4b9a3f13f30b161a51e91524605253adbf78cbd4ac90e50",
+        "985e6d24f6a1e6ca91b875310a2f715798effc18a2c85696e65c869eccc7f7b4",
+        "cfb66c5c518a9abdcd49cc4c5d2b9173e9ec0df0f09102686c8feb0583b680cb",
+        "a3e85bb82282ffc4cd9c31beb2bd082f856419736486afa5c54d62f04cf2cb62",
+        "176dad20a4ee9243817a63891c573b271c87c55505963270880a85f65135fce2",
+        "9a75352050ec28eb7929dc873fe93a8174be5cc0dc87b5605aaf44c99fa67258"
+      ]
+    },
+    "idle_yawn-2": {
+      "name": "打哈欠 · 右侧",
+      "revision": 2,
+      "count": 6,
+      "durationsMs": [
+        130,
+        130,
+        130,
+        130,
+        130,
+        130
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0415,
+        "sourceAnchor": [
+          143.0,
+          298
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 1.0415,
+            "matches": 18,
+            "ratio": 0.5143,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "5194804487e939107d08919e444b524867604e678fae838c451a1db79ee4c715",
+        "b8b0828d22f05627bd5368d9e1f7dabd5972db79d2ee60414cbc1c5d62f6b964",
+        "5853f4db4d16b2244db8f3cca3c31a9d4cb0bc98abd24ebc6b265e7008bdf49b",
+        "d871a67166b784a7f25873d5dae918f7a612fa593d71007df9ebedd95b2ba19c",
+        "155ba7e1a1f84f459f401056ad8fd934b34e1017b400b778cbc5c86861c32f71",
+        "09d8427b0c621e4b75f320fa29b0af6ff7aff835248915a62d2fca3d3539dcff"
+      ]
+    },
+    "idle_look-3": {
+      "name": "左右张望 · 背面",
+      "revision": 2,
+      "count": 6,
+      "durationsMs": [
+        250,
+        250,
+        250,
+        250,
+        250,
+        250
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          165.75,
+          300
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "5c25114c816e7426c3c17894645a332049bacfedce50542a2af2e7b56af75f71",
+        "e218d67d5449f783f7abcac4d63a2d00368e27f4dad682c5b7e76fc71b9260ae",
+        "2a3c3d95391d84998133c21d5f3766f71b5a654f94231f69f5cec05ac502d7f0",
+        "7bae98cc644ab86119fd410b5bab04cbcc5d8770463729d1f3a3294f56ec757a",
+        "7540afb0f95dafbc5e8c9ba130e82ecf54d59690036d2cd16401a4fbfc78973d",
+        "1b7f02859642396f0e925b4984318f22833e6bdee6bd3be8f2aab10940fdb558"
+      ]
+    },
+    "idle_phone-3": {
+      "name": "玩手机 · 背面",
+      "revision": 2,
+      "count": 8,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          176.75,
+          299
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "86de354b720f7f73e2a9ccc97673ea01020fa17a0021da295f0297d57e05cba2",
+        "7fd3d395d0246672ba269e79ec5accdf3d4c651a814b79401a5396cbfa3a30d6",
+        "827d4a7222064d313653d482347a5273bc4f8a53d986665efc3057b7705ea24c",
+        "4e60927a234962d611c9ef03bb499e52a1730f8d3e7180648df030f5cfbb86c1",
+        "42baf831e4e39fc1987879e2325c66e7cf52dd36b4719c0869f96ec90d65c88b",
+        "253e2472f61798fe87c0a1cc7a60561f5691898ae038d45a0c1e5fd5063c3d5a",
+        "9ad3a49029fc0bc69f9d1c810c9d1d0ff5f9fe3263abd141fc28e1f141a5a184",
+        "39192e538667e74426d87b5d8f4a26e540006f8da54a58c267239a76a0bd3b96"
+      ]
+    },
+    "idle_stretch-3": {
+      "name": "伸懒腰 · 背面",
+      "revision": 2,
+      "count": 6,
+      "durationsMs": [
+        110,
+        110,
+        110,
+        110,
+        110,
+        110
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          168.5,
+          298
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "b73fa5583ce33ef6e4c5f5c54aa92d7ca46afa7f9ad40b9b7ec60bbb5fc8e468",
+        "87ac93aadf5143be4b5c0e7d16d2d146f21d38ea86a34151e4defe39ad08de5f",
+        "80afa12685ab12453e590c4df7b8c11055f992025357de2d480a843b0a8c757a",
+        "7b474854b09e7fb59087eb0601a710e39e0dd49d7eac56fa25ea307a1c1c7d29",
+        "5daf190c32150e5363f9ba960d295fb84661641df554971060001495e907bfde",
+        "505b3fa58123d742ee960b5c1edccc8d38f984a24e7882910a6d29dc836ea5a8"
+      ]
+    },
+    "idle_yawn-3": {
+      "name": "打哈欠 · 背面",
+      "revision": 2,
+      "count": 6,
+      "durationsMs": [
+        130,
+        130,
+        130,
+        130,
+        130,
+        130
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 0.9313,
+        "sourceAnchor": [
+          163.5,
+          298
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-3",
+            "scale": 0.9313,
+            "matches": 8,
+            "ratio": 0.5,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "a9aa20fa71419bc32149bc85d23bfdf42b049a73c7d482cc9002034cca51c203",
+        "4e567dca4790b5873f09e038720cc1a8e92f0fb4841992dfc75a43bd4e8268e6",
+        "22632baeb0df0fa74174716a8407b98709e1b9f2be503b27610994ad3d3524f2",
+        "7f79e5cb6216b0c2e4a1fdc7992e71c252472d5761debf15fb9b785e1845bbfd",
+        "11731e9802a812b20603d429164d382e25261f76ed2bb98859a83fa9b06780dd",
+        "852c1adb9646eac708bb32d3871deaa097bd8eac9845964547567c32d72e8898"
+      ]
+    },
+    "walk-2": {
+      "name": "基础行走 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          128.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 1.0,
+            "matches": 277,
+            "ratio": 0.9964,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "80f960360dade1f50218851fded5e6ce772e0b7d364c0f51f82d9d3a5e501d43",
+        "cacd72447afd1f59bbb3c02d811bc33a1619b7c69743f372e63292e33893ca0e",
+        "6ee0ba4a62c43fdc048adc75b36241d18753c19b78ba37d39054a6f3f291aad5",
+        "1ccf606d319808da626c1ba0690cca3301aea617247919341bffab1e3fd7506c",
+        "ef26626067677ccf1ee0c5a30c2cfdb404f1268165cebdbdf1d14a953cffa75d",
+        "31bc81ba2ef3047004cede2e060304a3bc8704a99d8527e17ac92c32bc0016e1",
+        "b1062499bffb71055da9221f7ea0cf5233980c03ced133d2c03c45d6bf67b6aa",
+        "cd3694ea055b7e3dcdd87a4a96b6f0882574ec8c33a291cbe3b2c6f1a6899f13",
+        "37f78c908434f5d7cdcec7cfc5204a870765a7af047565e56738940dd04a85e9"
+      ]
+    },
+    "walk-3": {
+      "name": "基础行走 · 背面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          161.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-3",
+            "scale": 1.0,
+            "matches": 184,
+            "ratio": 0.9946,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "c798d91ec68f9ece705c79734454b39bd1d34ceb7e46ef455895222902b40abd",
+        "101f8d643547d95dc4195b4822ae9982008f45e97d0d0d4753c2239858819b48",
+        "ef7ae419d83e44bc72e36e142ad5a9b125f880340fef4986c10051c956be0e3c",
+        "8611d2e0ca8cd6576b80905e0eaa9acae1c0c46e97b66e49ef532c57ba096438",
+        "4b5b8e4dd956f002af99f73c6df8e63a1a1c280b72407c98057f191cf54c0e2f",
+        "0ba5c4992319344e7c949442f4ed85b73b7435bedb522bfd29d6a4c34c3aa6c9",
+        "25321727d31e2893549d3071ad95f0d6e3e3b611d9adc7ba94650213b8b58a5e",
+        "fe6adb468d8871c60fa7196b98ba7eede7429f91f5649d94bbe386d5f86470ef",
+        "83a5145b231090c7a42f70006814b0725b4d99f24803f039b73b16ff1d5ad9e7"
+      ]
+    },
+    "actions-0": {
+      "name": "基础姿态组 1",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0634,
+        "sourceAnchor": [
+          164.5,
+          289
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.0634,
+            "matches": 33,
+            "ratio": 0.7174,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "87ca76574da0fa116739172e17fe19a8b6235161a6cb8e4d2f2d970ddd1eaab1",
+        "a7f63a21bb2f06e04ff6ac748bfc4e0842bc5f7571f7e6c8a3eebf29fa93fa1d",
+        "41c04094f791af10b9a8ec598ad3bc1366dec701880786c7bdac92c07409c2be",
+        "6a16518b69b9b81e96b2c7ea6e8ec0abec2a0c10e41b0eab921c40137814cee9",
+        "4768c66b7879744c13e6f0f198dcc95be62b5aa9b9fe875ad8c5bad51cd59292",
+        "e6a262a97af641679c4fabfc7a53b1f4478add9c0d46b683250bf31b8aef419c",
+        "031aff7fe7fc894535346cfb591c5b4c22bed4d4f2a0b4bd2a1d18b48d98e644",
+        "19eedfaec4b219d87d8cd5e10c1e7cc4ff25969574163381bbcc25ca55494fac",
+        "d247b64f50c0150b5d2532f3e660403c45a81f9873cbb58d2623a858a4c6585d"
+      ]
+    },
+    "actions-1": {
+      "name": "基础姿态组 2",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 0.9315,
+        "sourceAnchor": [
+          180.5,
+          301
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 0.9315,
+            "matches": 33,
+            "ratio": 0.5789,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "658971d6bf962db28ceb868fffb3602042fb24d784088944e2129fd44995e85c",
+        "0e71efa8ae6f85da1bf9e2aae7c3c17042e9ac815e21905b7f9702521e4dc129",
+        "2f0eab5cc171aff3b0998fd8f59978c103bf66ba220baf00b87685d756648621",
+        "3db5e580e671bc28a7dcb760c14224918f13cfdf3e9761d707592ce3bd3cf0cd",
+        "c0de8d0919d09377d75050fb9ac65f2cfd6276f5963bfa3ba311882cec4ae315",
+        "50a9019f5167360cc7ed2c35688b499ec027919a13a158133785f7a03e6929da",
+        "fa9c5d11d2d69a669263e2720261c08a53d8fd7bb0255def0bc9fa499043d02a",
+        "1ba4de6b71f4243b99c27bb3bb23518ce71613782ad81eb862b0567074e0decb",
+        "e52947f55a4539f9a64d22b9717e6aba0bcbff1b6a5c9eb82bbb3ab9eecc0515"
+      ]
+    },
+    "actions-2": {
+      "name": "基础姿态组 3",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          143.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "b4d7aad50800dc07a9d42d8150071d36b064afba7b441bd32a5474b834f18f4b",
+        "346dca74531bee19e75c64d80a8b26c0766f1a084b4e1902dcf38f82b04f070d",
+        "2a802b30a571697cf506326a6376b986fc70b6f5739eb415295153ec601148c5",
+        "fb4001c9d74ee110669268bbf174b890ab0f0e5ad4ce5542be048857fb303d03",
+        "0b6ed0bea608b2c2d1d5fdc1e182e6ca76902ca3d45558c285948a91e431ea0b",
+        "bac58ee4a949f30df935cf88bf544de7399a487538474ca47d791df1acf6e900",
+        "4f139cf3ef0bbcd85d0d8ab206717a31354a0c8c4121e9d3db53d2ed0c60970b",
+        "b1670e83ed320500fa36e8e366098da6d613a30b8c61bad63910db9688290cb2",
+        "c201e7c0bef68fefbf101c3c80f946ce70b595f205fe1bbb63be5e44322e92ce"
+      ]
+    },
+    "actions-3": {
+      "name": "基础姿态组 4",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          160.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-3",
+            "scale": 0.9758,
+            "matches": 8,
+            "ratio": 0.4444,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "c340cfbd05f08e3f9c84c5b4b5adaee2dcae00d6bbfac5785c59808a9494896d",
+        "07a45e2793824f274929234b2b2a4c8f4f82277f813a3de8851b705a11382191",
+        "afba5324d8bba7b14d506533bf4211c9481542e3281223a0cf055453becc662c",
+        "55427aebc18eb5239dd86212211f689dca108e7536fdcf81785eaa9dcbc73dcf",
+        "3d3ba65230f1506d6130ac848cb0199db80c86f94672c8b019f22fa58c0b57af",
+        "6d94459ca4adc1a3e4412179ae2eafdbff09d81bce6647f97bd1da998ca52fca",
+        "794d8255efacfe1a7db79db5aac42968a28c9855217b10a8fe4dcf972e7c2191",
+        "5b1455a3420a032f924030587578372203efce54252fd78de1274ebe7b9a477d",
+        "360d691f662e764268b0877e5f15af806bd20fa27fbc4bb280ce45e659f84968"
+      ]
+    },
+    "yukata-0": {
+      "name": "浴衣姿态组 1",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.1276,
+        "sourceAnchor": [
+          163.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.1276,
+            "matches": 23,
+            "ratio": 0.7188,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "74191b364a3d552aabdfb75f042d68a7166dab0ff09a8426ff367aa100b84d94",
+        "8c8a3a011eee4f497f6803e494a845d696891c50741ef00fcc65fe3e3fdf00f5",
+        "1caecab35c693102b7278a9da5841af90f497134189994b601177757588fd23b",
+        "042e5195bcedebf20959583f52178938e5901976b0836e072c4888cad7d5f397",
+        "44a4e1a64398f22f0db5e0d91f699d81e2b08ef2c0c376a71b643cf44f57b6c7",
+        "5f6b8db6d4d89ed17aca69c2a718d069169895b6bba79e28bf8668ce98ef5559",
+        "0dadec699507cbd897f42cdaf15aa5edbc99d2c97262b9ac2f0feae16b437984",
+        "c870c8880ed7c687871d2586ab6df8a8c9459bec6e120c0949f11b4c0786d863",
+        "00dff7df79451f3141e8c808cbc6457f09eec8e85aae080c300af432ac3c9638"
+      ]
+    },
+    "yukata-1": {
+      "name": "浴衣姿态组 2",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0924,
+        "sourceAnchor": [
+          187.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.0924,
+            "matches": 16,
+            "ratio": 0.6957,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "a53c4d026fcdcba8521bb97ad6875fddaf4b30e7553b974ea8ceb23bb813114a",
+        "0ba152aef863c50dac8c38f079461984147fea957ba8a75aa9f810ad232cbcce",
+        "d7e979cf83381a3cdbd67ab00e9d41287d178e8478aec0bd3a7c7de8cc03cbc8",
+        "591776f53e7980b03c80999b3209d6ddae94f669811bf022da8d5b628ec235b3",
+        "e040c99579b4282a9eb30508472fda31c583d45da6e8bf4cf5580067538ab562",
+        "794a7baf4da9c60f1371a23c2cfc0bff34eaf3d8d362bd31c6dea3eadb42ce80",
+        "c70728d4dbcfaecc93eb486f946979ea9a54a8b92b6cc5d519234019a4926b3f",
+        "635673fad5422a1a9608b07215b550078ff6ebea79d3eeb3a9ea6ea351d11b18",
+        "fec565d3c61b4d90bdc36e35134dc372305b32f48b405fcabfee236f5b72731c"
+      ]
+    },
+    "yukata-2": {
+      "name": "浴衣姿态组 3",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.1257,
+        "sourceAnchor": [
+          133.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 1.1257,
+            "matches": 13,
+            "ratio": 0.619,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "c9994352ea4b5a8ab30336323b8831afa251bf54d8c97178f64e434463f0c5bb",
+        "e134a712d651c65121e2e819388302ec5eb894eec910353c24858f9a9a8710ad",
+        "f9e856bdd78392517c293f6e1141b490742a4ba6b1a58648156ea2e97c71c104",
+        "513f9246e1ab399216f19d3e75cd630dfeb754489285ab4640a70342626c6e6d",
+        "ebbba1764165589a873660ea4d0c07be111a90e80e85b553c50ca3c5cc35d3ee",
+        "163821dbe3e47f4f56bc8b22ac1d42b63164164817cc86962f84bbd1ee3d6946",
+        "34e453a2e39a418a648f2bb1df2021466796cfc2ad33c9f6c3afafa685449170",
+        "11cf922ace300217dd4afbbdbcc62c3b6ccd6eaedc04414b4f8f99a4a1ee0dd3",
+        "38eddf1e0928ca4d4871457592890ce0c5396c61489a31201260826daa2abb17"
+      ]
+    },
+    "yukata-3": {
+      "name": "浴衣姿态组 4",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.116,
+        "sourceAnchor": [
+          188.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.116,
+            "matches": 16,
+            "ratio": 0.7619,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "1e449952c6c65da835ed5433c738d2ecd052e43a3f3a96c7d26b8d63cb4ef6ae",
+        "f526966acf3b47f3e199325ca6feaefe7295ec553c9baad73e03e759cc92bd2b",
+        "cf712ebff220efa3cb763b5021d141e99a7fc916ce261f63f1b89f8c4d650045",
+        "42c174f6ad388940951c39ddc2d44e7ebadb2ba5f7ef94462c519b72ca8d2fbb",
+        "30a9a2c1d586797ddc4d604fbfd956b785795645a376a5146f47ffe93deef492",
+        "3260e8f712e3cd31f651f69ea88fbdbb22531ca57b6c0d75a97779ee23ce126d",
+        "5afe83806c2208c4604962bc7f38f4814abf03fdd857e8a067213e5f4208fd7f",
+        "100781b27112731cad581ba69e80bea5cdde33f08dc9b3533e2d3e85b0d84cd4",
+        "b024834148cfc15ba0b8f88320528ce9e603127f0a64c501ac171ea79b93cad7"
+      ]
+    },
+    "yukata-4": {
+      "name": "浴衣姿态组 5",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 0.9143,
+        "sourceAnchor": [
+          152.5,
+          263
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 0.9143,
+            "matches": 12,
+            "ratio": 0.5217,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "f40df264a6d9eb12f575a79aa81a89dbdd9ea674379841588af1f2bf14f815e2",
+        "a01050e98bff88326de2844dfcee3b1ad0308b5cadacef4c366fafa11bffc1c9",
+        "edf3998934a670ba8c7fd6f587c6d419185f40baefc3ea6113af1000b524a705",
+        "0f65c70d256602855273f2983a824f048aa0a4e84403dbcc9aa498d908575da8",
+        "ac678005714e45ac699a8553ae851bb07d1949677d1f6b51eba9c886080534a1",
+        "c798a32f06b2fd57a3e97407c6482f5d75577994c350cbbbe4f8e66355500e62",
+        "86f6907ff8d75ab9ee9aaf55d525c81710d4a1ea9794784d183b4a1482fd6d48",
+        "bd6e6f624fc9d671f2805bc7d80d67d94edb7e7fd5e6dd5ae9152d3745b4b47d",
+        "51a41a51d1d1b431a6545c2db2a6eefecb080fc34500e441646466c60e5fce23"
+      ]
+    },
+    "yukata-5": {
+      "name": "浴衣姿态组 6",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 0.8919,
+        "sourceAnchor": [
+          160.5,
+          276
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 0.8919,
+            "matches": 23,
+            "ratio": 0.7419,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "dbccec8f94de13af48f8225fd299f2057474c3205012b0824f7df10fcd0891cb",
+        "6b781a12b827b8121904c184542334fff1159e56657a7daae8d4ee082a570aaf",
+        "0e993f18ce390008213466d835b7ccbe5b62fe8b45066188225f6fa6247148e1",
+        "70252c87d91f0afc1a90c496be7d827d0ea07b0492a7522504e4e3167d602537",
+        "248af8d184c0bcaf0a7968e97d70d4a7f30744a7a8ff459d0a93bb5e5d34ee63",
+        "7511c6f102ae8b4f7a22accf3053185b70aa9fb865dcd7fccbb60ca1eb79ac03",
+        "b3690edf4f22396d6c9fdacb8d8612a321e3d036b6988874fe95f94873175061",
+        "482a4989112b8a4070004b0dc3b2f377e175faf74937ee5a3ab50d369f980613",
+        "4bc5941ae24b0a3fa0b01c9da234a0bd31128a4ee94fec9fab1b35b6094ee845"
+      ]
+    },
+    "gift-0": {
+      "name": "礼物姿态组 1",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          139.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 1.0397,
+            "matches": 19,
+            "ratio": 0.4872,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "7f1f022fa3f7fd9aa9519416437947759a4a92281fa5dac7017370f2e4203fef",
+        "f9d2d8ee67fff5dff3496a9a953ca02d1152df3192977fb38202232e8499b290",
+        "d1dfdf5a582e0c8bac72a4995098a7467274ec0b24ca46e886cb996ff2095e54",
+        "1507a1b4602e4eedf4bb96319368aedb0fa2c861ee3adb71702a7cea24b45732",
+        "f3db357f1b93811cf600cd8ac2f5d0dd9cf1bb4379565838bc60080a9e750a21",
+        "9d27c632a0597b786195c5ce4687bc867b0dc2f0f59794147bc79af0fa47d3d5",
+        "69f0b57c45a4ab33dad3fdb80132e8979cb1dfeb52e946144c4f0324f9b80af2",
+        "26b8f2e1a02868a57da358cbbdfe4716592269f2a940c760e24f5bde439069dd",
+        "653c74f8c246a11d1f9af21b107485249252e444b7928c90c8c5291f9cca8832"
+      ]
+    },
+    "gift-1": {
+      "name": "礼物姿态组 2",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.2038,
+        "sourceAnchor": [
+          149.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1-mirror",
+            "scale": 1.2038,
+            "matches": 10,
+            "ratio": 0.4762,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "d2a6d048873c234701d5a922e1fbb49b9c4e55c40a5b5bac011924c43d850da1",
+        "ad6439bc2f415bed4878dbe8e598e36019bb41f135f7fef00b88d3d836d6dcc8",
+        "43afed8bb66ba4cb1703f62de83b0b6c242917aee5d5ed22105ab007f1b4de10",
+        "b6cb7330c7f5a4e4ffde90dd724546e79449512d19a594ae609fed34ccf65739",
+        "3b75a23f217b314a7943f820ea161838e9b9946d8fd2a121247785de5731c1f5",
+        "636b5f1204781939fad9d0752e2d063b5e48cb1368ececec50f21743f1145342",
+        "91124f0e3158626b138b940ff427cc2bb410f4367f29b59a6656f18904737a26",
+        "bc21a56879e9bbec2eefe6ec5acf4ff9300baf6dc0c75ce82b5648bf08f91ef3",
+        "77d1106efb10d0a451b0e32e1c05148aa99e77ffd7b096fb47965b1029c7d933"
+      ]
+    },
+    "gift-2": {
+      "name": "礼物姿态组 3",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.1007,
+        "sourceAnchor": [
+          133.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1-mirror",
+            "scale": 1.1007,
+            "matches": 12,
+            "ratio": 0.5455,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "ca011613fe1649408e0d467da61b6e5dcc72e09bca5f0fa25a842d84f6b33531",
+        "b23b99c142e14253288519056ff82479ba370d2eb3442e5b7074cb9f0227106b",
+        "8dc223c281ed4ab122de37524f308f8a47b9acbd9e90fc31cd1260713038e8dc",
+        "a7b4066b8d0f1a556adeae3283702780628b6dd6522c35e34dfff26e3822423f",
+        "56fd82f4608c33f5c866e55650b200c0db341560e8b499655e4f9fbd1ef39042",
+        "0023b3ebd2e39e6b737bf1f31a21c15364309d4e92f6a1d24ce4f8c69355448e",
+        "5276d4f2b388189b346857683bc998219c56c93d9ce2ae951a1779a783b5dbbd",
+        "d9531822289338e74178c508360f0ede98a8356ccb9c743f092f7219e5dbe809",
+        "400aab7465be33b9f2c54c179946246569085da87a5113d6a9ab1735f4987d04"
+      ]
+    },
+    "gift-3": {
+      "name": "礼物姿态组 4",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0805,
+        "sourceAnchor": [
+          136.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1-mirror",
+            "scale": 1.0805,
+            "matches": 10,
+            "ratio": 0.4545,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "317408e52e0c735f86ec58517713f05a30d28930c9f935066d5fb575820c0fbf",
+        "213c12953fb619481c6643b8ac8168fb94f89ba01633ce85c9a931337f8db27a",
+        "0b95748bfab43fce2fcf7e83fcda91dee4f79da2b5ff54c6ef5ffb39264dccc9",
+        "55200543e465b40c50bac0b211bcdd31ed05a3f1454f0bafb24f95c1e99a00ee",
+        "4763e1ff9c2ffde82ebcafb6341fbe3eb7004f6463bcec525f5cf688fb7fdebb",
+        "58b452582061cc843c897b616c66aabaf94f9af3592ba7e0d0037d6409efc3f1",
+        "27ac1721a7031e61792bf8804129600ca66b0fbf90cc5e1349ba8ce8574ccdb9",
+        "c5f2cbc26fde33d682d23c5df1ce2384066480994f6212a1a92ff77e3f624568",
+        "070c4e08c831d0a2ffb58271c27d7622f61c060f6fc36043c7bede5bf485ed72"
+      ]
+    },
+    "chat-0": {
+      "name": "站立交谈 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          189.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "mood_happy-1",
+            "scale": 1.0173,
+            "matches": 13,
+            "ratio": 0.7222,
+            "depth": 2
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "0b68b0158471b85fc76273531e27763b7f84b951e48f4762d4cda895e82d82d5",
+        "6212250c65e956d53e591b3fad3b993210d72b6e3f969420b548c8044b2a4fff",
+        "0ecfc6e7b1f6afd67a5c8c76efdb1f5c539962903d8c4aec373cae08c328ec24",
+        "83b02e641a6edf4b823ac033996a317057ff304ee52c1496148e844f609ef367",
+        "9b3e07fd53a4cbe2ccbea8c05435b1be65d787829cf9dfdac3dbe92aba33c1eb",
+        "98dccf20c07f61315ad2c37fafb6371ae7aeb15191b1505bb3ce8bf259952c71",
+        "50a3b4ef8bb75408d4bccaf79914f985851988f67177fe29c2f28cd56169edec",
+        "6130762b78cb02dbb94bab881ebebe75a8f8b8d9564f15fdec78ec11592961e8",
+        "203f9b5414d939b0ef0b9dacf3e24ebf5e4b533056320201bbdb7c612039413d"
+      ]
+    },
+    "chat-1": {
+      "name": "站立交谈 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0811,
+        "sourceAnchor": [
+          130.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 1.0811,
+            "matches": 18,
+            "ratio": 0.5,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "5c8202ae4f4b3ae41e1e70573c35f6c343b26692562c6145f694bb1c3ff8d8ca",
+        "e32e3cb2256500730a9f6eed359f90813b63ad67037ef966570c240a9980cc61",
+        "57ed105de88ff7d16ab69f76916cf18bf1b240fa100452e4353da8a02f096919",
+        "87ba39af0e89bd41eadd13976a236327eade407a61567d6ff0e8504ce488e861",
+        "571891b4be645045be72a62864434370020128abe3609e5e3fba1fd9f0e0b43c",
+        "b920c7b1fc31021b3e06af6e6517dde3274364d7d7bf882a3f3c90704990b3a2",
+        "3759288e685fe36a21cce85ca3cbc896b6e8d8c93f636e16a6d03a25c57aa4a4",
+        "6ebefff5b07f30e2e95bb888e6ca9267b3f3d7d95696c280a07e3ea191a922de",
+        "0fd9ae9dfef7465979da0ade7bb103c8b27625f535dd8699f44e256feac2cb1d"
+      ]
+    },
+    "high_five-0": {
+      "name": "击掌 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0556,
+        "sourceAnchor": [
+          185.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.0556,
+            "matches": 15,
+            "ratio": 0.5357,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "5beac97b4cbb6a00d7eb966c6aee4623e68a83841aa35e5c3a6bfc39098ca918",
+        "6fa6b21e6dae8d4d3d5657ec9569695217df2190e5f8fa775b938d40a725a899",
+        "2ac7612964b33f19ba3fedf789b06794a13822a1c9e7f14d254aa4fe624d5365",
+        "57ad11a7a1dc6d875fb51185e7dd1e4c4cab308feba30d5aa6082e2c7be4c82c",
+        "61492fedb6d6ad0c9ff2a7e8df92d5ad9447b3f2e4dfbb7abf8aefff8e86d2b0",
+        "362ac72310f290e262e85a16c5f923b3729f57b21cb825ffe3cd48cc2a3c0a41",
+        "2e2e0fa339304b77fa60c3f1b1dbe5888fa3277c9a50ba9ac7319c3fc3a9b2d3",
+        "fa93e182c8fb44d88eb048e3485de7439f6b5fc3111a09e8d82e8966007ae828",
+        "0accc66bb4f9a5ff7c2d8335d925d63ad01342a8360e6ee014793bd8a2d2be0c"
+      ]
+    },
+    "high_five-1": {
+      "name": "击掌 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0989,
+        "sourceAnchor": [
+          133.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 1.0989,
+            "matches": 21,
+            "ratio": 0.5122,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "aee299fca5a72a5dc7dfbf3b1bfb902ead6b0267cd7efff850832810e6890e7f",
+        "c26cd1e65a183a25305ee7f12c11860b34c4d85645b8ab05ef18f8fa0100912e",
+        "f1f6eae947c90f0f53a0a2cc3f1c06afb36136ea29d6eca582d7513c5335cce5",
+        "b587512e43a815cb8e2a8ef9b2d8386280cf0f393edfd7e2af8049135f2da8a1",
+        "9570fc1ed86ca94527a510339866569202eb195fa1340cdd3d3e1f951b29e383",
+        "6e2a198a8298f7bb88977e411454f2f4235fa676054e689309abf2499d530fe5",
+        "6436ef23649d59bbefda27cdc1c0cb7e859e94ec4a65ef33ba729cbdaaae4209",
+        "64bb2ae263cc9b6b854f6dae1b74d77c683e48d75f4ae9fe6bd2a1145bc7a559",
+        "80bcd00a6ee35cc1479329ec3d4334c6969f2a342b11651a46cbc19663acb336"
+      ]
+    },
+    "mood_happy-0": {
+      "name": "开心 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0748,
+        "sourceAnchor": [
+          167.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.0748,
+            "matches": 46,
+            "ratio": 0.6765,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "d05d11ef8bc09e153da124de8cb3819f831f148d95e9a7b32a52778a6a1acd60",
+        "5f15c4cfbe56b0aabe1a81e923c598bc1b93de08659a2564ccb14b2038b7543f",
+        "7336755d8d4d59d9fb18b2a924522f7507565c7d1005fa86b7a2488e85250150",
+        "b65085a2bea7922b6645ad8428436980dabeb9e0c67ab8f75413b5617be1d3f9",
+        "da8f12a085af33f11cf8ac7517c49f171498d6345064e9126e2ceff87346eec1",
+        "d0843ffb28e1a3ca34800af6ab59c9f5d8e285049e3694a8318dcd9bb2fc8dbd",
+        "b365b9997964537ffc188e05d32d74375b2dad86751c1f022d65d07a74b50c0d",
+        "9c7c9f8a313e3f085baf72760bc0a572167c3c1cb9666ea72574ee758074c743",
+        "555f98d608562cbca0fc6242b4dc2e8657a4ac5724e67fba90c5a8e214fdb926"
+      ]
+    },
+    "mood_happy-1": {
+      "name": "开心 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0768,
+        "sourceAnchor": [
+          182.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.0768,
+            "matches": 29,
+            "ratio": 0.7073,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "f656f99c1648ba14a78af6b6c5424a7b7c4f764abc013b2a735b912f249de687",
+        "8a438b0688016421b11f45a699e4a2f232ab7c5586c96426cfeb0e52cc2bccdf",
+        "8a08c8be39bcd1621dee6453e280c7e3ce5bd8c9a225e9a269a5ba1be86bc1f6",
+        "8164d24d29374e64cdb2a80330154060493a77bd1b5bc494c64dded9d2a822ec",
+        "4f07072b4e06bbb64d03eb801df45731c5703fad09f2f4b0d1d9c56dd77c4607",
+        "c9f96aead3b89865a0262dc1ee26398ec5a3293b27b762c049a879b056e5c541",
+        "9f1c32ebb065c5f36e7301775e9bb0af473e6e3a93a15d35195015fb7aa1d5e6",
+        "c95d65291c7e715bcfced6ff196449b0879725dea37b8788c0b9143a57a60eb2",
+        "405060c5d83a4c1c3e63f74015077f62131908ca158ff5c345350d77a09b51a0"
+      ]
+    },
+    "mood_happy-2": {
+      "name": "开心 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0995,
+        "sourceAnchor": [
+          140.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1-mirror",
+            "scale": 1.0995,
+            "matches": 14,
+            "ratio": 0.56,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "5b91b818f60c89e89411d052cc310be0de904ac17cc064c9b1b99637ddbf325f",
+        "4da57c114e60466862676a8050d12f182796a91a2e9267acceeb158417448d5b",
+        "86e29a99e2a32adee9c76be2556c5a0f67eecb331eb976a6bafe38e9e29d37cf",
+        "cf0f59e74d4d014656877544eef05366df8d54ea2c47d8b2c8362a70923fa14b",
+        "d2522799c3f5b8a8ec238a26675847ad9dedc26464d118b2ac5f5a766e926bad",
+        "fe7f40e7174da5c29e4c3cc7da80f76d3557d1692cbbe3c208a9c351d209aa07",
+        "9967f6a13aad721df541ecd8da8c492d8dcee6ee641663afec1c1b4e7d712964",
+        "75b5fcb3c59cba545b56fd85093e1a16d403b586b506bf0356e8d1d92c28dd49",
+        "00bed3fe0da1ac01236ca90cf71812e2c74c1f4bbfaf42df87ae449f53d1f571"
+      ]
+    },
+    "mood_happy-3": {
+      "name": "开心 · 背面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0637,
+        "sourceAnchor": [
+          161.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-3",
+            "scale": 1.0637,
+            "matches": 14,
+            "ratio": 0.4375,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "0d2f2f0db3f412fa0ea1c8e933c9532062c33cc2e32d8f7bb7366efa83d2a86d",
+        "d23812abc12e26cc24c3bcc4ae8b3843c04719bafa1365d21f5ce27c77a6fa4f",
+        "c49ec400f66d907b4a2e069a85f85190a62a1b482f72dadf364131d1ba997090",
+        "db84946e58e1ea2288d9918f72d6062f957f623e9ad16ef10afc5797f3b0fd07",
+        "13310a9aa72e69a58a0483fd9e547d82be3d7f8f344350b19cf522150983626e",
+        "93e50f65ec1fcf641f85cdfa2629283013128554c8ec44b0a83a8bb7e7be71e4",
+        "1d7c0566a0d54bd2cda3391a650c995a512246a8aebc1f252bca8b36d4c56ed9",
+        "d38f9b65c0e53531b33e951df986eb503afdc191c32ca6151c2544798b703197",
+        "61e2ec26b9a3db4802c2e33eb3450b81ce416497deb763f238b568e8dca285ce"
+      ]
+    },
+    "mood_sad-0": {
+      "name": "失落 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0569,
+        "sourceAnchor": [
+          162.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.0569,
+            "matches": 31,
+            "ratio": 0.5,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "df332d41033b7f05f2da01121235fd38e668eb689aa9f0998acb9baee0e21e89",
+        "2e040498f4dce25d6bf2c25cefe51cdf00be2896dd2658462145aa041a4c7c11",
+        "a39d523393357452ec666e2230623aaea572b6083567725924f2cc79e8836034",
+        "d4603275ee8a220234b4afa8fe56f9972da77f70ca0c5af68281546bbf0505b3",
+        "c515462f4076e9c943024c69882346f8b82712dc4f59c74a9493c92bfb03db8f",
+        "0fbbacca8e71d71ad1351ffe0ff62a1ebf13d8d9f45bad85bc50da879f4d191c",
+        "a22ef5c4aa827c6b1c4ca618ad19c75a24f327a6680ab08e7933a23b06feb22d",
+        "d2e95d3d2954300b04c58bc18e618e3ad18097f91a7d11a55e142c612fc5541c",
+        "b79bd9e09cb710e7fb5856ad83c46e19e21bd2067bf2a5df26f3e28e2ca55364"
+      ]
+    },
+    "mood_sad-1": {
+      "name": "失落 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          182.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 0.9777,
+            "matches": 32,
+            "ratio": 0.6531,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "9f4848c0747930320b6f05646530d1069c95fbee2e9090eaf1695a05b9bae8a8",
+        "67577d1d9942096d4cbf78ec33a1148dbda0c3f05e1124887eb9880d8a5838a9",
+        "4d381e1ffdce551d7da30ffa8384bb37755db323d290a5db064583e9aa7773f7",
+        "f12e46a1016131e59e3e867300403e53df4b632b8660b04781e965f05e6f203e",
+        "6c71e260e626682efd13d2918c73549dd1682c96bf362dbe7c4c222d7732de60",
+        "4726954cf981dd1d5f8efc5d0fc44c1c8dcfa38e05668dd1b1f011cb12d04a4e",
+        "cb36cc4d3519fb105e90b1c9c2a5b5b8a0e5d6d5893904d1ccc3b926ee75387f",
+        "da71a59f1c47cbae889c223b4fba14fa179bd4a723b49d1b8918d5e91b74550d",
+        "774ff580831a4821f6d42002fc5f1010ea644f6a3e28a8de409805e67133cc6a"
+      ]
+    },
+    "mood_sad-2": {
+      "name": "失落 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.13,
+        "sourceAnchor": [
+          139.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 1.13,
+            "matches": 16,
+            "ratio": 0.5,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "db7f13ea1362acb3017bdbb302ea1c14c45f2bb5a1324cde4aae0ea35f0e5ae3",
+        "664902b26288b23771534386c38fa6b4f94b5df76db6df965cf8cd17b0faca6b",
+        "8d5c48a81141ce2f9537270e06455cd22ed85403a0db1c3212d4605ba0fd8fc5",
+        "21bb4c64a1e4dc875eaa23638d829f7d2ca058e5d272a346a30f0f705954b132",
+        "4a971d396d7bf69c3898070533a6ce922263db304fdd6312ffc3b6501a8ca429",
+        "f110d5a59a4fe319c495a2e34f1b82760832ca0324181ec1903383973df86b1b",
+        "feceed8ea5d7b871b3c03855f057ba5264be859da30bd302acf1fd7757e3b5fd",
+        "4cfadcc616a3b070610cb6ccf7c90d6191ce7ec05444a47636895d6de37e766f",
+        "5358f851f39c755a6e87c5efd583824be3b05db0fb40d557be511914f749e5db"
+      ]
+    },
+    "mood_sad-3": {
+      "name": "失落 · 背面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0834,
+        "sourceAnchor": [
+          162.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-3",
+            "scale": 1.0834,
+            "matches": 17,
+            "ratio": 0.4857,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "cc6ff1475421ac03f22ce64ee7229c629a8f9da74403a783b0910cefd32a86d1",
+        "7243053d726c78377f48b21b6377a5c84916413825023b03ba8b7d9702d6118c",
+        "cc9a1462cbaf4231df2fdac6c8275a55f7eab0c862dff3aaa305e725ae32800a",
+        "4da1bf4ba3364f14a28750a56d6e81f730663f962e53eea9f5f8e69a6c4a79c4",
+        "81867e21f73a21c2f3f7fac194df7ebdcc0b60b40e419be4ad0ea012bdd0ca4a",
+        "260c65ece0d27eebec7575bf8505bbbdf41d995e86dbc4f7a0ae17728b6026c3",
+        "0b90a181e2b84ea1834deb3cfda0ba2fcb20aff62402f75202196c9d0dc586db",
+        "691e9e8b50a77e34ca1f55d55f6be0743012d0abc24c2d5be85fc487c847dbe9",
+        "93a30a98c523a4f831189ea9ee033cd4fdd49aede9160a707f05d5b749bbbb0c"
+      ]
+    },
+    "mood_tired-0": {
+      "name": "困倦 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          164.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 0.9926,
+            "matches": 33,
+            "ratio": 0.5238,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "8adb043d87a9d8e8197d6049e0bd1dc4b375c15ea66ec53621e14d0b0a09a77b",
+        "a54f47323131986d2bd059b8df570ce7c0f681851c638507c796ca193aaa8769",
+        "4fcb314b935091e2d6895f1f4353221e408e766e1192b44b42e7d37253d5bf7b",
+        "85d3ccafb1c038791ec33cd26adc350ff06212e4d4373b9ae4455061edc949c4",
+        "91cd784bfee6c63ee1753b4ea074177be4b32281b24667eebddf5a2763f8604a",
+        "7dbfa9330665389d704b6440bc77ef860d22a154188c51760d238335dd965fb5",
+        "0253f0e9eec40b5a94d201a34409cb977c2f29a3ff9ef7075a3597361d45e692",
+        "729c75a46393c16fa096a34dc6e2668ff6eef957436192147d62b9dccb18458c",
+        "5d0f6ab540aa7cd9a820a555e866b9220309b47425bcd5bf68d4f98cb2574021"
+      ]
+    },
+    "mood_tired-1": {
+      "name": "困倦 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0592,
+        "sourceAnchor": [
+          163.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.0592,
+            "matches": 18,
+            "ratio": 0.5,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "751650b717e4c26ee988654c2ba01793e5091b26b7e72400f1e1bf3f4584a1f9",
+        "c6a7ee005d030921d3111a4aa9d9e4fb175a80afcc1c528461f9855a5549334d",
+        "d4f350607e93d269d0abbb782858caea3da1146c9f4b66907efd131a55fb2270",
+        "8604ae99bbc580785b565bc2030eaafeb61f3aa7f084e2755c61e03782571269",
+        "1ec8bbe1022c0f94da3a72464c6a0986fd9dea03d34f3c8c39652ac47c26a768",
+        "b77e8ca24eca5b118230f24a1a7a4ba2d4444c7ea40abdf777eec78ec622c136",
+        "7aea9e902821e29ff6cf120c64c57c281c38bffb4dfc922f6d5e00af4cab84dc",
+        "5c0f8e230a6d4fc5be75e2aa691bebf7b1420e29a02c38b5c2c85ab09695b659",
+        "8ca6815f020d208dead0f05d3bfc4d69e1c78b833f1ba30c146522b4a4cdbf41"
+      ]
+    },
+    "mood_tired-2": {
+      "name": "困倦 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0809,
+        "sourceAnchor": [
+          158.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 1.0809,
+            "matches": 19,
+            "ratio": 0.4419,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "e1c3ee293c56d25309dfce5f998b02db0b17483075698742cadbfb28b1b1bfcb",
+        "ea562d4a31e8a851e1c937136a2f32bd91a251bd4857380cecfeef4dfa2cfeba",
+        "2d28572d28ee43a5fc11772c5b87276312732eba8c3c9574be46f63bc2bdf18b",
+        "aad86172ac1f8d36f390ba0f514124a67aecda06271b98c3287eb8fadc0bc511",
+        "7231b721b95b1af5b1419d712b0451b33225f541c0dc8f09fb531d65cf6cc15e",
+        "c9aa3246c1d255c9ac09a50efa72561be8a0576c08cf8547b3396bfd5a946bdc",
+        "86cabbb920547af11fdbe192430801ad07e8bdeb93cdccdb0b4bbeef508b27ca",
+        "f39d3500d33600f58ce3ee7e8f180babfefe3d9c758cdb88a8e5889d76592849",
+        "33769d5bea4661b6cb7b00ddaaf4387436a66883a18e32eedd967529897338b0"
+      ]
+    },
+    "mood_tired-3": {
+      "name": "困倦 · 背面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          164.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "31d300c16be677c1e44f8ab91a579be771c4126cb90e2fde070970a8a1fdf41d",
+        "7c617c4b678243ea82c52b0b0714a90b7630aab064451c2644c0b8ef56102962",
+        "cde493c5f079ade25b5cc739a39b8d14424c238d5e5640e74275633e1586f8e0",
+        "8a0bb77289db0f5e5c2d9c40eead06087d326e16d490933e711f4ac096b41225",
+        "0b446699236ab558cbcba13e86778113f2749cb81858373fa622fba29c168d86",
+        "96f76ce1f5583057ec51e554eb7ce188cf337ba0dcde6da6ed96d2ab2ecbec7e",
+        "2a597bb6d9b0d670cb005225d98e7036158027a1cf28e33b482293fc25003875",
+        "abd90428e32d7d9201b262efbb1432a7fe093a6717a2127e39c30e3b5a5022e7",
+        "28f86a51a620867b9fad2ed7c56b56209dfecb8520bcc23613e32925e5343f72"
+      ]
+    },
+    "pick_up-0": {
+      "name": "俯身拾取 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0735,
+        "sourceAnchor": [
+          161.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.0735,
+            "matches": 33,
+            "ratio": 0.5593,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "8c3cef7af16b1c262d6eaef32eec3972a0fdf8ec9c6fd05a879556c0bcfd8498",
+        "81423c4c80f6be0e5746cba2c842b61d69e39cef49eb3a2c5458b9aa2fdd843a",
+        "6b62fcabfdd366aacea0b7147f5f6eaa0fc0c41c1878c8d9d731487d4f703290",
+        "af8c4bd9132ee894ec137cd602091be90abdaf38235547e51122fa2ca9fe0e95",
+        "8743c1890b2c77a41bdd53b2ab17586df3c145ed749f088365072da14f88dc48",
+        "7be68c423788922317350010978e4656cdf7749fe96c7f590aa9c557f47e75d7",
+        "09b7de170a925c87ced03c969b1d68eb005baa6c861956a8eba7826ed74d2e7d",
+        "437632565c3ad52d1f65a926d3b15c7e464bec431512128edbee6d9bcf1e015a",
+        "31688a9de1e996d11c9197e2030721e12b8f25143312719142c13578566786f1"
+      ]
+    },
+    "pick_up-1": {
+      "name": "俯身拾取 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.1581,
+        "sourceAnchor": [
+          168.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.1581,
+            "matches": 18,
+            "ratio": 0.4865,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "60bc6fff3055fb245512082a614197d237e258f330463ffc40dc3029189d46c6",
+        "4b492409b80d2674543754d16ae5dc6fb601f8c474d6ef11a7ca70f4214cdf09",
+        "dc4fb16d48e4df0a059446d1e26e8e5f6a28597001dc73d5ef0fbf5e30cfbdc3",
+        "b5339c75c9bf3fe38b2196cefd4582259df6f236bda736cdc0b1dc703c480dfa",
+        "c39fe832bcac0bc1f52feaae6f3ea9be435965e291c2c479cefc8f11b35a4bec",
+        "1157fee881d336106f7bf9a277da1eea62ac1892454d1ce151d02c82f0104e17",
+        "15c5dfddcf9819b2ba61d4b728e58a42162a4846450583101b06645d2336cee6",
+        "5536e6c576440b1e47f75492c5a369dc081a65a9d768efea1c576edcba418fb0",
+        "039a090e2e8ddf954aa1ac4df765a4d617290c48737e3f7d2fc177701b339a68"
+      ]
+    },
+    "pick_up-2": {
+      "name": "俯身拾取 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.1594,
+        "sourceAnchor": [
+          146.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 1.1594,
+            "matches": 25,
+            "ratio": 0.6098,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "3237d89d045f28d3e366bea1c5620e3126e2ce65d0cd062bdbd136ce294e2d7d",
+        "ce62f3f8340c3d482cba8084ea699867d5b90408278885c0be8ab4c1be8efddf",
+        "7e2bf61c1f690fb87b0c89fc3172fbf4a6e2e72bd55b3206f6c7a4c1c72d75c5",
+        "ecdb5fdc1cd4808dfb9273ba37b0787640b248d9acc9145523d04cd29d1d8ca1",
+        "5be132e22f27b9df950ca35fbcf7bd490acaa9978e9f395a9653cdb5cd2de1b8",
+        "c8988a6db347538f7e2c06138e539bcd442ebce22479f0f46db4dd8ec9f8d340",
+        "80d2c519313b25732fb07c2f3d3abfb739e886dbdbf9cc8f19151c59eca5eaea",
+        "2c9071efface52a46f30a1c4251cf951f14b6c679761b0ba5c2f251453f8b3e7",
+        "bdaf530547f9e2e6308e161f318344b820b37e37cd5dc689099e74ac4515cd0c"
+      ]
+    },
+    "pick_up-3": {
+      "name": "俯身拾取 · 背面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          156.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "9c9951568d871837c9db222cc66b7565781e9baca38c14ffe0d5d6fefa35a164",
+        "5f49b1791e57d7269e125a876e4bff993cf125fca85e3dd542d9781cb0fb1e9f",
+        "e89f9a38949702853ef70baafa61945241b608ce8b5dbc241f98d670545acb45",
+        "41c4ae15e28ed80ebada29deed0672edc646f74cc1d65e1efc51db659318e3cf",
+        "d9c6e350791a22c5e32c7b49d8b1d837b3550b6d214eed8c83041f76f7ab0a8b",
+        "361fc8aa93451bd2f9010e8767310022594f105ba0de3aa24b68b92f76abddb9",
+        "52e310a7e83c3406501e6eda3142e43987a157d4b6cce1e6c044c6d72271b80e",
+        "55bac64e3e4448eea99601796d671217f6d893366f348312b628f3292a008f44",
+        "b733ffad334aed94b7246028ac4a30fc294c424ffe928e709e5b66b9e130cf11"
+      ]
+    },
+    "sit_chat-0": {
+      "name": "坐着交谈 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.073,
+        "sourceAnchor": [
+          163.0,
+          304
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.073,
+            "matches": 11,
+            "ratio": 0.44,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "a1c00e50fd1d979f4091faafeadc4079cc83286ff69b4255741dc62c2bda5b4f",
+        "9db5ca665ce97dc52dec32a93e575b0d4e90a87e0bc7f3c91c2336305b81bdcf",
+        "ac3d3991b06bb7fc0c09b3f7fbd80bce9eddf5bb127a1e3f979227bd14a84ef1",
+        "3f1ee1041ae4768f2288ab353180f62cf3b54526095c232f94f3617ba58db5ae",
+        "21c9372474307fdcd51c99e9702d9b1e7d58cd1bf978d087b1a58bec8e300ba8",
+        "44572ddd2955aea866e2e9fa56523f745059c2851dc3ac52677b3bb9190d65aa",
+        "4cfc685f3dc638a7a4fa673cc2a7789ef7ab948608d5a4828249869b7f1da692",
+        "ca934d9f4d58738d192369214942792a28d6a318c9cb703304adf99689387764",
+        "0a99b74068610bd50bfbe4fb8dff73b53a09e8abdd86f3642e4523ba6a4079ab"
+      ]
+    },
+    "sit_chat-1": {
+      "name": "坐着交谈 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          156.5,
+          293
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "23dd93ef219ec9c57cfb4c50f832f27efec2af84e2355030eab864a9bb92f5a9",
+        "e48f9fe5f528ab218f27b832ae4239a2cb279798834d73251721c2d749993278",
+        "0b9e36c3369cba3b25677b8505cddd91b3e7ce22ce88f6f68b62c1714cb48206",
+        "02b193461b7503ec6f73e33a61741a289af8a3849babc190c22ef803c627fc97",
+        "4c14ec018b75d118d2a557aaacf6b15e34777b7a577031cbf14c6614443578ca",
+        "06df1db77c7b2793d75d307e7a9e74953af87ce0ab8f4d3e5428a4f00f0bf86e",
+        "4f6fb93ce136bfcfb856b3a678be4be0de58aadf22201a8ca7d00d9297cfc148",
+        "f2b55e4c93344f3e266f1bf02812a61115786e0c0df18dc633884f1dfc499e38",
+        "ac4312c9f2be7a1d26b30dbdb1912e5daf28de3d466753cd846676d5b701b3bb"
+      ]
+    },
+    "sit_down-0": {
+      "name": "坐下 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0965,
+        "sourceAnchor": [
+          164.0,
+          297
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.0965,
+            "matches": 55,
+            "ratio": 0.7857,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "fc6cb9dba03480b21458e7db5a80cdef844a7beca480d9f053c9a508500d2871",
+        "6399914a8a6cbc8958b35230d5fb766288d96956e8bc1db4bb7bf73f3e80ef9e",
+        "9efc1c050cd6b2099314c8032bbcf1f3728551ea53133c1f525c15659ef08fee",
+        "7cb9fddff2dc0f9b43882151afd0453a2b85822c515e1372454dcae983822933",
+        "53ff114b8033b31d205f7cb62ab0af3f452c31055421d8997065323cfb09e3ae",
+        "58c8b56916b46fafceed95a0cb8f39182b8d8a7b7b4191359272a620d9983e52",
+        "f4fa992c1e9e5cf4ab5387e3a04eb11c8273a1ba5590221c472242582b55a530",
+        "aa43f5bd4c0d0849431ee585fbf413736f3fe32237a3fb51cdc41dbdf8173ba9",
+        "f9adc57918794d72edc93b3ec6ce6054da8d28b0cabb1eee852f9c800bde9649"
+      ]
+    },
+    "sit_down-1": {
+      "name": "坐下 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0627,
+        "sourceAnchor": [
+          174.0,
+          299
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.0627,
+            "matches": 21,
+            "ratio": 0.4773,
+            "depth": 1
+          },
+          "frameCorrections": {
+            "6": 0.93,
+            "7": 0.9308,
+            "8": 0.9376
+          }
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "5f94fcd392c67bf77ab9f653377ece133b0a59ea6fa1e8bd0367fff90691c2d8",
+        "dd062f06351a22653d7c99e4ac33ed10baa9a35b8ad695817e2fa19e91d6668f",
+        "8685581203ad6e55077875b541d244561e71b10fcd59ffbd87d22df246ec1601",
+        "0d2626b65ab09395cae69fb0ecfc0e372fbd161d6d0697a240d0d5c03b4d7eb9",
+        "09618d2d982eccaea7bfef26b57bdf1aca551b1a17d81fc0f48080b9daa26359",
+        "f8b3298bb1eff11b2ac75f29ed14b51cb5259b6c233481a407429fb22de3e288",
+        "af4737d097a38c427b42be5ca98e3ce32db613f408dff9b8b491205474b7a7b3",
+        "6cda05812f59c9c8134411b17747f9ca32307949aa42d749f0f5cfd8d7504f6e",
+        "1b6af9bfafabb4d503ba77cc1380364459f6d6e9ef2f7467dbf8feff27cc8ddb"
+      ]
+    },
+    "sit_down-2": {
+      "name": "坐下 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.114,
+        "sourceAnchor": [
+          144.5,
+          295
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 1.114,
+            "matches": 21,
+            "ratio": 0.5833,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "22a9d17b50be6abc195b82cf7cda9f67d2b7d0c7a2a8d25ee1be3429b764db37",
+        "02f0ce4f2b0ee2b34893c2de22def6cdb83974aca4952f2494c9162c689e4c18",
+        "f3d28c16000f973bc541d2a081968d2711cc9cd01097e58ac3716762eabf662f",
+        "451d23d321883e9ea53bc4859f635e580a021b439c184791c59e5fbc21dc58eb",
+        "eb4b8760b6d6d713a2867a5c04f15708f935291f822dde8a09aa061acb009b2f",
+        "b2ebee415d14e70297b55fc1e0f7c787c69e9bea13b9454c9c59fe3149d7d0ca",
+        "8ee2fe7385beeeef898c485c671bb43591e736f8eaf5fbbf84cce31ede87c519",
+        "5bf4280d2797a5c9ae86a92d30642971e5ae4dc13d2f613cb262b69bb1434331",
+        "6ce6d3a964b486e9f5f9815ed8eba8d9c941565e5f8edc0048e4047a2ab52340"
+      ]
+    },
+    "sit_down-3": {
+      "name": "坐下 · 背面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          158.0,
+          273
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "a922abbbfdeb7a6306619f2455b03a2832945e5d1db0ba584157bc128d60c8a2",
+        "09791fde7aa73b285d4d283a1aa5efa2f5cab5664b86006714e354591bbc3186",
+        "24ec7bc8713a3f895b85693d99df1559d21a8433b98d440a0702c900bbeb6cd2",
+        "e05387f51679a63c6c1e227d98d545269920d0b513b879e1aff9a2050118ff43",
+        "f7bc2c2ac2792e64b9487c323df7d8814509b712ee1d8737d18502f165a8bc9c",
+        "806fd4a671876980b5a0a0ccfdee2809acf5ad1ac4f1119fca5923eeaf08ea8a",
+        "24771b2fbfab691a2d1d93455bd45ff1036e2bf9aa4434dfad98fee57645c6b6",
+        "daf7043a4c7c935ce3d53cc45a91c1f0accae4e4d1fbac3b01721cf8c383179b",
+        "99fd0d24831831dbc81cf4d6e7f9c56279540fb6865d3abfa958711561d402d6"
+      ]
+    },
+    "stand_up-0": {
+      "name": "站起 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0636,
+        "sourceAnchor": [
+          159.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.0636,
+            "matches": 32,
+            "ratio": 0.4706,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "2b1c158996e984a0432dddb32c431c5b18db0264a0c00923e1902733641eefe5",
+        "63ce850fe18ff80d796582154e9866d663ac895518645ea25da132e8fcb67568",
+        "87b8607226d9de174d755d892425fd613f16a7675ce9d11aeea1390802e04985",
+        "286c57012f523c51b27097f88ef8d577343aa67c6dff742ad9719aab023825a8",
+        "b3f5f05b95898158c71034f5c66121ba122aeec5d9494e3fbb7aa89880bbd6c1",
+        "b9a324177b1994e7d0d34e7d61754ff24c8c11dbd11e93f3c9f3f56f7f0e715f",
+        "bec549e9fb4a533a46638640ca55364d72f03fb377466305fd1176f08912e844",
+        "e8147bfd381e4feafe9b7f9a596b78380f7761c11885c0144e8c4ddbb6d8e2ed",
+        "1596e7bc2095f4c9b91fde166de094fd8e3c4664c586a4927fe1c67c46364ac3"
+      ]
+    },
+    "stand_up-1": {
+      "name": "站起 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0929,
+        "sourceAnchor": [
+          174.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.0929,
+            "matches": 22,
+            "ratio": 0.7097,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "ab264a8a8b1fc347b78889dddf1f58a833207417ced2e1834735b7ea7d66ba9f",
+        "09d167c71c6d7746ed4b701377817703ed51ec119556da68606542b483c03278",
+        "78fe283c7c7b18f535391a27c0f43dfc95a55d70dfb3dcd977cdaf10c88a19cc",
+        "75a4f01622687a5c8623e46e884b661313a2f1acfa5b7f13f956ddda45554690",
+        "2473b64bc8e431f588050ea82b96b31a5c262c7d3aa373d390968e73d5213319",
+        "0e58f39452626f2c9c565b2efb60f725059ef97bb82137e08be9218f8328d1a8",
+        "54ccc1a3c62aa5a16c0cfc010b78010d81060d4744a96e6062d84423e4f5db0a",
+        "381ca7d213990730ab95c604805ca94076d37efde7d721dbc52651dc7c9324f6",
+        "4709cec335bca3a7f261dca303a4e1213014a45aed358dc914dc150fbbdc49c4"
+      ]
+    },
+    "stand_up-2": {
+      "name": "站起 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.238,
+        "sourceAnchor": [
+          140.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1-mirror",
+            "scale": 1.238,
+            "matches": 12,
+            "ratio": 0.5714,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "cfc9645254f9c7347ff3b5b73d91ca9f66472cf7049e525e120441f2b6faae7c",
+        "d323f7f77a641993502afde55116caed131803664b1a31893fd8bf4b83b8bf4f",
+        "87ab7acfc6e826d894c2ac8d75b37f5852a3e2bf2ec6ff0dfe7245805ac78281",
+        "06508234d52284e4a5938cc4d7eba490a3955651d83c021393fa32aa13c2c0b4",
+        "50a6bd158f90447991d118f217ff45ed1fa143540249ed1f65ece54f3d6a4bc5",
+        "a7f06caf7fa7e44019483cd1ddba94fffc58116872de714c4e92619420afdf9a",
+        "62d1daa830a83b33a29c8f3963338fa085bf1cfa5a7204a024c3b15ef0dd8740",
+        "80c8b3a869223c05c42fdc728ffa24147c19f3d241d9da2f34de5175f415e66d",
+        "4aa83c8789a014273dc650dba7d546889b51e51baad55659b5fabdda8757d15f"
+      ]
+    },
+    "stand_up-3": {
+      "name": "站起 · 背面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          161.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "f0df62347662583fcda839936fcfac0aae64712363fd58412994656e1f408967",
+        "5747da3ed36fe57dbfc4255a5ea1633de92beeaed3f22fa265bd1aa78e0be2c9",
+        "91ab634fa1921518f02fd34a66306dd6b9251c2d7f05f62a789c29ee71d2a97a",
+        "8ec625c75fef25acb4ef2cd29a76a53bdc838a755ae0c8a96f7f84381500dbd1",
+        "360a8e593e30b3f8580f54d550c2da9b596e79b11c9a9afd706bd630ce13213a",
+        "d98e98bfb59fc24cc24fb815ae7961a00759d8253a43e92acb31b5398f8edba4",
+        "8d5bce1b17481013e6ac88ce7da1ac9f54c0f382c53a6ba3f8e7c73a686ce84b",
+        "b463248c0d9853acd42f7865fdb0b2a0acc983e49a820dbc2d41297e4956c539",
+        "3886b087b5bc5cd967ea6fedf5f11062b024adc107736f4200907bfa1a6b6d85"
+      ]
+    },
+    "thinking-0": {
+      "name": "思考 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.1092,
+        "sourceAnchor": [
+          162.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.1092,
+            "matches": 26,
+            "ratio": 0.6842,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "10f92672ae3c4d5714e7f9f9d6e9d54af372cbc29b6301b23ed80a05d3dbc83f",
+        "0c029b59e2fb01fb151d4145930efd9750bf15ed9b0c72203a5e335e9c9ca294",
+        "61bca4bf29344a74c65890737959c05eb26c44c43925b5655da35fc7ddfc9569",
+        "7e43f6b94005cd196c42166ebbdb010547ebbcb3f174b2e0792667a776be6614",
+        "6707adc50a6e9d074f35dd3bbaf4958119d3c8401bf567c19107a872f4684647",
+        "d51d964d1f5b6d6be5baa50b2140e980480572baf0366d7702ccd4548c28bb11",
+        "3b20f29f1911559ea671bb4794ac38ad2e0e43284af47bd663de6288e9489a3e",
+        "e19acf5a10bba3648557d95ef574e96a512c3453a70de206e33a3518b927b010",
+        "d8539e1b7cb8e9dc0ad3c215cad09c654e16cb25afd0ab817bedc6c2e95337ae"
+      ]
+    },
+    "thinking-1": {
+      "name": "思考 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          186.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.0194,
+            "matches": 24,
+            "ratio": 0.5854,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "3a1eb2e391018d37a65b4dfdf260644bb826881fa5b1c90dfca301b29f60421e",
+        "ea52b36c932b900d42fffa30b422f24b6188df77065762771d39bebe3abb3a72",
+        "92eb62c77bc9fdaa8dd05c947c1c2752eff5aa44f5dac0c4cbafd0902d2fdf86",
+        "25aca0de6324be744e1d145ae391cfdfc52f2e4c9b0af93e8e58b784951765d0",
+        "473b52995b8be32a446506ac071d6c23d78c6f23912bd9cf6e937664f053b02b",
+        "6fbb05a05ad66c07ac371460a94e7817788ae652a0d21c69c6b30388bb209ed1",
+        "14e989300608b7ba6503ef34271a9e69dfeab11ca284103184dbfdf4ed53a59b",
+        "82f23b2356a0fbbd437b874849f386d3a9e5b77f06e2a31dac64e8cca21f7ca2",
+        "b9b795263a0d652fe9779fc3ae7f69c86b7ba184db56b2636c09a4ce6568a254"
+      ]
+    },
+    "thinking-2": {
+      "name": "思考 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.215,
+        "sourceAnchor": [
+          134.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 1.215,
+            "matches": 11,
+            "ratio": 0.44,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "6611ba75818730ae2868081cab4c1754202882a032b6ca464a1f2bfd4d8916b8",
+        "0a2aa5d6c0c40f04a74b17de5c00be0c0a489e88cb9717d1e3ee9d750e593e4f",
+        "22dea1f6ebfb930a2948931fc8af23410cff7680bafce3d732019056079fccf8",
+        "3ad593e2233abe4741ba41a7b2ca40a4dbf4edaecb1e44a836e11f304a696fc4",
+        "47cc359eed3c1eb111ef9c9e80948f8ae038b304d4c874bf14c622843e3df253",
+        "0bf5068bbacafd7fb3c6e0f0e228fa0992454b1c093d157e8dce31ed6efaf929",
+        "890c3e7bfa686b6c1189b95da570aac8afbf5b971c3fef0358850bfab87e3ada",
+        "ad4a19b41008da550af46007945d553d66ccfcbd5807eb20b9b7534fa1828843",
+        "cd107677ab1e45aa91041828d47904b93ad1713f46e1a870ab48d3646eae2002"
+      ]
+    },
+    "thinking-3": {
+      "name": "思考 · 背面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          163.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "cd4ab427138c774d8f6c1f9d25e3c28fcb5098884d2aea33aa5cdf81c6cde12d",
+        "d6bbab28017ff5f741710384fcf18c046153e07fb73af0568f818d0183bd50fe",
+        "597c849fc5a30c28331bf500f96cf8280f2982a080b5716e3c4bff2edf4161f8",
+        "8517b3ed7839ecda491386913558810882ecadbc7655d7040b999882d92f74c1",
+        "44b0303e5048a810ec925b32db6880fb5e5c9aadfd661ce7adc5326d7037f4af",
+        "a07c291c571589863ed77289a2ded0ff6a4603f4c2572508b1b25d3cd8f70869",
+        "b85888ae045d99dbfc6ef6a35a3cf8e0b64606853fd235ea122d35740069f7ee",
+        "d53070b1a2d2af563502c135af610c2db6a40357efe0b98d1050502acf3bd5ad",
+        "eec9be6ecc9a9837aa9fb4b16a0b5be14dce665e510d78d3dbb4df5c3d163a21"
+      ]
+    },
+    "walk8-0": {
+      "name": "八方向行走 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.1206,
+        "sourceAnchor": [
+          163.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.1206,
+            "matches": 45,
+            "ratio": 0.6818,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "7ef163ecac7dcb36fe32cde016cb6a82f83e9da0a792546004df1f0e94588d63",
+        "67346159fdf9913b5425cb8e2ec1341e44b3a07e642300fdfd1c8eed460221dd",
+        "8d0b57202d1872e70d0a5f69a50f02ff439c14be0f87217b1f5258e04fd0309e",
+        "1c2810a41086301f4da624bd183436c2b9dc9b37b86511141266e6bb650f6114",
+        "0bec3236365c1eb47e6c396542d22177aaec779f764ba1592704f2d10ea223ca",
+        "062ec848dcf342d1f831f649e9d33f4238545021117ce10d3b39403abb13639e",
+        "30b0aa31a6e65f41f106154ad9f1805ebf8683647b601397fdc13eb0c6d4c623",
+        "6780b3f6324dab197a8b00d703593c822d158518370cdfa009bb5009762b4805",
+        "8bbf67f18aa066089164d3a7130950faf3a6379a16d3c64317c9c2bb0f8c5dc0"
+      ]
+    },
+    "walk8-1": {
+      "name": "八方向行走 · 左前",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          189.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.0183,
+            "matches": 12,
+            "ratio": 0.7059,
+            "depth": 1,
+            "frame": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "ae0fbec792758a13c7c7493192a7dfb0d2b92b175cb88ea1ffbc957cc2b46394",
+        "28346160afd9985f22ec67e227247a595e124f7e3a62d5146339f2aec0ae6f79",
+        "dced067ae099f8bab6386d1c70412e002f358f4145796f80814df0d5629a0efd",
+        "d4d7917e493b4c96a77bc03ca1f6be75a1367c3a40cc88676d203551adde3f3c",
+        "21824faae072de7215d2527f4e55fbfd6b1b9ee965c6c0cbe6770ba418437e00",
+        "7aeaae3031a90fd97792d42c712a6c6a42666e1b72b98c50a6ac80524264102c",
+        "73bbfb61dc0edcb46f59e700d095b9356cd39218a3b29bb4db64b0f28f661e41",
+        "c4458c80cff79ccb3c290431e0aad325a2ed6f28f09947a30c90ee5ec225b95d",
+        "274dde148e24b1d68358d08c021cdf3546b49d8e3ac80dda3272ea2689a79a40"
+      ]
+    },
+    "walk8-2": {
+      "name": "八方向行走 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          184.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "mood_happy-1",
+            "scale": 0.9957,
+            "matches": 16,
+            "ratio": 0.64,
+            "depth": 2
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "9328b935bc05d47757cb98507f19b28751abddb4865dfc5e24e51dee40a73221",
+        "3f5a0b755a1ee42238d43da684f763c87f627f3e2a9f3259f838b67d5fa3c5f1",
+        "7a0f42db5a9e062be898eda61020e4bc31d9f9c11b2f8071b4d06ed06d684789",
+        "f19d538dc79f2749a955bc86205f90a607acf61449ed1c7cd8aac4ca06d5d1b1",
+        "d5ecd6be46f67850004b1efd0c2afcdb432fc3b3a3d978c1cb695082873e9b1a",
+        "c9db7c9cdecba180250e939b73d98f6126a4977c099ef753c963fcef5212bc7b",
+        "701a46975e1130cf56a80a87726e26bb8cbfd78614bd9684b8c65d884b8f0856",
+        "0008818752d4a3b6c741efb20558f05a4c0c5cd5bc7280adc4665487b550b46b",
+        "00ef27daf7106d2f85cd1c666e6f02106288ec92055a6624d27c2d224e8cb621"
+      ]
+    },
+    "walk8-3": {
+      "name": "八方向行走 · 左后",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          172.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "35b9024772cc4ab61cc48a0aa2f43b0e1b06c2ce772a7f48cc03673afb1d720a",
+        "91292392dd99c0bae43becea251414bc78cebb44777cbc69a93f0c5dd26c9eba",
+        "53d276ef2bc527790fabad0c79e9cee04ec225108a75e41e4da3088aaefe454d",
+        "eaa122903e26170671a27661e60cc8aaea41be57e154ad988f4102ff69da86a7",
+        "0dce9186a8ac1d4500ee51828c27139f153b763a24fe9fe4ecbce886d1f05a7a",
+        "846a0ca3fdc61c7add4b2c6d95703f313f02b27ac3fbf213b00027c3a71f5a2d",
+        "e592d0c8b0ab25e48b262b80edb41acac5a9592f7dcf03a9e3e6b3fb6ff38986",
+        "c2f209f9de86d887f0cc4ea4a882f950657dbc96f22f8bba463b782a9f958d9a",
+        "e64ff8343a59e46982f9fe66c2520a29933d901bbe529aad0e806994d336235c"
+      ]
+    },
+    "walk8-4": {
+      "name": "八方向行走 · 背面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          161.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-3",
+            "scale": 0.9654,
+            "matches": 18,
+            "ratio": 0.5455,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "4d2edd90cb1c1b2992157436af553af11eba31ff4bd23ef0426df26ac7ee6c76",
+        "17ea27cc5d694042ef04cf3e05a1a594fb731c9767ca726de070f52e7ac99824",
+        "564a5aab2b7a63d65201201aa1489722bafd52a36f68f8c142b27da1f2887ed5",
+        "d67a87802b334d7e7f03c9c964b2228f75d6ab184caeebcba7dc527fda632943",
+        "b9fad595e36b31c86555a0aa174a257e7988f89a847772813495f75026008e44",
+        "50572fc10d43fa9caf7f9739c446bdf5aece4f15d73ddf9b47681a9bae6179c9",
+        "73e4da0b050542f90b44cc47ab583c428c30bb56ea7526d39763c86ca3fde70b",
+        "0be6a22da5851cb88d1d7b9a828e2957dcffcf8e4db1e8f61f7957fa81e2bd98",
+        "9c0a1fc523b20bf3972ad4d6432b93b360aef7d9b82265d3aee4d34f4f02ebe4"
+      ]
+    },
+    "walk8-5": {
+      "name": "八方向行走 · 右后",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          148.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "382f2421dc04392aeaf9f2107ac35522ade1135499eedbea686fd1d86e33a603",
+        "71bc14d4f85fa342ffb05077e8ade7539b250029d0bc30cd1027dc105c18c688",
+        "6a11bb2c91a73bc3fe4997495930f13f543cbb332e9e992f0e8ac9e533aa88e4",
+        "0dce9191610be063ca09ee0425fb8ce8e8118f59285e454a10383c22c69bd002",
+        "cddd5eaf429c7c320c52a572a76b899c482d92ed9f13b27e78b737cfc50de1ef",
+        "3067ed418ad30b9d03644124769f0bd163d46fb5b2ed714876f15de58df4b338",
+        "aed0d69b9aa745655a892af09528603a28d543be9402b6fb4bf860afe8bc7a19",
+        "cb1301dd7ef01be12b35ffe95286f85b264ed90c7e5589a1988536dee88dd26c",
+        "5bfce82c0b8fcf0691452b143cda5f11c6bf9af6da9d1d7b80b1d6abee9eba64"
+      ]
+    },
+    "walk8-6": {
+      "name": "八方向行走 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          139.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1-mirror",
+            "scale": 1.0085,
+            "matches": 15,
+            "ratio": 0.5172,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "175eabf32f7eb9cd6d39c34cc0ddb8a8cfd6f8b666be97331d3670ed3ef6cc5b",
+        "0b22032f6d097a6cac2d6280d7ac01171868763caac427957b64e78016b79d4a",
+        "b336a8865f7c3018ac3ba950f75b6d32e1b6d225fd75f0f456f4dc3681ffe3af",
+        "310160b0d553b5110c322ee5c621c18f443645ccdb91d73cc3342e9bdacf5ff7",
+        "2630ee743cf65fee0703dbe3e8befb10e1b08f5f47892ab5909f26af7cbef53a",
+        "511eee53fb37ee486a9cb510db68492058f9b956f2b5e73a7050071f9b090c9a",
+        "0a4d15453e3d00a674e79667bfaf0e91bc4996c12e8623a45536dafe489a9492",
+        "067ef139cca7d0722ee7bdd11fbbb9b84972d1c57355ada52ce27553eb1c78b0",
+        "9e733f3636955822987b450b8f9a851b4d7b4fbd877b297a7da3a1e800ae8f11"
+      ]
+    },
+    "walk8-7": {
+      "name": "八方向行走 · 右前",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          146.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "e7c7e73a4e0911140c93ffdd00d672319ab515febda0f5503791cbef9c5887fb",
+        "e2c6ddafd61e6559851027b0457e6c7a090fc220a2fcdcb2a267f34e9740f87b",
+        "446b0979b53eaea6137e6eb552f7bf26c954ecfd6cfdf849225c4e356e34c39c",
+        "ceb8bb1134a30e584435f7c6453afcae841be3fb5d19957c7dedfbb45de48cf1",
+        "e99fe69bbe5e65d13ca3ee36edb036459d6f8a415bad71cb7358b32ce5c11bde",
+        "566d06c6f7eca1756998da8584dfd29077304e3b51b9c11586dfda048921c835",
+        "8f34967d825d3e3a9af7f118798a911d24af8045f9d31cc6edf7630fad19f46e",
+        "c1d534ad36a69c1291448bb9576482ff60c30817ea62b489aec2005b051efe92",
+        "29abf147d75547b794686703d0456a9272d5ec63e80fa1a56ca55e0d3edc0d30"
+      ]
+    },
+    "walk_tired-0": {
+      "name": "疲惫行走 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.1373,
+        "sourceAnchor": [
+          160.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.1373,
+            "matches": 23,
+            "ratio": 0.5476,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "737852c9b18d06f26b6d6c695f64f621423db13f4fbd0141f6765971dbf4b9d2",
+        "79895c7767fa1f9313ed98fc37d731f57a9c3a6aa54b780932e451c029b22a92",
+        "0fdcef77bceb348c7dfbe1f76d12e93cf22ab6b48454185fc2032358aaec975f",
+        "571feacea5cf56f7957e3cae4c164ea75ef234c516def27be9ea0134af3c7718",
+        "1c0b8fe241a0c5de03469e43de241fbe2e2dc9bfa20e6632c347f8504aa460b1",
+        "0ba3618a0bb9b0187abf0cde65d56f8a9831428748efb6662612ef181e943258",
+        "2609cc3d7c15f58fd3b8424765101452f714125e2bf1e237edf3807a5025d6d1",
+        "1d1e26eb84164777b173a5379b5daf9832893b17e366185fbaaecc16f2f773c0",
+        "aed07cba3387086770470b6f2eab03e4a9d23b75ffbc9a2313274b243ce9ceaa"
+      ]
+    },
+    "walk_tired-1": {
+      "name": "疲惫行走 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0566,
+        "sourceAnchor": [
+          185.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.0566,
+            "matches": 15,
+            "ratio": 0.4839,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "020452794115d24aa27a9a8b1245af6849faf6744fab2ec9e31eeb1413e09a4d",
+        "bab337bc2ae2d016c758e05dc009af10d6079384ff6f72d9267d71c7f944206b",
+        "30a7974777b1601de349df313cbe0148feb202c04d0f32b39b8e9034683379d0",
+        "8bbb30b495e4c568bbb63ae13b070dbc59176f9569bf3b1adb8f545b1507b5e9",
+        "526c6b1e7bce592c04f0e2f1d29d316b5e9dbe44b330240fbc7caefab9e6d61c",
+        "5ad88ffbd817b9d05bbf7b432b7d11ee4c0f849f909b2ae62fb74e80b5fc8b66",
+        "4faf0701ec73fd6cd16622c8c494c41339e931590397af0d1c47dd1b97a2ecf9",
+        "5a58689c64e82e27f5b9cf6107394a21473ac5ee38416557b425996f03bbe0a6",
+        "2ec20994c709ac08bd6aeabb7eaa413cc8af654c4131d0f31ee8cf4ed62778d0"
+      ]
+    },
+    "walk_tired-2": {
+      "name": "疲惫行走 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0813,
+        "sourceAnchor": [
+          139.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 1.0813,
+            "matches": 12,
+            "ratio": 0.4444,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "4e8b014d254de62c0d9da7e71f37d311ddd86d17124c4889e0066e6a67705e33",
+        "db10d89178a75ba94e86d1e2f214a862dd410f31d56ca1910da3074c5cdda4ae",
+        "8f6e544154b9f1244753a6ce828b9dd467ae591f5ea566cde31265aab61fd261",
+        "0977f51841b89f5319422a7170c3b07766c92c6ffdc24fd9b6f6ddb4e22f48ca",
+        "bc179783ab0aaf6ddb42a06a861fa5c65ba724aa96b9c713d80e7ab7064fddf1",
+        "6605f46d65060e448f22e8305024034928f1dbab720337a0564573bcb6210f04",
+        "8c554c3aed023e57341286db4914951209f47666947ada5171db7ecc74a67bd5",
+        "18dde833820c2928150ee515f5a4818d4dc1b646ee2380d2250c30df3c8cdef7",
+        "52ce97a3db6c8034f6bb93b7b6f6422bcdf9fc6cf810f053db437d61fe2b9142"
+      ]
+    },
+    "walk_tired-3": {
+      "name": "疲惫行走 · 背面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          162.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "1d729a1e690a3331be714de94f5ad6a1b05186f5b3445222e01498361a4b0155",
+        "de609a34de3e2bc111a31ff80876b6870d68d4050fb2fd41ab0308975eab959c",
+        "abe2aa935df3e2633f10d29cdb048f8d6c5dffdd645450629cc2c1957a37cf1e",
+        "a326ac89863bdbff38a99194ea4c1011968d831494cbd3b0e548fbcf7eaac8fe",
+        "13c2c49a9df5d3fb7f97b0ec84f4b95243eaa9c8d0eec5e6087780ad1090480b",
+        "c70334e44901a53e29408804523f8024271179eccc4d5ada701bec1a8e77b800",
+        "b3446bc4a6db0bf0ffa553eed3577b745f61ed852743e07a11cf4713c0701c09",
+        "27808b83be3965a0a9a82dfc12c949d4eb57c806a3e8d5f56ea4647ecd9ceda8",
+        "5fa6e434d4cc6a38a8c797ebb1b822f66f4279309741f6161f023d002e4456f2"
+      ]
+    },
+    "sit-south": {
+      "name": "静坐 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0837,
+        "sourceAnchor": [
+          168.0,
+          294
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.0837,
+            "matches": 18,
+            "ratio": 0.5625,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "50bb1d79acbad41fcb1f2f4337fe3af64b48933fb3e0781167a2638f771163eb",
+        "7e98aa2c7f57620b0bfff7af2fc4a9b4bf9c456273a8e36fb46494ccb84d82c0",
+        "c0f644b8ca120217636cca3b6e5236a9ba28023c12a3a9678a940ccb6c615d82",
+        "e613154250244ebbddf764271fcc08dd17e585336ddd64f4c682908c45d8087a",
+        "bf045c2d0f5e940eb9b9d2821fc40786fd8dda15cf355e54bd246f59a255189d",
+        "4d7e1bc7cf37fe6610f2dbda4ff45f82024fa003f14398157ded68a72d625452",
+        "2ed6cd24117faa1db545ac4a7695b5ebdd1deb348e000493d9827be26488225d",
+        "68b9747f65af953bc8e90fce014156cc7168e76f8939daabf0ecb031f6b91048",
+        "4f5e95a48e5b8438cab263a3f1d2ef768e607b5f870cb63ce08d3fd82d86eb83"
+      ]
+    },
+    "sit-north": {
+      "name": "静坐 · 背面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          159.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "e98880c0cd76c2ef2f8176d511d668bcc7c8a6ce86e94071fd0a6ec48bcb0b65",
+        "8855ba873bec5770f29a9014a4a05bad2e169e7a75ce9938ed2dce59d5d3a066",
+        "691efe181fecb6ff95e2ff5c067919636264ca3f55054087149f2e852b036c45",
+        "4facb699e8d14ef31bf9b17cfa6a3871a625f905341b2a524cdb445163f30371",
+        "40acf5eef78bd88a58cde75a06a1507b6b46bf7281fbca452ced87dd128b8d85",
+        "5ab07041949a765d99a64145707f30627124dbd70aae78fdb6ea8a1ff0c2d9d2",
+        "af3a0955f3e1f1a59c5417bf173a103f1f5ee25b62f1f7ef511ff6d67a584d8d",
+        "3cb09d0673b30b40ac4d431ed25e2225f1bc41065104ae74e211b1244a90d380",
+        "f2cf3859058bb22815a09912d3825a918c3160f39df229347a766132a59fc205"
+      ]
+    },
+    "sit-west": {
+      "name": "静坐 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          181.0,
+          294
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.0036,
+            "matches": 18,
+            "ratio": 0.5806,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "4944891e051fd05875a456c48459f9d4182b304f803bea639efed3163c036d89",
+        "b8d45ea3bdec8c6770ad08c7de94dd6be225b9b029b210e5916966cb8dd2f007",
+        "d9e7815d0b25204a7636a8575d8eed3d1db46fa060ec633f30b3d4975ce749cf",
+        "2f6f2ef289b02d42110a568ff7f6e342ae6b04e2d98ec7c0adcb2d1082da03e3",
+        "5268bc4ff5134f6ece4b786d41650e1907f14e18de1bf12850ddf5b9354d4d19",
+        "c23fda4232785b541937b3e111cd6b135309632bc6320adf7f365b5d037400fd",
+        "d21249da8ee8d6b7c7521d999e5eb394147639e3a87d3364ac7ae40bc6f82be5",
+        "bca2ec627f4d9aad95c3b760e68e987864f2add2848fbf6e157fd27f78f88ade",
+        "d6bae9c1011ba44a8b0781eec29dea03ad67d2e30e9b7a4b27216822e077df7d"
+      ]
+    },
+    "sit-east": {
+      "name": "静坐 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          152.0,
+          299
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 1.0207,
+            "matches": 18,
+            "ratio": 0.5,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "facb66a023d092ff9f0cfe9e94f7466fec787d0d1281b5b9c51a9f32abb58733",
+        "e55c080d8242be980cef519aee30244d2f357030f26e6df746746e8f41093e0a",
+        "2b97b9906c02a3e902070324cf64ad11d0b7b8ebb4be65d6b05a87533e04fd9e",
+        "e774e58d051eef26b0451f2279db231b1f2ad29adc29ca327e3e9b7bbf3f8e98",
+        "89f8bb9e4a4688957c1c49acbf34d31c6abd0464d6fcfe80880cc63667feaf21",
+        "a571673a91d36d14127300a461a22a44e05ca1fb7051013a5c4b72552cc9db00",
+        "e0915ef9e2c11ad3834281562807bf508a6e2e989f3504c1407dc0953460a61a",
+        "19597061b8d51ee77b2ff5ad4899fae35de3668c1fae511f673496853a814e68",
+        "35b0d86592394595d6fe69ba39adf10d7605324eeddc8e7ea3a837b84fc433e9"
+      ]
+    },
+    "meal-order-south": {
+      "name": "点餐 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0934,
+        "sourceAnchor": [
+          164.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.0934,
+            "matches": 21,
+            "ratio": 0.7241,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "85d66865d0bc580b9dea291d69417ab0fb6e8fd0355103e87945933ebaa4cc55",
+        "f1b6dd75da733142604dc25ea1d0a86093723652f8251fc50d8415d888ec3dcc",
+        "3bdeb2ee289b039b0a2dd65f9343a2b4ee5ba5f5adefe83dc71c00918379cfe5",
+        "659aadcf092d0680ab13425184a50c83a8db82563fca99ed0b507c492fce0a66",
+        "69f0c1c34a371e589a29e3f165b954fa645070a5506b00717cbdfb1064a655e1",
+        "cfd9f1555179266e1f1c14b50086d5d05073ab049450de1546fd81adf3cdc611",
+        "5dd3568d657f65c3a3bc44d67d14f2ab17431d15b54f57561db5b78006e230d4",
+        "c8a28d59adad0f7ad23c7745b13af4740a31b492645b3ecbebd110a09293e3e5",
+        "f39b196c0757cde40dc8c1cff0bf08883a3699c58b851eccb1e277b707677b06"
+      ]
+    },
+    "meal-order-north": {
+      "name": "点餐 · 背面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          156.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "f4269b5877d89c39e84a9e5b5d91b25e73678cf583a595c66d69954016bb9885",
+        "a475c2b3e914a4251763f475e5c9531daca2b459489b68d12fe9db2e71659767",
+        "679209b61d961eaa0cf9cf5fc3e7ea7abb70ae82af3d2081c9640b9e6ff45098",
+        "b3727208ead9c14eed275290252e3a3c2c3afa9c7287d348b7327abffa8ab3fc",
+        "080fb2fde45a8d72e438f71417ba6b4441bda05019ffdd8b782502305ded5d3d",
+        "b3ebc220c7559c225ef52c507c30344ae137122ec44247a5114d49c7c9f813a9",
+        "8f92d67cab717d694d1d2b0df87278c58b1b55092c5fa68e23f8f6be9ab6a4cb",
+        "100c44a6454d8c6c022a1be1e3ac7b6aebfd4c6e3fde81939bde4650f9fd11a5",
+        "b625bc17ea38c4620faa8d4ebcf08b3d0208f10a95a7ca80e5be60f4120a7042"
+      ]
+    },
+    "meal-order-west": {
+      "name": "点餐 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          184.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 0.975,
+            "matches": 11,
+            "ratio": 0.4783,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "52dca0b8b1c472fe5a0bafc0b317b7946c3ca8bbb0cfe6df6956bd17937985ed",
+        "0bf3bc43c644b572cd73c256f151224053ace0bd61f6cda50c9cb75cc63d86a3",
+        "e1d85b1a5bbc74ce3defacbf66008c1592504ba45f57140ecef289733e8bd9dd",
+        "2725cc172b32ac5b26b3f93ce1e4a7f2e239ead11dd84b3cc7bbef9efc239971",
+        "970732f397af8d5ddff5c0e38150efe9fb21c594e601e8deff28ecdb54b45034",
+        "ce5c5ed48fd3c53850c13d8f025a70959e05972aa8ab8cd02804c838cb1045ca",
+        "2533cebab6ebcc9e404d964b6b724b117b59a8a643da787dc473d91a5d52584e",
+        "24f2b04a3489ee12065ea200d579b30c9622ce17ebc5bad4613230668dee3c7b",
+        "ccec83caa1e9d7bd9093f5ead5287b28db4de9ecdcf349684854e6037a7747dc"
+      ]
+    },
+    "meal-order-east": {
+      "name": "点餐 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          132.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1-mirror",
+            "scale": 1.0232,
+            "matches": 10,
+            "ratio": 0.5263,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "869edee38aeb0c91b21902714051be6c641a1dc24c63f78cec721c7629fe4702",
+        "fad57966df96785491ae9efd60e58a73bfd1e8dc37a3db756df125991312242f",
+        "fcf7f4bafa38b9a54b05f13c8a8e39059a8cc75a3cdcd55b1add489151908087",
+        "2ad7748ec9c4f55e23eca510693ce9479a81e2b7d23c910b182457ffdf3285a2",
+        "8a12dc9f3eb6b5b9005f9271a5e9cdea056011c628e15c6eb89251a55fd2fcf2",
+        "3004d844b8959060b459f0e1e91793a534071b268fd77877426b0c30fab5d5ca",
+        "bd155e00cb2c24effce9cbbd05bc823283050760404c7921b77bae111394bc6c",
+        "b4ff5c3def50ff96eb38dedc92d9ec08ac8a4313be9506b17197a9abb62fd7c9",
+        "02b68b02f5f2986e7439e9cb7a61d1efeeaff8d36ea0f2db3966c26b5ab510d4"
+      ]
+    },
+    "meal-cook-south": {
+      "name": "做饭 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0893,
+        "sourceAnchor": [
+          155.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.0893,
+            "matches": 29,
+            "ratio": 0.8056,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "c42311d452debd562937b3bd6f526683488f5c163d6aacde8cb6c1ae458b910e",
+        "22e394f6069bdfcdfddbe3293a51ee94132495e8d36847eac95f6c1572dfe83d",
+        "f5bcf2ea08183261e0977c80e97155b19c1243574d116c976251f5c1b61427f1",
+        "f57ea53c60fa84e97bd5c70f0371d6aafa68a437fda198758991ac6b220f613a",
+        "dde1d5314d49f66151ee2dacb992b318913b312ef20eda98e6137d4125a79121",
+        "c5e6ad0604372859a2c67e44cc8aebee8625c6d5eded3d756a8d5c2006f8c506",
+        "31ba6c6523ab5bd853e9e11ae4a7db5f4d59b3f1b97efc59fad18b93b59b7652",
+        "44bf3073f7d863b242c6585b897d74c08e7b100f2cbdb8fabd378706f60a492f",
+        "8c02006cd8d8341e3ea5d972641c10cc89b63eee2bf0e54ab818048bb43f263d"
+      ]
+    },
+    "meal-cook-north": {
+      "name": "做饭 · 背面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          162.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "264c1159ebfb3e3409ed4750a0b2df03db11d04db51583ccede1dc357a2b76c7",
+        "cd523c4f3dd031170f2c439596ef2c2ba527f2e5706b4a5b03c733b9e34cbb1e",
+        "9d101474fbbe929f9743ff8b65a1a6354ac216be1a0f4a2d7c013e520b3db9cc",
+        "dd6eea25ed38c3a8e3f5e3af0ddb27784450921402ad577e8eaf20290132344f",
+        "1b1b2c93e2ac7ffe46c9e310b7720d9559caf745a327091accd06b09b715697f",
+        "e683a313746fefbea499d38d18c4b92de78f1e7aab76b2a0545a594b14001bd3",
+        "e9107eae4f5423261b37e707e0ba06bec8e6003a5cd5a644297420756ffec67d",
+        "0e7d6c14ccf80e525c0ac64d0012b3f162de2451d1f4e847436626bff00fb2ca",
+        "5bdd277d3d1e05b8a1de8f0c1aa6d14dd8a3ba34fbd4799739c753392e7f688c"
+      ]
+    },
+    "meal-cook-west": {
+      "name": "做饭 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          164.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.0133,
+            "matches": 11,
+            "ratio": 0.4583,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "b45112a0650fc30205d7e2d3e85fdb5f0bf58810a6d79ea709e84436827b59fe",
+        "0f70bcf06cf9fe80339522b0b3e00fc47b0c2345b6f0dac98ea020daa86892a5",
+        "5fb23c407b75cf33af13d403871621297879bc85d8f9986e5f91bd9ede581194",
+        "3a006df8d111f59d31edf891e1ac3e8df0cfcf6eeca4344e95df0bdc5035835f",
+        "f08058fcef575ac09d0add9f552ba96db7ff53fb1a57bd7983b30696f1b0882d",
+        "25b9b756b01a217fdf50239227f01d8cb84b6e29d4087ff3463cb4a2ee54cfe1",
+        "d45aab374996b9958c1d51016f4594a085b69c9fe68066b20e010b4cdee18d58",
+        "9fe8880b573b368eca3545fcc59a114960479e5312e0e6adb2a3e99a1e5af50b",
+        "a048a141c2e42519696be0299eae2e9305fc1e7d7b1a669476ea67c661821b8d"
+      ]
+    },
+    "meal-cook-east": {
+      "name": "做饭 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          148.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1-mirror",
+            "scale": 1.0233,
+            "matches": 10,
+            "ratio": 0.5,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "c8c253947e1a4c0d9cccd3bc5c908e522fb0e930b19b79f067feb62bb166ea69",
+        "6f4bbead392ba0f06d79b5ead0ccbe6345ec1887e9e787f9962a0f7a3372328f",
+        "f11a53c3de256d9426c823b8979a6258863203b58fbb4c79e8265582e13a09aa",
+        "0cd8101f1cb84b11cefff0ac116c2c4f378b736de146849010bccc489a9d6443",
+        "f9cf4778aebb0ea9d4184f92fc5627735ca938bef2030783acc5f936b590899f",
+        "59585983280248a3702fadf2b8f1f525bc033f017bc3887c89017af52ab70a5e",
+        "fc0447f0cd506e7b3d51ca6906d05aafbfd8f4ca4f0104355209b8b6872114aa",
+        "3ad6b95086b834159c67f616908bfc1778192671ad778e8f767754476b1a0df8",
+        "ca15b8f53e9a5d8d039923948cc74c46a2e1708d837687c2fed19c38e14e6c80"
+      ]
+    },
+    "meal-eat-south": {
+      "name": "吃饭 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          162.0,
+          303
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.031,
+            "matches": 23,
+            "ratio": 0.6053,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "ce58c1a2fc643b345dde2992c85a2fb871b99759c2a1572c961f168d29f59741",
+        "85c07b0a73c179317b30f0257053828c3f3983859aba7cf1e10b12cb09338839",
+        "54c304927fde1663f5cdd3b38268694a1e2cbfb7647c66c501c3cfdb06631dc8",
+        "3a7a104facf71b3e743fb5c8a1146fae49ea14c12f7e31851b36f6dad68b5ce3",
+        "a8bd648f92bab1ae79eef466c1346779d3abbfb48fd347ab82ca821ff1f2d892",
+        "7f7fdc64de5f8199edb2e3c3465a1a3e51ad50d0183ac8ed8a9213d43294956a",
+        "a76ff4b84584734b14abb257ebca734f134146e7c65824938684a86c51d0448d",
+        "3c3b2ffeae1b02b9edd311808cbbd6b192658088ac4f67f154fe1442753218f9",
+        "b4d4f789137e64162c15cc8ab26c31a83f9a012c8a633c648ccf376995d5276d"
+      ]
+    },
+    "meal-eat-north": {
+      "name": "吃饭 · 背面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          151.0,
+          295
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "98e22b013942350354d7d1dcbd0ab5f17e62891bd42f0e51e160886c1755a9f2",
+        "b1f4351a093adf9f1d4247a264b5c71ef9a90daeba7300e5fadc8e5cf022574a",
+        "52b33f18b4c5720a32279a2ce16fc215e7826bddcaeb4188f4639d3b5702f6a3",
+        "153efc056a0a74c3df173252bc753e58a63509933e9ddf213dc5a66a588e0f25",
+        "d815a1f948eca2bf4d82acf5928b0a5b51fb3628326860e36d12b4dbccb096e1",
+        "120c7d7bfb4f4b76c1e7d75e1121442652a2bd801811bc684231b75257c53462",
+        "a81558f7c32d420b9974e15c16cc0b05a36dc80da857a794634bc486daae6790",
+        "878dcdf0c3a356433116e123c438ca43ebaf7cf3f9e9af26f731639b515fe593",
+        "384201987627407784e677c3c397ca558224c112c868c3ab0ad29c5cc036a046"
+      ]
+    },
+    "meal-eat-west": {
+      "name": "吃饭 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          185.5,
+          297
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "seaside-0",
+            "scale": 0.973,
+            "matches": 9,
+            "ratio": 0.5625,
+            "depth": 2
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "36cab4bc04355d62d89deac86932224c8ef2a2cecb35d8b644eadc89ce919f44",
+        "a3eaec416e77182c797cb60ec8945d291b797bbebfab952925ccafa45c5a1af8",
+        "5efacc81bed1e3805c1d784649a8702609a67f66d0e8c6d5f80f9c6e32e1f35f",
+        "2c9f7ce7fee6a59a33d825bc37f9c3251a9e532fb34a441df01ece887ac1b809",
+        "91b3a0a46b68d18e09f0603c00c7bea0dac5853e3614b85eded75efc53da024b",
+        "9b1c84572de378d19bf4b9ad6ac0b260c36fcb704ccd832aae9812e359bf02c6",
+        "df4abb6bef3ba791417b94c2b44e866c120241c7bdbbd277c661bb4ca871fac5",
+        "eaa3b8d57e3b100293ede898ea06b772990c61986e3e4a269b1717d6e45b4606",
+        "8b80884d94dcbd0fb3e402ef433cdbba80e7c7d2bc6bb14710b7446eac14b98f"
+      ]
+    },
+    "meal-eat-east": {
+      "name": "吃饭 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          157.0,
+          293
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "abd47d36f426964518cbd6cc046c2312f620476aa34eada163e7f5f9bfa274b7",
+        "41895351f0a418a2cc4e59ddbc88826ce727497a40ae501ecfa0331eb28f447e",
+        "b593dd47ff2b747eedf8d7784eaa5aec1ddf156dfe2ec58d34f5dd6e533fc18d",
+        "19a06784f22c97e29e44f34e70a695ebf8bdaad85e544a87ccc0e41f4da416f3",
+        "9017d54e15a8d0443eccdf11971e671851f60079760714805a4c7b642d3ab4c9",
+        "8e7d5db223d4982831b6fa95c5ea1f2adb783dec192326784dfee02a42701eed",
+        "141eb3d78aa6f7fab58b56cadb1585bde7f09cacdf374e787c1d43c20b244898",
+        "c0361225b6405199a2ca49811183e73ea0a10ed9216ac0749f0a3d92eed3a68e",
+        "6488707f5bc8c422eed3a219d0bc14acacd5d6054a95f955dff976968ca44df8"
+      ]
+    },
+    "meal-carry-south": {
+      "name": "端餐 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0786,
+        "sourceAnchor": [
+          157.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.0786,
+            "matches": 24,
+            "ratio": 0.5714,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "188364fb9d78a04b5cafa197066f2ef197f16c7ca9e875f468a7df947754a3e3",
+        "db3af3421722559b22af15201d72ff0924f6aa5ecb48f0f98abfce89a5af715e",
+        "3f48e17217a68ea698e97fc0e94ce7f3b19061461565d2af77b8975dfcf120bf",
+        "ad42c2734acf0e9e563e0b5a12c214a5614dc24d38851680ea193f4fc02d88cc",
+        "7dc006a341f1acea3ae5245d7b8b72505c6ea369de1aa25c6863b79116e2b8b8",
+        "3cb700c90fd80d36de651751706d02f802810d18072d5e79bc3be76364258352",
+        "446dde989180e7a8b04964e28341b6db982de41827b232ed6545e68470c4dfc3",
+        "5274afac70d9140d7df74b82f063bfa04406d81e142d7c7a5f02bd13e2890424",
+        "de908b7e345d1903d37a946558666a4d31ed6e648986aa78af7655ed16e814a1"
+      ]
+    },
+    "meal-carry-north": {
+      "name": "端餐 · 背面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          160.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "0e0b50e3e0ca63d9da509b5e8c56bfdf71f39e44d4baa71497be20d02364b92f",
+        "6452f46f20c206a1dd3fcc198c793551d175cefbbd0adc5bbc2c47e9175329fd",
+        "45ab440164b0490acafe7a1a52f5fcdfebea18dd7a94b34cc7b729f9f2499950",
+        "531005924962bb24c190a24dfc9ce0d85023df7064551889e43d2f3aebb0a3da",
+        "1eacde09cf32dc7668f47fafa2bfcec5d7ada0499d4683a49e480102a7214a69",
+        "a6633ce125fd9d477b3db626d71a77b94c9755bcdbdc8ac17f8a32dad909037f",
+        "65a4ff437c92acf0128dff8ab29e7c51f3283fd1088efa7a519ac179a0517009",
+        "a951efdd71a9b4990b8d47135ac01c32bdf811eaafbf348f267bbd0d92591e62",
+        "5b01058a878fb98d2d7a1fcd74131c99700b3e0f1ea38db77eae57b1a7294f06"
+      ]
+    },
+    "meal-carry-west": {
+      "name": "端餐 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          179.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2-mirror",
+            "scale": 0.9813,
+            "matches": 10,
+            "ratio": 0.4762,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "848712bfddea4fe77b109c3f37dae02f451fc6c840e31905952f53af509ee35f",
+        "8a95a2000dfdc7cd603b3b24e2b0316a6f6b70f0660fdd8cebc80d611fd170f9",
+        "8e599d18c412dd752ef00894f9eeabc8e13335566f7997db9612b0ff64e94f54",
+        "bfcc58006dd4745a6ff50d1c8f8c93c659dcccbc9f6c0a7d67fb52b246ed2998",
+        "07c1a634b2d58b90d63d21d5444c7f7c3337fd9eeb22ffaea0b88b4323014a29",
+        "0a7d2f19a50be0ffa927bfeeaf1fd51a8fa08c22a7d5a87baa13ad80728b4948",
+        "43ea0d0dd2e1713cb138877c48cb4f2a71e6a40e70be014781b039bfc3a514e8",
+        "f0c3ebb3d31f192a8559a059cc421be2f2c8b55c4fadf23d4d22c46bf4d1c168",
+        "5f33a30e0bd68cad1ca77d86d330740bf9c9f67cfa134e9e15410055d3a6efd6"
+      ]
+    },
+    "meal-carry-east": {
+      "name": "端餐 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          149.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-2",
+            "scale": 0.9876,
+            "matches": 8,
+            "ratio": 0.4444,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "0c7b840f0ab9165ae02b86002dc0e3253cc5c7e942bffcb810abc1c144efa47b",
+        "6e8c6a6304a6dc6a1eee617822bdaa68f1fb0e9d8b9b1b9caae302081a02186b",
+        "f3ce9213f5dfacaa0c386de9d20244e2fd742278ce8503079d8a96dccc2ecc82",
+        "042f42ae407acf03638f93d8e7960a6d1df3b921ec94ce8285b511ff370991ee",
+        "4a2c38f226bab372eaab2b01f22f43a34b20e33b9e9f63b2cb4eafd4140bcf37",
+        "dc6e3d6d73ae2339e7661daa92427dc44a1ade68ca7acf5d329b1601f6061a89",
+        "955e2e71b41b35920182876ac7f2c359bc14f9eb65ae456170cd7245f1170f95",
+        "92a01a083fbf3c5ae45cedf9ea68835de403f26197b654bfcbf9b04bf2745786",
+        "1d8f995bfc161b47dce91df9602e902dd4d057ed7df92ad8231b3d21091cb4f9"
+      ]
+    },
+    "meal-place-south": {
+      "name": "放下餐盘 · 正面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.1066,
+        "sourceAnchor": [
+          158.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "idle",
+            "scale": 1.1066,
+            "matches": 13,
+            "ratio": 0.7222,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "3866ee775b3132e6e684f8d8f4a20da1d934ec628e8c0038759707fc81cade8f",
+        "b167565cd175703d3f80aa2f047ba6e8b73079c65d4e82d67afddc811a6156cf",
+        "b758d3195f0b407771c95faebec3747c75f5ab851511433b19071fc677cd3eb2",
+        "4c782204cbf5fe1094f24a077acc2274d2c23a00a7e3292fe0d9f775b79cca42",
+        "763db8cd401692f452bf928ae33ef9321ea578c99f19907cfeb08f79f7215e8e",
+        "87d00d71e527296337d5b6a942f114c3a5cb2ef16caa50158a264f6a46bcc3b4",
+        "6b7e88e03df4b62e44386968160eed660fc6d1ea3d82bc764680ae5f2c02d5da",
+        "01d3138d224b04dc302933a5dcbb74b5e4f465dfb7b5d4acd21ac84cc08c70aa",
+        "e71ff6661f9b19f557914ec59fd82acc10ca649e74219a86cc8b8029a2afc39b"
+      ]
+    },
+    "meal-place-north": {
+      "name": "放下餐盘 · 背面",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          159.0,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "85ca44819d640f2e3f41228206d76a22b6fbabcc9a9b5a46013a5df583f6120a",
+        "aa742d6f84b6f3684992c7f9be618b02624cd3c1dbbe55ba2de32fa1fa256bab",
+        "2c7f63a8ed637845c3022c8b5051f9fb91050bfcfe4c6805618f8726c391f70a",
+        "c5da0c6e991e16d14f1e3037b770e5d5aded90931acf2c5cd1e06f07ded2c5ef",
+        "000ff1ec79f073b2af8bbdda13b171f398637f809a1099f18bb755e16ab90de8",
+        "de702f8127accb77e038b8b5ace06fb053681ffe1f0644e4310d0f9b33485e1a",
+        "2dd67a6de7f2f06ff4b0a3a9726579211481e5d8919fe77e539c43ac951fef18",
+        "ab3287b4209b4c5937ebe88183f954d2340a6d54a14cd46661bc6d21bbcc02e1",
+        "c7044047fbd47464388bf01f76ca78a15fb638fe6f22c97a43cec8d752aa0a6c"
+      ]
+    },
+    "meal-place-west": {
+      "name": "放下餐盘 · 左侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0904,
+        "sourceAnchor": [
+          150.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "mood_sad-1",
+            "scale": 1.0904,
+            "matches": 8,
+            "ratio": 0.5714,
+            "depth": 2
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "9f73ca8d4b28e992ad1d31abccab2ed987ccb354b501c639fcf852ba328cb282",
+        "39795c7ed9966e2e46c0b8aa420a9b7ac9069f6324fb96ac3f58b7e0d49a0e45",
+        "ef56827261162345366f75dee2a7a5f397c6c25901c2f9a24b869103bdea00a0",
+        "5c9874231c6ed30e3a594a218e8d36e32918310a231c820a16b773c3038e8cf0",
+        "d44e1e6b5d8f7544cb7b2538016a5b3d18f2e4e50f479a285f90d579a033e487",
+        "7dd07448b84dc6986f63df8d01d1b70048340e87aa92fca4a3144c54b83a262a",
+        "9805624879392cae3ab83e0c778236db99773c5747ff09f0a83d9d72b4b49e2d",
+        "49eb74bbfeb9666b384517b696653a91eea3e5895dacbad8587fbb1faa333dc1",
+        "da47df13bc0a24efcf111d6aa65d8270f413b997f3a7d255b556c60cae813971"
+      ]
+    },
+    "meal-place-east": {
+      "name": "放下餐盘 · 右侧",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          164.5,
+          296
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "pick_up-2",
+            "scale": 1.0348,
+            "matches": 8,
+            "ratio": 0.4706,
+            "depth": 2
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "a6822831e0772c4c56c07c78633d4cb7d5e9dd9f3c0fee735f3c677a6c06d268",
+        "daa33dbcbde3a97b6cdda43239db1773f61677dbdd678509185dbcb35b26ec5e",
+        "621f3104e7b8687b372ef6c279182ed841d5abeb2a6669ca0b614ce3435d6fed",
+        "d5f11ab034e07e163aa4252c290d8d8bfeabcd3f0f47b59d4c05366a056bcef5",
+        "5eaddd19f2631018a2db0a0b4b83d674dabe3d4d4c2b5af04bd595989854ec10",
+        "32d6ab2e6eaaadce957fb180a058027d5d8a3988ec2c825cd6cd8a5702fde227",
+        "f2f580f75a299b96a9cc37284a4884f8d33abb883908b289975e9fd74ab8c267",
+        "f2f313c3c9c6fe71b39e4c79a5c57f453eef67ea94204ea92b759cc11a4e6e0d",
+        "83c03c1cf5f89926b46efdc481485726b4d9cae5fe4bfabec0a8af8b2baa0bcd"
+      ]
+    },
+    "seaside-0": {
+      "name": "海边居家姿态组 1",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.5965,
+        "sourceAnchor": [
+          171.5,
+          317
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.5965,
+            "matches": 16,
+            "ratio": 0.6154,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "c766d6eb734077fe4d312184e0daafa7753fe943c85819994f8f36c781768814",
+        "89fdd353fb200468e8449eaeb9febc0320e83c5f9d6ca6a867a37aa157b64f5d",
+        "c2520a4c66b5caaa0b532cd8ca5ef25f4ae6d815720b36c9beada68be75fd1ce",
+        "5ea7fbf17b54a402ec569f578b5a95fcb16e93662b106b278ea655a1e46148e8",
+        "9829c3a1a87ca2964faff301189974ca520d2e4dcbae3f2af3aecab7cedf6aca",
+        "b0a407c181409cce5f988517539e23a00deeefb8dd86c32720d8a6a3b72baa53",
+        "1f754a98a34694896fa6a56df65a7c8bf95e3fafa114eacec4034c6bfef61faa",
+        "3916501ffb0acd24fe21aff9ba5b8d9da0d0feb82bfd0d0d5cb994b65c965662",
+        "3db4706a4bcaed0bca9c0c790b2dd32154c2b210ae0edb8e14c98dd535b0e135"
+      ]
+    },
+    "seaside-1": {
+      "name": "海边居家姿态组 2",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": true,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.85,
+        "sourceAnchor": [
+          154.0,
+          317
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "2e7b8ed6a2f9081eaeb3f93f477f868cc0fef1d6f94213c236bb75bccd9f0db5",
+        "92968a20f33fb5337476737e2acaf644b9d0afb89a08124e0293877201b24dbe",
+        "2d0dc8b7407f4c05c7a32fd68534c1d582ae543d6f2dbc6060cba7bf619f7dd6",
+        "628ebd523a84d1f3b6712539420ce2adece6bcb87951548f2630dc21309dccce",
+        "02b18d9fcfbf665267a9c4dda2ecad1882b83063dd897b7f04b6f069e03d1850",
+        "1e1500b9dca2bd0dcc24512903d6e953eacc377bc4c082cd751af4ea4fd731ec",
+        "63f3ea3771225725e976eeaaef3149bda5b84ee056a5eb8fd1fc52ecf0cb7c17",
+        "55a8ffdfb5f1e096209a93aa756532682e2fac89274875c6a0eb436f3d1d065d",
+        "48a5e4f04a318fd7d742c0752fcb13d9e383eff0eb96c4a2cb9d20538a1ad815"
+      ]
+    },
+    "computer-legacy-1": {
+      "name": "电脑坐姿 A",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          179.5,
+          293
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.0046,
+            "matches": 12,
+            "ratio": 0.5217,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "884d556fb71cd4b00d62d192132353b74f6359fe71fa2d7bf0efd31b592aba59",
+        "d8d5d93b3820e16c53d4a55742735e8e798d451f6b3b9fdbe9e7f141ba6df928",
+        "609976255658f4cec05eda4f90019a9c6feed90b01033ef24ac538a3775591a5",
+        "c99c3050a6f41f0c897f77399b6bdbc33c9e39c1b633f7e1a35984c8bfa4184f",
+        "3a3aa8855c935c6d607b62e962a5f48ce340f12fc6a791a7372f77c0a3150aea",
+        "12e7c4d5cdac95fa3d22db2d611ee0a983299d738a91cf95e76b2e12e348699f",
+        "72c7dfb908c0dee02973b85daae7a9441bef653e68833b0cf34686e52c8c9cc8",
+        "366842f4745486d53ca1ab43715af750f10a27d28883a5017773a8c498f0b5b2",
+        "652b50f8974c4a5a907dce66ca393b9a67352a8e922b53bc91cfb3c964331c3c"
+      ]
+    },
+    "computer-legacy-2": {
+      "name": "电脑坐姿 B",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.0,
+        "sourceAnchor": [
+          168.5,
+          292
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "6ffeabffbe6cd896fd7d0ee170e25fdbc791464a1a716c7e5e9246e05796dc92",
+        "8ba8700e7daf7489134c9988d074282e42e1a09f9bb6f428406cd026aa01ef39",
+        "753f8174e7aa094d640c863891ba49c7caa3a7bd635ba4a27af15bd2f8fcdee0",
+        "3db68a04c3506f14eca49c26820bee0a7af0f4f198c55db7266f492cf08566e4",
+        "21e54ffcf1d68852dd529e01ad8328775976363a27d7b35a63d17a57dc539a23",
+        "323188bb2ff664f920e790e170e7ef013772ffac7e178c23fa23971b890b97f6",
+        "42d9d616aaf1e44d702f86efb0b9835b5028d99327d08a7d5076fc397d9e6554",
+        "860bb8410a319546218a0f580bc57585ff5d620697e45335db32fb21cb00d9ad",
+        "45c4891526446f746e79d85528d27340ea64a94fe503d3e74291191a9c1459b1"
+      ]
+    },
+    "computer-typing": {
+      "name": "电脑打字",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.4425,
+        "sourceAnchor": [
+          169.0,
+          311
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "head-feature-match",
+          "fit": {
+            "ref": "walk-1",
+            "scale": 1.4425,
+            "matches": 13,
+            "ratio": 0.5417,
+            "depth": 1
+          },
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "736d04778e3d7f5c9dd77da7d5ecb6945021aaaf02da99f9382e2b93df2f0280",
+        "18c86c04be29439f2766df6df775e845c80796af05613dfd0bbfa468c82fce72",
+        "40aa7451437956878f07bb8a40c288141801388c5c2ac8540efcbca8efba79c2",
+        "a7c3a6241ebad58397b96bd439d6dadddc302510b59bed1b8f285dacf365cbbe",
+        "e08b619e0dc58788f4ea85f29c194ed1dd985a05622aa408667334a81c4e77e9",
+        "8d0338b0cbbdef1f9eeb057819f630f1fd93990d6a780a552991c77f4c3c2e87",
+        "e65139c4c1665967b66f7eae34ca8c1dcc83a9c300e907cf12f76cb927a1aeb5",
+        "beaf7b4a47487664cf52521a34e0380a0ab18e05e8ce896af72fd8ab55f303d9",
+        "a219be1a6646e77ef9c967d2134d19dfcd29e7151939858ef69db3791c931dd9"
+      ]
+    },
+    "computer-blink": {
+      "name": "电脑前眨眼",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 1.4425,
+        "sourceAnchor": [
+          164.0,
+          307
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "070b581d15077abf44a0c55719156d3d5de272c35f97b1e24ecfcde5ab7c93f4",
+        "d187247c3c76c6d8c7d1cc63a4af888b95b657a0a7c5b0bb58d6bca0a96f384a",
+        "6857cae2c9687d60e193ff8e9841050b02ba95873b03fd18ef18812d148b80b1",
+        "5a4a7b2b24911f4e9cff319c9edae490a45adac2c31651dc05b2dca81256b6e1",
+        "ccc66abdbebf15f4f9ffeb54d7263515856407e9041ed04dccf3dc026353b9e4",
+        "8e63febea6551075259f16411e9ad1f70d38a2918150852cfff829e120684260",
+        "8b5e628d5e6ed4260bc4556082c360d2679b37427ea33fb23e8efc41c0a8040b",
+        "0215ea0a360c3e981f9ad302ced8c5fa1042a6a29b81664e65ff1281a385b86c",
+        "fdb558c7f60f63da875bf91d8580c4e328c13dfeef9559982f23e3f9c1c8d19f"
+      ]
+    },
+    "computer-typing-hands": {
+      "name": "打字手部层",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 0.6,
+        "sourceAnchor": [
+          126.0,
+          263
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "7ce5b633a68a46bc87bc33a310f561056d6286303a125925aab959e9f477ec76",
+        "64cd8a0d5cdd4ec3ba1fcaafa34ca5a08d2653e86a87c8004ff2745792391091",
+        "fab1a47922b462205d3d1c9b7e6b2ce61e581baead42f048f2f42ece46efb7bd",
+        "fcc8f8003631b9d9be6a3991e6da27573f4114851c3151ca6918fdfd00b91478",
+        "1ee2f5dce8f1bdb6daa9fe3410a2e9dae58d27ec03096affe1a9f8fa9b0d2c25",
+        "1abfe8f8e577e1090e3846b9af9508e182362ae999001423463b03180b47dbd5",
+        "32ca31d45f2787fea9925ed9ab50cdf270443fb936c8734340e0b6e9f6c7a327",
+        "5dce5fea21b8a020264f85fdadc281e1659f85e25df6c9a7b6dc25d83daacea8",
+        "118e29fab085acd0a7f938e3f5044cc474b47cc5d5490a98d28b8286b4c831c6"
+      ]
+    },
+    "computer-blink-hands": {
+      "name": "手部静止层",
+      "revision": 2,
+      "count": 9,
+      "durationsMs": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "loop": false,
+      "cell": [
+        640,
+        640
+      ],
+      "sizeCalibration": {
+        "standardId": "1794745179035143500",
+        "unitPixels": 100,
+        "anchor": [
+          320,
+          592
+        ],
+        "canvas": [
+          640,
+          640
+        ],
+        "sourceRevision": 1,
+        "scale": 0.6,
+        "sourceAnchor": [
+          121.5,
+          276
+        ],
+        "policy": "fixed-character-scale",
+        "measurement": {
+          "method": "visual-estimate",
+          "fit": null,
+          "frameCorrections": {}
+        },
+        "needsVisualReview": true
+      },
+      "frameSha256": [
+        "c4ff33241c2d7821d45cb35fc0ee9118618ca771eb3ba32e3e6974ed7533b36e",
+        "34587b37d50e6665df5d6b76f543d050ecc7bbc01877e84e9c3e94615019365d",
+        "073f8a40cb98cde71c158c11a4f55b9149c8bb3b1d0001af298379b37216b5a2",
+        "86ce34999c110c184fae551005466913c97d413dde81c44e68d4a431ac14f283",
+        "771cd3e619464ad2c0170b9e73e979ad8b5d37e1100f21059cd9eb0e1a761d38",
+        "778f927bb46d17c04320426e6454c47ef39b297f5a0ea28e625c5648ff21b462",
+        "a771b1f85513e43fe569dd0d703b280166089c6e6a64d4754d4caac369fd1156",
+        "a3d76e380932f1c886be2e09aa6a89691bcf12850d0d66705ce658c2e38dcd40",
+        "c8009053e1efaeccb89a40c1b75a7d1aa6d7acd83cda2ada19aa7b62ba4515d6"
+      ]
+    }
+  },
+  "skipped": [
+    {
+      "id": "sleeping",
+      "status": "paused"
+    }
+  ],
+  "idle": {
+    "file": "idle.png",
+    "anchor": [
+      161.0,
+      305
+    ],
+    "unitPixels": 100,
+    "sha256": "13a305e939e1d64300d045984e2cd6ef7e204c036ee79f1e11fdbc2fce203d2e"
+  },
+  "chessSeatAnchors": {
+    "east": [
+      315,
+      554
+    ],
+    "west": [
+      326,
+      553
+    ]
+  }
+}

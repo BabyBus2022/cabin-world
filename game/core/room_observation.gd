@@ -26,7 +26,7 @@ static func reading(actor:String) -> Dictionary:
 	var weather_words:Dictionary={"clear":"晴天，光线明亮","cloudy":"多云或阴天，光线柔和","light_rain":"小雨，细雨落在窗外与小路上","heavy_rain":"大雨，室外雨势明显","snow":"下雪，屋外有积雪"}
 	var condition:Dictionary={"source":"vads.weather.local","fresh":weather.fresh,"kind":weather.kind}
 	if weather.fresh:
-		facts.append("当前房屋对应的当地实时天气："+weather_words[weather.kind]+"；本屋的天气观察以这条实时数据为准。")
+		facts.append("当前房屋对应的 VADS 当地实时天气："+weather_words[weather.kind]+"；本屋的天气观察以这条实时数据为准。")
 		if indoors and weather.kind in ["light_rain","heavy_rain","snow"]:facts.append("窗外有雨雪，室内地板仍是干燥的；没有屋内漏雨、漏雪的状态。")
 	else:facts.append("当地实时天气尚未收到或已过期，当前晴雨和温度无法确认。")
 	var phase:="unknown"
